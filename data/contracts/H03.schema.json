@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H03 ARTEMIS POLAR COMPASS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "mag_product": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "LMAG/Prospector pass provenance.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Observation-level coverage and flags required."
+    },
+    "field_vector": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Measured magnetic components.",
+      "x-unit": "nT",
+      "x-source-type": "nullable float[3]",
+      "x-quality-rule": "Frame/time transformation recorded."
+    },
+    "position_xyz": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Observation geometry.",
+      "x-unit": "m",
+      "x-source-type": "float[3]",
+      "x-quality-rule": "Lunar origin/frame and altitude explicit."
+    },
+    "dipole_moment": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Equivalent-source estimator.",
+      "x-unit": "A m²",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Depth/grid/gauge not physical truth."
+    },
+    "nuisance_design": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Pass external-field basis H.",
+      "x-unit": "declared",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Rank and constraints retained."
+    },
+    "observation_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Correlated measurement/environment error.",
+      "x-unit": "T²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "PSD and unit conversion checked."
+    },
+    "projected_resolution": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Nuisance-aware R_m.",
+      "x-unit": "dimensionless",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Supported singular modes documented."
+    },
+    "reference_map": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Modeled altitude field and uncertainty.",
+      "x-unit": "nT",
+      "x-source-type": "record",
+      "x-quality-rule": "Altitude/continuation support explicit."
+    }
+  },
+  "required": [
+    "mag_product",
+    "field_vector",
+    "position_xyz",
+    "dipole_moment",
+    "nuisance_design",
+    "observation_covariance",
+    "projected_resolution",
+    "reference_map"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+event_id,string,1,Unique synthetic event identity.,Duplicate IDs must have identical payload or conflict state.
+source_receive_time,float64[2],s declared scale,Valid measurement and reception times.,Clock uncertainty and restart generation attached.
+engineering_value,typed scalar|null,dictionary-declared,Synthetic subsystem observation.,Null/invalid/stale separate; no last-value freshness assumption.
+quality_age,struct,"1, s",Validity/freshness evidence.,Per-field rule and uncertainty interval.
+image_manifest,struct,"byte, chunk count",Expected inert image and integrity identifiers.,Trusted scenario version; never inferred from socket closure.
+chunk_record,bytes+ID+checksum,byte,Received image segment.,Unique valid chunks only; conflicts flagged.
+simulator_state,enum+ledger,1,Abstract local operation state.,No real command or radio fields.
+scenario_trace,table,"s, 1",Loss/delay/reset seed and expected outcomes.,Replay deterministic and independently scored.

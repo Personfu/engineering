@@ -1,0 +1,11 @@
+flowchart TB
+A["Spectra, covariance and line-spread function"] --> B["Response and telluric/continuum model"]
+C["Empirical young/field templates"] --> D["Gravity-sensitive index comparison"]
+A --> D
+E["Atmosphere/cloud grids"] --> B
+F["Binary/veiling alternatives"] --> B
+B --> G["Spectral parameter likelihood"]
+H["Distance and absolute photometry"] --> G
+G --> I["Conditional gravity/radius posterior"]
+D --> J["Independent benchmark comparison"]
+I --> J

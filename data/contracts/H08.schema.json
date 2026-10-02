@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H08 GENESIS RIM CHRONICLE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "specimen_section": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Nested meteorite/section identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Curator and preparation lineage required."
+    },
+    "alteration_indicator": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Independent alteration/heating evidence.",
+      "x-unit": "declared",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Not inferred from target thickness."
+    },
+    "core_radius": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Observed/3D core-size distribution.",
+      "x-unit": "micrometre",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Sectioning correction and uncertainty saved."
+    },
+    "rim_interval": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Boundary-supported thickness range.",
+      "x-unit": "micrometre",
+      "x-source-type": "nullable float[2]",
+      "x-quality-rule": "Below-resolution censor limit retained."
+    },
+    "porosity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Present or scenario rim void fraction.",
+      "x-unit": "0–1",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Initial/current distinction explicit."
+    },
+    "dust_growth_inputs": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Accretion scenario parameters.",
+      "x-unit": "kg/m³ m/s fraction",
+      "x-source-type": "record",
+      "x-quality-rule": "Source range and covariance required."
+    },
+    "annotation_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Boundary and registration uncertainty.",
+      "x-unit": "micrometre²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Shared labeler/section effects included."
+    },
+    "mechanism_weight": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Accretion/modification/mixed compatibility.",
+      "x-unit": "0–1",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Model priors and specimen holdout saved."
+    }
+  },
+  "required": [
+    "specimen_section",
+    "alteration_indicator",
+    "core_radius",
+    "rim_interval",
+    "porosity",
+    "dust_growth_inputs",
+    "annotation_covariance",
+    "mechanism_weight"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H08",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

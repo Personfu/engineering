@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G05 ARES CREW RESOURCE VAULT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "resource_batch": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Produced/imported resource identity.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Provenance and state required."
+    },
+    "production_rate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measured/scenario gross output.",
+      "x-unit": "kg/s",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Demonstration versus scale-up labeled."
+    },
+    "quality_record": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Contaminants, methods and limits.",
+      "x-unit": "native concentration",
+      "x-source-type": "record",
+      "x-quality-rule": "Censoring and standard revision retained."
+    },
+    "qualified_fraction": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Accepted output fraction.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Unknown remains null; not automatically one."
+    },
+    "inventory": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Qualified storage and independent reserve.",
+      "x-unit": "kg",
+      "x-source-type": "record",
+      "x-quality-rule": "Batch ledger and leakage terms required."
+    },
+    "demand_schedule": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "time,rate"
+      },
+      "description": "Mission-specific resource demand.",
+      "x-unit": "s,kg/s",
+      "x-source-type": "array<time,rate>",
+      "x-quality-rule": "Crew count/context and uncertainty recorded."
+    },
+    "esm_factors": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Mission equivalence coefficients.",
+      "x-unit": "kg/native",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Unknown factors prohibit complete scalar ESM."
+    }
+  },
+  "required": [
+    "resource_batch",
+    "production_rate",
+    "quality_record",
+    "qualified_fraction",
+    "inventory",
+    "demand_schedule",
+    "esm_factors"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

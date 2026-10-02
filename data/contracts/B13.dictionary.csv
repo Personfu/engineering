@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+image_key,string,none,Acquisition/site/tile identity.,Shared-crown links constrain splits.
+annotation_type,enum,none,"box, polygon or raster mask.",No box labeled mask truth.
+instance_mask,geometry,pixel/m²,Predicted or reference crown support.,Grid transform and provenance required.
+centroid_xy,float[2],m,Mapped object center.,CRS and positional error saved.
+truth_probability,float,0–1,Validation-calibrated true-instance probability.,Calibration split/version required.
+detection_probability,float,0–1,Probability of detecting true instance.,Positive supported range; tiny p flagged.
+count_covariance,matrix,instances²,Joint corrected-count uncertainty.,Include shared calibration and sampling.
+domain_support,enum,none,"supported, extrapolated or abstained.",Novel habitat cannot default supported.

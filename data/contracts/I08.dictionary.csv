@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+state_vector,float64[6],"m, m s^-1",Position and velocity relative to named center.,No implicit frame/time defaults.
+epoch_context,struct,s or JD,"Time value, scale and conversion pedigree.",Leap/time kernels and source scale required.
+source_manifest,struct,1,Kernel hashes or complete query/output.,Validity intervals and retrieval date.
+frame_correction,struct,1,Reference frame and aberration mode.,Apparent and geometric states distinct.
+gravity_parameters,struct,"m^3 s^-2, m, 1","mu, radius and coefficient normalization.",Mass/shape/spin provenance independent.
+mesh_density,measurement<struct>|null,"m, kg m^-3",Closed shape and physical density.,Oriented closed topology and uncertainty.
+potential_acceleration,float64[4],"m^2 s^-2, m s^-2",Model output with sign convention.,Singular/out-of-domain locations flagged.
+state_covariance,"float64[6,6]|null",mixed state^2,Source-supported uncertainty only.,Null if unavailable; synthetic ensembles labeled illustrative.

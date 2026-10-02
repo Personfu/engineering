@@ -1,0 +1,12 @@
+flowchart TB
+ A[Selective analyzer wet dry readings] --> C[Pressure temperature calibration gate]
+ H[Water mole fraction] --> D[Dry basis conversion]
+ C --> D
+ T[Flight time altitude geolocation] --> L[Lag and intake alignment]
+ D --> L
+ L --> P[Latent vertical flight hierarchy]
+ N[NOAA scale matched profiles] --> V[External context comparison]
+ P --> V
+ P --> S[Ascent descent holdout residuals]
+ S --> O[Qualified gradient and uncertainty]
+ V --> O

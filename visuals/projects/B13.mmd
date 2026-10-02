@@ -1,0 +1,12 @@
+flowchart TB
+ A[Georeferenced imagery] --> B[Site and shared-crown split registry]
+ C[Typed box or mask annotations] --> D[Reviewed instance truth]
+ B --> E[Detector and mask training]
+ D --> E
+ E --> F[One-to-one object matching]
+ D --> F
+ F --> G[Size overlap detection calibration]
+ E --> H[Calibrated truth probabilities]
+ G --> I[Weighted ecological count estimator]
+ H --> I
+ I --> J[Count area and domain-support products]

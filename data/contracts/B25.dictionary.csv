@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+seed_lot,string,none,Species-linked batch identity.,Viability and storage provenance required.
+seed_mass,nullable float,mg,Measured lot/species trait.,Method and lot variance retained.
+viability_fraction,nullable float,0–1,Independent viable-seed estimate.,Assay/follow-up uncertainty saved.
+stage_time,nullable record,days,Germination/emergence/survival event bounds.,Stage-specific censoring required.
+water_potential,nullable float[],MPa,Microsite moisture history.,Negative-pressure convention explicit.
+pellet_key,string,none,Documented material/process identity.,No unmeasured mechanism inferred.
+transition_covariance,matrix,probability²,Joint stage uncertainty.,Shared lot/weather correlations retained.
+establishment_cost,nullable float[],USD/plant,Cost distribution at stated horizon.,Zero-success and price year explicit.

@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C03 TAURUS MOLECULE TRAIL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "sky_position": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Cube pixel coordinate.",
+      "x-unit": "degree ICRS",
+      "x-source-type": "float64[2]",
+      "x-quality-rule": "WCS and distance assumption required."
+    },
+    "channel_velocity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Velocity channels with declared LSR definition.",
+      "x-unit": "km s^-1 LSR",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Rest frequency and Doppler convention mandatory."
+    },
+    "brightness": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Baseline-subtracted spectrum.",
+      "x-unit": "K main-beam",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Mask bad channels; preserve negative noise realizations."
+    },
+    "spectral_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Thermal and baseline covariance.",
+      "x-unit": "K^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Do not infer independent channels after smoothing."
+    },
+    "beam": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Major/minor FWHM and position angle.",
+      "x-unit": "arcsec, degree",
+      "x-source-type": "struct<float64>",
+      "x-quality-rule": "Match before any cross-tracer ratio."
+    },
+    "component_velocity": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "x-dimension": "variable length; ICD-defined"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Alternative kinematic-component centroids.",
+      "x-unit": "km s^-1",
+      "x-source-type": "posterior<float64[]>",
+      "x-quality-rule": "Ambiguous assignments retain probability weights."
+    },
+    "excitation_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Tex or non-LTE density/temperature/tau parameters.",
+      "x-unit": "K, cm^-3, 1",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "Upper/lower bounds and prior dependence reported."
+    }
+  },
+  "required": [
+    "sky_position",
+    "channel_velocity",
+    "brightness",
+    "spectral_cov",
+    "beam",
+    "component_velocity",
+    "excitation_state"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+run_history,record,1,"Direction, dwell and initialization.",Surface state and sequence required.
+time,vector<float64>,s,Synchronized experiment clock.,Offset uncertainty recorded; missing samples masked.
+angle,vector<float64>,rad,Measured angle of attack.,Encoder convention and rate derivation stated.
+lift_coefficient,vector<float64>,1,Tared C_L trace.,Reference area and shared calibration retained.
+separated_fraction,nullable<vector<float64>>,1,Defined spatial separation measure.,Between zero and one; diagnostic limitations flagged.
+turbulence_level,nullable<float64>,1,Declared inflow intensity.,Definition/bandwidth required.
+loop_metrics,record,rad,Signed area and angle difference.,Threshold rule and joint uncertainty retained.

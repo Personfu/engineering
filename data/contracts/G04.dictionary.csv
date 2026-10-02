@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+target_region,record,1,Anatomical region and published response context.,Population/test mode required; no universal target.
+geometry,record,m,Construct/test domain dimensions.,Tolerance and boundary conditions retained.
+solid_parameters,record,"Pa,1",Moduli and Poisson response.,Physical range/source and covariance required.
+intrinsic_permeability,float64,m^2,Darcy material permeability.,Positive; never mislabeled conductivity.
+fluid_viscosity,float64,Pa s,Fluid dynamic viscosity.,Temperature/context recorded.
+relaxation_curve,"nullable<array<time,stress>>","s,Pa",Published/model relaxation observation.,Load history and digitization error retained.
+cure_field,nullable<array<float64>>,1,Hypothesized material-state heterogeneity.,Uncalibrated fields labeled proposed; null allowed.

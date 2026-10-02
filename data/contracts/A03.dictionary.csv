@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+star_id,string,1,Object and compatible observation group.,Never merge unrelated cooling/timing stars.
+age_likelihood,distribution_record,s,Age probability or censoring bound.,Missing null; preserve upper/lower limits.
+temperature_inf,nullable<float64>,K,Redshifted surface estimate.,Atmosphere version and covariance required.
+gap_profile,"array<radius,energy>","m,J",Pairing hypothesis over radius.,Channel and EOS mapping required.
+inertias,pair<float64>,kg m^2,Coupled/superfluid effective inertias.,Positive; entrainment convention documented.
+omega_observed,nullable<float64>,rad s^-1,Crust rotation at timing epoch.,Epoch scale and error required.
+observable_covariance,matrix<float64>,mixed,Covariance for ordered observations.,Units per row; positive semidefinite.

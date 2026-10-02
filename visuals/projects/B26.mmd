@@ -1,0 +1,12 @@
+flowchart TB
+ A[NSRDB weather and irradiance] --> B[PV AC generation model]
+ C[Load and tariff histories] --> D[Rolling forecast interface]
+ B --> D
+ E[Supported stack current power limits] --> F[Dispatch simulator]
+ G[Battery energy and efficiency bounds] --> F
+ D --> F
+ F --> H[Independent power state constraint check]
+ H --> I[Faradaic hydrogen and auxiliaries ledger]
+ H --> J[Load service cycling and resources]
+ I --> K[Holdout policy tradeoff frontier]
+ J --> K

@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+tracer_id,string,1,Catalog identity and tracer population.,Duplicate crossmatches resolved.
+phase_space,struct<float64[]>,"kpc, km s^-1",Observed or transformed positions/velocities.,Frame and available dimensions explicit.
+phase_cov,"float64[n,n]",mixed declared,Joint astrometry/distance/velocity covariance.,Missing velocity dimension stays absent.
+projected_radius,measurement<float64>,kpc,M31 plane-of-sky radius.,Distance/system center uncertainty shared.
+membership,float64[components],1,Halo/disk/debris/foreground weights.,Nonnegative normalized probability vector.
+tracer_density,model<float64>,kpc^-3,Selection-corrected nu_star.,Radial support and extrapolation marked.
+potential_parameters,posterior<struct>,"solar mass, kpc",Baryonic and halo model parameters.,Model family and boundary conditions recorded.
+dm_dispersion,posterior<float64[]>,km s^-1,Conditional dark-matter velocity profile.,rho_DM/beta_DM assumptions accompany every export.

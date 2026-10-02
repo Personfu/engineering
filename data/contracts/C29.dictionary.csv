@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+event_epoch,float64,CDF-declared time,Shock candidate and window boundaries.,Time conversions and masks recorded.
+plasma_state,measurement<struct>,"kg m^-3, m s^-1, Pa",Density/velocity/thermal pressure.,Composition/temperature convention and covariance.
+magnetic_vector,measurement<float64[3]>,T,Field in common coordinates.,Coordinate transform and instrument offsets retained.
+proton_intensity,"measurement<float64[nE,nangle]>",m^-2 s^-1 sr^-1 J^-1,Response-corrected differential flux.,Energy/pitch-angle bounds; invalid channels absent.
+shock_geometry,posterior<struct>,"1, m s^-1",Unit normal and shock speed.,Normal orientation and method identities.
+particle_budget,posterior<float64[2]>,"Pa, J m^-3",Finite-band pressure and energy density.,Isotropy assumption and integration bounds attached.
+energy_flux,posterior<float64[terms]>,W m^-2,MHD and particle components.,Shared frame/covariance and unknown Q state.
+band_fraction,posterior<float64>|null,1,Conditional Delta particle/upstream flux.,Never labeled full efficiency without closure evidence.

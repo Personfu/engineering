@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E04 AURA VERTICAL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "species_basis": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "CO2/CH4 and dry/wet calibration scale.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Selective analyzer evidence required."
+    },
+    "gas_reading": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Native calibrated mole fraction.",
+      "x-unit": "mol/mol",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "ppm/ppb conversion explicit; missing null."
+    },
+    "water_fraction": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Compatible water mole fraction.",
+      "x-unit": "mol/mol",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Between zero and one; unknown blocks conversion."
+    },
+    "pressure_temperature": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Analyzer/environment state.",
+      "x-unit": "Pa,K",
+      "x-source-type": "record",
+      "x-quality-rule": "Calibration domain and covariance retained."
+    },
+    "flight_position": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Altitude/geolocation at timestamp.",
+      "x-unit": "m,degree",
+      "x-source-type": "record",
+      "x-quality-rule": "Reference datum and horizontal drift retained."
+    },
+    "response_time": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Transport/sensor lag tau.",
+      "x-unit": "s",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Positive and independently sourced or latent flagged."
+    },
+    "profile_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Joint profile/measurement uncertainty.",
+      "x-unit": "(mol/mol)^2",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Shared scale/humidity terms retained."
+    }
+  },
+  "required": [
+    "species_basis",
+    "gas_reading",
+    "water_fraction",
+    "pressure_temperature",
+    "flight_position",
+    "response_time",
+    "profile_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

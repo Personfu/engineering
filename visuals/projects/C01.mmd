@@ -1,0 +1,10 @@
+flowchart TB
+A["CHIRON spectra: flux, wavelength"] --> B["Continuum and wavelength covariance"]
+B --> C["Line profiles: velocity, covariance"]
+D["Photometry: BJD, flux covariance"] --> E["Shared wind-pattern process"]
+C --> E
+C --> F["Orbital branch with line jitter"]
+E --> G["Exposure-integrated predictions"]
+F --> G
+G --> H["Season holdout and alias scores"]
+E --> I["Beta-law delay interpretation"]

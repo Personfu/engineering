@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B18 POSEIDON WINDCARBON — Southern Ocean Carbon Mission engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "platform_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Ship/float/profile identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Calibration and data-level provenance required."
+    },
+    "pco2_water": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measured/derived surface pCO2.",
+      "x-unit": "microatm",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Input covariance and method retained."
+    },
+    "wind_speed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Declared transfer-law wind average.",
+      "x-unit": "m/s",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Vector averaging/cadence explicit."
+    },
+    "solubility": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Temperature/salinity-dependent K0.",
+      "x-unit": "mol/m³/atm",
+      "x-source-type": "float",
+      "x-quality-rule": "Formula/version and covariance saved."
+    },
+    "transfer_velocity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Gas-transfer formulation ensemble.",
+      "x-unit": "m/s",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Validity domain and wind source retained."
+    },
+    "mixed_layer_depth": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Inventory support depth.",
+      "x-unit": "m",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Definition and profile uncertainty required."
+    },
+    "air_sea_flux": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Signed ocean-to-air exchange.",
+      "x-unit": "mol C/m²/s",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "No sign inversion during integration."
+    },
+    "coverage_covariance": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Area-time support and joint flux error.",
+      "x-unit": "mixed",
+      "x-source-type": "record",
+      "x-quality-rule": "Gap-fill covariance separate from observations."
+    }
+  },
+  "required": [
+    "platform_key",
+    "pco2_water",
+    "wind_speed",
+    "solubility",
+    "transfer_velocity",
+    "mixed_layer_depth",
+    "air_sea_flux",
+    "coverage_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B18",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

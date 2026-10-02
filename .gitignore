@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
-.DS_Store
-*.local.json
-data/measured/
+.venv/
+.pytest_cache/
+node_modules/
+run_outputs/

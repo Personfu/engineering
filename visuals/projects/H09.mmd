@@ -1,0 +1,12 @@
+flowchart TB
+ A[Actual CRISM targets and masks] --> B[Geometry spectral covariance adapter]
+ C[HiRISE stratigraphy and basin rubric] --> D[Common-footprint registration]
+ B --> D
+ E[THEMIS thermal observation processing] --> D
+ F[Mineral libraries and known mixtures] --> G[Instrument-degraded mixing benchmarks]
+ G --> H[Radiative-transfer likelihood]
+ D --> H
+ I[Transport alteration dust models and pM] --> J[Joint Bayesian model averaging]
+ H --> J
+ J --> K[Basin holdout and identifiability]
+ K --> L[Feature size and scenario atlas]

@@ -1,0 +1,13 @@
+flowchart TB
+ D[Desired raw ADC stream] --> A[Clock alignment and clipping masks]
+ R[Reference ADC stream] --> A
+ A --> Q[Coherence leakage quality]
+ A --> F[Tapped delay prediction]
+ Q --> U[Adapt freeze bypass policy]
+ U --> W[NLMS coefficient update]
+ W --> F
+ F --> E[Corrected residual stream]
+ A --> E
+ E --> P[Science feature preservation scorer]
+ T[Known calibration tones transients] --> P
+ P --> O[Raw corrected provenance archive]

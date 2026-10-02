@@ -1,0 +1,11 @@
+flowchart TB
+ Y[Supernova yield grids] --> N[Common isotope number basis]
+ C[Element condensation factors] --> N
+ N --> M[Source count mixture]
+ B[Background and beam response] --> D[Grain dilution counts]
+ M --> D
+ D --> R[Ratio and epsilon conversion]
+ O[Grain measurements and correction covariance] --> L[Hierarchical likelihood]
+ R --> L
+ L --> P[Source and dilution profiles]
+ P --> V[Predictive isotope patterns]

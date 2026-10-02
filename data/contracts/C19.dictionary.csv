@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+source_id,string,1,Spectrum/photometry and reference identity.,Duplicate epochs and aliases resolved.
+wavelength,float64[n],micrometer,Observed spectral grid.,Air/vacuum and rest/observer frame declared.
+flux,float64[n],documented physical or normalized,Spectral measurements.,Normalization type explicit; bad/telluric pixels masked.
+flux_cov,"float64[n,n]",flux^2,Spectral/calibration covariance.,Shared continuum and model terms stored separately.
+line_spread,model<float64>,micrometer or velocity,Instrument kernel versus wavelength.,Measured or assumed status required.
+distance_photometry,struct,"pc, declared flux",Independent scaling observations.,Covariance and extinction assumptions retained.
+gravity_indices,measurement<float64[]>,index-specific,Empirical alkali/molecular/continuum indices.,Window definition/version attached.
+atmosphere_posterior,posterior<struct>,"K, dex, solar radius",Teff/logg/metallicity/cloud/radius parameters.,Grid support and prior dependence reported.

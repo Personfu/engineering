@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I02 APOLLO AQUATHERM engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "heat_input": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Known electrical/supplied thermal load.",
+      "x-unit": "W",
+      "x-source-type": "measurement<float64[n]>",
+      "x-quality-rule": "Meter/reference and spatial allocation documented."
+    },
+    "mass_flow": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Loop or branch flow.",
+      "x-unit": "kg s^-1",
+      "x-source-type": "measurement<float64[n]>",
+      "x-quality-rule": "Positive accepted range; missing flow blocks heat-rate estimate."
+    },
+    "fluid_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Inlet/outlet and domain-monitoring states.",
+      "x-unit": "K, Pa",
+      "x-source-type": "struct<float64[]>",
+      "x-quality-rule": "Single-phase status and fluid-property source."
+    },
+    "wall_temperature": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "nsensor"
+      },
+      "x-dimension": "n",
+      "description": "Distributed wall observation.",
+      "x-unit": "K",
+      "x-source-type": "float64[n,nsensor]",
+      "x-quality-rule": "Location/lag/calibration required."
+    },
+    "thermal_graph": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Wall/contact/convection network.",
+      "x-unit": "J K^-1, W K^-1",
+      "x-source-type": "struct<C,G,hA>",
+      "x-quality-rule": "Conservative internal links and verified geometry."
+    },
+    "sensor_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Power/temperature/flow/lag uncertainty.",
+      "x-unit": "mixed declared",
+      "x-source-type": "covariance",
+      "x-quality-rule": "Shared thermometer offset retained."
+    },
+    "energy_ledger": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "terms"
+      },
+      "x-dimension": "n",
+      "description": "Input, uptake, loss and stored energy.",
+      "x-unit": "W or J",
+      "x-source-type": "float64[n,terms]",
+      "x-quality-rule": "Instantaneous power and cumulative energy separate."
+    },
+    "hotspot_prediction": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Maximum conditional wall temperature.",
+      "x-unit": "K",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Sensor coverage and model discrepancy attached."
+    }
+  },
+  "required": [
+    "heat_input",
+    "mass_flow",
+    "fluid_state",
+    "wall_temperature",
+    "thermal_graph",
+    "sensor_cov",
+    "energy_ledger",
+    "hotspot_prediction"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

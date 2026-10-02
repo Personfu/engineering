@@ -1,0 +1,11 @@
+flowchart TB
+ A[Verified Y and competitor assays] --> B[Element and recovery QC]
+ C[Al surrogate records] --> D[Surrogate-only method evidence]
+ B --> E[Feed residual dry-mass ledger]
+ F[Precipitation and matrix controls] --> E
+ E --> G[Competitive sorption estimator]
+ H[Measured product and cycle records] --> I[Recovery purity waste ledger]
+ G --> I
+ I --> J[Lifecycle cost per kg target]
+ D --> K[Evidence boundary report]
+ J --> K

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+configuration_id,string,1,Nozzle/gas/instrument condition.,Changed repair or wall state gets new ID.
+reservoir_state,record,"Pa,K",Absolute p0 and T0.,Timestamp/calibration covariance required.
+probe_position,vector<float64>[3],m,Nozzle-frame coordinate.,"Origin, axes and encoder error recorded."
+pitot_pressure,nullable<float64>,Pa,Shock-downstream stagnation reading.,Absolute pressure; missing null.
+probe_orientation,vector<float64>,rad,Alignment relative to local flow.,Uncertainty and disturbance model retained.
+inferred_mach,nullable<float64>,1,Gas-model-specific local Mach.,Branch/domain flags required.
+core_membership,record,1,Tolerance/confidence mask classification.,Uncertain/extrapolated distinct from failed core.

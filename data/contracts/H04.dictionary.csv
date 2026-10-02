@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+specimen_section,restricted record,none,Target/section/custodian identity.,Allocation and history required.
+preparation_carbon,nullable record,none,"Coatings, adhesives and residues.",Unknown sources remain unresolved.
+map_coordinates,float[2],micrometre,Common registered position.,Transform/resolution provenance retained.
+phase_probability,float vector,0–1,Spectroscopy/mineral-map interpretation.,Sum and classification uncertainty checked.
+isotope_counts,integer[2],counts,Raw 12C and 13C observations.,Dwell/detector/background metadata required.
+phase_sensitivity,float vector,dimensionless,Matrix-calibration response factors.,Matched-standard covariance saved.
+isotope_ratio,nullable float[],dimensionless,Corrected R posterior samples.,Low-count/censor support retained.
+registration_covariance,matrix,micrometre²,Joint correlative map uncertainty.,Serial-section discrepancy separate.

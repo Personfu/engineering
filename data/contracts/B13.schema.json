@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B13 GAIA PIXELSCOUT — Ecological Instance Mapping engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "image_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Acquisition/site/tile identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Shared-crown links constrain splits."
+    },
+    "annotation_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "box, polygon or raster mask.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "No box labeled mask truth."
+    },
+    "instance_mask": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Predicted or reference crown support.",
+      "x-unit": "pixel/m²",
+      "x-source-type": "geometry",
+      "x-quality-rule": "Grid transform and provenance required."
+    },
+    "centroid_xy": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Mapped object center.",
+      "x-unit": "m",
+      "x-source-type": "float[2]",
+      "x-quality-rule": "CRS and positional error saved."
+    },
+    "truth_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Validation-calibrated true-instance probability.",
+      "x-unit": "0–1",
+      "x-source-type": "float",
+      "x-quality-rule": "Calibration split/version required."
+    },
+    "detection_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Probability of detecting true instance.",
+      "x-unit": "0–1",
+      "x-source-type": "float",
+      "x-quality-rule": "Positive supported range; tiny p flagged."
+    },
+    "count_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint corrected-count uncertainty.",
+      "x-unit": "instances²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Include shared calibration and sampling."
+    },
+    "domain_support": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "supported, extrapolated or abstained.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "Novel habitat cannot default supported."
+    }
+  },
+  "required": [
+    "image_key",
+    "annotation_type",
+    "instance_mask",
+    "centroid_xy",
+    "truth_probability",
+    "detection_probability",
+    "count_covariance",
+    "domain_support"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B13",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

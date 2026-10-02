@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+specimen_fraction,record,1,Meteorite ID and analytical fraction.,Unknown provenance fields null.
+energy_grid,vector<float64>,eV,Sulfur-edge spectral coordinate.,Calibration reference/version required.
+absorption,vector<float64>,1,Normalized spectral signal.,Normalization region and covariance retained.
+exact_mass,nullable<float64>,Da,Observed ion mass.,"Adduct, charge and error required."
+formula_candidates,array<string>,1,Compatible elemental formulas.,Retain alternatives; no forced unique winner.
+exchange_count,nullable<float64>,H count,Reported exchange behavior.,Method/context error included; missing null.
+class_weights,nullable<vector<float64>>,1,Constrained sulfur-class spectral contribution.,Sum check; basis and ambiguity flags required.

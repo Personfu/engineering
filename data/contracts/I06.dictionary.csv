@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+cad_mesh_revision,struct<string>,1,Linked geometry/mesh/solver identity.,Checksums and units mandatory.
+material_properties,measurement<struct>,"Pa, kg m^-3","E, density, strength/constitutive pedigree.",Assumed versus certified; temperature domain.
+joint_model,distribution<struct>,"N m^-1, N m rad^-1",Connection stiffness and slip model.,Perfect connection only as explicit comparator.
+load_constraint,struct,"N, N m, m",Supplied force/moment and fixture boundary.,Coordinate/sign and source documented.
+imperfection_field,distribution<array>,m,Geometric deviations by mode/location.,Amplitude prior and metrology evidence.
+response,measurement<struct>,"m, strain, Hz",Static and modal model/test quantities.,Sensor/fixture covariance and missing channels.
+similarity_ledger,table,1,Matched/unmatched dimensionless groups.,No full-scale conclusion from unmatched groups.
+pareto_design,table,"kg, m N^-1, 1",Mass/compliance/uncertainty candidates.,Screening buckling status and manufacturability.

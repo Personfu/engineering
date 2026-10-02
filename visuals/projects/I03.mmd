@@ -1,0 +1,12 @@
+flowchart TB
+A["Normalized channel-family registry"] --> B["Hydraulic branch solver"]
+C["Fluid/correlation validity service"] --> B
+D["Fixed pump-power or flow budget"] --> B
+B --> E["Conjugate wall/fluid thermal model"]
+F["External heat-load envelope"] --> E
+G["Manufacturing and discrepancy ensemble"] --> E
+E --> H["Mean/CVaR hotspot objectives"]
+B --> I["Pumping-work objective"]
+H --> J["Uncertain Pareto and rank reversal"]
+I --> J
+K["Known-power inert coupon holdout"] --> J

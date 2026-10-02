@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E06 APOLLO THERMALIS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "node_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Component/node and sensor mapping.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Location and lumped/spatial status required."
+    },
+    "heat_capacity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Node thermal storage coefficient.",
+      "x-unit": "J/K",
+      "x-source-type": "float64",
+      "x-quality-rule": "Positive; temperature dependence/source retained."
+    },
+    "conductance_edges": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+      },
+      "description": "Reciprocal component connections.",
+      "x-unit": "W/K",
+      "x-source-type": "array<record>",
+      "x-quality-rule": "Nonnegative; symmetry and uncertainty checked."
+    },
+    "power_history": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Subsystem dissipated heat.",
+      "x-unit": "W",
+      "x-source-type": "nullable<array<float64>>",
+      "x-quality-rule": "Clock/source required; missing not zero."
+    },
+    "environment": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Air/radiative temperatures, pressure and solar.",
+      "x-unit": "K,Pa,W/m^2",
+      "x-source-type": "record",
+      "x-quality-rule": "Orientation/view-factor context retained."
+    },
+    "surface_properties": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Absorptivity/emissivity/area.",
+      "x-unit": "1,m^2",
+      "x-source-type": "record",
+      "x-quality-rule": "Spectral distinction and covariance required."
+    },
+    "temperature_observed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Sensor/node temperature.",
+      "x-unit": "K",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Sensor lag, bias and position uncertainty."
+    }
+  },
+  "required": [
+    "node_id",
+    "heat_capacity",
+    "conductance_edges",
+    "power_history",
+    "environment",
+    "surface_properties",
+    "temperature_observed"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

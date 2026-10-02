@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E01 APOLLO HELIOSCOPE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "flight_phase": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Ascent/float/descent interval.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Boundary times and missing phase explicit."
+    },
+    "uv_irradiance": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Calibrated declared-band observation.",
+      "x-unit": "W/m^2",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Spectral response/lag/covariance required."
+    },
+    "material_endpoint": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Supplied damage count and susceptible denominator.",
+      "x-unit": "count",
+      "x-source-type": "record",
+      "x-quality-rule": "Noninfectious source, endpoint and detection limit."
+    },
+    "handling_thermal": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Temperature and handling covariates.",
+      "x-unit": "K,1",
+      "x-source-type": "record",
+      "x-quality-rule": "Missing null; no procedure inferred."
+    },
+    "encoded_frame": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Frame size, time and usefulness label.",
+      "x-unit": "bit",
+      "x-source-type": "record",
+      "x-quality-rule": "Encoding and rubric version required."
+    },
+    "channel_trace": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Service and effective loss replay.",
+      "x-unit": "bit/s,1",
+      "x-source-type": "record",
+      "x-quality-rule": "Synthetic/observed provenance required."
+    },
+    "battery_ledger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Storage and subsystem energy terms.",
+      "x-unit": "J,W",
+      "x-source-type": "record",
+      "x-quality-rule": "Efficiency/loss boundary and covariance."
+    }
+  },
+  "required": [
+    "flight_phase",
+    "uv_irradiance",
+    "material_endpoint",
+    "handling_thermal",
+    "encoded_frame",
+    "channel_trace",
+    "battery_ledger"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

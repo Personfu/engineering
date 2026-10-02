@@ -1,0 +1,12 @@
+flowchart TB
+ A[Kaguya polar LMAG vectors] --> B[Frame altitude quiet-pass QC]
+ C[Lunar Prospector independent passes] --> D[Matched-geometry holdout]
+ B --> E[Dipole sensitivity matrix G]
+ F[Pass external basis H and covariance C] --> G[Nuisance projection W_perp]
+ E --> H[Gauge-constrained source inversion]
+ G --> H
+ H --> I[Projected resolution and singular modes]
+ H --> J[Reference-altitude field covariance]
+ J --> D
+ I --> K[Polar support and continuation atlas]
+ D --> K

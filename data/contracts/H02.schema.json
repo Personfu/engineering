@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H02 OSIRIS PHOTONFORGE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "ocams_product": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Camera/filter/PDS product identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Label and calibration version required."
+    },
+    "detector_dn": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Raw or bias-qualified pixels.",
+      "x-unit": "DN",
+      "x-source-type": "float matrix",
+      "x-quality-rule": "Readout coordinates/saturation retained."
+    },
+    "exposure_time": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Documented integration duration.",
+      "x-unit": "s",
+      "x-source-type": "float",
+      "x-quality-rule": "Positive; definition source required."
+    },
+    "dark_rate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Temperature-dependent dark model.",
+      "x-unit": "DN/s",
+      "x-source-type": "float matrix",
+      "x-quality-rule": "Calibration covariance saved."
+    },
+    "gain": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Declared conversion convention.",
+      "x-unit": "DN/electron",
+      "x-source-type": "float",
+      "x-quality-rule": "No reciprocal-gain ambiguity."
+    },
+    "transfer_operator": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Camera-specific smear coupling.",
+      "x-unit": "dimensionless",
+      "x-source-type": "sparse matrix",
+      "x-quality-rule": "Sequence/timing provenance required."
+    },
+    "unsmeared_signal": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Estimated scene signal.",
+      "x-unit": "electrons",
+      "x-source-type": "nullable matrix",
+      "x-quality-rule": "Support/regularization flags retained."
+    },
+    "scene_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint corrected-signal uncertainty.",
+      "x-unit": "electrons²",
+      "x-source-type": "matrix/operator",
+      "x-quality-rule": "Shared calibration and timing terms included."
+    }
+  },
+  "required": [
+    "ocams_product",
+    "detector_dn",
+    "exposure_time",
+    "dark_rate",
+    "gain",
+    "transfer_operator",
+    "unsmeared_signal",
+    "scene_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

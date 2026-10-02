@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+element_symbol,enum/string,none,Actual analyzed target or competitor.,Y and Al never conflated.
+feed_concentration,nullable float,mg/L,Element-specific feed measurement.,Method/limit/recovery required.
+residual_concentration,nullable float,mg/L,Element-specific dissolved endpoint.,Censoring and matrix effects retained.
+dry_sorbent_mass,float,g,Dry biomass/media amount.,Moisture correction uncertainty saved.
+matrix_composition,nullable vector,mg/L,Competing-ion observations.,Species/assay covariance retained.
+product_mass,nullable vector,mg element,Measured recovered product.,Null prohibits recovery/purity claim.
+cycle_index,integer,none,Linked reuse cycle identity.,Product/waste lineage required.
+mass_covariance,matrix,mg²,Joint feed/pool analytical uncertainty.,Include shared dilution and recovery bias.

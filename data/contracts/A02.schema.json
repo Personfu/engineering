@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A02 NEW HORIZONS CRYOPHASE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "bulk_moles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Conserved species inventory.",
+      "x-unit": "mol",
+      "x-source-type": "vector<float64>[3]",
+      "x-quality-rule": "Nonnegative; fixed species order."
+    },
+    "temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Surface/equilibrium state.",
+      "x-unit": "K",
+      "x-source-type": "float64",
+      "x-quality-rule": "Positive; extrapolation flag required."
+    },
+    "pressure": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Declared environmental pressure.",
+      "x-unit": "Pa",
+      "x-source-type": "float64",
+      "x-quality-rule": "Vacuum limit branch explicit."
+    },
+    "interaction_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Fitted excess-parameter covariance.",
+      "x-unit": "(J/mol)^2",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Symmetric positive semidefinite; unknown null."
+    },
+    "phase_amounts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Named phase solution.",
+      "x-unit": "mol",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Absent phase zero; solver failure null."
+    },
+    "reflectance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Instrument-band observation/prediction.",
+      "x-unit": "1",
+      "x-source-type": "nullable<vector<float64>>",
+      "x-quality-rule": "Wavelength and response version required."
+    },
+    "sublimation_flux": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Signed outward mass flux.",
+      "x-unit": "kg m^-2 s^-1",
+      "x-source-type": "vector<float64>[3]",
+      "x-quality-rule": "Missing null, never substituted zero."
+    }
+  },
+  "required": [
+    "bulk_moles",
+    "temperature",
+    "pressure",
+    "interaction_covariance",
+    "phase_amounts",
+    "reflectance",
+    "sublimation_flux"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

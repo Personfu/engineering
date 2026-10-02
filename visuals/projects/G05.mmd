@@ -1,0 +1,12 @@
+flowchart TB
+ M[Mars environment resource scenarios] --> P[Production and power model]
+ P --> Q[Requirement linked quality gate]
+ Q -->|qualified batch kg| S[Storage inventory ledger]
+ Q --> R[Rejected unassessed inventory]
+ I[Imported independent reserve] --> S
+ D[Crew demand schedule] --> U[Qualified use interface]
+ S --> U
+ O[Joint outage and rejection events] --> P
+ S --> V[Shortfall and reserve analysis]
+ P --> E[Mission specific resource trade]
+ V --> E

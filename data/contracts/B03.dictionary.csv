@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+animal_key,restricted string,none,Pseudonymous individual identity.,Never exported with precise tracks.
+fix_time,datetime,UTC,Observation timestamp.,Sorted; cadence gaps explicit.
+position_xy,float[2],m,Projected telemetry coordinate.,CRS and covariance required.
+road_version,string,none,Geometry and effective-date key.,No future road assigned.
+traffic_rate,nullable float,vehicles/day,Observed or scenario traffic.,Separate measurements from assumptions.
+fate_interval,nullable datetime[2],UTC,Bounds of confirmed event or censoring.,Death and transmitter loss distinct.
+avoided_loss,float[],animals,Intervention benefit ensemble.,Include zero/negative outcomes and horizon.

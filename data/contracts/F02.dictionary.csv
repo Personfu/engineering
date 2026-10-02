@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+claim_id,string,1,Versioned factual/uncertainty proposition.,Primary source and exact evidence location required.
+article_variant,record,1,"Format, topic and claim mapping.",Matched factual set and revisions retained.
+expert_accuracy,nullable<record>,rubric,Blind factual/uncertainty ratings.,Reviewer agreement and corrections recorded.
+reader_id,string,1,Pseudonymous participant key.,Consented access only; identity separate.
+assessment_score,nullable<float64>,rubric,Pre/immediate/delayed comprehension.,Timepoint/rubric version and missing reason.
+item_confidence,nullable<float64>,1,Probability of correctness for exact item.,Range zero to one; missing not 0.5.
+reading_context,record,"s,1","Time, accessibility and exposure conditions.",Burden/visual complexity/attrition metadata.

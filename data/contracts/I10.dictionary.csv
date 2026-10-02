@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+source_time,float64,s,Synchronized sensor/control/power time.,Clock/reset generation and gaps retained.
+reference_angle,float64,radian,Commanded one-axis orientation.,Wrap/trajectory policy version.
+angle_rate,measurement<float64[2]>,"radian, radian s^-1",Calibrated body angle and rate.,Bias covariance and missing-sensor state.
+plant_parameters,posterior<struct>,"kg m^2, N m s rad^-1, s","Inertia, friction and lag.",Identification conditions and near-zero-rate discrepancy.
+wheel_state,measurement<struct>,"N m s, radian s^-1",Wheel momentum/speed and limits.,Sign/inertia convention and saturation flag.
+torque_command,float64,N m,Requested/applied wheel torque.,Both values retained when saturated.
+electrical_ledger,measurement<struct>,"W, J","Input draw, cumulative consumed/returned energy.",Current sign and power calibration; no mechanical-energy substitution.
+mechanical_energy,measurement<float64>,J,Wheel kinetic energy from state.,Separate field/inertia covariance.

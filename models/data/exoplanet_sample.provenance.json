@@ -1,0 +1,33 @@
+{
+  "kind": "real_public_catalog_snapshot",
+  "provider": "NASA Exoplanet Archive",
+  "retrieved_utc": "2026-10-02T09:01:19.367519+00:00",
+  "table": "pscomppars",
+  "query_adql": "SELECT TOP 200 pl_name,hostname,pl_orbper,pl_rade,st_met,discoverymethod FROM pscomppars WHERE pl_orbper IS NOT NULL AND pl_rade IS NOT NULL ORDER BY pl_name",
+  "request_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+200+pl_name%2Chostname%2Cpl_orbper%2Cpl_rade%2Cst_met%2Cdiscoverymethod+FROM+pscomppars+WHERE+pl_orbper+IS+NOT+NULL+AND+pl_rade+IS+NOT+NULL+ORDER+BY+pl_name&format=csv",
+  "response_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+200+pl_name%2Chostname%2Cpl_orbper%2Cpl_rade%2Cst_met%2Cdiscoverymethod+FROM+pscomppars+WHERE+pl_orbper+IS+NOT+NULL+AND+pl_rade+IS+NOT+NULL+ORDER+BY+pl_name&format=csv",
+  "response_content_type": "text/plain",
+  "sha256": "31d0b4ecc46e1fb7a57d41e4f35467adbfbd6d37137050b70ac6f39881f8e90e",
+  "bytes": 14272,
+  "rows": 200,
+  "schema": {
+    "pl_name": "planet name string",
+    "hostname": "host name string",
+    "pl_orbper": "days",
+    "pl_rade": "Earth radii",
+    "st_met": "dex relative to solar; nullable; abundance basis requires archive metadata",
+    "discoverymethod": "categorical archive discovery method"
+  },
+  "limitations": [
+    "First 200 names alphabetically among rows with period and radius; not random or representative.",
+    "Discovery method, completeness, missing-radius selection, alphabetical ordering and follow-up biases apply.",
+    "Composite parameter rows may combine values from different publications; not necessarily self-consistent.",
+    "No uncertainties, detection-efficiency correction, metallicity basis or per-parameter references in this small educational extract.",
+    "No occurrence rates, physical class labels, mass-radius claims or causal metallicity inference from this plot."
+  ],
+  "source_documentation": [
+    "https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html",
+    "https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html",
+    "https://doi.org/10.26133/NEA13"
+  ]
+}

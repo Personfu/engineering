@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+galaxy_id_redshift,struct,1,Source identifier and redshift posterior.,UV contamination counterparts linked.
+line_fluxes,measurement<float64[]>,erg s^-1 cm^-2,Named oxygen/Balmer/weak-line integrals.,Line conventions and censoring flags retained.
+line_cov,"float64[n,n]",flux^2,Continuum/deblend/extinction covariance.,Shared fit terms preserved.
+uv_counts,"struct<uint[],background,response>",count,Direct LyC source/background data.,Poisson count model with exposure and wavelength bounds.
+transmission,posterior<float64[2]>,1,IGM and Milky Way factors.,Between zero and one; very low values imply weak fraction constraints.
+intrinsic_lyc,posterior<float64>,same flux convention,Stellar-model ionizing output.,SED model and binary/age assumptions recorded.
+escape_fraction,posterior<float64>,1,Absolute fraction within stated sightline/model.,Physical support zero to one; inconsistent data/model flagged.
+selection_probability,float64|null,1,Chance of sample inclusion.,Null prohibits representative population-rate claims.

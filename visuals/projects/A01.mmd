@@ -1,0 +1,12 @@
+flowchart TB
+ S[Decimal scene manifest] --> C[Precision coordinate constructor]
+ C --> T[Footprint tile manager]
+ T --> A[Analytic membership certificates]
+ T --> R[Complex reference orbit]
+ R --> P[Perturbation and derivative kernel]
+ P --> G[Error and glitch monitor]
+ G -->|rebase| R
+ G --> D[Independent direct fallback]
+ A --> K[Evidence classifier]
+ D --> K
+ K --> O[Pixel status and Julia adapter]

@@ -1,0 +1,11 @@
+flowchart TB
+ A[FIELDS QTN products and flags] --> B[Data-level cadence adapter]
+ C[Antenna bias receiver response] --> D[Supported spectral-model gate]
+ B --> D
+ D --> E[Density temperature covariance]
+ F[PSP ephemeris distance] --> G[Radial matched intervals]
+ H[Independent magnetic structures] --> G
+ E --> I[Encounter-level association model]
+ G --> I
+ I --> J[Held-out contrasts and fit support]
+ J --> K[Electron-structure evidence report]

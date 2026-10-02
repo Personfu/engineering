@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+dem_elevation,float raster,m,Modern topography.,Resolution/vertical datum required.
+contact_segment,polyline,m,Mapped volcanic-unit boundary.,Digitization covariance and map key retained.
+basal_surface,"float64[scenario,row,column]",m,"Pre-emplacement surface ensemble, indexed scenario then raster row then column.","Label inferred, not measured; scenarios share declared CRS, grid, nodata mask and row/column dimensions."
+yield_stress,float[],Pa,Scenario material yield parameter.,Positive; source range required.
+consistency,float[],Pa s^n,Flow consistency parameter.,Record n and regularization.
+extrusion_rate,float[],m³/s,Scenario vent supply history.,Nonnegative; chronology support explicit.
+metric_covariance,matrix,mixed,Joint volume/slope/contact uncertainty.,Units per covariance block documented.

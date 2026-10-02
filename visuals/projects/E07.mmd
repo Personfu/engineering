@@ -1,0 +1,12 @@
+flowchart TB
+ A[Module one native record] --> C[Common schema and unit adapters]
+ B[Module two native record] --> C
+ D[Module three native record] --> C
+ P[Placement lag clock registry] --> T[Alignment and bias covariance]
+ C --> T
+ T --> G[Acceptable science record gate]
+ G --> R[Two of three recovery comparator]
+ F[Shared power environment faults] --> J[Conditional joint availability]
+ G --> J
+ R --> O[Comparable record and one only report]
+ J --> O

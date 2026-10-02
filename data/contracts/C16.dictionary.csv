@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+detector_epoch,"struct<string,time>",GPS second,Detector and release epoch.,Strain variant and uncertainty product matched.
+frequency,float64[n],Hz,Calibration/inference frequency grid.,Within documented calibrated support.
+amplitude_error,float64[n],1,Fractional transfer perturbation.,Convention and envelope version required.
+phase_error,float64[n],radian,Transfer phase perturbation.,Smooth function; unwrap convention explicit.
+coefficient_cov,"float64[m,m]|null",mixed declared,Spline/GP prior covariance.,Null means unavailable measured covariance; assumed version labeled.
+waveform_id,string,1,Physical CCSN simulation provenance.,No split leakage through repeated injections.
+parameter_shift,float64[q],parameter-specific,Paired ignored/marginalized bias metric.,Store full posterior and injection truth where defined.
+mismatch,float64,1,Noise-weighted band-limited normalized difference.,Optimization over time/phase explicitly declared.

@@ -1,0 +1,11 @@
+flowchart TB
+A["Weighed minerals and grain distributions"] --> B["Geometry-controlled sample spectra"]
+C["Standards and repeat covariance"] --> B
+B --> D["Areal mixture baseline"]
+B --> E["Intimate scattering branch"]
+D --> F["CRISM band-response convolution"]
+E --> F
+G["Orbital geometry and correction variants"] --> H["Fraction and detection likelihood"]
+F --> H
+I["Blind mixture labels"] --> J["Recovery and domain map"]
+H --> J

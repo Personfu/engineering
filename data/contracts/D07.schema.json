@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D07 ARES DUAL-WORLD SCOUT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "concept_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Earth or Mars architecture/version.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Environment and external delivery boundary explicit."
+    },
+    "environment_profile": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Density, viscosity, gravity and sound speed.",
+      "x-unit": "SI",
+      "x-source-type": "record",
+      "x-quality-rule": "Source/domain and covariance retained."
+    },
+    "trajectory_state": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "time,position,attitude"
+      },
+      "description": "Concept sensing path.",
+      "x-unit": "s,m,rad",
+      "x-source-type": "array<time,position,attitude>",
+      "x-quality-rule": "Frame and time origin required."
+    },
+    "aero_envelope": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Supported coefficient/Re/M range.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "No extrapolated capability treated validated."
+    },
+    "sensor_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Pixel pitch, focal length and exposure.",
+      "x-unit": "m,s",
+      "x-source-type": "record",
+      "x-quality-rule": "Calibration/resolution requirement included."
+    },
+    "subsystem_power": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+      },
+      "description": "Time-resolved load ledger.",
+      "x-unit": "W",
+      "x-source-type": "array<record>",
+      "x-quality-rule": "Missing support load flagged, not zero."
+    },
+    "return_event_tree": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Deployment/acquisition/communication dependencies.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Probability provenance or TBD status required."
+    }
+  },
+  "required": [
+    "concept_id",
+    "environment_profile",
+    "trajectory_state",
+    "aero_envelope",
+    "sensor_geometry",
+    "subsystem_power",
+    "return_event_tree"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "D07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,11 @@
+flowchart TB
+A["External phi/CEA scenario labels"] --> B["Scenario provenance ledger"]
+C["Supplied heat-flux envelope and covariance"] --> D["Inert coupon conduction solver"]
+E["Measured material/contact boundaries"] --> D
+D --> F["Sensor-lag observation operator"]
+G["Known-power inert surrogate records"] --> F
+D --> H["Restrained stress/strain model"]
+I["Applicable material cycle evidence"] --> J["Conditional damage screening"]
+H --> J
+F --> K["Thermal holdout and sensitivity"]
+J --> K

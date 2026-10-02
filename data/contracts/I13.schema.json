@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I13 OSIRIS APOPHIS HORIZON engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "passive_reference": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Frozen unaltered Apophis states/query.",
+      "x-unit": "m, m s^-1, TDB s",
+      "x-source-type": "struct",
+      "x-quality-rule": "NASA safe premise and source checksum attached."
+    },
+    "initial_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 6,
+        "maxItems": 6
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "description": "Authoritative or illustrative uncertainty.",
+      "x-unit": "mixed state^2",
+      "x-source-type": "float64[6,6]|null",
+      "x-quality-rule": "Pedigree/type mandatory; null if absent."
+    },
+    "normalized_offset": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "description": "Educational offsets in a declared ellipsoid basis.",
+      "x-unit": "1",
+      "x-source-type": "float64[6]",
+      "x-quality-rule": "Synthetic only; no intervention parameters."
+    },
+    "state_transition": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 6,
+        "maxItems": 6
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "description": "Variational sensitivity matrix.",
+      "x-unit": "mixed blocks",
+      "x-source-type": "float64[6,6]",
+      "x-quality-rule": "Scale convention and derivative convergence."
+    },
+    "encounter_plane": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Declared geometric sensitivity coordinates.",
+      "x-unit": "m",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Plane/event-time convention and covariance."
+    },
+    "ensemble_trace": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Nonlinear passive/synthetic scenario histories.",
+      "x-unit": "mixed state",
+      "x-source-type": "distribution<state>",
+      "x-quality-rule": "Seed, force model and scenario type retained."
+    },
+    "observation_model": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Hypothetical passive measurement/noise/cadence.",
+      "x-unit": "radian, m, m s^-1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Assumed versus verified capability explicit."
+    },
+    "information_gain": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Expected posterior/prior information.",
+      "x-unit": "nat",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "State support/noise model and numerical uncertainty."
+    }
+  },
+  "required": [
+    "passive_reference",
+    "initial_covariance",
+    "normalized_offset",
+    "state_transition",
+    "encounter_plane",
+    "ensemble_trace",
+    "observation_model",
+    "information_gain"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I13",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

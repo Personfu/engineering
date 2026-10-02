@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H04 STARDUST CARBON ATLAS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "specimen_section": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Target/section/custodian identity.",
+      "x-unit": "none",
+      "x-source-type": "restricted record",
+      "x-quality-rule": "Allocation and history required."
+    },
+    "preparation_carbon": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Coatings, adhesives and residues.",
+      "x-unit": "none",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Unknown sources remain unresolved."
+    },
+    "map_coordinates": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Common registered position.",
+      "x-unit": "micrometre",
+      "x-source-type": "float[2]",
+      "x-quality-rule": "Transform/resolution provenance retained."
+    },
+    "phase_probability": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Spectroscopy/mineral-map interpretation.",
+      "x-unit": "0–1",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Sum and classification uncertainty checked."
+    },
+    "isotope_counts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Raw 12C and 13C observations.",
+      "x-unit": "counts",
+      "x-source-type": "integer[2]",
+      "x-quality-rule": "Dwell/detector/background metadata required."
+    },
+    "phase_sensitivity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Matrix-calibration response factors.",
+      "x-unit": "dimensionless",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Matched-standard covariance saved."
+    },
+    "isotope_ratio": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Corrected R posterior samples.",
+      "x-unit": "dimensionless",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Low-count/censor support retained."
+    },
+    "registration_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint correlative map uncertainty.",
+      "x-unit": "micrometre²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Serial-section discrepancy separate."
+    }
+  },
+  "required": [
+    "specimen_section",
+    "preparation_carbon",
+    "map_coordinates",
+    "phase_probability",
+    "isotope_counts",
+    "phase_sensitivity",
+    "isotope_ratio",
+    "registration_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

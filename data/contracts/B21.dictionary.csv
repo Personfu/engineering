@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+taxon_key,string,none,Versioned species/proteome identity.,Stable crosswalk and release required.
+domain_key,string,none,Homologous domain family/interval.,Paralog and boundary uncertainty saved.
+coding_sequence,sequence key,codons,Source coding-sequence reference.,Translation and frame consistency checked.
+cais_value,nullable float,dimensionless,Published corrected efficacy index.,Exact method/intermediates retained.
+disorder_scores,nullable float[],0–1,Per-residue predictor outputs.,Predictor version and invalid masks required.
+valid_length,integer,residues,Eligible domain positions.,Gaps/unknowns excluded consistently.
+tree_covariance,matrix,declared branch units,Species shared-ancestry structure.,Taxon order and PSD check required.
+association_interval,float[3],logit per index,Conditional comparative effect.,Include clade/predictor uncertainty.

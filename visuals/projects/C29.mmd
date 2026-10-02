@@ -1,0 +1,11 @@
+flowchart TB
+A["ACE/Wind plasma and field vectors"] --> C["Normal/speed posterior and frame transform"]
+B["Proton energy/pitch-angle responses"] --> D["Differential-intensity conversion"]
+D --> E["Finite-band P_ep and U_ep integrals"]
+C --> F["MHD kinetic/thermal/magnetic ledger"]
+C --> G["Particle enthalpy and transport ledger"]
+E --> G
+H["Measured/bounded/unknown Q_ep"] --> G
+F --> I["Common-frame residual and fraction"]
+G --> I
+J["Window and spacecraft alternatives"] --> I

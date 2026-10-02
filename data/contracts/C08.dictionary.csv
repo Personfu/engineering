@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+sample_id,string,1,Unique physical mixture/replicate.,Blind identity hidden during calibration.
+mass_fraction,float64[k],1,Weighed mineral mass fractions.,Nonnegative and sum one within balance uncertainty.
+grain_distribution,table,micrometer,Particle-size bins and weights.,Missing tails and sieve convention documented.
+geometry,float64[3],degree,"Incidence, emergence and phase.",Record instrument frame and sample orientation.
+reflectance,float64[n],1,Standard-referenced spectrum.,Bad wavelengths remain masked; retain nonphysical noisy values for diagnosis.
+reflectance_cov,"float64[n,n]",1,"Standard, repeat and detector covariance.",Shared standard uncertainty retained.
+optical_fraction,posterior<float64[k]>,1,Model-conditioned optical mixture weights.,Do not relabel as mass fraction without a justified conversion.
+detection_probability,float64,1,Recovery probability within a specified scenario.,Use blind/injection uncertainty and state scenario domain.

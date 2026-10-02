@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C14 ROMAN DARKHOLE ACADEMY engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "optical_prescription": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Aperture, propagation planes and OPD.",
+      "x-unit": "m, radian",
+      "x-source-type": "struct",
+      "x-quality-rule": "Versioned geometry and wavelength grid."
+    },
+    "command": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "m",
+      "description": "Real modal/actuator coefficients.",
+      "x-unit": "actuator-specific",
+      "x-source-type": "float64[m]",
+      "x-quality-rule": "Bounds and calibration units required."
+    },
+    "probe_images": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "x-dimension": "w"
+        },
+        "x-dimension": "h"
+      },
+      "x-dimension": "n",
+      "description": "Plus/minus probe measurements.",
+      "x-unit": "electron",
+      "x-source-type": "float64[n,h,w]",
+      "x-quality-rule": "Background, exposure and saturation flags retained."
+    },
+    "field_estimate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "real": {
+            "type": "number"
+          },
+          "imag": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "real",
+          "imag"
+        ],
+        "additionalProperties": false,
+        "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+      },
+      "x-dimension": "nroi",
+      "description": "Estimated focal-plane field.",
+      "x-unit": "normalized field",
+      "x-source-type": "complex128[nroi]",
+      "x-quality-rule": "Covariance on both quadratures required."
+    },
+    "jacobian": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "real": {
+              "type": "number"
+            },
+            "imag": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "real",
+            "imag"
+          ],
+          "additionalProperties": false,
+          "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+        },
+        "x-dimension": "m"
+      },
+      "x-dimension": "nroi",
+      "description": "Local command response.",
+      "x-unit": "field per command",
+      "x-source-type": "complex128[nroi,m]",
+      "x-quality-rule": "Calibration state and validity range attached."
+    },
+    "camera_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Read/photon/background covariance.",
+      "x-unit": "electron^2",
+      "x-source-type": "covariance",
+      "x-quality-rule": "Missing pixels masked, never assigned zero field."
+    },
+    "contrast_throughput": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Joint contrast and desired-source throughput.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Reference/ROI/source offset and noise floor attached."
+    }
+  },
+  "required": [
+    "optical_prescription",
+    "command",
+    "probe_images",
+    "field_estimate",
+    "jacobian",
+    "camera_cov",
+    "contrast_throughput"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C14",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

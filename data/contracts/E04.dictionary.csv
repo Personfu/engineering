@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+species_basis,record,1,CO2/CH4 and dry/wet calibration scale.,Selective analyzer evidence required.
+gas_reading,nullable<float64>,mol/mol,Native calibrated mole fraction.,ppm/ppb conversion explicit; missing null.
+water_fraction,nullable<float64>,mol/mol,Compatible water mole fraction.,Between zero and one; unknown blocks conversion.
+pressure_temperature,record,"Pa,K",Analyzer/environment state.,Calibration domain and covariance retained.
+flight_position,record,"m,degree",Altitude/geolocation at timestamp.,Reference datum and horizontal drift retained.
+response_time,nullable<float64>,s,Transport/sensor lag tau.,Positive and independently sourced or latent flagged.
+profile_covariance,matrix<float64>,(mol/mol)^2,Joint profile/measurement uncertainty.,Shared scale/humidity terms retained.

@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+sensor_time,datetime,UTC,Original and aligned reading times.,Clock source/offset covariance required.
+position_xy,float[2],m,Projected vessel location.,CRS and GPS covariance saved.
+sensor_depth,nullable float,m,Measurement support below surface.,Null cannot imply full-column reading.
+temperature,nullable float,°C,Calibrated water temperature.,Reference check and drift flags retained.
+conductivity,nullable float,µS/cm,Specified reference-temperature channel.,Compensation method required.
+dissolved_oxygen,nullable float,mg/L,Compensated oxygen measurement.,Pressure/salinity metadata retained.
+response_model,record,s,Dead-time/first-order response description.,Correction support and noise amplification saved.
+map_covariance,matrix,parameter-unit²,Joint spatial/temporal prediction uncertainty.,Calibration and position covariance included.

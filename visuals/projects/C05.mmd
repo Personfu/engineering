@@ -1,0 +1,9 @@
+flowchart TB
+A["PS/PSCompPars snapshot"] --> B["Reference reconciliation"]
+B --> C["Measurement and censoring types"]
+C --> D["Posterior mass-radius feature draws"]
+E["Host and survey split manifest"] --> F["Empirical class model"]
+D --> F
+F --> G["Validation-only probability calibration"]
+G --> H["Domain check and abstention"]
+I["Catalog snapshot diff"] --> H

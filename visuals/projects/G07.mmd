@@ -1,0 +1,12 @@
+flowchart TB
+ I[Interface drawings and datums] --> C[Parametric mount CAD]
+ M[Material and attachment properties] --> S[Static thermal modal model]
+ C --> S
+ S --> U[Optical interface motion]
+ G[Grating and slit geometry] --> J[Wavelength sensitivity Jacobian]
+ U --> J
+ T[Correlated tolerance inputs] --> B[Spectral error budget]
+ J --> B
+ L[Calibration line measurements] --> V[Repeatability verification]
+ B --> V
+ V --> P[Controlled build and evidence matrix]

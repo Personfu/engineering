@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+animal_key,restricted string,none,Pseudonymous telemetry individual.,Not exported with refuge coordinates.
+fix_time,datetime,UTC,Measurement time.,Cadence/gap flags preserved.
+position_covariance,"float64[2,2]",m²,"Horizontal location error in declared [x,y] projected coordinates.","Exactly 2x2, symmetric PSD; CRS and covariance basis required."
+landcover_key,string,none,Dated GIS classification product.,Acquisition/effective date retained.
+cover_fraction,float[],0–1,Scale-specific habitat exposure.,Class covariance/resolution saved.
+step_stratum,string,none,Used/available matched alternatives.,Shared start/cadence audited.
+range_area,nullable float,km²,Specified utilization contour area.,Contour/estimator/cadence recorded.
+effect_covariance,matrix,mixed,Joint selection/range uncertainty.,Individual and GIS terms included.

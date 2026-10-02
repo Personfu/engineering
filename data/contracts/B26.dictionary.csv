@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+solar_resource,nullable record,W/m² °C m/s,NSRDB forcing and time convention.,Cadence/version/coverage retained.
+pv_available,float[],kW,Scenario AC PV power.,Loss-model provenance required.
+load_demand,float[],kW,Fixed service requirement.,Measured versus synthetic label explicit.
+electrolyzer_state,record,kW A enum,Supported simulator stack state.,Vendor/literature bounds linked.
+battery_energy,float[],kWh,Stored-energy trajectory.,Capacity/efficiency covariance saved.
+forecast_issue_time,datetime,UTC,Rolling prediction availability.,No future forcing in replay.
+hydrogen_mass,float[],kg,Integrated Faradaic/system production.,Cell convention and auxiliaries retained.
+resource_cost,record,USD L kgCO2e,Cost/water/carbon scenario totals.,"Boundary, price year and uncertainty explicit."

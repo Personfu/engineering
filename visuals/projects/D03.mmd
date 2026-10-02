@@ -1,0 +1,12 @@
+flowchart TB
+ A[Atmosphere mass and inertia] --> B[D03a blade element quadrature]
+ G[Rotor geometry and aero tables] --> B
+ B --> D[Coupled descent torque ODE]
+ D --> S[Equilibrium Jacobian stability]
+ P[Stationary bubble pressure velocity] --> F[D03b PSD and stationarity]
+ P --> M[Weighted POD modes]
+ F --> T[Similarity transfer review]
+ M --> T
+ T -->|approved covariance envelope| B
+ S --> O[Descent candidate report]
+ T --> R[Separate bubble evidence report]

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+sky_position,float64[2],degree ICRS,Cube pixel coordinate.,WCS and distance assumption required.
+channel_velocity,float64[n],km s^-1 LSR,Velocity channels with declared LSR definition.,Rest frequency and Doppler convention mandatory.
+brightness,float64[n],K main-beam,Baseline-subtracted spectrum.,Mask bad channels; preserve negative noise realizations.
+spectral_cov,"float64[n,n]",K^2,Thermal and baseline covariance.,Do not infer independent channels after smoothing.
+beam,struct<float64>,"arcsec, degree",Major/minor FWHM and position angle.,Match before any cross-tracer ratio.
+component_velocity,posterior<float64[]>,km s^-1,Alternative kinematic-component centroids.,Ambiguous assignments retain probability weights.
+excitation_state,posterior<struct>,"K, cm^-3, 1",Tex or non-LTE density/temperature/tau parameters.,Upper/lower bounds and prior dependence reported.

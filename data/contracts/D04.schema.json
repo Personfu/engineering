@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D04 GLENN SPHERE STANDARD engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Boundary/geometry/regime configuration.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Hash and solver version required."
+    },
+    "regime": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Re, Mach and closure choice.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Continuum/slip status explicit."
+    },
+    "mesh_scale": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Systematic characteristic h.",
+      "x-unit": "m",
+      "x-source-type": "float64",
+      "x-quality-rule": "Refinement ratio and wall measures retained."
+    },
+    "time_step": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Unsteady integration step.",
+      "x-unit": "s",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Steady case null; not zero."
+    },
+    "drag_components": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Pressure and viscous body loads.",
+      "x-unit": "N",
+      "x-source-type": "pair<float64>",
+      "x-quality-rule": "Normals/quadrature and sign specified."
+    },
+    "mass_flux_residual": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Net boundary/control-volume flux.",
+      "x-unit": "kg/s",
+      "x-source-type": "float64",
+      "x-quality-rule": "Normalization denominator recorded."
+    },
+    "validation_reference": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Matched experimental/correlation context.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Uncertainty and validity range required."
+    }
+  },
+  "required": [
+    "case_id",
+    "regime",
+    "mesh_scale",
+    "time_step",
+    "drag_components",
+    "mass_flux_residual",
+    "validation_reference"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "D04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

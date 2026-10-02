@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+specimen_id,string,1,Geometry/material context and source.,Synthetic/ex vivo category required.
+sensor_direction,vector<float64>[3],1,Unit vector in specimen axes.,Norm and orientation uncertainty checked.
+raw_observable,record,native,Wavelength/resistance/native readout.,Units/channel calibration required; missing null.
+temperature,nullable<float64>,K,Local sensor temperature.,Reference and covariance retained.
+attachment_transfer,matrix<float64>,native/strain,Identified H coefficients.,Calibration provenance and rank required.
+strain_reference,nullable<vector<float64>>,1,Independent reference tensor/projections.,Coordinate/shear basis and uncertainty recorded.
+strain_estimate,record,1,Identifiable components and covariance.,Unobserved components null; regularization flag required.

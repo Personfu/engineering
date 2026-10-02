@@ -1,0 +1,11 @@
+flowchart TB
+ P[Specimen fraction provenance] --> S[Calibrated sulfur spectra]
+ P --> M[Mass and exchange records]
+ R[Compatible standard library] --> X[Constrained XANES mixture]
+ S --> X
+ M --> F[Adduct formula and DBE checks]
+ X --> J[Dependency aware class likelihood]
+ F --> J
+ D[Isotope and exposure context] --> J
+ J --> A[Ambiguous assignment set]
+ A --> O[Claim and missing evidence table]

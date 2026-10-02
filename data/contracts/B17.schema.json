@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B17 AQUARIUS LIFELINE — Inland Fisheries Resilience engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "basin_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Consented geographic study identity.",
+      "x-unit": "none",
+      "x-source-type": "restricted string",
+      "x-quality-rule": "Partner authority and scope required."
+    },
+    "harvest_mass": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Reported species-group catch.",
+      "x-unit": "kg/interval",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Coverage and informal-catch uncertainty retained."
+    },
+    "effort": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Declared fishing effort.",
+      "x-unit": "fisher-days",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Gear and access changes documented."
+    },
+    "aquatic_exposure": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Hydrologic ecological drivers.",
+      "x-unit": "°C m³/s days",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Covariance and seasonal support saved."
+    },
+    "dependence_fraction": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Approved dietary or income dependence.",
+      "x-unit": "0–1",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Basis/time period explicit."
+    },
+    "adaptation_cost": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Locally feasible scenario cost.",
+      "x-unit": "local currency/year",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Price year and distribution retained."
+    },
+    "release_permission": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Allowed purpose, linkage and aggregation.",
+      "x-unit": "none",
+      "x-source-type": "structured policy",
+      "x-quality-rule": "Revocation and local standards honored."
+    },
+    "loss_distribution": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Scenario adaptation outcome ensemble.",
+      "x-unit": "declared",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Weights and unavailable pathways disclosed."
+    }
+  },
+  "required": [
+    "basin_key",
+    "harvest_mass",
+    "effort",
+    "aquatic_exposure",
+    "dependence_fraction",
+    "adaptation_cost",
+    "release_permission",
+    "loss_distribution"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B17",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

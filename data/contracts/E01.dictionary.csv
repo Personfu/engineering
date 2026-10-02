@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+flight_phase,enum,1,Ascent/float/descent interval.,Boundary times and missing phase explicit.
+uv_irradiance,nullable<float64>,W/m^2,Calibrated declared-band observation.,Spectral response/lag/covariance required.
+material_endpoint,record,count,Supplied damage count and susceptible denominator.,"Noninfectious source, endpoint and detection limit."
+handling_thermal,record,"K,1",Temperature and handling covariates.,Missing null; no procedure inferred.
+encoded_frame,record,bit,"Frame size, time and usefulness label.",Encoding and rubric version required.
+channel_trace,record,"bit/s,1",Service and effective loss replay.,Synthetic/observed provenance required.
+battery_ledger,record,"J,W",Storage and subsystem energy terms.,Efficiency/loss boundary and covariance.

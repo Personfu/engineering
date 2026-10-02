@@ -1,0 +1,10 @@
+flowchart TB
+A["Radio arrival times and exposure"] --> B["Barycentric/orbital timing"]
+C["Orbit and outflow priors"] --> B
+B --> D["Intrinsic spin and torque alternatives"]
+D --> E["lc/co/m radius-ordering engine"]
+F["X-ray/gamma counts and response"] --> G["Energy and absorption likelihood"]
+E --> G
+H["Burst localization distribution"] --> I["Source-association likelihood"]
+I --> G
+G --> J["Future-orbit hypothesis predictions"]

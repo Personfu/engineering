@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+baseline_uv,"float64[n,2]",wavelength,Sampled Fourier coordinates.,Frequency and station pair attached.
+visibility,complex128[n],Jy,Calibrated complex measurements.,"Flags retained; missing baselines are absent, never zero."
+visibility_cov,covariance,Jy^2,Thermal and calibration covariance.,Separate real/imaginary or complex convention declared.
+closure_phase,measurement<float64>,radian,Triangle phase sum.,Circular likelihood and covariance with related triangles required.
+gain_parameters,posterior<complex[]>,1,Station gain nuisance terms.,Epoch/group association recorded.
+ring_metrics,posterior<struct>,"microarcsec, 1","Diameter, width, asymmetry and depression.",Metric definition and reconstruction family attached.
+source_context,struct,"s, microarcsec",Variability/scattering assumptions.,Different target contexts cannot be silently merged.

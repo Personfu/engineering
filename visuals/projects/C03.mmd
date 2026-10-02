@@ -1,0 +1,11 @@
+flowchart TB
+A["HCN cube: K, channels, beam"] --> C["Baseline and response model"]
+B["Laboratory hyperfine frequencies"] --> C
+C --> D["Shared-Tex transfer"]
+C --> E["Multi-component non-LTE branch"]
+F["Dust or thin-tracer constraints"] --> E
+D --> G["Component posterior and anomaly masks"]
+E --> G
+G --> H["Common-beam spatial gradients"]
+F --> H
+H --> I["Conditional filament-flow report"]

@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C24 APOLLO DUST CLOCK engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "epoch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measurement time in common system.",
+      "x-unit": "BJD or declared day",
+      "x-source-type": "float64",
+      "x-quality-rule": "Original clock and conversion retained."
+    },
+    "radial_velocity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Line-derived WR velocity.",
+      "x-unit": "km s^-1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Line definition, instrument and wind-jitter group attached."
+    },
+    "infrared_flux": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Passband-integrated observation.",
+      "x-unit": "Jy",
+      "x-source-type": "measurement<float64>|limit",
+      "x-quality-rule": "Nondetection censoring and response curve retained."
+    },
+    "measurement_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Instrument/common-calibration covariance.",
+      "x-unit": "mixed declared",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Shared zero points and photometric scales explicit."
+    },
+    "orbital_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "P,T0,K,e,omega,gamma.",
+      "x-unit": "day, km s^-1, radian",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "e in [0,1); multimodal aliases retained."
+    },
+    "dust_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Mass, temperature, opacity and activation lag.",
+      "x-unit": "g, K, cm^2 g^-1, day",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "Mass/opacity degeneracy reported."
+    },
+    "forecast": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Future velocity/IR color predictions.",
+      "x-unit": "day, km s^-1, Jy",
+      "x-source-type": "distribution<struct>",
+      "x-quality-rule": "No forecast row labeled observation."
+    }
+  },
+  "required": [
+    "epoch",
+    "radial_velocity",
+    "infrared_flux",
+    "measurement_cov",
+    "orbital_parameters",
+    "dust_parameters",
+    "forecast"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C24",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

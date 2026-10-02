@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+concept_id,string,1,Earth or Mars architecture/version.,Environment and external delivery boundary explicit.
+environment_profile,record,SI,"Density, viscosity, gravity and sound speed.",Source/domain and covariance retained.
+trajectory_state,"array<time,position,attitude>","s,m,rad",Concept sensing path.,Frame and time origin required.
+aero_envelope,record,1,Supported coefficient/Re/M range.,No extrapolated capability treated validated.
+sensor_geometry,record,"m,s","Pixel pitch, focal length and exposure.",Calibration/resolution requirement included.
+subsystem_power,array<record>,W,Time-resolved load ledger.,"Missing support load flagged, not zero."
+return_event_tree,record,1,Deployment/acquisition/communication dependencies.,Probability provenance or TBD status required.

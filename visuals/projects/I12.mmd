@@ -1,0 +1,11 @@
+flowchart TB
+A["Mars/Phobos constants and ephemerides"] --> B["a,n,mu nondimensionalization"]
+B --> C["Validated DRO-family generator"]
+D["Low-Mars boundary and common nodes"] --> E["CR3BP shooting/collocation"]
+C --> E
+F["Grid/multistart/swarm initializers"] --> E
+E --> G["Independent feasibility checker"]
+H["Equal evaluation budget/run ledger"] --> I["Repeated cost/feasible distributions"]
+G --> I
+G --> J["Ephemeris/J2/Phobos model promotion"]
+J --> K["Arrival correction and validity limits"]

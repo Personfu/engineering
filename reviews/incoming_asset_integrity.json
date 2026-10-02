@@ -1,0 +1,27 @@
+{
+  "incoming_commit": "4026dd081171e3ca60f42530c2ed4f9c8dfc544b",
+  "normalized_archive_assets": [
+    "phase",
+    "orbit",
+    "thermal",
+    "drag",
+    "spectrum",
+    "mixture",
+    "radiation",
+    "calibration",
+    "hydrology",
+    "adsorption",
+    "kinetics",
+    "antenna",
+    "mechanics",
+    "suspension",
+    "swarm",
+    "power",
+    "adaptive",
+    "fractal",
+    "image",
+    "attitude"
+  ],
+  "reason": "The Windows archive/export copy had CRLF endings; normalized LF bytes exactly match every stored incoming manifest SHA-256. Numerical content is unchanged.",
+  "all_20_manifest_hashes_match": true
+}

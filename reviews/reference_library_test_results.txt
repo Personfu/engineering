@@ -1,0 +1,19 @@
+test_adaptive_cancellation_preserves_signal (test_reference.NumericalChecks.test_adaptive_cancellation_preserves_signal) ... ok
+test_all_outputs_finite_deterministic_and_labeled (test_reference.NumericalChecks.test_all_outputs_finite_deterministic_and_labeled) ... ok
+test_attitude_norm_and_settling (test_reference.NumericalChecks.test_attitude_norm_and_settling) ... ok
+test_consensus_preserves_mass_and_converges (test_reference.NumericalChecks.test_consensus_preserves_mass_and_converges) ... ok
+test_drag_creeping_limit_and_domain (test_reference.NumericalChecks.test_drag_creeping_limit_and_domain) ... ok
+test_escape_known_cases (test_reference.NumericalChecks.test_escape_known_cases) ... ok
+test_escape_rejects_unsupported_julia_start (test_reference.NumericalChecks.test_escape_rejects_unsupported_julia_start) ... ok
+test_liquidus_pure_limit_and_depression (test_reference.NumericalChecks.test_liquidus_pure_limit_and_depression) ... ok
+test_orbit_conservation_and_convergence (test_reference.NumericalChecks.test_orbit_conservation_and_convergence) ... ok
+test_thermal_exact_decay_and_limit (test_reference.NumericalChecks.test_thermal_exact_decay_and_limit) ... ok
+test_complete_original_inventory (test_reference.PortfolioChecks.test_complete_original_inventory) ... ok
+test_dossier_visual_source_and_dependency_integrity (test_reference.PortfolioChecks.test_dossier_visual_source_and_dependency_integrity) ... ok
+test_synthetic_manifest_hashes (test_reference.PortfolioChecks.test_synthetic_manifest_hashes) ... ok
+test_truthful_no_live_data_state (test_reference.PortfolioChecks.test_truthful_no_live_data_state) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.353s
+
+OK

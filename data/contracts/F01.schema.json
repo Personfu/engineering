@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "F01 APOLLO VOICELINK engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Pseudonymous clustered team key.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Identity mapping outside analysis; consent status required."
+    },
+    "task_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Versioned analog task/rubric.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Difficulty and crossover order retained."
+    },
+    "protocol_assignment": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Communication structure condition.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Randomization/carryover record required."
+    },
+    "message_times": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Create/deliver/acknowledge simulator times.",
+      "x-unit": "s",
+      "x-source-type": "record",
+      "x-quality-rule": "Clock and imposed-delay separation."
+    },
+    "context_metadata": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Consented language/experience context.",
+      "x-unit": "1",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Minimum necessary; no deterministic cultural labeling."
+    },
+    "repair_outcome": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Rubric success and resolution/censoring.",
+      "x-unit": "bool,s",
+      "x-source-type": "record",
+      "x-quality-rule": "Coder IDs and evidence links retained."
+    },
+    "code_agreement": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Independent labels/agreement summary.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Disagreement and undefined metrics retained."
+    }
+  },
+  "required": [
+    "team_id",
+    "task_id",
+    "protocol_assignment",
+    "message_times",
+    "context_metadata",
+    "repair_outcome",
+    "code_agreement"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "F01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

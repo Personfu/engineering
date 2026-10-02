@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B12 VULCAN DOMESCAN — O’Leary Emplacement Reconstruction engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "dem_elevation": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Modern topography.",
+      "x-unit": "m",
+      "x-source-type": "float raster",
+      "x-quality-rule": "Resolution/vertical datum required."
+    },
+    "contact_segment": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Mapped volcanic-unit boundary.",
+      "x-unit": "m",
+      "x-source-type": "polyline",
+      "x-quality-rule": "Digitization covariance and map key retained."
+    },
+    "basal_surface": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "x-dimension": "column"
+        },
+        "x-dimension": "row"
+      },
+      "x-dimension": "scenario",
+      "description": "Pre-emplacement surface ensemble, indexed scenario then raster row then column.",
+      "x-unit": "m",
+      "x-source-type": "float64[scenario,row,column]",
+      "x-quality-rule": "Label inferred, not measured; scenarios share declared CRS, grid, nodata mask and row/column dimensions."
+    },
+    "yield_stress": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Scenario material yield parameter.",
+      "x-unit": "Pa",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Positive; source range required."
+    },
+    "consistency": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Flow consistency parameter.",
+      "x-unit": "Pa s^n",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Record n and regularization."
+    },
+    "extrusion_rate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Scenario vent supply history.",
+      "x-unit": "m³/s",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Nonnegative; chronology support explicit."
+    },
+    "metric_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint volume/slope/contact uncertainty.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Units per covariance block documented."
+    }
+  },
+  "required": [
+    "dem_elevation",
+    "contact_segment",
+    "basal_surface",
+    "yield_stress",
+    "consistency",
+    "extrusion_rate",
+    "metric_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B12",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

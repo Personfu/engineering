@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C16 ORION STRAIN METROLOGY engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "detector_epoch": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Detector and release epoch.",
+      "x-unit": "GPS second",
+      "x-source-type": "struct<string,time>",
+      "x-quality-rule": "Strain variant and uncertainty product matched."
+    },
+    "frequency": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Calibration/inference frequency grid.",
+      "x-unit": "Hz",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Within documented calibrated support."
+    },
+    "amplitude_error": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Fractional transfer perturbation.",
+      "x-unit": "1",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Convention and envelope version required."
+    },
+    "phase_error": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Transfer phase perturbation.",
+      "x-unit": "radian",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Smooth function; unwrap convention explicit."
+    },
+    "coefficient_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "m"
+      },
+      "x-dimension": "m",
+      "description": "Spline/GP prior covariance.",
+      "x-unit": "mixed declared",
+      "x-source-type": "float64[m,m]|null",
+      "x-quality-rule": "Null means unavailable measured covariance; assumed version labeled."
+    },
+    "waveform_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Physical CCSN simulation provenance.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "No split leakage through repeated injections."
+    },
+    "parameter_shift": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "q",
+      "description": "Paired ignored/marginalized bias metric.",
+      "x-unit": "parameter-specific",
+      "x-source-type": "float64[q]",
+      "x-quality-rule": "Store full posterior and injection truth where defined."
+    },
+    "mismatch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Noise-weighted band-limited normalized difference.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Optimization over time/phase explicitly declared."
+    }
+  },
+  "required": [
+    "detector_epoch",
+    "frequency",
+    "amplitude_error",
+    "phase_error",
+    "coefficient_cov",
+    "waveform_id",
+    "parameter_shift",
+    "mismatch"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C16",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

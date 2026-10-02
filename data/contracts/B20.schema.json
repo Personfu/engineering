@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B20 LUNAR RECLAIMER — Algal Rare-Earth Recovery engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "element_symbol": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Actual analyzed target or competitor.",
+      "x-unit": "none",
+      "x-source-type": "enum/string",
+      "x-quality-rule": "Y and Al never conflated."
+    },
+    "feed_concentration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Element-specific feed measurement.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Method/limit/recovery required."
+    },
+    "residual_concentration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Element-specific dissolved endpoint.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Censoring and matrix effects retained."
+    },
+    "dry_sorbent_mass": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Dry biomass/media amount.",
+      "x-unit": "g",
+      "x-source-type": "float",
+      "x-quality-rule": "Moisture correction uncertainty saved."
+    },
+    "matrix_composition": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Competing-ion observations.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable vector",
+      "x-quality-rule": "Species/assay covariance retained."
+    },
+    "product_mass": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Measured recovered product.",
+      "x-unit": "mg element",
+      "x-source-type": "nullable vector",
+      "x-quality-rule": "Null prohibits recovery/purity claim."
+    },
+    "cycle_index": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Linked reuse cycle identity.",
+      "x-unit": "none",
+      "x-source-type": "integer",
+      "x-quality-rule": "Product/waste lineage required."
+    },
+    "mass_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint feed/pool analytical uncertainty.",
+      "x-unit": "mg²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Include shared dilution and recovery bias."
+    }
+  },
+  "required": [
+    "element_symbol",
+    "feed_concentration",
+    "residual_concentration",
+    "dry_sorbent_mass",
+    "matrix_composition",
+    "product_mass",
+    "cycle_index",
+    "mass_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B20",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

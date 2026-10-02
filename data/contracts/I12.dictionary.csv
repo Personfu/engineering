@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+system_constants,struct,"m, s^-1, m^3 s^-2","Mars/Phobos a,n,GM,mu.",Source/query and circular approximation.
+frame_time,struct,"TDB s, 1",Rotating/inertial center/epoch conventions.,Transforms include velocity derivative.
+departure_orbit,struct,"m, m s^-1",Defined low-Mars boundary and phase.,Collision/atmosphere/clearance assumptions explicit.
+target_dro,periodic state table,dimensionless,"Family, period, phase and acceptance.",Return residual and continuation provenance.
+candidate_nodes,"float64[n,6]",dimensionless state,Common shooting/collocation trajectory.,Continuity/coast/impulse types attached.
+cost_feasibility,struct,"m s^-1, s, m","Delta-v, time and arrival/clearance residuals.",Independent checker; failed candidates retained.
+optimizer_run,struct,"seed, evaluation count",Strategy and complete compute budget.,Local refinement counts included.
+promotion_error,measurement<struct>,"m, m s^-1",Higher-fidelity arrival/correction discrepancy.,"Force model, constants and numerical covariance."

@@ -1,0 +1,12 @@
+flowchart TB
+A["Owned synthetic scenario manifest"] --> B["Isolated loss/delay/duplicate replay"]
+B --> C["Immutable source/receive event ledger"]
+C --> D["Idempotent abstract state reconstruction"]
+C --> E["Clock-aware field freshness"]
+C --> F["Unique chunk/checksum assembler"]
+G["Trusted inert image manifest"] --> F
+D --> H["Operator evidence view"]
+E --> H
+F --> H
+I["Reset checkpoint and expected-state harness"] --> J["Replay/operator validation"]
+H --> J

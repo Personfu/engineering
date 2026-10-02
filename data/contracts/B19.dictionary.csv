@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+product_key,string,none,Exact QTN level/version/interval.,Checksums and archive flags retained.
+frequency,float[],Hz,Spectral bin coordinates.,Monotone with receiver response key.
+voltage_psd,nullable float[],V²/Hz,Calibrated spectrum when available.,Noise/antenna metadata required.
+electron_density,nullable float,m^-3,Released or fitted electron density.,Method and units explicit.
+electron_temperature,nullable float,K or eV,Declared core/effective temperature.,Distribution definition and conversion saved.
+heliocentric_distance,float,AU,Encounter radial context.,Ephemeris/time alignment recorded.
+structure_interval,datetime[2],UTC,Independent boundary definition.,Source/cadence uncertainty retained.
+parameter_covariance,matrix,mixed,Joint fit/released-product uncertainty.,PSD/support flags and correlations preserved.

@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+plot_key,string,none,Repeated measurement plot identity.,Burn/terrain provenance required.
+elapsed_time,float[],hour,Time since infiltration start.,Monotone; transient window recorded.
+cumulative_depth,float[],mm,Volume/contact-area conversion.,Monotone within error; area uncertainty saved.
+imposed_tension,float,mm head,Device pressure-head condition.,Sign convention and geometry required.
+sorptivity,float[],mm/hour^0.5,Fitted early-time uptake coefficient.,Covariance with late-time coefficient retained.
+antecedent_moisture,nullable float,m³/m³,Initial volumetric soil water.,Bounds and measurement method required.
+soil_carbon,nullable float,mass fraction,Linked carbon assay.,Date/method covariance saved.
+hydraulic_covariance,matrix,mixed,Joint fitted hydraulic uncertainty.,"Separate device, plot and scale terms."

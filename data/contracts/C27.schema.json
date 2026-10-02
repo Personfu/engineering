@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C27 SPHEREX COSMIC PRISM engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "QR image and checksum identity.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Release/header-correction/calibration status mandatory."
+    },
+    "pixel_wavelength": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Exposure-position wavelength mapping.",
+      "x-unit": "micrometer",
+      "x-source-type": "float64[h,w]",
+      "x-quality-rule": "Missing/invalid map pixels excluded."
+    },
+    "psf_response": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "model value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Position/wavelength flux-to-pixel response.",
+      "x-unit": "release-declared",
+      "x-source-type": "model<float64>",
+      "x-quality-rule": "Normalization and unit conversion documented."
+    },
+    "source_position": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Forced-photometry prior.",
+      "x-unit": "degree ICRS",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Astrometric covariance retained."
+    },
+    "pixel_data_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Image uncertainty plus calibration structure.",
+      "x-unit": "pixel-unit^2",
+      "x-source-type": "covariance",
+      "x-quality-rule": "Masks remain missing; shared calibration modes retained."
+    },
+    "extracted_flux": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Response-sampled source spectrum.",
+      "x-unit": "release flux unit",
+      "x-source-type": "measurement<float64[n]>",
+      "x-quality-rule": "Coverage mask and neighbor covariance attached."
+    },
+    "redshift_posterior": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Template-conditioned redshift.",
+      "x-unit": "1",
+      "x-source-type": "distribution<float64>",
+      "x-quality-rule": "Store alternate modes and template/grid support."
+    },
+    "selection_surface": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "model value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Recovery versus coverage/confusion/flux.",
+      "x-unit": "1",
+      "x-source-type": "model<float64>",
+      "x-quality-rule": "No interpolation beyond tested domain without flag."
+    }
+  },
+  "required": [
+    "product_id",
+    "pixel_wavelength",
+    "psf_response",
+    "source_position",
+    "pixel_data_cov",
+    "extracted_flux",
+    "redshift_posterior",
+    "selection_surface"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C27",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

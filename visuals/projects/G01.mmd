@@ -1,0 +1,12 @@
+flowchart TB
+ G[Specimen geometry and axes] --> O[Sensor orientation projection]
+ A[Attachment transfer calibration] --> H[Forward transfer matrix]
+ O --> H
+ S[Native sensor streams] --> Y[Clock and unit alignment]
+ T[Temperature observation] --> Y
+ H --> I[Rank aware strain inverse]
+ Y --> I
+ C[Joint sensor covariance] --> I
+ I --> P[Identifiable strain and resolution]
+ R[Independent strain reference] --> V[Specimen holdout scoring]
+ P --> V

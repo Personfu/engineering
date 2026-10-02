@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+epoch,float64,BJD or declared day,Measurement time in common system.,Original clock and conversion retained.
+radial_velocity,measurement<float64>,km s^-1,Line-derived WR velocity.,"Line definition, instrument and wind-jitter group attached."
+infrared_flux,measurement<float64>|limit,Jy,Passband-integrated observation.,Nondetection censoring and response curve retained.
+measurement_cov,"float64[n,n]",mixed declared,Instrument/common-calibration covariance.,Shared zero points and photometric scales explicit.
+orbital_parameters,posterior<struct>,"day, km s^-1, radian","P,T0,K,e,omega,gamma.","e in [0,1); multimodal aliases retained."
+dust_parameters,posterior<struct>,"g, K, cm^2 g^-1, day","Mass, temperature, opacity and activation lag.",Mass/opacity degeneracy reported.
+forecast,distribution<struct>,"day, km s^-1, Jy",Future velocity/IR color predictions.,No forecast row labeled observation.

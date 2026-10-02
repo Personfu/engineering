@@ -1,0 +1,10 @@
+flowchart TB
+ A[Repeat pollinator visits] --> B[Effort and weather detection model]
+ B --> C[Patch occupancy probabilities]
+ D[Species bloom histories] --> E[Weekly floral-resource matrix]
+ F[Road and land-cover resistance] --> G[Taxon graph distances m]
+ H[Cost USD and water L/year] --> I[Robust patch portfolio solver]
+ C --> I
+ E --> I
+ G --> I
+ I --> J[Independent feasibility and access review]

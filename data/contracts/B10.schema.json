@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B10 LANDSAT EQUITY — Community Canopy Mission engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "scene_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Exact harmonized reflectance product.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Version/checksum and masks required."
+    },
+    "canopy_fraction": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Validated tree-cover estimate.",
+      "x-unit": "0–1",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Class calibration and covariance retained."
+    },
+    "surface_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Satellite skin-temperature retrieval.",
+      "x-unit": "K",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Acquisition time/quality required."
+    },
+    "air_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Independent in situ measurement.",
+      "x-unit": "°C",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Never substituted from thermal pixels."
+    },
+    "population_weight": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Contemporaneous cell population.",
+      "x-unit": "persons",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Boundary year and uncertainty saved."
+    },
+    "green_access_distance": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Network distance to usable green space.",
+      "x-unit": "m",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Access restrictions and routes documented."
+    },
+    "exposure_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint neighborhood exposure uncertainty.",
+      "x-unit": "K²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Include spatial and demographic terms."
+    }
+  },
+  "required": [
+    "scene_id",
+    "canopy_fraction",
+    "surface_temperature",
+    "air_temperature",
+    "population_weight",
+    "green_access_distance",
+    "exposure_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B10",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

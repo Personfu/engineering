@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C20 TRINITY ACCRETION ECHO engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "population_draw": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "TRINITY mass/accretion/host draw and weight.",
+      "x-unit": "solar mass, 1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Native posterior/commit identity attached."
+    },
+    "variability_law": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "OU or alternative extension family.",
+      "x-unit": "1",
+      "x-source-type": "enum/version",
+      "x-quality-rule": "Never labeled native TRINITY time evolution."
+    },
+    "tau_sigma": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Rest-frame process parameters.",
+      "x-unit": "day, X day^-1/2",
+      "x-source-type": "posterior<float64[2]>",
+      "x-quality-rule": "Positive timescale; convention of X explicit."
+    },
+    "epoch_window": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "x-dimension": "n",
+      "description": "Observed exposure intervals.",
+      "x-unit": "observer day",
+      "x-source-type": "float64[n,2]",
+      "x-quality-rule": "Missing epochs absent; time origin/scale recorded."
+    },
+    "redshift": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Object redshift.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Positive 1+z and uncertainty retained."
+    },
+    "host_flux": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Nonvariable dilution component.",
+      "x-unit": "flux unit",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Add in flux space with shared uncertainty."
+    },
+    "lightcurve_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Observed process plus noise covariance.",
+      "x-unit": "X^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "PSD and covariance validity checks required."
+    },
+    "autocorrelation": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Selected ensemble temporal correlation by lag.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64[]>",
+      "x-quality-rule": "Population weights and lag exposure recorded."
+    }
+  },
+  "required": [
+    "population_draw",
+    "variability_law",
+    "tau_sigma",
+    "epoch_window",
+    "redshift",
+    "host_flux",
+    "lightcurve_cov",
+    "autocorrelation"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C20",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

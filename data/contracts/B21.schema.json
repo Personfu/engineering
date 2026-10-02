@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B21 PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "taxon_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Versioned species/proteome identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Stable crosswalk and release required."
+    },
+    "domain_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Homologous domain family/interval.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Paralog and boundary uncertainty saved."
+    },
+    "coding_sequence": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Source coding-sequence reference.",
+      "x-unit": "codons",
+      "x-source-type": "sequence key",
+      "x-quality-rule": "Translation and frame consistency checked."
+    },
+    "cais_value": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Published corrected efficacy index.",
+      "x-unit": "dimensionless",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Exact method/intermediates retained."
+    },
+    "disorder_scores": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Per-residue predictor outputs.",
+      "x-unit": "0–1",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Predictor version and invalid masks required."
+    },
+    "valid_length": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Eligible domain positions.",
+      "x-unit": "residues",
+      "x-source-type": "integer",
+      "x-quality-rule": "Gaps/unknowns excluded consistently."
+    },
+    "tree_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Species shared-ancestry structure.",
+      "x-unit": "declared branch units",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Taxon order and PSD check required."
+    },
+    "association_interval": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Conditional comparative effect.",
+      "x-unit": "logit per index",
+      "x-source-type": "float[3]",
+      "x-quality-rule": "Include clade/predictor uncertainty."
+    }
+  },
+  "required": [
+    "taxon_key",
+    "domain_key",
+    "coding_sequence",
+    "cais_value",
+    "disorder_scores",
+    "valid_length",
+    "tree_covariance",
+    "association_interval"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B21",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

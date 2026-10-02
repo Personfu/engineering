@@ -1,0 +1,24 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "inertia_kg_m2": 0.12,
+    "kp_Nm_rad": 0.03,
+    "kd_Nm_s_rad": 0.08,
+    "torque_limit_Nm": 0.008,
+    "initial_angle_deg": 35.0,
+    "disturbance_amplitude_Nm": 2.5e-05
+  },
+  "schema": {
+    "time_s": "s",
+    "theta_rad": "rad",
+    "omega_rad_s": "rad/s",
+    "control_torque_Nm": "N m"
+  },
+  "assumptions_and_limits": [
+    "Single rigid rotational degree of freedom, exact states and a fixed zero-angle reference.",
+    "No wheel momentum management, three-axis quaternion dynamics, estimator or sensor delay.",
+    "Illustrates control tradeoffs; no spacecraft implementation or qualification."
+  ],
+  "metrics": {}
+}

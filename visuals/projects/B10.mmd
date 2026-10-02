@@ -1,0 +1,12 @@
+flowchart TB
+ A[HLS reflectance and masks] --> B[Seasonal persistent-change engine]
+ B --> C[Validated canopy fractions]
+ D[Thermal imagery K] --> E[Acquisition and retrieval QC]
+ F[Air-temperature transects] --> G[Separate calibration model]
+ E --> G
+ H[Population and boundary versions] --> I[Exposure weighting]
+ C --> I
+ E --> I
+ J[Usable green-space network] --> K[Access and restoration scenarios]
+ I --> K
+ K --> L[Community-approved release]

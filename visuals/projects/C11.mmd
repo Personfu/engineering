@@ -1,0 +1,11 @@
+flowchart TB
+A["Waveform registry and physics metadata"] --> B["Network projection and delays"]
+C["Released strain, PSD and quality"] --> D["Injection/whitening operator"]
+B --> D
+D --> E["Chirplet frequency-track fit"]
+D --> F["Probabilistic inference model"]
+E --> G["Morphology posterior comparison"]
+F --> G
+H["Leave-code-out validation"] --> I["Coverage and domain gate"]
+G --> I
+I --> J["Conditional physical targets"]

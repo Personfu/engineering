@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+sensor_time,float64,s,Common synchronized acquisition epoch.,Clock offset/skew uncertainty required.
+gyro,vector<float64>[3],rad/s,Body angular rate.,Axes/signs and bias covariance retained.
+quaternion,vector<float64>[4],1,Body-to-world Hamilton attitude.,Scalar ordering and normalization required.
+external_location,nullable<vector<float64>>,m,Independent aiding position.,Reference frame and measurement covariance.
+acoustic_record,nullable<record>,"m,s,1","Path, time of flight and echo quality.",One/round-trip and delay calibration explicit.
+exposure_ledger,nullable<record>,Gy or count,Calibrated dose or native detector counts.,Units reflect calibration status; no implicit conversion.
+approved_endpoint,nullable<record>,declared,Supplied biological comparison observation.,Approval/source and handling controls; missing null.

@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+body_manifest,struct,"m, kg, rad s^-1",Shape/mass/spin and frame.,Independent gravity/density source required.
+terrain_case,struct,"m, radian",Local geometry and seeded obstacles.,Prior/support and OOD flags.
+robot_state,float64[],"m, m s^-1, radian",Translation and attitude/rate.,Quaternion convention/norm or rotation matrix validity.
+contact_parameters,distribution<struct>,"1, N or J",Restitution/friction and optional cohesion.,Passive-domain constraints; unsupported parameters marked.
+actuation_contract,enum+limits,"N s, N m s",Foot or momentum-exchange bounds.,No cross-concept default assumptions.
+wheel_momentum,float64[],kg m^2 s^-1,Available/stored wheel state.,Limit and saturation events retained.
+trajectory_cov,distribution<trace>,mixed state,Gravity/contact/terrain ensemble.,Missing contact events flagged; correlated draws preserved.
+hop_outcome,"struct<bool,float>",1,"Boundedness, landing validity, science gain.",Definition/version and ensemble count attached.

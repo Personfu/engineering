@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+scene_id,string,1,Map and coordinate manifest hash.,Required; alternative maps use new IDs.
+center_decimal,pair<string>,1,Real and imaginary center.,Never cast first to float.
+footprint_width,float64,1,Complex-plane pixel width.,Positive; height supplied if anisotropic.
+precision_bits,uint32,bit,Reference and working precisions.,Both recorded with library version.
+escape_iteration,nullable<uint64>,iteration,First validated radius crossing.,Null for nonescape; zero is valid.
+classification,enum,1,Evidence-qualified pixel status.,Certificates require bound metadata.
+error_bound,nullable<float64>,1,Absolute coordinate/iteration uncertainty.,Bound versus heuristic flagged; unknown null.

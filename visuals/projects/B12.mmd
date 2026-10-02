@@ -1,0 +1,12 @@
+flowchart TB
+ A[DEM elevation and datum] --> B[Basal-surface ensemble]
+ C[USGS contacts and units] --> D[Stratigraphic geometry adapter]
+ B --> E[Volume slope contact metrics]
+ D --> E
+ F[Vent supply m3/s] --> G[Yield-stress extrusion solver]
+ H[Rheology Pa and Pa s^n] --> G
+ G --> I[Erosion and collapse operator]
+ I --> J[Modern-surface predictions]
+ E --> K[Covariance-aware inverse comparison]
+ J --> K
+ K --> L[Compatible emplacement families]

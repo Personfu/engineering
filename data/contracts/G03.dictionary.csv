@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+configuration_id,string,1,Installed/antenna-alone state.,"Mount, cabling and surroundings version required."
+frequency,float64,Hz,Measurement frequency.,Positive; bandwidth and wavelength convention.
+angular_coordinate,pair<float64>,rad,Azimuth/elevation in station frame.,Axes/signs and encoder covariance.
+polarization_basis,enum,1,Co/cross or declared linear/circular basis.,Basis transform version required.
+complex_field,nullable<complex128>,native,Near-field phase/amplitude sample.,Phase reference required; power-only flagged.
+calibration_ledger,record,"dB,rad",Gain/loss/phase corrections.,Shared error terms and drift retained.
+system_temperature,nullable<float64>,K,Receive-system noise temperature.,Measurement boundary required; absent means no G/T.

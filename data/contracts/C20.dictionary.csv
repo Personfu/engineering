@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+population_draw,struct,"solar mass, 1",TRINITY mass/accretion/host draw and weight.,Native posterior/commit identity attached.
+variability_law,enum/version,1,OU or alternative extension family.,Never labeled native TRINITY time evolution.
+tau_sigma,posterior<float64[2]>,"day, X day^-1/2",Rest-frame process parameters.,Positive timescale; convention of X explicit.
+epoch_window,"float64[n,2]",observer day,Observed exposure intervals.,Missing epochs absent; time origin/scale recorded.
+redshift,measurement<float64>,1,Object redshift.,Positive 1+z and uncertainty retained.
+host_flux,measurement<float64>,flux unit,Nonvariable dilution component.,Add in flux space with shared uncertainty.
+lightcurve_cov,"float64[n,n]",X^2,Observed process plus noise covariance.,PSD and covariance validity checks required.
+autocorrelation,measurement<float64[]>,1,Selected ensemble temporal correlation by lag.,Population weights and lag exposure recorded.

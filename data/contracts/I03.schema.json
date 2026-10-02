@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I03 SATURN CHANNEL ATLAS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "family_parameters": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "dimensionless",
+      "description": "Normalized aspect/curvature/roughness/topology.",
+      "x-unit": "1",
+      "x-source-type": "float64[dimensionless]",
+      "x-quality-rule": "Domain bounds and reference geometry documented."
+    },
+    "budget_type_value": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Held-constant pump/flow comparison.",
+      "x-unit": "W or kg s^-1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Do not mix budgets in one ranking."
+    },
+    "transport_properties": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Fluid properties in accepted temperature range.",
+      "x-unit": "kg m^-3, Pa s, W m^-1 K^-1",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Source and validity recorded."
+    },
+    "correlation_record": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Nu/friction/loss formulas and regimes.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Darcy/Fanning and developing-flow status explicit."
+    },
+    "heat_envelope": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "External or known electrical boundary load.",
+      "x-unit": "W m^-2",
+      "x-source-type": "measurement<array>",
+      "x-quality-rule": "Spatial/temporal covariance; no combustion schedule."
+    },
+    "pressure_flow": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Hydraulic observations/predictions.",
+      "x-unit": "Pa, m^3 s^-1",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Branch and sensor covariance retained."
+    },
+    "temperature_field": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "number",
+                "string",
+                "boolean"
+              ],
+              "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+            },
+            "x-dimension": "ordering/shape frozen in ICD"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Wall/coolant thermal response.",
+      "x-unit": "K",
+      "x-source-type": "distribution<array>",
+      "x-quality-rule": "Masked sensor locations remain missing."
+    },
+    "pareto_record": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Expected/CVaR temperature and pump objectives.",
+      "x-unit": "1, W or scaled",
+      "x-source-type": "table",
+      "x-quality-rule": "Nondominated status includes uncertainty and scale version."
+    }
+  },
+  "required": [
+    "family_parameters",
+    "budget_type_value",
+    "transport_properties",
+    "correlation_record",
+    "heat_envelope",
+    "pressure_flow",
+    "temperature_field",
+    "pareto_record"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,11 @@
+flowchart TB
+A["Reference angle and wrap policy"] --> B["Bounded PD/limit-aware controller"]
+C["Encoder/gyro bias estimator"] --> B
+B --> D["Wheel torque/lag/saturation"]
+D --> E["Body inertia/friction plant"]
+E --> C
+D --> F["Wheel momentum and kinetic energy"]
+G["Measured voltage/current draw"] --> H["Cumulative electrical-energy ledger"]
+I["Reset/dropout/disturbance replay"] --> E
+F --> J["Pointing/feasibility/energy report"]
+H --> J

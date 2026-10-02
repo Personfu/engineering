@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C23 KEPLER METAL WORLDS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Every qualifying searched star.",
+      "x-unit": "Kepler identifier",
+      "x-source-type": "int64",
+      "x-quality-rule": "Denominator inclusion/exclusion reason mandatory."
+    },
+    "stellar_posterior": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Host properties affecting geometry/detection.",
+      "x-unit": "solar mass, solar radius, K",
+      "x-source-type": "distribution<struct>",
+      "x-quality-rule": "Joint covariance and source version."
+    },
+    "metallicity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Host abundance and method.",
+      "x-unit": "dex [Fe/H]",
+      "x-source-type": "measurement<float64>|null",
+      "x-quality-rule": "Missing state and method-offset group retained."
+    },
+    "candidate_posterior": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "R/P measurements for candidates.",
+      "x-unit": "Earth radius, day",
+      "x-source-type": "distribution<float64[2]>|null",
+      "x-quality-rule": "No-candidate target is separate from missing measurement."
+    },
+    "selection_components": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "p_tr, window, detection and vetting.",
+      "x-unit": "1",
+      "x-source-type": "float64[]",
+      "x-quality-rule": "Each in [0,1]; no duplicated window factor."
+    },
+    "reliability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Candidate true-planet probability/context.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "False-positive model version required."
+    },
+    "occurrence_intensity": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Latent rate in supported domain.",
+      "x-unit": "planet star^-1 per logR/logP",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Log base and bin/support boundaries explicit."
+    },
+    "expected_count": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Integrated selected intensity.",
+      "x-unit": "count",
+      "x-source-type": "float64",
+      "x-quality-rule": "Quadrature convergence and target count recorded."
+    }
+  },
+  "required": [
+    "target_id",
+    "stellar_posterior",
+    "metallicity",
+    "candidate_posterior",
+    "selection_components",
+    "reliability",
+    "occurrence_intensity",
+    "expected_count"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C23",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

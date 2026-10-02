@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B01 CALDERA SENTINEL — Yellowstone Hydrothermal Observatory engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "sample_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Persistent water-sample key.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Unique; unresolved aliases quarantine joins."
+    },
+    "collected_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Actual collection timestamp or documented date precision.",
+      "x-unit": "UTC",
+      "x-source-type": "datetime",
+      "x-quality-rule": "Missing time never fabricated."
+    },
+    "chloride": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Conservative tracer candidate.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Retain censoring limit and method."
+    },
+    "endmember_pair": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Thermal and meteoric scenario values.",
+      "x-unit": "mg/L",
+      "x-source-type": "float[2]",
+      "x-quality-rule": "Store full 2x2 covariance and provenance."
+    },
+    "displacement_up": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Referenced vertical station displacement.",
+      "x-unit": "mm",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Offsets and reference epoch required."
+    },
+    "hydrology": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Precipitation and discharge summaries.",
+      "x-unit": "declared",
+      "x-source-type": "nullable vector",
+      "x-quality-rule": "Store coverage fraction and missingness."
+    },
+    "forecast_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint annual prediction covariance.",
+      "x-unit": "mm²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Symmetric positive semidefinite; include shared bias."
+    }
+  },
+  "required": [
+    "sample_id",
+    "collected_at",
+    "chloride",
+    "endmember_pair",
+    "displacement_up",
+    "hydrology",
+    "forecast_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

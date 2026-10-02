@@ -1,0 +1,9 @@
+flowchart TB
+A["UV/optical flux and X-ray counts"] --> C["Host and extinction likelihood"]
+B["Exposure/filter/count responses"] --> C
+D["Stellar fallback prescription"] --> E["Causal accretion-delay kernel"]
+E --> F["Thermal/reprocessing emission"]
+F --> C
+C --> G["Event parameter posterior"]
+H["Host dispersion comparator"] --> G
+G --> I["Cadence and host-selection simulator"]

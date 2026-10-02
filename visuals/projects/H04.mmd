@@ -1,0 +1,11 @@
+flowchart TB
+ A[TAM19B-7 allocation and preparation] --> B[Specimen evidence registry]
+ C[Optical Raman IR phase maps] --> D[Common-coordinate registration]
+ E[SEM EDS and section geometry] --> D
+ D --> F[Phase probability and covariance]
+ G[Raw isotope counts and blanks] --> H[Matrix-calibrated count likelihood]
+ I[Matched standards and detector response] --> H
+ F --> H
+ H --> J[Phase-resolved isotope distributions]
+ B --> K[Contamination alteration interpretation ledger]
+ J --> K

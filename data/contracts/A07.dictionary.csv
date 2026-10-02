@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+line_id,string,1,Authenticated line identity/context.,Status and provenance required.
+replicate_id,string,1,Independent biological/analytical replicate.,Replicate type explicit; technical repeats not independent.
+fraction_id,enum,1,Operational fraction label.,Definition version fixed; no procedure inferred.
+mass_input_recovered,record,ng,Input and fraction material masses.,Assay basis and uncertainty required.
+detection_limit,nullable<float64>,ng,Platform lower quantification bound.,Null means unknown; zero policy mandatory.
+gene_count,nullable<uint64>,count,Fraction-associated genomic count.,Genome build/library ID retained.
+copy_number,nullable<float64>,copies,Compatible locus-level adjustment.,Unknown not assigned diploid automatically.

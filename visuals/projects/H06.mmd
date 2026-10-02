@@ -1,0 +1,13 @@
+flowchart TB
+ A[HiRISE DTM and MOLA context] --> B[Datum resolution coverage adapter]
+ C[Ridge centerlines and stratigraphy] --> D[Local-normal profile extraction]
+ B --> D
+ D --> E[Background and covariance ensembles]
+ E --> F[Continuous morphology and cluster stability]
+ E --> G[Thrust backthrust forward families]
+ E --> H[Separate trishear family]
+ G --> I[Along-strike Bayesian comparator]
+ H --> I
+ I --> J[Whole-ridge holdout predictions]
+ F --> K[Morphology and architecture atlas]
+ J --> K

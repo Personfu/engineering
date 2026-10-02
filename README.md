@@ -1,56 +1,39 @@
-# ASTRA FORGE
+# ATLAS Engineering
 
-**118 connected research projects. Nine disciplines. One evidence-first engineering observatory.**
+**117 engineering research records, preserving every original project in its exact A–I session order.** Each project has a NASA-inspired name and a detailed design basis, requirements, mathematical formulation and derivation, data specification, uncertainty analysis, trade study, verification plan, implementation work packages, failure analysis, technical architecture figure and cited primary resources.
 
-An independent FLLC research and education portfolio built from all projects in the supplied Sessions A–I list. Every original title remains intact alongside a space-inspired proposed name, scientific question, governing model specification, data plan, validation criteria, original visual architecture, extension and resource citations. Original authorship is linked to the [2021 Arizona NASA Space Grant symposium](https://spacegrant.arizona.edu/symposium/archive/2021).
+Start with the [ordered engineering document register](ENGINEERING_DOCUMENTATION.md). For continuous reading, use the nine session handbooks below. The combined D03 title retains both the autorotating probe and laminar-separation-bubble investigations as distinct work packages.
 
-Start with the [complete project index](docs/project-index.md), [source registry](docs/source-registry.md) and [engineering standard](docs/engineering-standard.md). The [interactive atlas](atlas/index.html) offers search, session/family filters, side-by-side comparison, saved project lists, source states and educational model views.
+| Session | Engineering handbook | Original projects |
+| --- | --- | ---: |
+| A | [Math, Physics & Chemistry](documentation/SESSION_A.md) | 12 |
+| B | [Earth & Environmental Engineering](documentation/SESSION_B.md) | 28 |
+| C | [Astronomy & Space Physics](documentation/SESSION_C.md) | 30 |
+| D | [Aeronautics](documentation/SESSION_D.md) | 7 |
+| E | [ASCEND](documentation/SESSION_E.md) | 8 |
+| F | [Education & Public Outreach](documentation/SESSION_F.md) | 2 |
+| G | [Exploration Systems Engineering](documentation/SESSION_G.md) | 8 |
+| H | [Planetary Science](documentation/SESSION_H.md) | 9 |
+| I | [Aerospace Technology](documentation/SESSION_I.md) | 13 |
 
-## What is implemented
+## Engineering artifacts
 
-- 118 individually specified research dossiers and original conceptual SVGs.
-- 20 deterministic Python reference kernels with synthetic data, plots and checksum manifests.
-- An offline browser atlas with mathematical visualizations and a rotatable educational CubeSat.
-- Requirements, provenance, data qualification, uncertainty and verification standards.
-- Automated coverage and numerical checks; a reproducible build.
+- [117 individually addressable project records](ENGINEERING_DOCUMENTATION.md), totaling approximately 248,000 words.
+- [527 requirements](catalog/requirements.csv) and [434 specified verification cases](catalog/verification_cases.csv), with persistent IDs and evidence fields.
+- [117 JSON record schemas, field dictionaries and empty acquisition CSVs](data/contracts/README.md), covering 877 defined data fields.
+- 117 editable engineering architecture diagrams and their rendered SVGs, linked from the relevant records.
+- [Eight executable reduced-model demonstrations](models/README.md), nine numerical figures, tabular outputs and a separately acquired 200-row NASA Exoplanet Archive snapshot with query and retrieval provenance.
+- [20 supplementary educational reference kernels](reference_library/README.md), with the concurrent engineering contribution preserved separately and in Git history.
+- [250 distinct cited resources](catalog/source_index.csv), with project-to-source mappings.
 
-The full project-specific scientific solvers, measured datasets, equation-level research bibliography review and independent scientific validation are **not complete**. A proposal or educational kernel is not a published finding, validated instrument pipeline or flight/clinical system. No measurements are fabricated. Data resources are labeled as inspected, blocked, metadata-only or reference-only.
+## Design and evidence controls
 
-| Session | Projects |
-|---|---:|
-| A · Math, Physics & Chemistry | 12 |
-| B · Earth & Environmental Engineering | 28 |
-| C · Astronomy & Space Physics | 30 |
-| D · Aeronautics | 8 |
-| E · ASCEND | 8 |
-| F · Education & Public Outreach | 2 |
-| G · Exploration Systems Engineering | 8 |
-| H · Planetary Science | 9 |
-| I · Aerospace Technology | 13 |
-| **Total** | **118** |
+Use the [engineering documentation standard](docs/ENGINEERING_STANDARD.md), [interface control procedure](docs/INTERFACE_CONTROL.md), [model assurance plan](docs/MODEL_ASSURANCE.md), [uncertainty and decision rules](docs/UNCERTAINTY_AND_DECISION_RULES.md), [data management plan](docs/DATA_MANAGEMENT.md) and [execution roadmap](docs/EXECUTION_ROADMAP.md) to turn a record into an investigation with reviewable evidence.
 
-## Run and reproduce
+These are research design and analysis documents. Project-specific empirical validation remains pending. Header-only CSVs are acquisition templates; synthetic model parameters and outputs are labeled; the public exoplanet snapshot is separately identified as real data. The 434 specified cases are future verification work, distinct from the executed software checks. NASA-inspired names and use of NASA engineering references do not imply NASA affiliation, certification, clinical efficacy or flight qualification.
 
-Python 3.12+; no Python packages, npm installation, API keys or cloud account required.
+The original-title register is preserved in [original_titles.json](catalog/original_titles.json). The supplied titles correspond to the [2021 Arizona Space Grant symposium program](https://spacegrant.arizona.edu/sites/spacegrant.arizona.edu/files/AZSGC%20Symposium%20Booklet%202021_website.pdf). These documents develop new engineering proposals; they do not reproduce its abstracts or claim authorship of the historical work.
 
-```bash
-python scripts/build.py
-python -m unittest discover -s tests -v
-node tests/test_atlas.cjs
-python -m models.run --model orbit --output /tmp/astra-orbit.json
-python -m http.server 8000 --bind 127.0.0.1
-```
+## Review and reproducibility
 
-Open `http://127.0.0.1:8000/atlas/` or open `atlas/index.html` directly. All catalog content is local. The browser never calls an external API; source links navigate only when selected. Synthetic samples are under `data/synthetic/`; measured-data requirements are in [data-contract.md](docs/data-contract.md).
-
-## Research connections
-
-The imaging projects share calibration and scene-truth concepts; plasma projects share instrument/frame receipts; ASCEND and EagleSat projects share mission evidence schemas; ecological projects share effort-aware observations; orbital projects share coordinate/time contracts. All 118 stay independent. Related-project links identify useful dependencies without merging original work.
-
-## Sources and assets
-
-Google Drive was used to read the Phoenix College Spring 2025 presentation for later mission context; no private measurements or imagery were copied, and sharing is unchanged. Public sources were reviewed as recorded in the registry. All shipped SVGs and educational geometry are original. Source/data licenses remain separate; public availability does not mean unrestricted redistribution.
-
-Space-inspired names are independent educational titles. No NASA endorsement, official mission status, certification, flight qualification or production deployment is implied. See the [integration record](docs/engineering-standard.md#product-boundaries-and-integration-record).
-
-Local numerical and interaction checks passed; actual browser rendering remains unverified. See the [release review](docs/release-review.md) for precise validation scope and remaining research gates.
+[Release verification](reviews/RELEASE_VERIFICATION.md) records the completed assembly checks, [independent revision-2 review](reviews/INDEPENDENT_ENGINEERING_REVIEW.md), numerical verification and their limits. [Documentation build instructions](tools/README.md) explain how to regenerate records and diagrams from the versioned sources. Model execution instructions are in [models/README.md](models/README.md).

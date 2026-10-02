@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+source_id,string,1,Native radio source key.,Stable catalog version and deblend flags.
+flux_density,float64,Jy,Observed radio flux.,"Frequency, integrated/peak basis and error required."
+redshift_pdf,nullable<distribution>,1,Spectroscopic/photo-z uncertainty.,No-redshift sources retained as missing likelihood.
+spectral_index,nullable<float64>,1,Exponent in S proportional nu^alpha.,Convention required; assumed values flagged.
+infrared_luminosity,nullable<record>,W,TIR or SF-only estimate/limit.,Definition and upper-limit flag required.
+completeness,nullable<float64>,1,Detection probability at true properties.,Between zero and one; covariance/version retained.
+sf_probability,nullable<float64>,1,Primary radio-power label probability.,"Definition fixed; unclassified is null, not zero."

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+sample_id,string,none,Persistent water-sample key.,Unique; unresolved aliases quarantine joins.
+collected_at,datetime,UTC,Actual collection timestamp or documented date precision.,Missing time never fabricated.
+chloride,nullable float,mg/L,Conservative tracer candidate.,Retain censoring limit and method.
+endmember_pair,float[2],mg/L,Thermal and meteoric scenario values.,Store full 2x2 covariance and provenance.
+displacement_up,nullable float,mm,Referenced vertical station displacement.,Offsets and reference epoch required.
+hydrology,nullable vector,declared,Precipitation and discharge summaries.,Store coverage fraction and missingness.
+forecast_covariance,matrix,mm²,Joint annual prediction covariance.,Symmetric positive semidefinite; include shared bias.

@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C08 MARS NILI SPECTRAL VAULT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "sample_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unique physical mixture/replicate.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Blind identity hidden during calibration."
+    },
+    "mass_fraction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "k",
+      "description": "Weighed mineral mass fractions.",
+      "x-unit": "1",
+      "x-source-type": "float64[k]",
+      "x-quality-rule": "Nonnegative and sum one within balance uncertainty."
+    },
+    "grain_distribution": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Particle-size bins and weights.",
+      "x-unit": "micrometer",
+      "x-source-type": "table",
+      "x-quality-rule": "Missing tails and sieve convention documented."
+    },
+    "geometry": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Incidence, emergence and phase.",
+      "x-unit": "degree",
+      "x-source-type": "float64[3]",
+      "x-quality-rule": "Record instrument frame and sample orientation."
+    },
+    "reflectance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Standard-referenced spectrum.",
+      "x-unit": "1",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Bad wavelengths remain masked; retain nonphysical noisy values for diagnosis."
+    },
+    "reflectance_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Standard, repeat and detector covariance.",
+      "x-unit": "1",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Shared standard uncertainty retained."
+    },
+    "optical_fraction": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "x-dimension": "k"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Model-conditioned optical mixture weights.",
+      "x-unit": "1",
+      "x-source-type": "posterior<float64[k]>",
+      "x-quality-rule": "Do not relabel as mass fraction without a justified conversion."
+    },
+    "detection_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Recovery probability within a specified scenario.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Use blind/injection uncertainty and state scenario domain."
+    }
+  },
+  "required": [
+    "sample_id",
+    "mass_fraction",
+    "grain_distribution",
+    "geometry",
+    "reflectance",
+    "reflectance_cov",
+    "optical_fraction",
+    "detection_probability"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C08",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A03 CHANDRA VORTEX CORE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "star_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Object and compatible observation group.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Never merge unrelated cooling/timing stars."
+    },
+    "age_likelihood": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Age probability or censoring bound.",
+      "x-unit": "s",
+      "x-source-type": "distribution_record",
+      "x-quality-rule": "Missing null; preserve upper/lower limits."
+    },
+    "temperature_inf": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Redshifted surface estimate.",
+      "x-unit": "K",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Atmosphere version and covariance required."
+    },
+    "gap_profile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "radius,energy"
+      },
+      "description": "Pairing hypothesis over radius.",
+      "x-unit": "m,J",
+      "x-source-type": "array<radius,energy>",
+      "x-quality-rule": "Channel and EOS mapping required."
+    },
+    "inertias": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Coupled/superfluid effective inertias.",
+      "x-unit": "kg m^2",
+      "x-source-type": "pair<float64>",
+      "x-quality-rule": "Positive; entrainment convention documented."
+    },
+    "omega_observed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Crust rotation at timing epoch.",
+      "x-unit": "rad s^-1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Epoch scale and error required."
+    },
+    "observable_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Covariance for ordered observations.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Units per row; positive semidefinite."
+    }
+  },
+  "required": [
+    "star_id",
+    "age_likelihood",
+    "temperature_inf",
+    "gap_profile",
+    "inertias",
+    "omega_observed",
+    "observable_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

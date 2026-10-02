@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+source_receive_time,float64[2],"s, declared scale",Measurement and reception timestamps.,Delay/order never overwrites source time.
+geodetic_state,measurement<float64[3]>,"degree, degree, m",Latitude/longitude/height.,Ellipsoid/altitude datum and covariance.
+pressure_temperature,measurement<float64[2]>,"Pa, K",Atmospheric sensor readings.,Lag/bias calibration version and missing flags.
+illumination_board,float64[],"W m^-2, K",Solar/environment and housing proxy.,Sensor-specific bias model documented.
+trajectory_cov,"float64[n,n]",mixed declared,Position/velocity/wind ensemble uncertainty.,Shared navigation and wind errors retained.
+power_energy,measurement<struct>,"W, J",Harvest/loads and stored energy.,Capacity and cumulative consumption distinguished.
+packet_quality,struct,1,Sequence/checksum/loss/restart state.,"Missing samples absent, not repeated last value."
+comparison_profile,table|null,"Pa, K, m s^-1",Collocated quality-screened IGRA data.,Station history and space/time support recorded.

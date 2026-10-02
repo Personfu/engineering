@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C02 HUBBLE NIGHTFALL LAB engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "scene_seed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Random stream seed and generator version.",
+      "x-unit": "1",
+      "x-source-type": "uint64",
+      "x-quality-rule": "Unique scenario ID; preserve independent noise substreams."
+    },
+    "sky_rate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Object-free inserted sky.",
+      "x-unit": "electron s^-1 pixel^-1",
+      "x-source-type": "float64[h,w]",
+      "x-quality-rule": "Nonnegative; reference coordinate recorded."
+    },
+    "source_catalog": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Flux, morphology and positions.",
+      "x-unit": "mixed declared",
+      "x-source-type": "table",
+      "x-quality-rule": "Flux convention and truncated wings documented."
+    },
+    "detector_frame": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Noisy exposure before resampling.",
+      "x-unit": "electron",
+      "x-source-type": "float64[h,w]",
+      "x-quality-rule": "Missing pixels use mask, never sky-valued fill."
+    },
+    "resample_operator": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "shape",
+        "row",
+        "col",
+        "data"
+      ],
+      "properties": {
+        "shape": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "row": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "col": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "x-encoding": "COO sparse matrix: parallel row/col/data arrays; shape and equal lengths require domain validation.",
+      "description": "Mapping from detector to analysis pixels.",
+      "x-unit": "1",
+      "x-source-type": "sparse<float64>",
+      "x-quality-rule": "Row normalization checked for uniform sky."
+    },
+    "sky_estimate": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Estimator output with estimand label.",
+      "x-unit": "electron s^-1 pixel^-1",
+      "x-source-type": "struct<float64,cov>",
+      "x-quality-rule": "Covariance must include resampling dependence."
+    },
+    "usable_fraction": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Area surviving all masks.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Bounded from zero to one; zero area invalidates estimate."
+    }
+  },
+  "required": [
+    "scene_seed",
+    "sky_rate",
+    "source_catalog",
+    "detector_frame",
+    "resample_operator",
+    "sky_estimate",
+    "usable_fraction"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

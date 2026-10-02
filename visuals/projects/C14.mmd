@@ -1,0 +1,11 @@
+flowchart TB
+A["Pupil/OPD/wavelength prescription"] --> B["Fourier/Fresnel propagation"]
+C["Bounded real actuator commands"] --> B
+B --> D["Camera response and probe images"]
+D --> E["Complex field and Jacobian estimate"]
+E --> F["Regularized bounded optimizer"]
+F --> C
+G["Dark/reference covariance"] --> E
+C --> H["Off-axis throughput evaluator"]
+D --> I["Contrast and noise-floor monitor"]
+H --> I

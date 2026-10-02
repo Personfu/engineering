@@ -1,0 +1,30 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "C_wall_J_K": 1200.0,
+    "C_payload_J_K": 850.0,
+    "area_m2": 0.15,
+    "emissivity": 0.75,
+    "conductance_W_K": 0.8,
+    "payload_power_W": 3.0
+  },
+  "schema": {
+    "time_s": "s",
+    "wall_K": "K",
+    "payload_K": "K",
+    "air_K": "K",
+    "radiative_sink_K": "K",
+    "h_W_m2_K": "W m^-2 K^-1",
+    "absorbed_W": "W",
+    "convection_W": "W",
+    "radiation_W": "W",
+    "wall_to_payload_W": "W"
+  },
+  "assumptions_and_limits": [
+    "Uniform temperature per node; radiation area includes assumed view factor.",
+    "Air, radiative sink, convection and solar forcing are prescribed synthetic histories.",
+    "No ascent trajectory, atmosphere calibration, rarefied-flow correction or qualification claim."
+  ],
+  "metrics": {}
+}

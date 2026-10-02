@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E02 GEMINI HELIX engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "sensor_time": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Common synchronized acquisition epoch.",
+      "x-unit": "s",
+      "x-source-type": "float64",
+      "x-quality-rule": "Clock offset/skew uncertainty required."
+    },
+    "gyro": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Body angular rate.",
+      "x-unit": "rad/s",
+      "x-source-type": "vector<float64>[3]",
+      "x-quality-rule": "Axes/signs and bias covariance retained."
+    },
+    "quaternion": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Body-to-world Hamilton attitude.",
+      "x-unit": "1",
+      "x-source-type": "vector<float64>[4]",
+      "x-quality-rule": "Scalar ordering and normalization required."
+    },
+    "external_location": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Independent aiding position.",
+      "x-unit": "m",
+      "x-source-type": "nullable<vector<float64>>",
+      "x-quality-rule": "Reference frame and measurement covariance."
+    },
+    "acoustic_record": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Path, time of flight and echo quality.",
+      "x-unit": "m,s,1",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "One/round-trip and delay calibration explicit."
+    },
+    "exposure_ledger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Calibrated dose or native detector counts.",
+      "x-unit": "Gy or count",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Units reflect calibration status; no implicit conversion."
+    },
+    "approved_endpoint": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Supplied biological comparison observation.",
+      "x-unit": "declared",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Approval/source and handling controls; missing null."
+    }
+  },
+  "required": [
+    "sensor_time",
+    "gyro",
+    "quaternion",
+    "external_location",
+    "acoustic_record",
+    "exposure_ledger",
+    "approved_endpoint"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

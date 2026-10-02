@@ -1,0 +1,11 @@
+flowchart TB
+ R[Radio flux size catalog] --> S[Selection and scatter model]
+ M[Counterparts and upper limits] --> Z[Redshift and IR likelihood]
+ Z --> L[Cosmology and K correction]
+ R --> L
+ L --> C[Radio power class probabilities]
+ S --> H[Population hierarchy]
+ C --> H
+ F[Sky region effects] --> H
+ H --> B[Flux bin fractions and covariance]
+ B --> V[Majority criterion and holdout]

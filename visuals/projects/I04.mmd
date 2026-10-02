@@ -1,0 +1,11 @@
+flowchart TB
+A["Typed subsystem sample tasks"] --> B["Soft-core/FPGA scheduler"]
+C["WCET, priority and bus bounds"] --> B
+B --> D["Committed science journal"]
+D --> E["Finite buffer and simulated downlink"]
+F["Lane/voter/common-resource faults"] --> G["Observable recovery state machine"]
+G --> B
+G --> D
+H["Reset-aware event ledger"] --> I["Deadline/integrity availability analysis"]
+B --> H
+E --> I

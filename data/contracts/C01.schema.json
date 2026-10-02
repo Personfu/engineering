@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C01 APOLLO WINDWATCH engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "epoch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Barycentric exposure midpoint.",
+      "x-unit": "BJD",
+      "x-source-type": "float64",
+      "x-quality-rule": "Null until time scale and correction are documented."
+    },
+    "exposure": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Start and end in the common time system.",
+      "x-unit": "day",
+      "x-source-type": "float64[2]",
+      "x-quality-rule": "End must exceed start."
+    },
+    "velocity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Line-relative gas velocity grid.",
+      "x-unit": "km s^-1",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Rest wavelength and air/vacuum convention required."
+    },
+    "profile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Continuum-normalized line flux.",
+      "x-unit": "1",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Masked pixels stay missing; no zero filling."
+    },
+    "profile_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Pixel and continuum covariance.",
+      "x-unit": "1",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Symmetric positive semidefinite; preserve shared continuum terms."
+    },
+    "line_delay": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Conditional response delay relative to a named reference line.",
+      "x-unit": "day",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Report multimodality and reference-line identity."
+    }
+  },
+  "required": [
+    "epoch",
+    "exposure",
+    "velocity",
+    "profile",
+    "profile_cov",
+    "line_delay"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

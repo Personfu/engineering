@@ -1,0 +1,12 @@
+flowchart TB
+ E[EOS and structure] --> C[Heat capacity and emissivity]
+ G[Channel gap profile] --> C
+ C --> T[Redshift aware cooling]
+ A[Atmosphere and age data] --> L[Thermal likelihood]
+ T --> L
+ I[Inertia and entrainment] --> R[Two reservoir torque emulator]
+ R --> Y[Timing likelihood]
+ O[Barycentric timing records] --> Y
+ L --> S[Shared nuisance sampler]
+ Y --> S
+ S --> P[Temperature and lag predictions]

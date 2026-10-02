@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+sample_time,vector<float64>,s,Common desired/reference clock.,Rate and alignment offset covariance required.
+desired_raw,vector<float64>,native,Science plus interference channel.,ADC units/limits and clipping mask retained.
+reference_raw,nullable<vector<float64>>,native,Interference witness channel.,Dropout mask; no silent zero fill.
+filter_weights,array<vector<float64>>,ratio,Saved tapped-delay coefficients.,"Ordering, length and update cadence required."
+adaptation_state,enum,1,"Adapt, frozen or bypass.",Reason and event time logged.
+spectral_estimates,record,native^2/Hz,Power/cross spectra and coherence.,Window/normalization and degrees of freedom retained.
+feature_error,record,"1,rad,s","Amplitude ratio, phase and timing error.",Truth/reference covariance and protected-band definition.

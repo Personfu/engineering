@@ -1,0 +1,11 @@
+flowchart TB
+ B[Species inventory mol] --> G[Global Gibbs solver]
+ P[Phase energies J per mol] --> G
+ H[Seasonal energy ledger] -->|T K and P Pa| G
+ G --> A[Assemblages and potentials]
+ A --> L[Signed latent exchange]
+ L --> H
+ A --> R[Grain optical model]
+ R --> I[LEISA response convolution]
+ O[PDS reflectance and geometry] --> V[Spectral likelihood]
+ I --> V

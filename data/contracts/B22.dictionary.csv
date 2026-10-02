@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+accession,string,none,Reference genome/protein/expression identity.,Release and source checksum retained.
+ortholog_group,string,none,Reviewed homolog family.,Paralog/transfer ambiguity flagged.
+alignment_mask,bool[],sites,Eligible comparative positions.,Gap/coverage exclusions recorded.
+branch_support,float[],0–1,Tree uncertainty measures.,Support type and resampling method explicit.
+expression_contrast,nullable float,declared normalized units,Published retrospective regulatory comparison.,Batch/replicate metadata retained.
+stoichiometry,sparse matrix,mol/mol,Reaction network coefficients.,Atom/charge and cofactor checks required.
+flux_bounds,float[2][],mmol/gDW/hour,Literature/scenario constraints.,Measured versus assumed bounds labeled.
+flux_interval,float[2][],mmol/gDW/hour,Feasible reaction ranges.,Solver status and unbounded flags saved.

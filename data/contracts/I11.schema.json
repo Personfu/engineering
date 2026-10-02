@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I11 HUBBLE SKYVAULT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "exposure_manifest": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "HST exposure/filter/detector/reference identity.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Include inaccessible/failed records and selection status."
+    },
+    "raw_counts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Common detector data for branches.",
+      "x-unit": "electron",
+      "x-source-type": "float64[h,w]",
+      "x-quality-rule": "Quality masks retained; missing pixels absent."
+    },
+    "variant_reference": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Dark/flat/persistence/pipeline files.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Hash and operation order/sky ledger."
+    },
+    "common_mask": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Primary object/artifact exclusions.",
+      "x-unit": "1",
+      "x-source-type": "bool[h,w]",
+      "x-quality-rule": "Hash identical across paired branches."
+    },
+    "sky_statistic": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Declared foreground estimator.",
+      "x-unit": "electron s^-1 sr^-1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Usable area and pixel-solid-angle convention."
+    },
+    "paired_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "nvariant"
+      },
+      "x-dimension": "nvariant",
+      "description": "Shared exposure/calibration/mask error.",
+      "x-unit": "brightness^2",
+      "x-source-type": "float64[nvariant,nvariant]",
+      "x-quality-rule": "Preserve cross-variant terms."
+    },
+    "context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Filter, geometry, position and epoch.",
+      "x-unit": "degree, pixel, epoch",
+      "x-source-type": "struct",
+      "x-quality-rule": "Missing context flagged before regression."
+    },
+    "calibration_difference": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Paired variant effect.",
+      "x-unit": "brightness unit",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Physical flux conversion version separate."
+    }
+  },
+  "required": [
+    "exposure_manifest",
+    "raw_counts",
+    "variant_reference",
+    "common_mask",
+    "sky_statistic",
+    "paired_covariance",
+    "context",
+    "calibration_difference"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I11",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

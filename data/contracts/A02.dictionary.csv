@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+bulk_moles,vector<float64>[3],mol,Conserved species inventory.,Nonnegative; fixed species order.
+temperature,float64,K,Surface/equilibrium state.,Positive; extrapolation flag required.
+pressure,float64,Pa,Declared environmental pressure.,Vacuum limit branch explicit.
+interaction_covariance,matrix<float64>,(J/mol)^2,Fitted excess-parameter covariance.,Symmetric positive semidefinite; unknown null.
+phase_amounts,vector<float64>,mol,Named phase solution.,Absent phase zero; solver failure null.
+reflectance,nullable<vector<float64>>,1,Instrument-band observation/prediction.,Wavelength and response version required.
+sublimation_flux,vector<float64>[3],kg m^-2 s^-1,Signed outward mass flux.,"Missing null, never substituted zero."

@@ -1,0 +1,12 @@
+flowchart TB
+ A[PDS raw DN and labels] --> B[Camera coordinate metadata adapter]
+ C[Bias dark gain flat files] --> D[Published-order detector operator]
+ B --> D
+ E[Row-transfer sequence and timing] --> F[Physical smear matrix]
+ F --> D
+ D --> G[Constrained unsmeared scene estimator]
+ H[Synthetic exact scenes] --> I[Forward inverse truth benchmark]
+ G --> I
+ G --> J[Radiance and covariance conversion]
+ K[Withheld calibration scenes] --> L[Bias feature retention comparison]
+ J --> L

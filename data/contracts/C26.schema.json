@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C26 LISA PENDULUM PATHFINDER engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Verified masses, lengths and coordinates.",
+      "x-unit": "m, kg",
+      "x-source-type": "struct",
+      "x-quality-rule": "Measured/assumed properties distinguished."
+    },
+    "drive_force": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Calibrated test excitation.",
+      "x-unit": "N",
+      "x-source-type": "measurement<float64[n]>",
+      "x-quality-rule": "Actuator transfer and range attached."
+    },
+    "displacement": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Readout of chosen mass/axis.",
+      "x-unit": "m",
+      "x-source-type": "measurement<float64[n]>",
+      "x-quality-rule": "Sensor floor, calibration and gaps retained."
+    },
+    "ground_tilt": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "components"
+      },
+      "x-dimension": "n",
+      "description": "Independent support motion.",
+      "x-unit": "m, radian",
+      "x-source-type": "float64[n,components]",
+      "x-quality-rule": "Common time base and cross-axis sign."
+    },
+    "temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Thermal state.",
+      "x-unit": "K",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Passive equilibrium applicability flagged."
+    },
+    "transfer_function": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "real": {
+            "type": "number"
+          },
+          "imag": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "real",
+          "imag"
+        ],
+        "additionalProperties": false,
+        "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+      },
+      "x-dimension": "nf",
+      "description": "Force or base-motion response.",
+      "x-unit": "m N^-1 or 1",
+      "x-source-type": "complex128[nf]",
+      "x-quality-rule": "Input/output type and coherence mandatory."
+    },
+    "noise_psd": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "nf",
+      "description": "One-sided displacement spectrum.",
+      "x-unit": "m^2 Hz^-1",
+      "x-source-type": "float64[nf]",
+      "x-quality-rule": "Window/averaging and confidence limits recorded."
+    },
+    "identified_model": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Multi-axis local dynamics.",
+      "x-unit": "kg, N s m^-1, N m^-1",
+      "x-source-type": "struct<M,C,K>",
+      "x-quality-rule": "Covariance and amplitude validity range."
+    }
+  },
+  "required": [
+    "geometry",
+    "drive_force",
+    "displacement",
+    "ground_tilt",
+    "temperature",
+    "transfer_function",
+    "noise_psd",
+    "identified_model"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C26",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

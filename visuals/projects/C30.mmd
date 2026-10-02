@@ -1,0 +1,11 @@
+flowchart TB
+A["Seed mass/birth/occupation scenarios"] --> C["Stochastic growth integrator"]
+B["Host assembly and merger delays"] --> C
+D["Duty, lambda and efficiency priors"] --> C
+C --> E["Mass and radiated-energy ledger"]
+E --> F["SED and obscuration model"]
+G["Lensing and survey selection"] --> H["Observed flux/host likelihood"]
+F --> H
+I["Independent occupation/luminosity constraints"] --> J["Seed comparison and identifiability"]
+H --> J
+J --> K["Separately labeled merger forecasts"]

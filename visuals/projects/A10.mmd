@@ -1,0 +1,12 @@
+flowchart TB
+ S[H beta spectra and metadata] --> N[Continuum and contamination masks]
+ N --> B[Fixed depth bisectors]
+ N --> C[Flux centroid diagnostic]
+ E[Barycentric epochs] --> K[Kepler orbit solver]
+ K --> W[Normalized causal wind kernel]
+ B --> L[Cycle and instrument likelihood]
+ C --> L
+ W --> L
+ P[Profile asymmetry nuisance] --> L
+ L --> H[Leave cycle out predictions]
+ H --> R[Velocity and profile residuals]

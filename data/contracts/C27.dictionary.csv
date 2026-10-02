@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+product_id,string,1,QR image and checksum identity.,Release/header-correction/calibration status mandatory.
+pixel_wavelength,"float64[h,w]",micrometer,Exposure-position wavelength mapping.,Missing/invalid map pixels excluded.
+psf_response,model<float64>,release-declared,Position/wavelength flux-to-pixel response.,Normalization and unit conversion documented.
+source_position,measurement<float64[2]>,degree ICRS,Forced-photometry prior.,Astrometric covariance retained.
+pixel_data_cov,covariance,pixel-unit^2,Image uncertainty plus calibration structure.,Masks remain missing; shared calibration modes retained.
+extracted_flux,measurement<float64[n]>,release flux unit,Response-sampled source spectrum.,Coverage mask and neighbor covariance attached.
+redshift_posterior,distribution<float64>,1,Template-conditioned redshift.,Store alternate modes and template/grid support.
+selection_surface,model<float64>,1,Recovery versus coverage/confusion/flux.,No interpolation beyond tested domain without flag.

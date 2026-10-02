@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C15 WEBB PHOTON TRUTH engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "exposure_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "MAST program/product identity.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Pin product checksum and processing level."
+    },
+    "source_sed": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "nlambda",
+      "description": "Flux spectrum at telescope.",
+      "x-unit": "W m^-2 m^-1",
+      "x-source-type": "float64[nlambda]",
+      "x-quality-rule": "Reference and uncertainty; wavelength in meters internally."
+    },
+    "collecting_area": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Area consistent with throughput convention.",
+      "x-unit": "m^2",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Do not double-count obscuration in both area and T."
+    },
+    "throughput_pixel": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "npix"
+      },
+      "x-dimension": "nlambda",
+      "description": "Registered photon/pixel probability.",
+      "x-unit": "1",
+      "x-source-type": "float64[nlambda,npix]",
+      "x-quality-rule": "Sum cannot exceed declared total registration probability."
+    },
+    "wavefront_opd": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Matched optical-path map.",
+      "x-unit": "m",
+      "x-source-type": "float64[h,w]",
+      "x-quality-rule": "Epoch and pupil coordinate registration required."
+    },
+    "ramp": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "x-dimension": "w"
+        },
+        "x-dimension": "h"
+      },
+      "x-dimension": "nread",
+      "description": "Simulated/observed accumulated charge.",
+      "x-unit": "electron",
+      "x-source-type": "float64[nread,h,w]",
+      "x-quality-rule": "Read times and saturation masks retained."
+    },
+    "metric_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "nmetric"
+      },
+      "x-dimension": "nmetric",
+      "description": "Covariance of PSF/ramp/astrometric metrics.",
+      "x-unit": "mixed declared",
+      "x-source-type": "float64[nmetric,nmetric]",
+      "x-quality-rule": "MC and observation terms separately stored."
+    },
+    "discrepancy_label": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optical, detector, calibration or resampling category.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Unknown attribution retained explicitly."
+    }
+  },
+  "required": [
+    "exposure_id",
+    "source_sed",
+    "collecting_area",
+    "throughput_pixel",
+    "wavefront_opd",
+    "ramp",
+    "metric_cov",
+    "discrepancy_label"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C15",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

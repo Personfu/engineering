@@ -1,0 +1,11 @@
+flowchart TB
+ C[Sphere regime and boundary cases] --> M[Systematic mesh sequence]
+ M --> S[New CFD solver adapter]
+ S --> T[Pressure and shear integration]
+ S --> F[Mass and momentum ledgers]
+ T --> R[Grid time domain analysis]
+ F --> R
+ E[Matched experiments and uncertainty] --> V[Physical discrepancy comparison]
+ R --> V
+ A[Stokes and manufactured fixtures] --> R
+ V --> O[Drag wake validation record]

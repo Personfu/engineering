@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B03 ORION CROSSINGS — Gila Monster Road Ecology engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "animal_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Pseudonymous individual identity.",
+      "x-unit": "none",
+      "x-source-type": "restricted string",
+      "x-quality-rule": "Never exported with precise tracks."
+    },
+    "fix_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Observation timestamp.",
+      "x-unit": "UTC",
+      "x-source-type": "datetime",
+      "x-quality-rule": "Sorted; cadence gaps explicit."
+    },
+    "position_xy": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Projected telemetry coordinate.",
+      "x-unit": "m",
+      "x-source-type": "float[2]",
+      "x-quality-rule": "CRS and covariance required."
+    },
+    "road_version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Geometry and effective-date key.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "No future road assigned."
+    },
+    "traffic_rate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Observed or scenario traffic.",
+      "x-unit": "vehicles/day",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Separate measurements from assumptions."
+    },
+    "fate_interval": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Bounds of confirmed event or censoring.",
+      "x-unit": "UTC",
+      "x-source-type": "nullable datetime[2]",
+      "x-quality-rule": "Death and transmitter loss distinct."
+    },
+    "avoided_loss": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Intervention benefit ensemble.",
+      "x-unit": "animals",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Include zero/negative outcomes and horizon."
+    }
+  },
+  "required": [
+    "animal_key",
+    "fix_time",
+    "position_xy",
+    "road_version",
+    "traffic_rate",
+    "fate_interval",
+    "avoided_loss"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

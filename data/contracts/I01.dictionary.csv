@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+scenario_label,struct,1,External phi/chemistry comparator identity.,No encoded firing/flow schedule.
+heat_flux_history,"measurement<float64[n,npatch]>",W m^-2,Externally provided boundary heat load.,Source/covariance and spatial interpolation required.
+coupon_properties,measurement<struct>,"m, kg m^-3, J kg^-1 K^-1, W m^-1 K^-1",Verified inert geometry and material.,Temperature validity range recorded.
+contact_boundary,posterior<struct>,"W m^-2 K^-1, K",Contact/environment thermal conditions.,Independent calibration or prior-dominance flag.
+temperature_observation,"float64[n,nsensor]",K,Sensor measurements/predictions.,Missing samples masked; lag response retained.
+thermal_cov,"float64[n,n]",K^2,Sensor/input/model covariance.,Common heat/load and calibration terms preserved.
+stress_strain,distribution<struct>,"Pa, 1",Conditional restrained mechanical response.,Constraint/inelastic model version explicit.
+damage_proxy,posterior<float64>|null,1,Screening cycle accumulation.,Null without applicable material-cycle evidence.

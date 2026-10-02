@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B16 ISS BIOGUARD — Retrospective Microgravity Health Evidence engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "accession": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Archived experiment/file identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Actual availability and checksums recorded."
+    },
+    "exposure_class": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "flight, analogue or matched control.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "Categories never assumed equivalent."
+    },
+    "replicate_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Independent biological sample unit.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Technical replicates linked, not independent."
+    },
+    "measurement_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "counts, array intensity or phenotype.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "Select compatible analysis branch."
+    },
+    "confounder_metadata": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Platform/strain/batch/oxygen descriptors.",
+      "x-unit": "declared",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Unknown remains null."
+    },
+    "effect_interval": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Estimate and uncertainty bounds.",
+      "x-unit": "log contrast",
+      "x-source-type": "float[3]",
+      "x-quality-rule": "Design rank and family recorded."
+    },
+    "phenotype_evidence": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Direct published susceptibility endpoint.",
+      "x-unit": "author-reported units",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "No inference from expression alone."
+    },
+    "evidence_grade": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Replicated, limited or unresolved support.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "Reasons and source links retained."
+    }
+  },
+  "required": [
+    "accession",
+    "exposure_class",
+    "replicate_key",
+    "measurement_type",
+    "confounder_metadata",
+    "effect_interval",
+    "phenotype_evidence",
+    "evidence_grade"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B16",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

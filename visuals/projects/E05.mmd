@@ -1,0 +1,13 @@
+flowchart TB
+ I[Controlled deployer ICD] --> C[Parametric 3U CAD]
+ L[Provider loads factors allowables] --> F[Static modal FE branch]
+ C --> F
+ C --> S[Beam plate surrogate]
+ J[Joint and mass uncertainty] --> F
+ F --> M[Stress mode margin ledger]
+ S --> V[Independent model comparison]
+ M --> V
+ C --> A[Protected access clearance check]
+ T[Thermal manufacturing tolerances] --> A
+ V --> P[Candidate trade and pending gates]
+ A --> P

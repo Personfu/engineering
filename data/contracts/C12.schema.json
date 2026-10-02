@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C12 HUBBLE COSMIC GLOW engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "visit_filter": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Exposure group and filter identity.",
+      "x-unit": "1",
+      "x-source-type": "string[2]",
+      "x-quality-rule": "Versioned product IDs and sky history required."
+    },
+    "sky_rate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Measured object-free sky estimator.",
+      "x-unit": "electron s^-1 pixel^-1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Retain estimator quality and usable area."
+    },
+    "solid_angle": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Pixel area for intensity conversion.",
+      "x-unit": "sr pixel^-1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Distortion-dependent area convention recorded."
+    },
+    "solar_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Solar elongation and ecliptic coordinates.",
+      "x-unit": "degree",
+      "x-source-type": "struct<float64>",
+      "x-quality-rule": "Computed at exposure epoch."
+    },
+    "dust_proxy": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Galactic dust-column tracer.",
+      "x-unit": "map-documented",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Map version and beam recorded."
+    },
+    "calibration_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Visit/filter systematic covariance.",
+      "x-unit": "mixed intensity^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Positive semidefinite; shared modes retained."
+    },
+    "component_intensity": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "x-dimension": "components"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Foreground/instrument decomposition.",
+      "x-unit": "MJy sr^-1",
+      "x-source-type": "posterior<float64[components]>",
+      "x-quality-rule": "All terms share bandpass convention."
+    },
+    "diffuse_residual": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Conditional residual or bound.",
+      "x-unit": "MJy sr^-1",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "May be negative under noise/model; no forced detection."
+    }
+  },
+  "required": [
+    "visit_filter",
+    "sky_rate",
+    "solid_angle",
+    "solar_geometry",
+    "dust_proxy",
+    "calibration_cov",
+    "component_intensity",
+    "diffuse_residual"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C12",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

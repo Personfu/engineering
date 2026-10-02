@@ -1,0 +1,12 @@
+flowchart TB
+ S[Line and replicate registry] --> M[Input recovery ledger]
+ F[Fraction mass and limits] --> M
+ M --> Z[Zero and censoring model]
+ Z --> L[Log ratio coordinates]
+ C[Genomic counts and offsets] --> N[Negative binomial model]
+ V[Genome build and copy number] --> N
+ S --> R[Design rank audit]
+ L --> X[Fraction status interaction]
+ N --> X
+ R --> X
+ X --> H[Independent line pair holdout]

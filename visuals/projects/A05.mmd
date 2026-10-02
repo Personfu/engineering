@@ -1,0 +1,12 @@
+flowchart TB
+ G[Cilium and channel geometry] --> B[Beam mechanics]
+ U[Velocity and viscosity] --> H[Wall aware drag]
+ H --> B
+ M[Magnetic drive force] --> B
+ B --> E[Strain to voltage readout]
+ T[Temperature nuisance] --> E
+ E --> F[Amplitude and phase library]
+ C[Joint channel covariance] --> I[U and viscosity inverse]
+ F --> I
+ I --> V[Rank and validity gate]
+ V --> O[Estimate and covariance]

@@ -1,0 +1,10 @@
+flowchart TB
+A["Sky-preserving HST exposures"] --> B["Artifact screening and masks"]
+B --> C["Band intensity conversion"]
+D["Solar geometry and dust maps"] --> E["Zodiacal/Galactic foreground models"]
+F["Shared calibration and detector state"] --> G["Joint visit/filter likelihood"]
+C --> G
+E --> G
+H["Masked/unresolved galaxy-light ledger"] --> G
+G --> I["Foreground-family residual bounds"]
+I --> J["Held-out geometry prediction"]

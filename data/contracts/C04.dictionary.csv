@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+epoch_obs,float64,MJD with scale,Exposure time or interval.,Time scale required before rest-frame conversion.
+redshift,"struct<float64,error>",1,Host or transient redshift.,Reference and uncertainty mandatory.
+flux_obs,float64|null,erg s^-1 cm^-2 Hz^-1,Measured spectral flux with band identity.,"A limit is a separate censoring record, never zero flux."
+response,versioned array,documented,Filter throughput or count response.,Normalize with the declared count/flux convention.
+host_cov,"float64[n,n]",flux^2,Shared host-subtraction covariance.,Keep cross-epoch covariance.
+temperature,posterior<float64>,K,Thermal-model temperature.,Flag Rayleigh-Jeans-only unidentifiability.
+mass_bh,posterior<float64>,solar mass,Model-conditioned black-hole mass.,Record stellar and efficiency prior versions.

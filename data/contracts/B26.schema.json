@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B26 HELIOS POWERLOOP — Solar Electrolysis Dispatch engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "solar_resource": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "NSRDB forcing and time convention.",
+      "x-unit": "W/m² °C m/s",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Cadence/version/coverage retained."
+    },
+    "pv_available": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Scenario AC PV power.",
+      "x-unit": "kW",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Loss-model provenance required."
+    },
+    "load_demand": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Fixed service requirement.",
+      "x-unit": "kW",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Measured versus synthetic label explicit."
+    },
+    "electrolyzer_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Supported simulator stack state.",
+      "x-unit": "kW A enum",
+      "x-source-type": "record",
+      "x-quality-rule": "Vendor/literature bounds linked."
+    },
+    "battery_energy": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Stored-energy trajectory.",
+      "x-unit": "kWh",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Capacity/efficiency covariance saved."
+    },
+    "forecast_issue_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Rolling prediction availability.",
+      "x-unit": "UTC",
+      "x-source-type": "datetime",
+      "x-quality-rule": "No future forcing in replay."
+    },
+    "hydrogen_mass": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Integrated Faradaic/system production.",
+      "x-unit": "kg",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Cell convention and auxiliaries retained."
+    },
+    "resource_cost": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Cost/water/carbon scenario totals.",
+      "x-unit": "USD L kgCO2e",
+      "x-source-type": "record",
+      "x-quality-rule": "Boundary, price year and uncertainty explicit."
+    }
+  },
+  "required": [
+    "solar_resource",
+    "pv_available",
+    "load_demand",
+    "electrolyzer_state",
+    "battery_energy",
+    "forecast_issue_time",
+    "hydrogen_mass",
+    "resource_cost"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B26",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

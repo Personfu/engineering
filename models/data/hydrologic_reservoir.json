@@ -1,0 +1,25 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "k_day_inverse": 0.12,
+    "dt_day": 0.25,
+    "initial_storage_mm": 20.0
+  },
+  "schema": {
+    "time_day": "day",
+    "storage_mm": "mm",
+    "outflow_mm_day": "mm/day",
+    "cumulative_outflow_mm": "mm",
+    "cumulative_recharge_mm": "mm",
+    "mass_balance_residual_mm": "mm",
+    "next_bin_recharge_mm_day": "mm/day; final NaN"
+  },
+  "assumptions_and_limits": [
+    "Recharge is effective water entering storage, not rainfall; ET and interception are omitted.",
+    "One linear reservoir is a pedagogical baseline, not calibrated flood decision support."
+  ],
+  "metrics": {
+    "maximum_mass_balance_residual_mm": 4.263256414560601e-14
+  }
+}

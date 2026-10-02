@@ -1,0 +1,13 @@
+flowchart TB
+ H[Hex graph and target] --> N[Neighbor port model]
+ S[Activation scheduler] --> P[Finite state particles]
+ N --> P
+ Y[Correlated sensor symbols] --> P
+ P --> M[Bounded message channels]
+ M --> P
+ P --> D[Declaration records]
+ N --> G[Connectivity monitor]
+ P --> O[Full provenance oracle]
+ O --> C[Detection audit]
+ D --> C
+ G --> C

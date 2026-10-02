@@ -1,0 +1,31 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "normalized_mu": 1,
+    "normalized_semimajor_axis": 1,
+    "eccentricity": 0.3,
+    "period_normalized_time": 6.283185307179586,
+    "duration_periods": 10
+  },
+  "schema": {
+    "time_normalized": "sqrt(a_ref^3 / mu_ref)",
+    "x": "a_ref",
+    "y": "a_ref",
+    "vx": "sqrt(mu_ref/a_ref)",
+    "vy": "sqrt(mu_ref/a_ref)",
+    "specific_energy": "mu_ref/a_ref",
+    "specific_angular_momentum": "sqrt(mu_ref*a_ref)"
+  },
+  "assumptions_and_limits": [
+    "Point-mass two-body gravity in normalized units; no maneuvers, atmospheric drag or third bodies.",
+    "Demonstrates numerical conservation, not an operational trajectory or planetary-defense solution."
+  ],
+  "metrics": {
+    "energy_error_by_steps_per_period": {
+      "100": 0.0021548804974276256,
+      "200": 0.0005371027460293611,
+      "400": 0.0001341747103803526
+    }
+  }
+}

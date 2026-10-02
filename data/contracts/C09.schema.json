@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C09 EAGLESAT COSMIC PIXEL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "frame_adc": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Raw sensor values.",
+      "x-unit": "ADC unit",
+      "x-source-type": "uint16[h,w]",
+      "x-quality-rule": "Preserve saturation codes and shutter metadata."
+    },
+    "temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Sensor thermal state.",
+      "x-unit": "K",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Missing temperature blocks domain-specific energy claims."
+    },
+    "gain_map": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "w"
+      },
+      "x-dimension": "h",
+      "description": "Electronic conversion by pixel/region.",
+      "x-unit": "electron ADC^-1",
+      "x-source-type": "float64[h,w]",
+      "x-quality-rule": "Versioned; nonlinearity envelope required."
+    },
+    "cluster_charge": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Calibrated charge within event pixels.",
+      "x-unit": "electron",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Negative noise values retained before thresholding."
+    },
+    "charge_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Bias/gain/readout covariance.",
+      "x-unit": "electron^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Shared bias/gain terms retained."
+    },
+    "deposited_energy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Charge-conditioned silicon energy loss.",
+      "x-unit": "keV",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Saturation yields lower-bound state."
+    },
+    "incident_energy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Transport-conditioned incoming energy.",
+      "x-unit": "MeV",
+      "x-source-type": "posterior<float64>|null",
+      "x-quality-rule": "Null or bound outside validated response domain."
+    },
+    "response_domain": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Validated conditions for response matrix.",
+      "x-unit": "species, degree, K",
+      "x-source-type": "struct",
+      "x-quality-rule": "Explicit extrapolation flag mandatory."
+    }
+  },
+  "required": [
+    "frame_adc",
+    "temperature",
+    "gain_map",
+    "cluster_charge",
+    "charge_cov",
+    "deposited_energy",
+    "incident_energy",
+    "response_domain"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C09",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

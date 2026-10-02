@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B04 AURORA VEIL — Ionospheric Absorption Atlas engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "ground, spacecraft or unresolved.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "No spacecraft claim from title."
+    },
+    "power_raw": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measured receiver power.",
+      "x-unit": "W or relative",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Positive; retain saturation/RFI flags."
+    },
+    "frequency": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Verified receiver channel.",
+      "x-unit": "Hz",
+      "x-source-type": "float",
+      "x-quality-rule": "Positive; bandwidth recorded."
+    },
+    "sidereal_phase": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Site-relative cosmic-noise phase.",
+      "x-unit": "rad",
+      "x-source-type": "float",
+      "x-quality-rule": "Derived from site and UTC convention."
+    },
+    "quiet_power": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Estimated undisturbed baseline.",
+      "x-unit": "same as power",
+      "x-source-type": "float",
+      "x-quality-rule": "Covariance and excluded days retained."
+    },
+    "path_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Antenna/ray weighting definition.",
+      "x-unit": "m rad",
+      "x-source-type": "structured record",
+      "x-quality-rule": "Null blocks link inference."
+    },
+    "absorption": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Power-ratio absorption estimate.",
+      "x-unit": "dB",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Carry baseline covariance and quality mask."
+    }
+  },
+  "required": [
+    "platform",
+    "power_raw",
+    "frequency",
+    "sidereal_phase",
+    "quiet_power",
+    "path_geometry",
+    "absorption"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

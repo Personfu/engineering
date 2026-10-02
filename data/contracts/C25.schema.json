@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C25 ORION BURST SENTINEL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "noise_interval": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Quality-qualified released strain interval.",
+      "x-unit": "s",
+      "x-source-type": "struct<GPS,mask>",
+      "x-quality-rule": "Training/validation/test role immutable."
+    },
+    "whitened_tiles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "real": {
+                "type": "number"
+              },
+              "imag": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "real",
+              "imag"
+            ],
+            "additionalProperties": false,
+            "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+          },
+          "x-dimension": "k"
+        },
+        "x-dimension": "nf"
+      },
+      "x-dimension": "nt",
+      "description": "Network time-frequency coefficients.",
+      "x-unit": "declared normalized",
+      "x-source-type": "complex128[nt,nf,k]",
+      "x-quality-rule": "PSD/window conventions and gap masks required."
+    },
+    "trial_response": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "x-dimension": "k",
+      "description": "Whitened sky/polarization response.",
+      "x-unit": "1",
+      "x-source-type": "float64[k,2]",
+      "x-quality-rule": "Condition number and network rank recorded."
+    },
+    "ranking_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Frozen baseline/ML search statistic.",
+      "x-unit": "1 or declared",
+      "x-source-type": "float64",
+      "x-quality-rule": "Threshold/model version attached."
+    },
+    "background_exposure": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Effective valid background time.",
+      "x-unit": "s",
+      "x-source-type": "float64",
+      "x-quality-rule": "Shift dependence and exclusions documented."
+    },
+    "injection_truth": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Waveform, sky, orientation and event time.",
+      "x-unit": "kpc, degree, s",
+      "x-source-type": "struct",
+      "x-quality-rule": "Physical-family split key required."
+    },
+    "efficiency": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Detected fraction by distance/family/network.",
+      "x-unit": "1",
+      "x-source-type": "struct<float64,interval>",
+      "x-quality-rule": "N/k and grouped uncertainty retained."
+    },
+    "trigger_window": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Independent multimessenger search interval.",
+      "x-unit": "GPS s",
+      "x-source-type": "struct|null",
+      "x-quality-rule": "Null gives untriggered search; association provenance mandatory."
+    }
+  },
+  "required": [
+    "noise_interval",
+    "whitened_tiles",
+    "trial_response",
+    "ranking_score",
+    "background_exposure",
+    "injection_truth",
+    "efficiency",
+    "trigger_window"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C25",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

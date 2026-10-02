@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C22 HUBBLE GALACTIC EXHALE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "galaxy_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "IFU target and survey selection identity.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Duplicate observations grouped."
+    },
+    "spectral_cube": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "x-dimension": "w"
+        },
+        "x-dimension": "h"
+      },
+      "x-dimension": "l",
+      "description": "Observed spatial spectra.",
+      "x-unit": "documented flux",
+      "x-source-type": "float64[l,h,w]",
+      "x-quality-rule": "Masks/LSF/PSF attached; missing spaxels not interpolated as data."
+    },
+    "cube_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Spectral and resampling uncertainty.",
+      "x-unit": "flux^2",
+      "x-source-type": "covariance",
+      "x-quality-rule": "Shared continuum and spatial covariance retained."
+    },
+    "environment": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Declared density or group estimator.",
+      "x-unit": "neighbor Mpc^-2",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Edge/redshift completeness flags required."
+    },
+    "host_covariates": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Mass/SFR/inclination/activity.",
+      "x-unit": "solar mass, solar mass yr^-1, degree",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Joint covariance and source method retained."
+    },
+    "wind_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Component evidence after competing models.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Bounded zero to one; not a secure physical label."
+    },
+    "velocity_proxy": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Declared projected outflow diagnostic.",
+      "x-unit": "km s^-1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Unresolved/censored states retained."
+    },
+    "mass_loading": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Conditional ionized-rate/SFR ratio.",
+      "x-unit": "1",
+      "x-source-type": "posterior<float64>|null",
+      "x-quality-rule": "Null when necessary geometry/density inputs unavailable."
+    }
+  },
+  "required": [
+    "galaxy_id",
+    "spectral_cube",
+    "cube_cov",
+    "environment",
+    "host_covariates",
+    "wind_probability",
+    "velocity_proxy",
+    "mass_loading"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C22",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

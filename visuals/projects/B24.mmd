@@ -1,0 +1,12 @@
+flowchart TB
+ A[Restricted snake fixes UTC covariance] --> B[Cadence transmitter QC]
+ C[Dated land-cover and roads] --> D[Temporal multi-scale GIS extraction]
+ B --> D
+ B --> E[Matched available-step generator]
+ D --> F[Conditional cover selection]
+ E --> F
+ B --> G[Autocorrelation-aware utilization model]
+ G --> H[Separate core and range areas]
+ F --> I[Individual/date holdout evidence]
+ H --> I
+ I --> J[Refuge-suppressed public product]

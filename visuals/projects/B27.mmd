@@ -1,0 +1,12 @@
+flowchart TB
+ A[Boat GPS and energy logs] --> B[Clock position alignment]
+ C[Sensor streams and depth] --> B
+ D[Calibration and response records] --> E[Drift lag forward model]
+ B --> E
+ E --> F[Response-aware spatial estimator]
+ G[Independent samples and profiles] --> H[Transect depth holdout checks]
+ F --> H
+ I[Geofence return energy limits] --> J[Fixed versus adaptive survey simulator]
+ F --> J
+ H --> K[Depth-time supported water maps]
+ J --> K

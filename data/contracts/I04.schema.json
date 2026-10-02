@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I04 ORION SENTINEL CORE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "task_spec": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "C,blocking,period,deadline and priority.",
+      "x-unit": "s",
+      "x-source-type": "struct",
+      "x-quality-rule": "Measured/bounded status; task blocking not buffer bytes."
+    },
+    "task_trace": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Release/start/end and missed deadlines.",
+      "x-unit": "s",
+      "x-source-type": "table",
+      "x-quality-rule": "Monotonic clock/reset generation recorded."
+    },
+    "science_record": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Authoritative sample payload and checksum.",
+      "x-unit": "bytes, sequence",
+      "x-source-type": "struct",
+      "x-quality-rule": "Unique source ID; missing sample explicitly marked."
+    },
+    "buffer_state": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Committed plus queued occupancy.",
+      "x-unit": "byte",
+      "x-source-type": "uint64",
+      "x-quality-rule": "Capacity/loss counters; no silent wrap."
+    },
+    "fault_event": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Lane/voter/clock/memory/power emulator event.",
+      "x-unit": "1, s",
+      "x-source-type": "enum+time",
+      "x-quality-rule": "Fault scope and independence assumption explicit."
+    },
+    "operational_state": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Boot/science/safe/recovery state.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Transition cause and valid-service flag."
+    },
+    "timing_uncertainty": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Clock/WCET/jitter uncertainty.",
+      "x-unit": "s",
+      "x-source-type": "distribution<struct>",
+      "x-quality-rule": "Retain shared-clock correlations."
+    },
+    "availability_recovery": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Science fraction and recovery latency.",
+      "x-unit": "1, s",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Exclude invalid records from useful service."
+    }
+  },
+  "required": [
+    "task_spec",
+    "task_trace",
+    "science_record",
+    "buffer_state",
+    "fault_event",
+    "operational_state",
+    "timing_uncertainty",
+    "availability_recovery"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

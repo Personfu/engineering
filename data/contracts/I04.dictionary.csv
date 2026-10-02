@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+task_spec,struct,s,"C,blocking,period,deadline and priority.",Measured/bounded status; task blocking not buffer bytes.
+task_trace,table,s,Release/start/end and missed deadlines.,Monotonic clock/reset generation recorded.
+science_record,struct,"bytes, sequence",Authoritative sample payload and checksum.,Unique source ID; missing sample explicitly marked.
+buffer_state,uint64,byte,Committed plus queued occupancy.,Capacity/loss counters; no silent wrap.
+fault_event,enum+time,"1, s",Lane/voter/clock/memory/power emulator event.,Fault scope and independence assumption explicit.
+operational_state,enum,1,Boot/science/safe/recovery state.,Transition cause and valid-service flag.
+timing_uncertainty,distribution<struct>,s,Clock/WCET/jitter uncertainty.,Retain shared-clock correlations.
+availability_recovery,measurement<struct>,"1, s",Science fraction and recovery latency.,Exclude invalid records from useful service.

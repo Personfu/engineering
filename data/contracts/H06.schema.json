@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H06 MARS ODYSSEY RIDGEWORK engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "terrain_product": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "DTM/MOLA product identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Resolution/datum/coverage retained."
+    },
+    "centerline_s": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Along-strike ridge coordinate.",
+      "x-unit": "m",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Local tangent and segment IDs saved."
+    },
+    "profile_xz": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Cross-ridge distance/elevation.",
+      "x-unit": "m",
+      "x-source-type": "float[][2]",
+      "x-quality-rule": "Normal orientation and spacing recorded."
+    },
+    "background_surface": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Regional detrending ensemble.",
+      "x-unit": "m",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Not treated as exact terrain."
+    },
+    "morphometrics": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Height/width/asymmetry/crest separation.",
+      "x-unit": "m and dimensionless",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Joint measurement covariance retained."
+    },
+    "fault_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Family-specific dip/depth/slip scenarios.",
+      "x-unit": "degrees m",
+      "x-source-type": "record",
+      "x-quality-rule": "Units/bounds and source rationale required."
+    },
+    "profile_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Correlated terrain/background error.",
+      "x-unit": "m²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Along-strike/shared datum terms included."
+    },
+    "family_probability": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Model posterior weights.",
+      "x-unit": "0–1",
+      "x-source-type": "float vector",
+      "x-quality-rule": "p(M) and prior sensitivity saved."
+    }
+  },
+  "required": [
+    "terrain_product",
+    "centerline_s",
+    "profile_xz",
+    "background_surface",
+    "morphometrics",
+    "fault_parameters",
+    "profile_covariance",
+    "family_probability"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

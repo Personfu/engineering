@@ -1,0 +1,11 @@
+flowchart TB
+ A[NPN repeated status visits] --> B[Onset and duration censor bounds]
+ C[Daily site weather] --> D[GDD and moisture covariates]
+ B --> E[Species timing model]
+ D --> E
+ E --> F[Joint weekly bloom probabilities]
+ G[Resource and establishment assumptions] --> H[Realized floral matrix]
+ F --> H
+ I[Area water cost limits] --> J[Mixture optimizer]
+ H --> J
+ J --> K[Weekly shortfall and applicability report]

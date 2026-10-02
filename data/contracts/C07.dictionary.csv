@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+time,float64[n],s,Simulation times relative to a declared origin.,Strictly increasing; gaps are not interpolated silently.
+polarization,"float64[n,2]",strain,h_plus and h_cross at reference distance.,Offset convention and modeled memory terms required.
+endpoint_slope,measurement<float64[2]>,s^-1,Tail initial strain rate.,Derivative method and covariance recorded.
+tail_timescale,posterior<float64>,s,Continuation timescale.,Positive; physically unsupported ranges flagged.
+memory_offset,posterior<float64[2]>,strain,Asymptotic minus initial strain.,Physical offset retained independently of FFT window.
+transfer_function,complex128[nf],1,Selected detector response/filter.,Frequency range and phase convention required.
+spectral_cov,complex covariance,strain^2 s^2,Continuation spectral uncertainty.,Keep cross-frequency correlation from shared tail parameters.

@@ -1,0 +1,10 @@
+flowchart TB
+A["Raw ADC frames and temperature"] --> B["Dark/gain/nonlinearity calibration"]
+B --> C["Cluster charge and covariance"]
+D["Silicon geometry and stopping powers"] --> E["Particle transport loss"]
+E --> F["Diffusion and charge-collection response"]
+C --> G["Deposited-energy likelihood"]
+F --> G
+G --> H["Conditional incident-energy inversion"]
+I["Species/angle validation domain"] --> H
+A --> J["Compression replay and recovery"]

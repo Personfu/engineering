@@ -1,0 +1,11 @@
+flowchart TB
+ T[Tunnel inflow and model] --> F[Force balance and pressure]
+ J[Pulse mass flow and velocity] --> M[Mean jet momentum]
+ P[Supply and auxiliary power] --> E[Net power ledger]
+ F --> S[Separation diagnostics]
+ F --> R[Blocked coefficient model]
+ M --> R
+ S --> C[Delay aware attachment controller]
+ C --> J
+ R --> E
+ E --> V[Matched condition benefit gate]

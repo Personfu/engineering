@@ -1,0 +1,12 @@
+flowchart TB
+A["Epoch/variant calibration products"] --> B["Spline or GP coefficient prior"]
+B --> C["Smooth amplitude/phase transfer"]
+D["CCSN network waveform"] --> E["Calibrated signal injection"]
+C --> E
+F["Released noise, PSD and band"] --> E
+E --> G["Ignored-calibration inference"]
+E --> H["Marginalized-calibration inference"]
+G --> I["Paired bias/coverage/mismatch"]
+H --> I
+B --> J["Correlation-length sensitivity"]
+J --> I

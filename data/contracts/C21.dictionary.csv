@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+epoch,int64/float64,CDF-declared time,Sample time with leap/time metadata.,Monotonic; adapter performs documented conversion.
+magnetic_rtn,"float64[n,3]",nT,Field in radial-tangential-normal coordinates.,Coordinate definition and quality flags required.
+plasma_velocity,"float64[m,3]|null",km s^-1,Compatible plasma moments.,Missing cadence remains separate; no forward-fill across gaps.
+mass_density,measurement<float64>|null,kg m^-3,Density for Alfvén-speed calculation.,Composition approximation and positive support.
+reference_field,"float64[n,3]",nT,Robust local background.,Window/configuration and excluded events recorded.
+event_interval,"struct<time,time>",s,Start/end of detected interval.,Gap boundaries split events.
+alfvenicity,measurement<float64>|null,1,Declared velocity/field relation metric.,Null for inadequate plasma overlap.
+exposure_mask,bool[n],1,Usable time for each classification.,Cadence-weighted interval duration; gaps excluded.

@@ -1,0 +1,12 @@
+flowchart TB
+ A[Ship-calibrated float chemistry] --> B[Carbonate covariance solver]
+ B --> C[Water pCO2 and K0]
+ D[Matched winds m/s] --> E[Transfer-law ensemble k]
+ C --> F[Signed air-sea flux]
+ E --> F
+ G[Mixed-layer depth and ice support] --> H[Carbon inventory and coverage ledger]
+ F --> H
+ F --> I[Storm counterfactual decomposition]
+ H --> J[Supported regional integration]
+ I --> K[Event and annual-budget limits]
+ J --> K

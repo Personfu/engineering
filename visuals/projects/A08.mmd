@@ -1,0 +1,13 @@
+flowchart TB
+ A[Retrieved input field sqrt W] --> L[Linear spectral propagator]
+ D[Dispersion and mirror phase] --> L
+ L --> K[Kerr time phase step]
+ G[Pass geometry and n2] --> K
+ K --> P[Per pass loss and loop]
+ P --> L
+ P --> C[Compressor spectral phase]
+ C --> E[Fixed main window energy]
+ C --> R[Phase sensitive retrieval comparison]
+ E --> O[Robust multiobjective trade]
+ R --> O
+ F[Supplied optic constraints] --> O

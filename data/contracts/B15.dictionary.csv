@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+scenario_key,string,none,Boundary/rheology ensemble identity.,Hash complete configuration.
+convergence_velocity,float[],m/s,Prescribed plate history.,Ma-to-second conversion explicit.
+viscosity,float field,Pa s,Temperature/pressure/strain dependent rheology.,Positive; cutoff provenance retained.
+temperature,float field,K,Thermal model state.,Boundary and initial condition keys required.
+density_anomaly,float field,kg/m³,Buoyancy relative to reference.,Reference density and composition law explicit.
+slab_metrics,float vector,degrees km,Dip and flattening/arc descriptors.,Extraction method/version retained.
+geology_covariance,matrix,mixed,Joint observation-group uncertainty.,Age/spatial correlations documented.
+run_status,enum,none,"converged, failed or unsupported.",Failed runs never silently discarded.

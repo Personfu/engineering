@@ -1,0 +1,12 @@
+flowchart TB
+ I[IMU rates and biases] --> Q[Nominal quaternion propagation]
+ Q --> E[Small angle bias covariance]
+ G[External aiding covariance] --> E
+ E --> A[Qualified attitude and location]
+ T[Echo path delay and quality] --> C[Acoustic speed gate]
+ P[Temperature pressure context] --> C
+ R[Calibrated radiation or count ledger] --> B[Approved endpoint comparison]
+ H[Handling thermal controls] --> B
+ S[Common clock frame registry] --> A
+ S --> C
+ S --> B

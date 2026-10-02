@@ -1,0 +1,102 @@
+{
+  "verified_utc": "2026-10-02T09:05:20.037968+00:00",
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "numerical_tests": {
+    "run": 22,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "synthetic_files": {
+    "checked_count": 36,
+    "identical_regeneration_sha256": true,
+    "seed": 20261002,
+    "hashes": {
+      "data/balloon_thermal.csv": "e590de3982977a790b462b0c574f7981ffeb0874699a937d1e1fa1ceb218e74a",
+      "data/balloon_thermal.json": "c2f7f70862427683622fbe535512c1f1ebac3857705884618cf45363be550ceb",
+      "data/hydrologic_reservoir.csv": "54ee19e9ea1a31e587b4479d9ef0581e536fce6d5c0a3441600afae0895043a9",
+      "data/hydrologic_reservoir.json": "f816c09d8618628305c7706fefa622ee46b71feb33854f883b5b5a4062299efd",
+      "data/ideal_binary_liquidus.csv": "43d76659b57496967f931a3389bf397d08f4dc0a1bf36ec2a30cddd4b4756689",
+      "data/ideal_binary_liquidus.json": "a51990bc2444224d69bc624c61fbf4103e0b62a89f9eaacf8e07f97c1c72bfdb",
+      "data/julia.csv": "5250e2479adade7c9fea89fb10f4ae9e2d31d7ff17a4c07b1a7b802eea5f62eb",
+      "data/julia.json": "189c70ca7c5c60dd9a0de886dd2ed278c056426fa1811ac85b22284cb8470141",
+      "data/mandelbrot.csv": "7555e947d17fe0bc3da2a376aae385e2ebcc8f2f5c2e1590e57c12185cbede4e",
+      "data/mandelbrot.json": "77f7c9ad3260fa3f3b126a0e6cdd9d9ece35afb19de4c1ec0a7841ec4aefd302",
+      "data/one_axis_attitude.csv": "7f8c1498b3d766337c7ddf20e8d12860d99f1c33a3e5259096ec935713a93a0d",
+      "data/one_axis_attitude.json": "ec7993516b1d122c8b7eeb9bef1a9de8585cd751d7beed5e921c5f66225d1167",
+      "data/spectral_mixture.csv": "af89ffdc0661479ca0f7dbf4561ef10abe46f5ffa06f3f2794f8093db37af5d7",
+      "data/spectral_mixture.json": "8d6313caf756c59a21c76fb19a828acdc03b2a0754d4cb001cb3634ee54447dd",
+      "data/spectral_monte_carlo.csv": "b8e4ed10b7fa6201e7081cd1557ea5cbb44b6f7109ca237de4c3452c215ba4f3",
+      "data/sphere_drag.csv": "e8b262fd7d3b4c37cb39fd2cf67ec5231ed6ce7e8e0b49a1e306b35f3431de2d",
+      "data/sphere_drag.json": "adc28070268dabff5fd5a3051521bc12a323bc460398c28867802a597ef48f1c",
+      "data/two_body_convergence.csv": "91b4d6524ce07e6590807af8f16b793347351240c7475793f630ade259294434",
+      "data/two_body_orbit.csv": "26346ffc7b03f09342a18bb0cdc83d5e31ace0b18e364b79b912455a6712098f",
+      "data/two_body_orbit.json": "d5c5abddf0a548196da2e150ed37b2f5a5582af51709474314372ef7252abf67",
+      "figures/01_fractal_escape_distance.png": "6594613b70c523cc954d282bfa81b95109a9e0f18299b21c2e4e370ed057099b",
+      "figures/01_fractal_escape_distance.svg": "dff51d1bfb54ecc6f5309660af01533619150da162db0fc8d1434c813545461e",
+      "figures/02_ideal_binary_liquidus.png": "a455fe25af1983b361c8c2ad5fba9dcad69230b04badbaa6fd6bb032745095bc",
+      "figures/02_ideal_binary_liquidus.svg": "d7e4ebee544bd51bd04ca7bb53dfc008d8433adcd7c410be4b4c0041571660da",
+      "figures/03_balloon_thermal.png": "946373c206ddf8f26ec267bdf94f12343f9245b13d6e9b42301778baee38cd3f",
+      "figures/03_balloon_thermal.svg": "996d0fe01f38563a613de6a49d6cc44f8772c24c24c0ab7b2630ad2244469125",
+      "figures/04_sphere_drag.png": "938496f6f9dc6db1d6b4d0db10ef3d7fd97a3662a8cf8590d851ce688822d544",
+      "figures/04_sphere_drag.svg": "d7d27f9203f48cf840f72a41f92cbc7e3bb78f8acbc00422dd2451515c44859c",
+      "figures/05_hydrologic_reservoir.png": "9e6e809e0cafadcd9ef163e28cdfe33f9c96d17a9fb25623dddfc148ac3ec2b3",
+      "figures/05_hydrologic_reservoir.svg": "b845ad9219d677730eff05b6d64147d0dace88ce17de4ec7d5c859c619fa6970",
+      "figures/06_one_axis_attitude.png": "27e922e473b22217732b0b356fb819039d27988709792324c62e70e97c33db8c",
+      "figures/06_one_axis_attitude.svg": "f7ca03d41f923f48b645ec2e72ca2abb1b3db13ef37298a58ea340f668ffd22d",
+      "figures/07_two_body_convergence.png": "00be74ede65097bb81b366533660e20de7b33bb8b24e561cbe5b02b7846811a9",
+      "figures/07_two_body_convergence.svg": "9c9e507c5880738b9a6da6bfa344586cdbba3afa6542a3b4d2619cfaea572945",
+      "figures/08_spectral_identifiability.png": "a3760e57dfcb3a67f3998d93da5de66f820a123e9ef57b9c3df107d0150546cf",
+      "figures/08_spectral_identifiability.svg": "2c9d23fb93591129262d6c467560c4eb8047b8048a01b4d45439105476d691a1"
+    }
+  },
+  "assets": {
+    "svg": 9,
+    "png": 9,
+    "csv": 12,
+    "manifest_integrity": true
+  },
+  "real_catalog": {
+    "rows": 200,
+    "sha256_matches_provenance": true,
+    "positive_periods_and_radii": true,
+    "missing_stellar_metallicity_rows": 9,
+    "discovery_methods": [
+      "Astrometry",
+      "Pulsar Timing",
+      "Radial Velocity",
+      "Transit",
+      "Transit Timing Variations"
+    ]
+  },
+  "numerical_metrics": {
+    "ideal_binary_liquidus": {
+      "eutectic_x_B": 0.5622777770899248,
+      "eutectic_T_K": 42.54337489282418
+    },
+    "hydrologic_reservoir": {
+      "maximum_mass_balance_residual_mm": 4.263256414560601e-14
+    },
+    "two_body_orbit": {
+      "energy_error_by_steps_per_period": {
+        "100": 0.0021548804974276256,
+        "200": 0.0005371027460293611,
+        "400": 0.0001341747103803526
+      }
+    },
+    "spectral_mixture": {
+      "f_hat": 0.6603240459110983,
+      "analytic_sigma_f": 0.00877244565258825,
+      "weak_f_hat": -9.038880326840081,
+      "weak_analytic_sigma_f": 8.772445652587987,
+      "monte_carlo_sigma_f": 0.008615400665835594,
+      "weak_monte_carlo_sigma_f": 8.615400665835432
+    }
+  },
+  "scope": "Mathematical reduced-model checks and file integrity; no empirical validation or mission qualification."
+}

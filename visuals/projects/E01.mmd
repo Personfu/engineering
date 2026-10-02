@@ -1,0 +1,12 @@
+flowchart TB
+ C[Common clock and flight phase] --> U[Calibrated UV and thermal ledger]
+ U --> D[Finite site damage likelihood]
+ A[Supplied noninfectious endpoint and controls] --> D
+ C --> V[Encoded video frame queue]
+ L[Replayed channel service loss] --> V
+ V --> R[Delivered useful frame scoring]
+ P[Solar load battery ledger] --> S[Cadence bitrate scheduler]
+ S --> V
+ D --> O[Exposure evidence report]
+ R --> O
+ P --> O

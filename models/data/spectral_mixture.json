@@ -1,0 +1,32 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "true_A_fraction": 0.65,
+    "noise_sigma": 0.008,
+    "monte_carlo_runs": 2000
+  },
+  "schema": {
+    "wavelength_um": "\u00b5m",
+    "endmember_A": "reflectance",
+    "endmember_B": "reflectance",
+    "weak_B": "reflectance",
+    "observed": "reflectance",
+    "weak_observed": "reflectance",
+    "fit": "reflectance"
+  },
+  "assumptions_and_limits": [
+    "Invented Gaussian absorption bands; no measured mineral library or Mars observations.",
+    "Linear areal mixture, independent known-variance Gaussian errors, exactly known endmembers.",
+    "Near-collinear endmembers produce unphysical unconstrained weights; adding priors does not add new information.",
+    "Real intimate mixtures, scattering, grain size and correlated calibration need a richer model."
+  ],
+  "metrics": {
+    "f_hat": 0.6603240459110983,
+    "analytic_sigma_f": 0.00877244565258825,
+    "weak_f_hat": -9.038880326840081,
+    "weak_analytic_sigma_f": 8.772445652587987,
+    "monte_carlo_sigma_f": 0.008615400665835594,
+    "weak_monte_carlo_sigma_f": 8.615400665835432
+  }
+}

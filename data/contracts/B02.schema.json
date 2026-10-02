@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B02 ARTEMIS LIFE RAFTS — Urban Pollinator Constellation engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "patch_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Candidate or surveyed habitat patch.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Persistent boundary version required."
+    },
+    "visit_effort": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Standardized observation duration.",
+      "x-unit": "min",
+      "x-source-type": "float",
+      "x-quality-rule": "Zero effort invalid for absence inference."
+    },
+    "detection_history": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "boolean"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Taxon observations across repeat visits.",
+      "x-unit": "none",
+      "x-source-type": "bool[]",
+      "x-quality-rule": "Missing visits stored as null."
+    },
+    "effective_distance": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Taxon-specific least-cost graph separation.",
+      "x-unit": "m",
+      "x-source-type": "float",
+      "x-quality-rule": "Nonnegative; resistance version required."
+    },
+    "weekly_bloom": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Species flowering ensemble.",
+      "x-unit": "probability",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Preserve species/site covariance."
+    },
+    "annual_water": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Maintenance scenario demand.",
+      "x-unit": "L/year",
+      "x-source-type": "float",
+      "x-quality-rule": "Identify measured versus assumed demand."
+    },
+    "portfolio_score": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Occupancy/resource ensemble by taxon.",
+      "x-unit": "none",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Publish distribution with constraint failures."
+    }
+  },
+  "required": [
+    "patch_id",
+    "visit_effort",
+    "detection_history",
+    "effective_distance",
+    "weekly_bloom",
+    "annual_water",
+    "portfolio_score"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

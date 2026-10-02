@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+passive_reference,struct,"m, m s^-1, TDB s",Frozen unaltered Apophis states/query.,NASA safe premise and source checksum attached.
+initial_covariance,"float64[6,6]|null",mixed state^2,Authoritative or illustrative uncertainty.,Pedigree/type mandatory; null if absent.
+normalized_offset,float64[6],1,Educational offsets in a declared ellipsoid basis.,Synthetic only; no intervention parameters.
+state_transition,"float64[6,6]",mixed blocks,Variational sensitivity matrix.,Scale convention and derivative convergence.
+encounter_plane,measurement<float64[2]>,m,Declared geometric sensitivity coordinates.,Plane/event-time convention and covariance.
+ensemble_trace,distribution<state>,mixed state,Nonlinear passive/synthetic scenario histories.,"Seed, force model and scenario type retained."
+observation_model,struct,"radian, m, m s^-1",Hypothetical passive measurement/noise/cadence.,Assumed versus verified capability explicit.
+information_gain,measurement<float64>,nat,Expected posterior/prior information.,State support/noise model and numerical uncertainty.

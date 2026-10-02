@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G02 DEEP SPACE QUIETLINE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "sample_time": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Common desired/reference clock.",
+      "x-unit": "s",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Rate and alignment offset covariance required."
+    },
+    "desired_raw": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Science plus interference channel.",
+      "x-unit": "native",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "ADC units/limits and clipping mask retained."
+    },
+    "reference_raw": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Interference witness channel.",
+      "x-unit": "native",
+      "x-source-type": "nullable<vector<float64>>",
+      "x-quality-rule": "Dropout mask; no silent zero fill."
+    },
+    "filter_weights": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Saved tapped-delay coefficients.",
+      "x-unit": "ratio",
+      "x-source-type": "array<vector<float64>>",
+      "x-quality-rule": "Ordering, length and update cadence required."
+    },
+    "adaptation_state": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Adapt, frozen or bypass.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Reason and event time logged."
+    },
+    "spectral_estimates": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Power/cross spectra and coherence.",
+      "x-unit": "native^2/Hz",
+      "x-source-type": "record",
+      "x-quality-rule": "Window/normalization and degrees of freedom retained."
+    },
+    "feature_error": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Amplitude ratio, phase and timing error.",
+      "x-unit": "1,rad,s",
+      "x-source-type": "record",
+      "x-quality-rule": "Truth/reference covariance and protected-band definition."
+    }
+  },
+  "required": [
+    "sample_time",
+    "desired_raw",
+    "reference_raw",
+    "filter_weights",
+    "adaptation_state",
+    "spectral_estimates",
+    "feature_error"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

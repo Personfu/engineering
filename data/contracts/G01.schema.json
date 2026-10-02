@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G01 ARTEMIS BONE WATCH engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "specimen_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Geometry/material context and source.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Synthetic/ex vivo category required."
+    },
+    "sensor_direction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Unit vector in specimen axes.",
+      "x-unit": "1",
+      "x-source-type": "vector<float64>[3]",
+      "x-quality-rule": "Norm and orientation uncertainty checked."
+    },
+    "raw_observable": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Wavelength/resistance/native readout.",
+      "x-unit": "native",
+      "x-source-type": "record",
+      "x-quality-rule": "Units/channel calibration required; missing null."
+    },
+    "temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Local sensor temperature.",
+      "x-unit": "K",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Reference and covariance retained."
+    },
+    "attachment_transfer": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Identified H coefficients.",
+      "x-unit": "native/strain",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Calibration provenance and rank required."
+    },
+    "strain_reference": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Independent reference tensor/projections.",
+      "x-unit": "1",
+      "x-source-type": "nullable<vector<float64>>",
+      "x-quality-rule": "Coordinate/shear basis and uncertainty recorded."
+    },
+    "strain_estimate": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Identifiable components and covariance.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Unobserved components null; regularization flag required."
+    }
+  },
+  "required": [
+    "specimen_id",
+    "sensor_direction",
+    "raw_observable",
+    "temperature",
+    "attachment_transfer",
+    "strain_reference",
+    "strain_estimate"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

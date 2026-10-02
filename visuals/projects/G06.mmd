@@ -1,0 +1,11 @@
+flowchart TB
+ C[Climate T humidity CO2] --> L[Coupled loading kinetics]
+ M[Material q star and rate covariance] --> L
+ L --> S[Cycle scheduler]
+ S --> W[CO2 and water ledgers]
+ G[Contactor flow pressure drop] --> E[Fan drying recovery energy]
+ W --> F[Downstream storage fate]
+ E --> N[Net removal accounting]
+ F --> N
+ I[Utility and embodied emissions] --> N
+ N --> V[Climate durability uncertainty trade]

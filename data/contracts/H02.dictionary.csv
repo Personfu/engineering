@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+ocams_product,string,none,Camera/filter/PDS product identity.,Label and calibration version required.
+detector_dn,float matrix,DN,Raw or bias-qualified pixels.,Readout coordinates/saturation retained.
+exposure_time,float,s,Documented integration duration.,Positive; definition source required.
+dark_rate,float matrix,DN/s,Temperature-dependent dark model.,Calibration covariance saved.
+gain,float,DN/electron,Declared conversion convention.,No reciprocal-gain ambiguity.
+transfer_operator,sparse matrix,dimensionless,Camera-specific smear coupling.,Sequence/timing provenance required.
+unsmeared_signal,nullable matrix,electrons,Estimated scene signal.,Support/regularization flags retained.
+scene_covariance,matrix/operator,electrons²,Joint corrected-signal uncertainty.,Shared calibration and timing terms included.
