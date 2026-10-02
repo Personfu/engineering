@@ -1,0 +1,240 @@
+# H04 · STARDUST CARBON ATLAS
+
+**Original project:** Exploring Carbon-bearing Matter in an Antarctic Micrometeorite
+
+**Session H:** Planetary Science
+
+**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+
+**Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
+
+[Session H](../README.md) · [All projects](../../../ENGINEERING_DOCUMENTATION.md) · [Session handbook](../../../handbooks/SESSION_H.md) · [← H03](../H03-artemis-polar-compass/README.md) · [H05 →](../H05-terra-seven-generations/README.md)
+
+| Proposed requirements | Specified verification cases | Defined data fields | Cited resources |
+| ---: | ---: | ---: | ---: |
+| 4 | 4 | 8 | 2 |
+
+[Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
+
+---
+
+## Purpose and scientific objective
+
+Resolve carbon-bearing phases and isotope heterogeneity in the original Antarctic micrometeorite target, TAM19B-7, using a correlative microscale evidence chain. Preserve the carbon-isotope question while explicitly separating extraterrestrial heterogeneity, parent-body alteration, atmospheric entry, and Antarctic weathering. Published micrometeorite studies establish the importance of weathering and combined microscopy, not the numerical composition of this particular target. Historic symposium results are not treated as newly measured or independently reproduced data.
+
+**Question:** Do spatially resolved carbon-isotope anomalies coincide with identifiable indigenous organic or carbonate phases after accounting for analytical matrix effects and terrestrial alteration?
+
+**Testable hypothesis:** A joint mineralogical and isotope model will explain more apparent carbon heterogeneity than an isotope-only analysis, while leaving a testable subset of phase-associated indigenous anomalies.
+
+## 1. Design basis and analysis boundary
+
+The material-analysis system targets TAM19B-7 through a specimen-specific allocation, preparation history and correlative microscopy/isotope evidence chain. Target raw maps and custodian permissions are not yet verified available. Comparative Antarctic studies establish methods and weathering alternatives, but cannot supply this particle's composition or substitute their measurements for it.
+
+Begin with registered non-destructive phase maps and contamination records; promote to targeted isotope analysis only through an approved specimen plan and matrix-matched standards. The engineering output is a phase-resolved heterogeneity estimate with competing extraterrestrial, parent-body, entry and terrestrial-alteration interpretations. A carbon-isotope difference cannot by itself identify a new parent body or biological origin.
+
+## 2. Requirements and verification traceability
+
+These are project design requirements or proposed analysis gates. A numerical target is not a NASA requirement unless its controlling source is explicitly identified. “TBD” identifies evidence required before a decision; it is not permission to assume a value. Verification evidence listed here is planned, unless a linked result explicitly records execution.
+
+| ID | Requirement / gate | Engineering rationale | Verification method | Basis / required evidence |
+| --- | --- | --- | --- | --- |
+| H04-R1 | Every target observation shall retain specimen/section key, preparation materials, instrument dose/history and custodian allocation. | Coatings or adhesives can contribute carbon. | Specimen/preparation manifest audit. | Primary correlative-study context. |
+| H04-R2 | Isotope estimates shall use declared reference and matrix-matched calibration/background evidence; raw count ratios are not anomalies. | Phase sensitivity biases isotope ratios. | Standard/blank evidence and count-model tests. | Existing isotope model. |
+| H04-R3 | Map registration shall retain transform and positional covariance in micrometres; phase attribution shall propagate overlap uncertainty. | Nearby minerals need not carry the isotope signal. | Landmark/registration residual checks. | Proposed correlative contract. |
+| H04-R4 | Report heterogeneity with spatial multiple-testing/model uncertainty and preserve material for independent confirmation when allocation permits. | Exploration can exhaust evidence or inflate anomaly claims. | Analysis/allocation review. | Proposed specimen-evidence design. |
+
+## 3. Architecture and controlled interfaces
+
+A specimen registry stores TAM19B-7 identity, section orientation, serial-section relationships and preparation carbon sources. Optical/Raman/IR and SEM/EDS adapters preserve instrument coordinates, spatial resolution and phase probabilities. Registration maps each field into a common micrometre coordinate system with transform covariance.
+
+The isotope branch stores raw 12C/13C counts, backgrounds, detector corrections and phase-specific calibration. A hierarchical count estimator produces isotope-ratio distributions and phase-conditioned anomaly probabilities. The interpretation ledger links these to weathering fronts, textures and optional independent isotope evidence. Missing standards, low counts or uncertain registration propagate unresolved attribution rather than a sharply colored anomaly map.
+
+![H04 engineering architecture](figures/architecture.svg)
+
+The diagram binds target identity, preparation and spatial registration to calibrated count inference. It distinguishes isotope heterogeneity from phase-carrier and origin claims, with unavailable TAM19B-7 records retained as explicit gaps.
+
+[Editable engineering diagram source](figures/architecture.mmd)
+
+## 4. Mathematical model and derivation
+
+### Governing equations
+
+$$
+\delta^{13}C=1000\left[\frac{(^{13}C/^{12}C)_{\rm sample}}{(^{13}C/^{12}C)_{\rm reference}}-1\right]
+$$
+
+$$
+N_{13,p}\sim\mathrm{Poisson}(\eta_{13,q}R_p\Lambda_p+b_{13,p}),\quad N_{12,p}\sim\mathrm{Poisson}(\eta_{12,q}\Lambda_p+b_{12,p})
+$$
+
+$$
+R_{\rm mix}=\frac{\sum_q n_{12,q}R_q}{\sum_q n_{12,q}},\quad P(z_p=q\mid\mathrm{spectra,maps})
+$$
+
+### Variables, units and conventions
+
+- delta is reported in per mil relative to a declared carbon isotope reference; R is an isotope ratio, not a delta value.
+- N denotes secondary-ion counts per pixel; eta is phase-dependent sensitivity; Lambda is expected carbon signal; b is background.
+- q labels candidate carbon-bearing phases; mixing weights use isotope atom inventories rather than unqualified volume fractions.
+
+### Assumptions and boundary conditions
+
+- Matrix-matched standards and analytical blanks are required; raw count ratios alone cannot establish an isotope anomaly.
+- Serial sections and instrument maps must be spatially registered with uncertainty; a nearby mineral is not necessarily the isotope carrier.
+
+### Derivation step 1
+
+```text
+delta13C=1000(R/R_ref-1).
+```
+
+R is the 13C/12C atom ratio and delta is per mil relative to one declared reference. Reference uncertainty is part of the calibration ledger.
+
+### Derivation step 2
+
+```text
+N13~Poisson(eta13,q R Lambda+b13); N12~Poisson(eta12,q Lambda+b12).
+```
+
+Lambda is latent carbon signal and eta are phase-dependent sensitivity factors. Low-count observations are fitted jointly instead of unstable background-subtracted ratios.
+
+### Derivation step 3
+
+```text
+R_mix=sum_q n12,q R_q/sum_q n12,q.
+```
+
+Mixing weights are 12C atom inventories. Volume fraction, phase area and unqualified average delta values are not interchangeable weights.
+
+### Derivation step 4
+
+```text
+Sigma_registered approximately J_transform Sigma_transform J_transform^T+Sigma_landmark.
+```
+
+Spatial covariance has micrometre² units. Phase association integrates over this registration distribution before isotope/phase correlation is interpreted.
+
+### Inference or simulation procedure
+
+Begin with non-destructive optical, Raman, and infrared mapping to identify organics, carbonates, and weathering products, documenting laser dose and sample history. Register SEM/EDS mineral maps and targeted NanoSIMS measurements to the same coordinate system. Fit counts with phase-specific instrumental mass-fractionation and detector corrections, explicitly including low-count pixels. Use a hierarchical background-plus-anomaly model to control multiple testing across spatially correlated pixels. Compare carbon isotope distributions across phase boundaries and weathering fronts; where sample allocation permits, seek independent oxygen or hydrogen isotope constraints. Reserve material for confirmation rather than consuming the entire particle during exploratory mapping. Record coatings, adhesives, and preparation residues as potential carbon sources.
+
+### Validity domain and fidelity limits
+
+A carbon isotope difference alone cannot identify a new parent body or demonstrate biological material. Destructive sampling, beam mixing, terrestrial contamination, and matrix effects can create or mask heterogeneity. The original target's raw maps and sample permissions remain to be obtained.
+
+## 5. Data specifications and provenance
+
+![H04 proposed data contract: field names, types, units and meanings](figures/data-map.svg)
+
+**Proposed data contract · observations pending.** This visual inventory shows the record fields to acquire or derive. It contains no project measurements. [Open the data blueprint and downloads](data/README.md).
+
+| Field | Type | Unit | Physical / statistical meaning | Quality and missing-data rule |
+| --- | --- | --- | --- | --- |
+| specimen_section | restricted record | none | Target/section/custodian identity. | Allocation and history required. |
+| preparation_carbon | nullable record | none | Coatings, adhesives and residues. | Unknown sources remain unresolved. |
+| map_coordinates | float[2] | micrometre | Common registered position. | Transform/resolution provenance retained. |
+| phase_probability | float vector | 0–1 | Spectroscopy/mineral-map interpretation. | Sum and classification uncertainty checked. |
+| isotope_counts | integer[2] | counts | Raw 12C and 13C observations. | Dwell/detector/background metadata required. |
+| phase_sensitivity | float vector | dimensionless | Matrix-calibration response factors. | Matched-standard covariance saved. |
+| isotope_ratio | nullable float[] | dimensionless | Corrected R posterior samples. | Low-count/censor support retained. |
+| registration_covariance | matrix | micrometre² | Joint correlative map uncertainty. | Serial-section discrepancy separate. |
+
+[Machine-readable record schema](data/schema.json) · [Empty acquisition CSV](data/acquisition.csv) · [Field dictionary CSV](data/dictionary.csv)
+
+The CSV above contains column headers only. Its schema defines future records and does not establish that original-team data or a particular archive product have been acquired. Frame, timing, calibration, covariance, selection and provenance details must accompany populated records.
+
+### TAM19B-7 custodian and original analytical records
+
+[Product, archive or reference](https://link.springer.com/article/10.5047/eps.2008.11.001)
+
+**Fields:** Needed: target allocation, preparation history, raw isotope counts, standards and microscopy maps
+
+**Access:** Target-specific raw data are not verified public holdings; this URL supplies comparative methods, not TAM19B-7 data.
+
+**Role:** Original specimen study under an agreed sample plan.
+
+### Published Antarctic micrometeorite correlative studies
+
+[Product, archive or reference](https://doi.org/10.1016/j.gca.2023.08.023)
+
+**Fields:** Weathering textures, carbon-bearing materials, analytical approaches
+
+**Access:** Published comparison; distinct specimens cannot substitute for target observations.
+
+**Role:** Weathering controls and competing explanations.
+
+## 6. Uncertainty, sensitivity and identifiability
+
+Matrix effects, contamination, detector corrections and backgrounds can mimic isotope differences. Calibrate with phase-matched standards and preserve blank uncertainty across pixels. Counting statistics are not the only error: preparation and standard bias create spatially correlated shifts. Use region/phase-level uncertainty and a declared spatial anomaly model rather than treating every pixel as an independent discovery.
+
+Phase assignment and serial-section registration can misidentify the carrier, while entry heating and Antarctic weathering can modify original carbon. Compare alternative attribution under registration draws and texture-informed alteration scenarios. Profiles of phase sensitivity versus isotope ratio expose nonidentifiability. Independent confirmation is essential before a specimen-specific heterogeneity claim; origin interpretation remains conditional.
+
+## 7. Engineering trade study
+
+| Alternative | Benefit | Cost / limitation | Decision rule |
+| --- | --- | --- | --- |
+| Correlative non-destructive mapping | Preserves specimen and identifies candidate phases. | Cannot quantify isotope ratios alone. | Required initial evidence stage. |
+| Targeted calibrated count analysis | Connects isotope heterogeneity to phase. | Destructive sampling and matrix bias matter. | Use with allocation and matched standards. |
+| Bulk isotope comparison | Provides integrated reference constraint. | Averages away microscale carriers. | Use as complementary evidence when available. |
+
+## 8. Verification and validation cases
+
+| Case ID | Stimulus / condition | Expected result / criterion | Method | Evidence artifact |
+| --- | --- | --- | --- | --- |
+| H04-V1 | Reference ratio | delta13C=0 per mil; R=1.01 R_ref gives +10 per mil. | Condition/fixture: Set R=R_ref. Verification procedure: Exact isotope conversion check.. | Exact isotope conversion check. |
+| H04-V2 | Atom-weighted mixture | R_mix=(R1+R2)/2; unequal inventories use explicit weights. | Condition/fixture: Equal n12 with ratios R1 and R2. Verification procedure: Independent mixture calculation.. | Independent mixture calculation. |
+| H04-V3 | Pure background | Counts contain no identifiable specimen ratio; output unresolved. | Condition/fixture: Synthetic Lambda=0 with known backgrounds. Verification procedure: Count-likelihood boundary fixture.. | Count-likelihood boundary fixture. |
+| H04-V4 | Registration shift | Recovered transform and phase-attribution intervals reflect that uncertainty. | Condition/fixture: Inject a known synthetic map translation with uncertain landmarks. Verification procedure: Correlative integration test.. | Correlative integration test. |
+
+**Execution status:** these cases are specified, not claimed as executed. Close a case only with the versioned inputs, output, uncertainty, reviewer and pass/fail rationale.
+
+### Additional scientific validation gates
+
+- Recover known standard ratios within stated uncertainty and quantify phase-specific repeatability.
+- Test anomaly false-discovery rate with count-level simulated null maps and spatially blocked holdouts.
+- Require independent phase evidence and repeat measurement before interpreting an anomalous region as an indigenous carrier.
+
+## 9. Implementation and reproducible work packages
+
+1. Obtain target-specific records and create a custodian-approved allocation/gap register.
+2. Build specimen/preparation and correlative-map schemas with coordinate transforms.
+3. Implement phase classification and registration covariance artifacts.
+4. Create calibrated raw-count isotope models with background/standard provenance.
+5. Run spatial heterogeneity and alteration/contamination alternative comparisons.
+6. Publish specimen-specific evidence limits and confirmation priorities without new-result claims.
+
+### Investigation sequence
+
+1. Agree on sample stewardship, reference materials, and instrument sequence.
+2. Build a registered phase map before selecting isotope regions.
+3. Analyze standards and blanks interleaved with target measurements.
+4. Confirm candidate anomalies independently and release permitted raw counts and uncertainty models.
+
+### Resources and interfaces to expertise
+
+- NanoSIMS facility, Raman/FTIR microscopy, SEM/EDS access, meteorite curator, isotope specialist, matrix-matched standards.
+
+## 10. Failure modes and interpretation controls
+
+| Failure mode | Effect on result | Detection / evidence | Design response |
+| --- | --- | --- | --- |
+| Raw ratio called anomaly | False isotope discovery. | Standard/background audit. | Joint calibrated count likelihood. |
+| Residue attributed extraterrestrial | Wrong carbon-origin inference. | Preparation/texture evidence review. | Contamination alternatives. |
+| Adjacent phase called carrier | Misassigned isotope host. | Registration/serial-section sensitivity. | Probabilistic phase attribution. |
+
+- Finite sample mass, preparation carbon, beam damage, unresolved matrix calibration, and overinterpreting a single particle.
+
+## 11. Required engineering outputs
+
+- A registered carbon-phase atlas, calibrated isotope maps, sample-consumption ledger, and evidence table comparing origin hypotheses.
+
+### Scientific result figures to produce during execution
+
+Co-registered morphology, Raman phase, calibrated delta-carbon, count uncertainty, and anomaly-probability maps with beam footprints and weathering boundaries.
+
+## 12. Cited technical and scientific resources
+
+- [Suzuki et al. (2010), Micro-spectroscopic characterization of organic and hydrous components in weathered Antarctic micrometeorites](https://link.springer.com/article/10.5047/eps.2008.11.001) — Correlative spectroscopy and weathering/entry caveats.
+- [Boyd et al. (2023), Multiscale evidence for weathering and preservation of carbonaceous material in an Antarctic micrometeorite](https://doi.org/10.1016/j.gca.2023.08.023) — Terrestrial alteration and preservation as competing interpretations; different sample.
+
+Framework and evidence rules: [engineering documentation standard](../../../engineering/ENGINEERING_STANDARD.md), [model assurance](../../../engineering/MODEL_ASSURANCE.md), [uncertainty procedure](../../../engineering/UNCERTAINTY_AND_DECISION_RULES.md), [data management](../../../engineering/DATA_MANAGEMENT.md). NASA-inspired names are creative identifiers; requirements and results are not NASA certification.

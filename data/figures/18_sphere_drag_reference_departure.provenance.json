@@ -1,0 +1,45 @@
+{
+  "id": "18_sphere_drag_reference_departure",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/18_sphere_drag_reference_departure.svg",
+  "png": "data/figures/18_sphere_drag_reference_departure.png",
+  "provenance": "data/figures/18_sphere_drag_reference_departure.provenance.json",
+  "caption": "Synthetic reference values from the Schiller–Naumann sphere-drag correlation and Stokes creeping-flow asymptote. The percent-departure panel makes the approximation difference explicit, with a descriptive 10% reference crossing computed from the same formula. Neither curve is an observed drag dataset or a CFD solver result; the crossing is not a physical validation tolerance.",
+  "linked_projects": [
+    "D04"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/sphere_drag.csv",
+      "sha256": "e8b262fd7d3b4c37cb39fd2cf67ec5231ed6ce7e8e0b49a1e306b35f3431de2d",
+      "bytes": 26087
+    },
+    {
+      "path": "models/data/sphere_drag.json",
+      "sha256": "adc28070268dabff5fd5a3051521bc12a323bc460398c28867802a597ef48f1c",
+      "bytes": 667
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/18_sphere_drag_reference_departure.svg",
+      "sha256": "3ce4dbb8bafce7e9564cb781446e1b7754fc50a1634a451d85e9c61418bb53a7",
+      "bytes": 87799
+    },
+    {
+      "path": "data/figures/18_sphere_drag_reference_departure.png",
+      "sha256": "69d4fe9e023ff2e2326feb8d4f9a901e1a2c1ce8fa349cee4960a0d5f7a40388",
+      "bytes": 238134
+    }
+  ],
+  "assumptions_and_limits": [
+    "Stokes law is valid asymptotically for Re ≪ 1; comparing it at larger Re only shows its departure.",
+    "No wall effects, compressibility, interactions, measured uncertainty or CFD validation claim."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "reference_10_percent_departure_Re": 0.5542182792807332,
+    "supported_correlation_Re_max": 1000
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

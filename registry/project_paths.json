@@ -1,0 +1,821 @@
+[
+  {
+    "id": "A01",
+    "name": "ARTEMIS FRACTAL NAVIGATOR",
+    "session": "A",
+    "directory": "research/A/A01-artemis-fractal-navigator",
+    "document": "research/A/A01-artemis-fractal-navigator/README.md"
+  },
+  {
+    "id": "A02",
+    "name": "NEW HORIZONS CRYOPHASE",
+    "session": "A",
+    "directory": "research/A/A02-new-horizons-cryophase",
+    "document": "research/A/A02-new-horizons-cryophase/README.md"
+  },
+  {
+    "id": "A03",
+    "name": "CHANDRA VORTEX CORE",
+    "session": "A",
+    "directory": "research/A/A03-chandra-vortex-core",
+    "document": "research/A/A03-chandra-vortex-core/README.md"
+  },
+  {
+    "id": "A04",
+    "name": "APOLLO SWARM SENTINEL",
+    "session": "A",
+    "directory": "research/A/A04-apollo-swarm-sentinel",
+    "document": "research/A/A04-apollo-swarm-sentinel/README.md"
+  },
+  {
+    "id": "A05",
+    "name": "VOYAGER CILIA ARRAY",
+    "session": "A",
+    "directory": "research/A/A05-voyager-cilia-array",
+    "document": "research/A/A05-voyager-cilia-array/README.md"
+  },
+  {
+    "id": "A06",
+    "name": "APOLLO PORIN INSIGHT",
+    "session": "A",
+    "directory": "research/A/A06-apollo-porin-insight",
+    "document": "research/A/A06-apollo-porin-insight/README.md"
+  },
+  {
+    "id": "A07",
+    "name": "ORION CHROMATIN ATLAS",
+    "session": "A",
+    "directory": "research/A/A07-orion-chromatin-atlas",
+    "document": "research/A/A07-orion-chromatin-atlas/README.md"
+  },
+  {
+    "id": "A08",
+    "name": "HELIOS PULSE FORGE",
+    "session": "A",
+    "directory": "research/A/A08-helios-pulse-forge",
+    "document": "research/A/A08-helios-pulse-forge/README.md"
+  },
+  {
+    "id": "A09",
+    "name": "SPITZER RADIO ORIGINS",
+    "session": "A",
+    "directory": "research/A/A09-spitzer-radio-origins",
+    "document": "research/A/A09-spitzer-radio-origins/README.md"
+  },
+  {
+    "id": "A10",
+    "name": "HUBBLE CARINA CLOCK",
+    "session": "A",
+    "directory": "research/A/A10-hubble-carina-clock",
+    "document": "research/A/A10-hubble-carina-clock/README.md"
+  },
+  {
+    "id": "A11",
+    "name": "OSIRIS SULFUR ARCHIVE",
+    "session": "A",
+    "directory": "research/A/A11-osiris-sulfur-archive",
+    "document": "research/A/A11-osiris-sulfur-archive/README.md"
+  },
+  {
+    "id": "A12",
+    "name": "STARDUST ISOTOPE FOUNDRY",
+    "session": "A",
+    "directory": "research/A/A12-stardust-isotope-foundry",
+    "document": "research/A/A12-stardust-isotope-foundry/README.md"
+  },
+  {
+    "id": "B01",
+    "name": "CALDERA SENTINEL — Yellowstone Hydrothermal Observatory",
+    "session": "B",
+    "directory": "research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory",
+    "document": "research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md"
+  },
+  {
+    "id": "B02",
+    "name": "ARTEMIS LIFE RAFTS — Urban Pollinator Constellation",
+    "session": "B",
+    "directory": "research/B/B02-artemis-life-rafts-urban-pollinator-constellation",
+    "document": "research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md"
+  },
+  {
+    "id": "B03",
+    "name": "ORION CROSSINGS — Gila Monster Road Ecology",
+    "session": "B",
+    "directory": "research/B/B03-orion-crossings-gila-monster-road-ecology",
+    "document": "research/B/B03-orion-crossings-gila-monster-road-ecology/README.md"
+  },
+  {
+    "id": "B04",
+    "name": "AURORA VEIL — Ionospheric Absorption Atlas",
+    "session": "B",
+    "directory": "research/B/B04-aurora-veil-ionospheric-absorption-atlas",
+    "document": "research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md"
+  },
+  {
+    "id": "B05",
+    "name": "KEPLER BLOOMCLOCK — Restoration Timing Observatory",
+    "session": "B",
+    "directory": "research/B/B05-kepler-bloomclock-restoration-timing-observatory",
+    "document": "research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md"
+  },
+  {
+    "id": "B06",
+    "name": "SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory",
+    "session": "B",
+    "directory": "research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory",
+    "document": "research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md"
+  },
+  {
+    "id": "B07",
+    "name": "REGENESIS CLEANFLOW — Environmental Fate and Remediation Model",
+    "session": "B",
+    "directory": "research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model",
+    "document": "research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md"
+  },
+  {
+    "id": "B08",
+    "name": "TERRAFORM TERRACES — Dryland Conservation Observatory",
+    "session": "B",
+    "directory": "research/B/B08-terraform-terraces-dryland-conservation-observatory",
+    "document": "research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md"
+  },
+  {
+    "id": "B09",
+    "name": "EUROPA CHEMGRID — Yellowstone Geochemical Atlas",
+    "session": "B",
+    "directory": "research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas",
+    "document": "research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md"
+  },
+  {
+    "id": "B10",
+    "name": "LANDSAT EQUITY — Community Canopy Mission",
+    "session": "B",
+    "directory": "research/B/B10-landsat-equity-community-canopy-mission",
+    "document": "research/B/B10-landsat-equity-community-canopy-mission/README.md"
+  },
+  {
+    "id": "B11",
+    "name": "APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System",
+    "session": "B",
+    "directory": "research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system",
+    "document": "research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md"
+  },
+  {
+    "id": "B12",
+    "name": "VULCAN DOMESCAN — O’Leary Emplacement Reconstruction",
+    "session": "B",
+    "directory": "research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction",
+    "document": "research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md"
+  },
+  {
+    "id": "B13",
+    "name": "GAIA PIXELSCOUT — Ecological Instance Mapping",
+    "session": "B",
+    "directory": "research/B/B13-gaia-pixelscout-ecological-instance-mapping",
+    "document": "research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md"
+  },
+  {
+    "id": "B14",
+    "name": "PHOENIX INFILTRATION — Postfire Soil Recovery Observatory",
+    "session": "B",
+    "directory": "research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory",
+    "document": "research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md"
+  },
+  {
+    "id": "B15",
+    "name": "TECTON ORION — Farallon Slab Reconstruction",
+    "session": "B",
+    "directory": "research/B/B15-tecton-orion-farallon-slab-reconstruction",
+    "document": "research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md"
+  },
+  {
+    "id": "B16",
+    "name": "ISS BIOGUARD — Retrospective Microgravity Health Evidence",
+    "session": "B",
+    "directory": "research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence",
+    "document": "research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md"
+  },
+  {
+    "id": "B17",
+    "name": "AQUARIUS LIFELINE — Inland Fisheries Resilience",
+    "session": "B",
+    "directory": "research/B/B17-aquarius-lifeline-inland-fisheries-resilience",
+    "document": "research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md"
+  },
+  {
+    "id": "B18",
+    "name": "POSEIDON WINDCARBON — Southern Ocean Carbon Mission",
+    "session": "B",
+    "directory": "research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission",
+    "document": "research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md"
+  },
+  {
+    "id": "B19",
+    "name": "PARKER PLASMA WHISPER — Electron Structure Observatory",
+    "session": "B",
+    "directory": "research/B/B19-parker-plasma-whisper-electron-structure-observatory",
+    "document": "research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md"
+  },
+  {
+    "id": "B20",
+    "name": "LUNAR RECLAIMER — Algal Rare-Earth Recovery",
+    "session": "B",
+    "directory": "research/B/B20-lunar-reclaimer-algal-rare-earth-recovery",
+    "document": "research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md"
+  },
+  {
+    "id": "B21",
+    "name": "PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder",
+    "session": "B",
+    "directory": "research/B/B21-proteus-driftscape-evolutionary-protein-disorder",
+    "document": "research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md"
+  },
+  {
+    "id": "B22",
+    "name": "NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution",
+    "session": "B",
+    "directory": "research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution",
+    "document": "research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md"
+  },
+  {
+    "id": "B23",
+    "name": "HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty",
+    "session": "B",
+    "directory": "research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty",
+    "document": "research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md"
+  },
+  {
+    "id": "B24",
+    "name": "VIPER VOYAGER — Urban Movement and Habitat Connectivity",
+    "session": "B",
+    "directory": "research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity",
+    "document": "research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md"
+  },
+  {
+    "id": "B25",
+    "name": "SEEDSTAR GENESIS — Dryland Establishment Forecasting",
+    "session": "B",
+    "directory": "research/B/B25-seedstar-genesis-dryland-establishment-forecasting",
+    "document": "research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md"
+  },
+  {
+    "id": "B26",
+    "name": "HELIOS POWERLOOP — Solar Electrolysis Dispatch",
+    "session": "B",
+    "directory": "research/B/B26-helios-powerloop-solar-electrolysis-dispatch",
+    "document": "research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md"
+  },
+  {
+    "id": "B27",
+    "name": "TRITON WATERWATCH — Autonomous Aquatic Observatory",
+    "session": "B",
+    "directory": "research/B/B27-triton-waterwatch-autonomous-aquatic-observatory",
+    "document": "research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md"
+  },
+  {
+    "id": "B28",
+    "name": "ASTRA BIOCYCLE — Microalgal Methane and Net Energy",
+    "session": "B",
+    "directory": "research/B/B28-astra-biocycle-microalgal-methane-and-net-energy",
+    "document": "research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md"
+  },
+  {
+    "id": "C01",
+    "name": "APOLLO WINDWATCH",
+    "session": "C",
+    "directory": "research/C/C01-apollo-windwatch",
+    "document": "research/C/C01-apollo-windwatch/README.md"
+  },
+  {
+    "id": "C02",
+    "name": "HUBBLE NIGHTFALL LAB",
+    "session": "C",
+    "directory": "research/C/C02-hubble-nightfall-lab",
+    "document": "research/C/C02-hubble-nightfall-lab/README.md"
+  },
+  {
+    "id": "C03",
+    "name": "TAURUS MOLECULE TRAIL",
+    "session": "C",
+    "directory": "research/C/C03-taurus-molecule-trail",
+    "document": "research/C/C03-taurus-molecule-trail/README.md"
+  },
+  {
+    "id": "C04",
+    "name": "HORIZON TIDAL ECHO",
+    "session": "C",
+    "directory": "research/C/C04-horizon-tidal-echo",
+    "document": "research/C/C04-horizon-tidal-echo/README.md"
+  },
+  {
+    "id": "C05",
+    "name": "KEPLER WORLDFORGE",
+    "session": "C",
+    "directory": "research/C/C05-kepler-worldforge",
+    "document": "research/C/C05-kepler-worldforge/README.md"
+  },
+  {
+    "id": "C06",
+    "name": "PULSAR GEMINI WATCH",
+    "session": "C",
+    "directory": "research/C/C06-pulsar-gemini-watch",
+    "document": "research/C/C06-pulsar-gemini-watch/README.md"
+  },
+  {
+    "id": "C07",
+    "name": "ARTEMIS MEMORY BRIDGE",
+    "session": "C",
+    "directory": "research/C/C07-artemis-memory-bridge",
+    "document": "research/C/C07-artemis-memory-bridge/README.md"
+  },
+  {
+    "id": "C08",
+    "name": "MARS NILI SPECTRAL VAULT",
+    "session": "C",
+    "directory": "research/C/C08-mars-nili-spectral-vault",
+    "document": "research/C/C08-mars-nili-spectral-vault/README.md"
+  },
+  {
+    "id": "C09",
+    "name": "EAGLESAT COSMIC PIXEL",
+    "session": "C",
+    "directory": "research/C/C09-eaglesat-cosmic-pixel",
+    "document": "research/C/C09-eaglesat-cosmic-pixel/README.md"
+  },
+  {
+    "id": "C10",
+    "name": "VOYAGER LOCAL GROUP HALOS",
+    "session": "C",
+    "directory": "research/C/C10-voyager-local-group-halos",
+    "document": "research/C/C10-voyager-local-group-halos/README.md"
+  },
+  {
+    "id": "C11",
+    "name": "ORION CORE INFERENCE",
+    "session": "C",
+    "directory": "research/C/C11-orion-core-inference",
+    "document": "research/C/C11-orion-core-inference/README.md"
+  },
+  {
+    "id": "C12",
+    "name": "HUBBLE COSMIC GLOW",
+    "session": "C",
+    "directory": "research/C/C12-hubble-cosmic-glow",
+    "document": "research/C/C12-hubble-cosmic-glow/README.md"
+  },
+  {
+    "id": "C13",
+    "name": "HORIZON RING ATLAS",
+    "session": "C",
+    "directory": "research/C/C13-horizon-ring-atlas",
+    "document": "research/C/C13-horizon-ring-atlas/README.md"
+  },
+  {
+    "id": "C14",
+    "name": "ROMAN DARKHOLE ACADEMY",
+    "session": "C",
+    "directory": "research/C/C14-roman-darkhole-academy",
+    "document": "research/C/C14-roman-darkhole-academy/README.md"
+  },
+  {
+    "id": "C15",
+    "name": "WEBB PHOTON TRUTH",
+    "session": "C",
+    "directory": "research/C/C15-webb-photon-truth",
+    "document": "research/C/C15-webb-photon-truth/README.md"
+  },
+  {
+    "id": "C16",
+    "name": "ORION STRAIN METROLOGY",
+    "session": "C",
+    "directory": "research/C/C16-orion-strain-metrology",
+    "document": "research/C/C16-orion-strain-metrology/README.md"
+  },
+  {
+    "id": "C17",
+    "name": "GEMINI DISK SENTINEL",
+    "session": "C",
+    "directory": "research/C/C17-gemini-disk-sentinel",
+    "document": "research/C/C17-gemini-disk-sentinel/README.md"
+  },
+  {
+    "id": "C18",
+    "name": "REIONIZATION OXYGEN BEACON",
+    "session": "C",
+    "directory": "research/C/C18-reionization-oxygen-beacon",
+    "document": "research/C/C18-reionization-oxygen-beacon/README.md"
+  },
+  {
+    "id": "C19",
+    "name": "WEBB YOUNG STAR ATMOSPHERES",
+    "session": "C",
+    "directory": "research/C/C19-webb-young-star-atmospheres",
+    "document": "research/C/C19-webb-young-star-atmospheres/README.md"
+  },
+  {
+    "id": "C20",
+    "name": "TRINITY ACCRETION ECHO",
+    "session": "C",
+    "directory": "research/C/C20-trinity-accretion-echo",
+    "document": "research/C/C20-trinity-accretion-echo/README.md"
+  },
+  {
+    "id": "C21",
+    "name": "PARKER MAGNETIC TRAIL",
+    "session": "C",
+    "directory": "research/C/C21-parker-magnetic-trail",
+    "document": "research/C/C21-parker-magnetic-trail/README.md"
+  },
+  {
+    "id": "C22",
+    "name": "HUBBLE GALACTIC EXHALE",
+    "session": "C",
+    "directory": "research/C/C22-hubble-galactic-exhale",
+    "document": "research/C/C22-hubble-galactic-exhale/README.md"
+  },
+  {
+    "id": "C23",
+    "name": "KEPLER METAL WORLDS",
+    "session": "C",
+    "directory": "research/C/C23-kepler-metal-worlds",
+    "document": "research/C/C23-kepler-metal-worlds/README.md"
+  },
+  {
+    "id": "C24",
+    "name": "APOLLO DUST CLOCK",
+    "session": "C",
+    "directory": "research/C/C24-apollo-dust-clock",
+    "document": "research/C/C24-apollo-dust-clock/README.md"
+  },
+  {
+    "id": "C25",
+    "name": "ORION BURST SENTINEL",
+    "session": "C",
+    "directory": "research/C/C25-orion-burst-sentinel",
+    "document": "research/C/C25-orion-burst-sentinel/README.md"
+  },
+  {
+    "id": "C26",
+    "name": "LISA PENDULUM PATHFINDER",
+    "session": "C",
+    "directory": "research/C/C26-lisa-pendulum-pathfinder",
+    "document": "research/C/C26-lisa-pendulum-pathfinder/README.md"
+  },
+  {
+    "id": "C27",
+    "name": "SPHEREX COSMIC PRISM",
+    "session": "C",
+    "directory": "research/C/C27-spherex-cosmic-prism",
+    "document": "research/C/C27-spherex-cosmic-prism/README.md"
+  },
+  {
+    "id": "C28",
+    "name": "LOWELL LUNAR LANTERN",
+    "session": "C",
+    "directory": "research/C/C28-lowell-lunar-lantern",
+    "document": "research/C/C28-lowell-lunar-lantern/README.md"
+  },
+  {
+    "id": "C29",
+    "name": "ACE WIND SHOCK LEDGER",
+    "session": "C",
+    "directory": "research/C/C29-ace-wind-shock-ledger",
+    "document": "research/C/C29-ace-wind-shock-ledger/README.md"
+  },
+  {
+    "id": "C30",
+    "name": "ARTEMIS FIRST HORIZONS",
+    "session": "C",
+    "directory": "research/C/C30-artemis-first-horizons",
+    "document": "research/C/C30-artemis-first-horizons/README.md"
+  },
+  {
+    "id": "D01",
+    "name": "X-59 VORTEX COMMAND",
+    "session": "D",
+    "directory": "research/D/D01-x-59-vortex-command",
+    "document": "research/D/D01-x-59-vortex-command/README.md"
+  },
+  {
+    "id": "D02",
+    "name": "LANGLEY STALL MEMORY",
+    "session": "D",
+    "directory": "research/D/D02-langley-stall-memory",
+    "document": "research/D/D02-langley-stall-memory/README.md"
+  },
+  {
+    "id": "D03",
+    "name": "INGENUITY DESCENT & BUBBLE LAB",
+    "session": "D",
+    "directory": "research/D/D03-ingenuity-descent-bubble-lab",
+    "document": "research/D/D03-ingenuity-descent-bubble-lab/README.md"
+  },
+  {
+    "id": "D04",
+    "name": "GLENN SPHERE STANDARD",
+    "session": "D",
+    "directory": "research/D/D04-glenn-sphere-standard",
+    "document": "research/D/D04-glenn-sphere-standard/README.md"
+  },
+  {
+    "id": "D05",
+    "name": "APOLLO CYBER FLIGHT DECK",
+    "session": "D",
+    "directory": "research/D/D05-apollo-cyber-flight-deck",
+    "document": "research/D/D05-apollo-cyber-flight-deck/README.md"
+  },
+  {
+    "id": "D06",
+    "name": "LANGLEY MACH ATLAS",
+    "session": "D",
+    "directory": "research/D/D06-langley-mach-atlas",
+    "document": "research/D/D06-langley-mach-atlas/README.md"
+  },
+  {
+    "id": "D07",
+    "name": "ARES DUAL-WORLD SCOUT",
+    "session": "D",
+    "directory": "research/D/D07-ares-dual-world-scout",
+    "document": "research/D/D07-ares-dual-world-scout/README.md"
+  },
+  {
+    "id": "E01",
+    "name": "APOLLO HELIOSCOPE",
+    "session": "E",
+    "directory": "research/E/E01-apollo-helioscope",
+    "document": "research/E/E01-apollo-helioscope/README.md"
+  },
+  {
+    "id": "E02",
+    "name": "GEMINI HELIX",
+    "session": "E",
+    "directory": "research/E/E02-gemini-helix",
+    "document": "research/E/E02-gemini-helix/README.md"
+  },
+  {
+    "id": "E03",
+    "name": "ARTEMIS STRATODOSE",
+    "session": "E",
+    "directory": "research/E/E03-artemis-stratodose",
+    "document": "research/E/E03-artemis-stratodose/README.md"
+  },
+  {
+    "id": "E04",
+    "name": "AURA VERTICAL",
+    "session": "E",
+    "directory": "research/E/E04-aura-vertical",
+    "document": "research/E/E04-aura-vertical/README.md"
+  },
+  {
+    "id": "E05",
+    "name": "ORION TRUSS",
+    "session": "E",
+    "directory": "research/E/E05-orion-truss",
+    "document": "research/E/E05-orion-truss/README.md"
+  },
+  {
+    "id": "E06",
+    "name": "APOLLO THERMALIS",
+    "session": "E",
+    "directory": "research/E/E06-apollo-thermalis",
+    "document": "research/E/E06-apollo-thermalis/README.md"
+  },
+  {
+    "id": "E07",
+    "name": "DISCOVERY TRIDENT",
+    "session": "E",
+    "directory": "research/E/E07-discovery-trident",
+    "document": "research/E/E07-discovery-trident/README.md"
+  },
+  {
+    "id": "E08",
+    "name": "GATEWAY POWERBENCH",
+    "session": "E",
+    "directory": "research/E/E08-gateway-powerbench",
+    "document": "research/E/E08-gateway-powerbench/README.md"
+  },
+  {
+    "id": "F01",
+    "name": "APOLLO VOICELINK",
+    "session": "F",
+    "directory": "research/F/F01-apollo-voicelink",
+    "document": "research/F/F01-apollo-voicelink/README.md"
+  },
+  {
+    "id": "F02",
+    "name": "DISCOVERY QUILL",
+    "session": "F",
+    "directory": "research/F/F02-discovery-quill",
+    "document": "research/F/F02-discovery-quill/README.md"
+  },
+  {
+    "id": "G01",
+    "name": "ARTEMIS BONE WATCH",
+    "session": "G",
+    "directory": "research/G/G01-artemis-bone-watch",
+    "document": "research/G/G01-artemis-bone-watch/README.md"
+  },
+  {
+    "id": "G02",
+    "name": "DEEP SPACE QUIETLINE",
+    "session": "G",
+    "directory": "research/G/G02-deep-space-quietline",
+    "document": "research/G/G02-deep-space-quietline/README.md"
+  },
+  {
+    "id": "G03",
+    "name": "DEEP SPACE BEAM CARTOGRAPHER",
+    "session": "G",
+    "directory": "research/G/G03-deep-space-beam-cartographer",
+    "document": "research/G/G03-deep-space-beam-cartographer/README.md"
+  },
+  {
+    "id": "G04",
+    "name": "ARTEMIS CARTILAGE MATRIX",
+    "session": "G",
+    "directory": "research/G/G04-artemis-cartilage-matrix",
+    "document": "research/G/G04-artemis-cartilage-matrix/README.md"
+  },
+  {
+    "id": "G05",
+    "name": "ARES CREW RESOURCE VAULT",
+    "session": "G",
+    "directory": "research/G/G05-ares-crew-resource-vault",
+    "document": "research/G/G05-ares-crew-resource-vault/README.md"
+  },
+  {
+    "id": "G06",
+    "name": "TERRA HUMIDITY HARVEST",
+    "session": "G",
+    "directory": "research/G/G06-terra-humidity-harvest",
+    "document": "research/G/G06-terra-humidity-harvest/README.md"
+  },
+  {
+    "id": "G07",
+    "name": "HUBBLE SPECTRAL ANCHOR",
+    "session": "G",
+    "directory": "research/G/G07-hubble-spectral-anchor",
+    "document": "research/G/G07-hubble-spectral-anchor/README.md"
+  },
+  {
+    "id": "G08",
+    "name": "ORION HEPATIC RECOVERY",
+    "session": "G",
+    "directory": "research/G/G08-orion-hepatic-recovery",
+    "document": "research/G/G08-orion-hepatic-recovery/README.md"
+  },
+  {
+    "id": "H01",
+    "name": "VOYAGER STORYWALK",
+    "session": "H",
+    "directory": "research/H/H01-voyager-storywalk",
+    "document": "research/H/H01-voyager-storywalk/README.md"
+  },
+  {
+    "id": "H02",
+    "name": "OSIRIS PHOTONFORGE",
+    "session": "H",
+    "directory": "research/H/H02-osiris-photonforge",
+    "document": "research/H/H02-osiris-photonforge/README.md"
+  },
+  {
+    "id": "H03",
+    "name": "ARTEMIS POLAR COMPASS",
+    "session": "H",
+    "directory": "research/H/H03-artemis-polar-compass",
+    "document": "research/H/H03-artemis-polar-compass/README.md"
+  },
+  {
+    "id": "H04",
+    "name": "STARDUST CARBON ATLAS",
+    "session": "H",
+    "directory": "research/H/H04-stardust-carbon-atlas",
+    "document": "research/H/H04-stardust-carbon-atlas/README.md"
+  },
+  {
+    "id": "H05",
+    "name": "TERRA SEVEN GENERATIONS",
+    "session": "H",
+    "directory": "research/H/H05-terra-seven-generations",
+    "document": "research/H/H05-terra-seven-generations/README.md"
+  },
+  {
+    "id": "H06",
+    "name": "MARS ODYSSEY RIDGEWORK",
+    "session": "H",
+    "directory": "research/H/H06-mars-odyssey-ridgework",
+    "document": "research/H/H06-mars-odyssey-ridgework/README.md"
+  },
+  {
+    "id": "H07",
+    "name": "KEPLER CO ECHO",
+    "session": "H",
+    "directory": "research/H/H07-kepler-co-echo",
+    "document": "research/H/H07-kepler-co-echo/README.md"
+  },
+  {
+    "id": "H08",
+    "name": "GENESIS RIM CHRONICLE",
+    "session": "H",
+    "directory": "research/H/H08-genesis-rim-chronicle",
+    "document": "research/H/H08-genesis-rim-chronicle/README.md"
+  },
+  {
+    "id": "H09",
+    "name": "PERSEVERANCE LAKE ARCHIVE",
+    "session": "H",
+    "directory": "research/H/H09-perseverance-lake-archive",
+    "document": "research/H/H09-perseverance-lake-archive/README.md"
+  },
+  {
+    "id": "I01",
+    "name": "SATURN TRANSIENT SHIELD",
+    "session": "I",
+    "directory": "research/I/I01-saturn-transient-shield",
+    "document": "research/I/I01-saturn-transient-shield/README.md"
+  },
+  {
+    "id": "I02",
+    "name": "APOLLO AQUATHERM",
+    "session": "I",
+    "directory": "research/I/I02-apollo-aquatherm",
+    "document": "research/I/I02-apollo-aquatherm/README.md"
+  },
+  {
+    "id": "I03",
+    "name": "SATURN CHANNEL ATLAS",
+    "session": "I",
+    "directory": "research/I/I03-saturn-channel-atlas",
+    "document": "research/I/I03-saturn-channel-atlas/README.md"
+  },
+  {
+    "id": "I04",
+    "name": "ORION SENTINEL CORE",
+    "session": "I",
+    "directory": "research/I/I04-orion-sentinel-core",
+    "document": "research/I/I04-orion-sentinel-core/README.md"
+  },
+  {
+    "id": "I05",
+    "name": "PIONEER AERODRIFT",
+    "session": "I",
+    "directory": "research/I/I05-pioneer-aerodrift",
+    "document": "research/I/I05-pioneer-aerodrift/README.md"
+  },
+  {
+    "id": "I06",
+    "name": "SATURN LOADPATH",
+    "session": "I",
+    "directory": "research/I/I06-saturn-loadpath",
+    "document": "research/I/I06-saturn-loadpath/README.md"
+  },
+  {
+    "id": "I07",
+    "name": "GATEWAY CATSAT CONSOLE",
+    "session": "I",
+    "directory": "research/I/I07-gateway-catsat-console",
+    "document": "research/I/I07-gateway-catsat-console/README.md"
+  },
+  {
+    "id": "I08",
+    "name": "VOYAGER FRAMEFORGE",
+    "session": "I",
+    "directory": "research/I/I08-voyager-frameforge",
+    "document": "research/I/I08-voyager-frameforge/README.md"
+  },
+  {
+    "id": "I09",
+    "name": "OSIRIS REGOLITH LEAPER",
+    "session": "I",
+    "directory": "research/I/I09-osiris-regolith-leaper",
+    "document": "research/I/I09-osiris-regolith-leaper/README.md"
+  },
+  {
+    "id": "I10",
+    "name": "GEMINI POINTLOCK",
+    "session": "I",
+    "directory": "research/I/I10-gemini-pointlock",
+    "document": "research/I/I10-gemini-pointlock/README.md"
+  },
+  {
+    "id": "I11",
+    "name": "HUBBLE SKYVAULT",
+    "session": "I",
+    "directory": "research/I/I11-hubble-skyvault",
+    "document": "research/I/I11-hubble-skyvault/README.md"
+  },
+  {
+    "id": "I12",
+    "name": "PIONEER PHOBOS PATHFINDER",
+    "session": "I",
+    "directory": "research/I/I12-pioneer-phobos-pathfinder",
+    "document": "research/I/I12-pioneer-phobos-pathfinder/README.md"
+  },
+  {
+    "id": "I13",
+    "name": "OSIRIS APOPHIS HORIZON",
+    "session": "I",
+    "directory": "research/I/I13-osiris-apophis-horizon",
+    "document": "research/I/I13-osiris-apophis-horizon/README.md"
+  }
+]

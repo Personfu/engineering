@@ -1,0 +1,29 @@
+# B14 · Figure gallery
+
+[PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../README.md) · [Data blueprint](../data/README.md) · [Data diagnostic gallery](../../../../data/figures/README.md)
+
+## Engineering architecture
+
+![Engineering architecture](architecture.svg)
+
+The diagram distinguishes measured infiltration curves, device-specific parameters and watershed screening. It preserves the historical sampled-plot direction while requiring raw evidence before new effects or recovery mechanisms are quantified.
+
+[SVG](architecture.svg) · [Editable Mermaid source](architecture.mmd)
+
+## Data blueprint
+
+![Proposed data contract](data-map.svg)
+
+**Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
+
+## Original numerical view
+
+![B14 included numerical demonstration](../../../../models/figures/05_hydrologic_reservoir.svg)
+
+[Model formulation, data, assumptions and executed numerical checks](../../../../models/README.md)
+
+## Planned scientific result
+
+Compare burn strata across litter/carbon distributions and show observed/predicted storm hydrographs with propagated uncertainty.
+
+This final scientific result remains an execution deliverable; the design diagrams do not establish an empirical finding.

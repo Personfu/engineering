@@ -1,0 +1,62 @@
+{
+  "id": "15_spectral_information_and_noise",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/15_spectral_information_and_noise.svg",
+  "png": "data/figures/15_spectral_information_and_noise.png",
+  "provenance": "data/figures/15_spectral_information_and_noise.provenance.json",
+  "caption": "Synthetic spectral-mixture estimator distributions under the same known band-noise level. Separated endmembers give narrow noise-driven fraction estimates; near-identical endmembers give a broad unconstrained distribution with unphysical values preserved as an identifiability diagnostic. Central 95% noise-realization intervals are descriptive simulation intervals, not posteriors or uncertainty bounds for measured Mars mineral abundance.",
+  "linked_projects": [
+    "C08",
+    "H09"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/spectral_mixture.csv",
+      "sha256": "af89ffdc0661479ca0f7dbf4561ef10abe46f5ffa06f3f2794f8093db37af5d7",
+      "bytes": 22291
+    },
+    {
+      "path": "models/data/spectral_monte_carlo.csv",
+      "sha256": "b8e4ed10b7fa6201e7081cd1557ea5cbb44b6f7109ca237de4c3452c215ba4f3",
+      "bytes": 86529
+    },
+    {
+      "path": "models/data/spectral_mixture.json",
+      "sha256": "8d6313caf756c59a21c76fb19a828acdc03b2a0754d4cb001cb3634ee54447dd",
+      "bytes": 1175
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/15_spectral_information_and_noise.svg",
+      "sha256": "fe42cf90779930350ecfbf82c7228a0e03b591d3a58419f054b436fbad83f76b",
+      "bytes": 48800
+    },
+    {
+      "path": "data/figures/15_spectral_information_and_noise.png",
+      "sha256": "fff14a26f882c37975615fe9d564e7908c0059717d410102309745e4bb240e0b",
+      "bytes": 194078
+    }
+  ],
+  "assumptions_and_limits": [
+    "Invented Gaussian bands, independent known-variance noise and exact linear endmembers.",
+    "Real intimate mixing, grain size, scattering and correlated calibration are absent.",
+    "Panel axes differ intentionally; posterior interpretation is not justified."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "noise_realizations": 2000,
+    "empirical_sigma_separated": 0.008615400665835594,
+    "empirical_sigma_nearly_identical": 8.615400665835432,
+    "central_95_interval_separated": [
+      0.6327118050118912,
+      0.6662803978162178
+    ],
+    "central_95_interval_nearly_identical": [
+      -16.638194988111632,
+      16.930397816214896
+    ],
+    "weak_estimates_outside_physical_interval_fraction": 0.9565
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

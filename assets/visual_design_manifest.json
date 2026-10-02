@@ -1,0 +1,1202 @@
+{
+  "generator": "ATLAS visual design generator / Python standard library",
+  "purpose": "Original document artwork and exact field inventories; no observations or numerical results generated.",
+  "input_hashes": {
+    "registry/projects.json": "543e2a2b8954f6010aeb833967db3f00687f96ad9755b2ac295e9c75a297434d",
+    "registry/engineering_annexes.json": "228e4b03df2a004dad7573b1d0e283ee6e30d574c13a44a03d65fd74abd90baf",
+    "registry/project_paths.json": "eac12d071b2511e493cdd7e82687daa55be303f9fc834bcc6597dccf49a75164"
+  },
+  "asset_path_base": "repository root",
+  "palette": {
+    "navy": "#071d31",
+    "midnight": "#0d2a43",
+    "teal": "#65d8c0",
+    "copper": "#e9ac78",
+    "ink": "#16324a",
+    "muted": "#52687b",
+    "paper": "#f7f8f5",
+    "white": "#ffffff",
+    "rule": "#dce5e7"
+  },
+  "fonts": {
+    "body": "Arial, Helvetica, sans-serif",
+    "field_names": "Consolas, Menlo, monospace"
+  },
+  "counts": {
+    "projects": 117,
+    "sessions": 9,
+    "fields": 877,
+    "requirements": 527,
+    "planned_verification_cases": 434
+  },
+  "project_order": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B17",
+    "B18",
+    "B19",
+    "B20",
+    "B21",
+    "B22",
+    "B23",
+    "B24",
+    "B25",
+    "B26",
+    "B27",
+    "B28",
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C21",
+    "C22",
+    "C23",
+    "C24",
+    "C25",
+    "C26",
+    "C27",
+    "C28",
+    "C29",
+    "C30",
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "F01",
+    "F02",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "I01",
+    "I02",
+    "I03",
+    "I04",
+    "I05",
+    "I06",
+    "I07",
+    "I08",
+    "I09",
+    "I10",
+    "I11",
+    "I12",
+    "I13"
+  ],
+  "session_counts": {
+    "A": {
+      "projects": 12,
+      "fields": 84,
+      "planned_verification_cases": 36
+    },
+    "B": {
+      "projects": 28,
+      "fields": 213,
+      "planned_verification_cases": 112
+    },
+    "C": {
+      "projects": 30,
+      "fields": 229,
+      "planned_verification_cases": 120
+    },
+    "D": {
+      "projects": 7,
+      "fields": 50,
+      "planned_verification_cases": 22
+    },
+    "E": {
+      "projects": 8,
+      "fields": 56,
+      "planned_verification_cases": 25
+    },
+    "F": {
+      "projects": 2,
+      "fields": 14,
+      "planned_verification_cases": 6
+    },
+    "G": {
+      "projects": 8,
+      "fields": 56,
+      "planned_verification_cases": 24
+    },
+    "H": {
+      "projects": 9,
+      "fields": 71,
+      "planned_verification_cases": 36
+    },
+    "I": {
+      "projects": 13,
+      "fields": 104,
+      "planned_verification_cases": 53
+    }
+  },
+  "asset_count": 127,
+  "assets": [
+    {
+      "path": "assets/hero.svg",
+      "kind": "decorative_portfolio_metadata",
+      "sha256": "698df1ffccc0dc5159f79e1c0ab0f6beccd3731785fbbc5ec4e2a356ee50837d",
+      "bytes": 8566
+    },
+    {
+      "path": "assets/sessions/A.svg",
+      "kind": "session_metadata",
+      "sha256": "23faf0baded9ba38dc943fa052d46048bcc15fb1295d80a4a270538a9ec5e0c5",
+      "bytes": 3503
+    },
+    {
+      "path": "assets/sessions/B.svg",
+      "kind": "session_metadata",
+      "sha256": "be016bf3a40f182016e01d85e3cb0b5c4ded5a10ab5c46327e6677c321e69686",
+      "bytes": 3662
+    },
+    {
+      "path": "assets/sessions/C.svg",
+      "kind": "session_metadata",
+      "sha256": "04275142f670dc133ab31d4a3e77b6c11ea5244f5e4efa2ed6c56d229a2acdfe",
+      "bytes": 3507
+    },
+    {
+      "path": "assets/sessions/D.svg",
+      "kind": "session_metadata",
+      "sha256": "e6f85eb0006aff1cbf047a91bb41fbcc0257f59f5bdb7b9b6e7a8ac1b0220a6f",
+      "bytes": 3465
+    },
+    {
+      "path": "assets/sessions/E.svg",
+      "kind": "session_metadata",
+      "sha256": "680e05cf51fe4b579a2849a1e12a6cd1bfbec2aec238606249742b3ebb08ef17",
+      "bytes": 3455
+    },
+    {
+      "path": "assets/sessions/F.svg",
+      "kind": "session_metadata",
+      "sha256": "dcf742733dafdca0447d0052223bf6bf2f9caf63c623609a7c959150be75d56c",
+      "bytes": 3503
+    },
+    {
+      "path": "assets/sessions/G.svg",
+      "kind": "session_metadata",
+      "sha256": "ca27c1a82bd11a04ff41d511532b10d7d3f28dacd45e042ee9c9f51589a22597",
+      "bytes": 3505
+    },
+    {
+      "path": "assets/sessions/H.svg",
+      "kind": "session_metadata",
+      "sha256": "382bfb6e3a52dfee79c531a7cf9d9149c8b5aed8e9a41392c885060218d211bb",
+      "bytes": 3477
+    },
+    {
+      "path": "assets/sessions/I.svg",
+      "kind": "session_metadata",
+      "sha256": "ae6bb7078cb9813fa266240b9a3c48c9b15262446fff332f013fa14c785acc92",
+      "bytes": 3487
+    },
+    {
+      "path": "research/A/A01-artemis-fractal-navigator/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "8490da2467e6829413600c9a3e7762f11aaa6f253904d11207e7a80a5c317fca",
+      "bytes": 16616,
+      "project_id": "A01",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A02-new-horizons-cryophase/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "de5a6fd33b6bd6dfd74b149afe3060cd0713ab155ed1567cff7ef616d79e7b19",
+      "bytes": 16728,
+      "project_id": "A02",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A03-chandra-vortex-core/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "c31932036bc76f686f65003c0a44e8443cf247b23d32cec868fe07b32f1ffc5a",
+      "bytes": 16733,
+      "project_id": "A03",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A04-apollo-swarm-sentinel/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "1dbe5443d4897e2a8763ed2f40ebeaa47fd94aef0c62af97b7a33ce497352ea4",
+      "bytes": 16509,
+      "project_id": "A04",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A05-voyager-cilia-array/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "89e67dbb32c757f34887bd66e6184e5687afe749010430d58a0633a532f5ead4",
+      "bytes": 16669,
+      "project_id": "A05",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A06-apollo-porin-insight/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "e6ffcee6887017903c289fb6a26560da7d58a6754e2311ef7fc78b6e5a30cb84",
+      "bytes": 16769,
+      "project_id": "A06",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A07-orion-chromatin-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "00d4894133571d71bd56ee3d2152f32243523948d3e7867a9250af7ea4430cbc",
+      "bytes": 16628,
+      "project_id": "A07",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A08-helios-pulse-forge/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "d3726bcc0c6c6dfbd94400837c2d917410dc79ce6fa6510227282813988a6268",
+      "bytes": 16676,
+      "project_id": "A08",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A09-spitzer-radio-origins/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "5857de8a33ec524d68de272101ad01513690f213588e4946df73c52dfa4f1494",
+      "bytes": 16681,
+      "project_id": "A09",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A10-hubble-carina-clock/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "16518b2beadce56410c9162337a6d91fd960f02e5adf7db1577c4444bf287a5d",
+      "bytes": 16690,
+      "project_id": "A10",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A11-osiris-sulfur-archive/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "36ba927b5eec8d939787b44e36641ecb9c7b9e95dc45fbc88d5b2363cdd2bf6f",
+      "bytes": 16728,
+      "project_id": "A11",
+      "fields": 7
+    },
+    {
+      "path": "research/A/A12-stardust-isotope-foundry/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "454747d1787e85a2a50dd7d409b1ab55f8d98f3e5d52fdf0824b04423bbea543",
+      "bytes": 16775,
+      "project_id": "A12",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "fd47378b0e427f2fdd27d3eb18874f5baa0f14c2756b904e17b8a08c36bec359",
+      "bytes": 16803,
+      "project_id": "B01",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B02-artemis-life-rafts-urban-pollinator-constellation/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "adf946828ab33cf4ffce1efcc886a0bfffc3af9e90f168b7bbf99d66d6f160e6",
+      "bytes": 16604,
+      "project_id": "B02",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B03-orion-crossings-gila-monster-road-ecology/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "8cf99cd479d9d35d52f3f18b893272a3db77f03835a13bd6283de1241bc87d20",
+      "bytes": 16612,
+      "project_id": "B03",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B04-aurora-veil-ionospheric-absorption-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "dcedc502ccab2857a1f67c5c34c51d3ee8bd3590e9782c0926be8fa4962d015a",
+      "bytes": 16579,
+      "project_id": "B04",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B05-kepler-bloomclock-restoration-timing-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "da6ce2ad4ad46e963cf7f307a63c3f39a9db92ae66a770e9c6707e213ede2a30",
+      "bytes": 16669,
+      "project_id": "B05",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "f602105b5e4c9f4a1bf43d41f56bf1bb5cfab6a286e3b764afc891fc92c68cf4",
+      "bytes": 16654,
+      "project_id": "B06",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "1a1ce4cb555b6f21a432cb4a1a8158a8805bb79ee95db5faa1449544d8590d51",
+      "bytes": 16721,
+      "project_id": "B07",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B08-terraform-terraces-dryland-conservation-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "aabe9f65e8dc650a0f2d908ce69ccf87620901edddfe6cbb1a86cc5356e7d7a0",
+      "bytes": 16591,
+      "project_id": "B08",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "250294a46147f70a475b67c44ff7817dd8a877f343f36301bb0395270acf47d8",
+      "bytes": 16683,
+      "project_id": "B09",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B10-landsat-equity-community-canopy-mission/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "18c59bccf9380a5106bd2b129b6a996c172ca263721c8f2d51025551b842c4c9",
+      "bytes": 16682,
+      "project_id": "B10",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "b31f85711da1ad9e6a68455006d933338ab1ba7bd6b7ab3ff34f685ffcae9a62",
+      "bytes": 16232,
+      "project_id": "B11",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "0f5d037b00f76762b3ba72c304da64589b8d12af372bb5c4d20feb3755c9a50d",
+      "bytes": 16800,
+      "project_id": "B12",
+      "fields": 7
+    },
+    {
+      "path": "research/B/B13-gaia-pixelscout-ecological-instance-mapping/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "a285a0e6e7df3017a3b55f17d78dd2b61b70d03dd9641fcb2ee2dcbfa958c0e8",
+      "bytes": 16162,
+      "project_id": "B13",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "cc4f1df976ce87bb3191942745f289260595456c03e6eec94d34618397bc7dd0",
+      "bytes": 16203,
+      "project_id": "B14",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B15-tecton-orion-farallon-slab-reconstruction/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "a9ef09fa933ff3ee29e26f59677b1143b0f2376307bd060bc458bb950bfe8b6b",
+      "bytes": 16159,
+      "project_id": "B15",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "7b17118c77af92f078b20134577476e34affe31ac6937666b7680392d6cf61ad",
+      "bytes": 16266,
+      "project_id": "B16",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B17-aquarius-lifeline-inland-fisheries-resilience/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "5f5f6329570411ad055e894bbaffee5da89995ba2e04a95c1cbbe47a8a6e8772",
+      "bytes": 16333,
+      "project_id": "B17",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "72f1805e8f35c9a8beffa49ad5d0bd25936843f9e29f4ef54b08838e175e7edc",
+      "bytes": 16206,
+      "project_id": "B18",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B19-parker-plasma-whisper-electron-structure-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "d29b12882ef9554e282e34ae9a3d4ea0c7ced4f6eba6937aa691a824bdd6def7",
+      "bytes": 16229,
+      "project_id": "B19",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "7243287c02a215daed7423a3054a8585520c00c7278e51b3b89a504773fadafe",
+      "bytes": 16224,
+      "project_id": "B20",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B21-proteus-driftscape-evolutionary-protein-disorder/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "f3024ec2124c5b5a5f12b7057174c92e75a9dc86176e1234a911eb24a1eb6a19",
+      "bytes": 16258,
+      "project_id": "B21",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "edf5fc9070a08feab7c55c327ef70cce3b609bf601b484de9e015f31e0b5bbf2",
+      "bytes": 16250,
+      "project_id": "B22",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "d5f233bb95831ed0276b242fad0da9ca4048fd837b819250deb6b2325b15819d",
+      "bytes": 16242,
+      "project_id": "B23",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "b443bcd5e7a15343f09e11c7e55c7b299e79b22ea67a6fa25f09f41bf7801f0d",
+      "bytes": 16334,
+      "project_id": "B24",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B25-seedstar-genesis-dryland-establishment-forecasting/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "a822514c46f47153940030cae0d00a79111a391fbd99095efda398e1e2e8c3a2",
+      "bytes": 16235,
+      "project_id": "B25",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B26-helios-powerloop-solar-electrolysis-dispatch/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "d896bc456d0e657c9d14cb0e72bddc8d8b5435fb3a54dd3105e7f7d3d56a5513",
+      "bytes": 16167,
+      "project_id": "B26",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "420524fc91273b9fde43c57d63e4d4282e221c3d7f4e06cc1dc120fdc314624c",
+      "bytes": 16208,
+      "project_id": "B27",
+      "fields": 8
+    },
+    {
+      "path": "research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "ed3c3df2c7223ca8098ae1c2094ad4677548670b7ec40954c64c3dde3400da99",
+      "bytes": 16237,
+      "project_id": "B28",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C01-apollo-windwatch/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "f440ce51815684cc854a968a27d659c5b2c0022d50d05df6b815768ac702ae67",
+      "bytes": 13605,
+      "project_id": "C01",
+      "fields": 6
+    },
+    {
+      "path": "research/C/C02-hubble-nightfall-lab/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "424b6092f16a0bb98636666f21f7c37d2f77f32a43b01c9c01d2fae3e9563918",
+      "bytes": 16719,
+      "project_id": "C02",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C03-taurus-molecule-trail/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "6cf0d766204a58c000657c9f10dab7109b75824daf903e2927c2b32d2dc32787",
+      "bytes": 16788,
+      "project_id": "C03",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C04-horizon-tidal-echo/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "09da7d87bfa7f5cbf0d9f16e0fdf3a4f9e49583093d387951cd3ae1d5dd5b79b",
+      "bytes": 16698,
+      "project_id": "C04",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C05-kepler-worldforge/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "eb7da9b51dd44a012ba25195ec6c315bef6aafaa932c5ae2b7b8329406f5efcc",
+      "bytes": 16285,
+      "project_id": "C05",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C06-pulsar-gemini-watch/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "29bbe7344cd988e830cde1e0d70fe279f7dd09af92c2ae399833cc96d5dc4ecd",
+      "bytes": 16869,
+      "project_id": "C06",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C07-artemis-memory-bridge/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "73154af727778859ea63612d8019978d47aa925cf57f8518e269e10269dd387f",
+      "bytes": 16732,
+      "project_id": "C07",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C08-mars-nili-spectral-vault/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "10cad586bed700a0057aefa78e4f039859f200730b413dd5b4bbf02722a4d8dc",
+      "bytes": 16191,
+      "project_id": "C08",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C09-eaglesat-cosmic-pixel/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "181fdea7b7c576e39c715353d04cc526db9b632538d9154c270efeb4fdbeb550",
+      "bytes": 16307,
+      "project_id": "C09",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C10-voyager-local-group-halos/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "eb1689d31da754a64d123e4de88a8f88716836f9490af711ac47a283f23fe0d3",
+      "bytes": 16391,
+      "project_id": "C10",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C11-orion-core-inference/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "dbe579b5299c6ac1ab70e354ddee3238e09b6189f54d31826f2fea6c195124ed",
+      "bytes": 16760,
+      "project_id": "C11",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C12-hubble-cosmic-glow/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "cef4f1eab4bf4c4ea0f0e0ce805501c8bf2a3de87edcc05bfafd9fa871986a3d",
+      "bytes": 16476,
+      "project_id": "C12",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C13-horizon-ring-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "5dba1e29bf8cc6d7c80f81e79dac64dd38d98e36839b1d9f04f34a2d953e5f0f",
+      "bytes": 16719,
+      "project_id": "C13",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C14-roman-darkhole-academy/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "b7fc5da75823b4944273d7d4f30a120f3de5d04da7c37ebacd55464bc02cad09",
+      "bytes": 16768,
+      "project_id": "C14",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C15-webb-photon-truth/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "59c1c01558f199758988d77bdeb4850d62a0744cacdcba12095546477114a8d8",
+      "bytes": 16411,
+      "project_id": "C15",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C16-orion-strain-metrology/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "b4f182e2da4938695bb568dee8d3cdc18627b6966194426fa6b6862ed70659fe",
+      "bytes": 16229,
+      "project_id": "C16",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C17-gemini-disk-sentinel/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "8a95f491933e761cdedec930e5b4836979c3a9fe45b6e0ab5e34958d79975a15",
+      "bytes": 16396,
+      "project_id": "C17",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C18-reionization-oxygen-beacon/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "0fefcf4243e53631a40030948c38fa015af15e313ac3a67f98ce900d06c3499f",
+      "bytes": 16411,
+      "project_id": "C18",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C19-webb-young-star-atmospheres/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "d71df842591de39cae18d40387f620ad0aa20eb14835e658ded609598b2e71cd",
+      "bytes": 16417,
+      "project_id": "C19",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C20-trinity-accretion-echo/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "fa94d6fe99f630ec65497dcbe4d030b978c8ed4e4c6929e465869fc89293ec05",
+      "bytes": 16330,
+      "project_id": "C20",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C21-parker-magnetic-trail/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "16470f117604bc4762499ca742055a5e5601c505e61c33b4830b402bffd6a5ef",
+      "bytes": 16296,
+      "project_id": "C21",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C22-hubble-galactic-exhale/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "7bcfe22c23567cd2ca71ba125eea1b7afad6955106156e7d4af9697b284cbe49",
+      "bytes": 16388,
+      "project_id": "C22",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C23-kepler-metal-worlds/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "9ff470849a5aa8fe425a6794795a43586cd439b887d2d9abee32ed2f8136ad21",
+      "bytes": 16507,
+      "project_id": "C23",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C24-apollo-dust-clock/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "0c376b83dacedb51f93bfa685cc6fe9d5d3e5955105c90ddae92f0ad79a71afe",
+      "bytes": 16894,
+      "project_id": "C24",
+      "fields": 7
+    },
+    {
+      "path": "research/C/C25-orion-burst-sentinel/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "ca1472bcedcada37f88e4b1b2061d978d169f152dc47c4fbf647fc8ac03456b8",
+      "bytes": 16331,
+      "project_id": "C25",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C26-lisa-pendulum-pathfinder/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "6ccbd2efd84fb6834d9fb2e40d0eb2a3e9bae73b625984e258073a067ef5ae2b",
+      "bytes": 16302,
+      "project_id": "C26",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C27-spherex-cosmic-prism/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "aedf86966240674f0492d2f626ba8c1fbc0be96732d9c15f4f512e721d5dc3c2",
+      "bytes": 16414,
+      "project_id": "C27",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C28-lowell-lunar-lantern/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "6f32e9aed03f278ef343d3f5ec6559c62446717ee59145a685b4158b3a9505ab",
+      "bytes": 16632,
+      "project_id": "C28",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C29-ace-wind-shock-ledger/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "86924af39be835d85fa7494148896555ad72c27d8f5a3a4b41d4dd49a1f86fe8",
+      "bytes": 16527,
+      "project_id": "C29",
+      "fields": 8
+    },
+    {
+      "path": "research/C/C30-artemis-first-horizons/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "fdfe5e4ad62e00b0af0a2414264e12c316c8e209d8999e0425755a92129e24b6",
+      "bytes": 16400,
+      "project_id": "C30",
+      "fields": 8
+    },
+    {
+      "path": "research/D/D01-x-59-vortex-command/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "c32fd1d83a9ed0c8a672b776e64dd97b101cd59c180339cf2057d0b02521c383",
+      "bytes": 16735,
+      "project_id": "D01",
+      "fields": 7
+    },
+    {
+      "path": "research/D/D02-langley-stall-memory/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "a596f571f80015be90deaf1c7b997efb2bfe82602b5ad081b9013e5879371139",
+      "bytes": 16649,
+      "project_id": "D02",
+      "fields": 7
+    },
+    {
+      "path": "research/D/D03-ingenuity-descent-bubble-lab/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "8cf4b7ef6ad85a8eaf4bb1b35418031ba649a994898e5b4c131845471bf06ed0",
+      "bytes": 16661,
+      "project_id": "D03",
+      "fields": 8
+    },
+    {
+      "path": "research/D/D04-glenn-sphere-standard/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "6aea738cc56d89da50b56d9b2f028c0caca62b8d3b085e4a7f9f553c361d312a",
+      "bytes": 16559,
+      "project_id": "D04",
+      "fields": 7
+    },
+    {
+      "path": "research/D/D05-apollo-cyber-flight-deck/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "fc47b411b5e259ca90963d5e3e6357a11327cc1495ea9bd672e053fb93e5f093",
+      "bytes": 16550,
+      "project_id": "D05",
+      "fields": 7
+    },
+    {
+      "path": "research/D/D06-langley-mach-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "068ad0b5617855e0427ed077f729520ca7cc8beb789eaaa0dfc7c96d8e7efc45",
+      "bytes": 16655,
+      "project_id": "D06",
+      "fields": 7
+    },
+    {
+      "path": "research/D/D07-ares-dual-world-scout/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "7ac81ff02620f2a828def913a228d05438388ce2b64ec42efdc2dbf820191085",
+      "bytes": 16652,
+      "project_id": "D07",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E01-apollo-helioscope/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "479aaa5cba4b79e21759505f469b4354a0acc15c21fc258f90aef03b816b1fe1",
+      "bytes": 16610,
+      "project_id": "E01",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E02-gemini-helix/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "deb6cc7bc07547fbe19adc5d4314bb62b6164bbc3e63a419513ec629ff2e04bc",
+      "bytes": 16773,
+      "project_id": "E02",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E03-artemis-stratodose/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "c22c85392aba0d1aef35c9194dc0c7e360cdb2a43add57199a0a0056f3aa945e",
+      "bytes": 16656,
+      "project_id": "E03",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E04-aura-vertical/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "8016870a0f0a2a0116bf4cc5abc0817d2e171833a1000b875e66a1e39991c891",
+      "bytes": 16705,
+      "project_id": "E04",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E05-orion-truss/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "d02f35ca6b6a8546a21ee17ebd3b9dcd47f4a4f07df59a36094cfeaadb6c034b",
+      "bytes": 16655,
+      "project_id": "E05",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E06-apollo-thermalis/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "88e5f142e85ef6118157c32167de4ad249cd6f16e8103cd7a8ef1122576b783f",
+      "bytes": 16662,
+      "project_id": "E06",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E07-discovery-trident/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "7097e18686c67781e2be202a8fc5c44bdc93f0a0cd444201bcb5e7db0f8020fb",
+      "bytes": 16644,
+      "project_id": "E07",
+      "fields": 7
+    },
+    {
+      "path": "research/E/E08-gateway-powerbench/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "83b3a5adaf83a9f0d2dbb3ddd5b7139702ec3200cae82abdf3d54ce6a8fda848",
+      "bytes": 16628,
+      "project_id": "E08",
+      "fields": 7
+    },
+    {
+      "path": "research/F/F01-apollo-voicelink/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "309ccad1162da4b058a2ff61333fc2c98620a80ed62b21ffd70e70d887cf7434",
+      "bytes": 16553,
+      "project_id": "F01",
+      "fields": 7
+    },
+    {
+      "path": "research/F/F02-discovery-quill/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "3612c917b5ef5491a217a29c759ae1bce02499615aba0936111008becb8ee2fa",
+      "bytes": 16649,
+      "project_id": "F02",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G01-artemis-bone-watch/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "83cd2545cc28fb1a56f848b15212365aaddad425d065a069fc15bf69716f1df5",
+      "bytes": 16720,
+      "project_id": "G01",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G02-deep-space-quietline/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "002d66e0a7e3b7afc933a627e1117a8709db6235b8954ab9c1b88b9eefe76e7b",
+      "bytes": 16740,
+      "project_id": "G02",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G03-deep-space-beam-cartographer/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "4c0f971da7e9afbbbfd2be85061efa927d58a115fec33463b2ba06acdc2f34ce",
+      "bytes": 16675,
+      "project_id": "G03",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G04-artemis-cartilage-matrix/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "7ef4f14d43f62af9bb9d9bc3f41a448582f749581ce95eb25d294f1ed5d20843",
+      "bytes": 16695,
+      "project_id": "G04",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G05-ares-crew-resource-vault/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "a845b4a6170b31ba88878c6ab3deb78c62e421079a988e56044d6e04c44f4a82",
+      "bytes": 16727,
+      "project_id": "G05",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G06-terra-humidity-harvest/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "e744989b6278f21f13e4877f22841037c43a672c20675b1f43fefb1c949f7f8f",
+      "bytes": 16675,
+      "project_id": "G06",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G07-hubble-spectral-anchor/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "06f1ec53bd680b8a731367ff54b27077fe4060987da59d7612c325e3eaabd141",
+      "bytes": 16662,
+      "project_id": "G07",
+      "fields": 7
+    },
+    {
+      "path": "research/G/G08-orion-hepatic-recovery/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "983d98f18af3c4813c395561199ac68dd77fcaffdd5a59c2d4bda039740af96e",
+      "bytes": 16768,
+      "project_id": "G08",
+      "fields": 7
+    },
+    {
+      "path": "research/H/H01-voyager-storywalk/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "269168835aa4b084fa92e3c0aee49e40a85da438d63a910f0acdbb210a40d2c2",
+      "bytes": 16692,
+      "project_id": "H01",
+      "fields": 7
+    },
+    {
+      "path": "research/H/H02-osiris-photonforge/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "de93baacd8f6ce7573a6022742d5a0dd9d8c5253cf64e3c4bb83cf8f84d602c2",
+      "bytes": 16174,
+      "project_id": "H02",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H03-artemis-polar-compass/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "44773e111a6d171762084218321ada17ec2875c60ccf54e170c9446f1099c774",
+      "bytes": 16140,
+      "project_id": "H03",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H04-stardust-carbon-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "25f1a143ca3643f964c72828d37cdead0cacd4885970af55308a641196b08e30",
+      "bytes": 16312,
+      "project_id": "H04",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H05-terra-seven-generations/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "b27503892d3cee66cdf1c6c4fa2532daf393cf34ecd39e2630cb61c98ab5de47",
+      "bytes": 16260,
+      "project_id": "H05",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H06-mars-odyssey-ridgework/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "3605301c8d92ba06d216828c343ad5e86331f19417f5a52b6c94babf3d82bb06",
+      "bytes": 16174,
+      "project_id": "H06",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H07-kepler-co-echo/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "012ebb05e681da2698df9a3ec34c0d0ee3e5be4537fc11f1c21222f8a94bc5ea",
+      "bytes": 16166,
+      "project_id": "H07",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H08-genesis-rim-chronicle/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "37f060d39b61cc175431284309f5d8d36ed677db12a3e5be496dd8c8c95cb2c3",
+      "bytes": 16310,
+      "project_id": "H08",
+      "fields": 8
+    },
+    {
+      "path": "research/H/H09-perseverance-lake-archive/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "1adbb1ce515f4c97927cdb7d4e426437b27df0286f26744797fb2a82f77afbec",
+      "bytes": 16376,
+      "project_id": "H09",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I01-saturn-transient-shield/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "72327b3200548ebd49ede2eedf1aac2803624b9db8c5302351eae90be5006b3e",
+      "bytes": 16485,
+      "project_id": "I01",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I02-apollo-aquatherm/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "4078130fb6e3649c999e82b1a89597d5a99810eb663fbd1a78ce94f9f9ad541c",
+      "bytes": 16359,
+      "project_id": "I02",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I03-saturn-channel-atlas/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "5f93025ac0c0cbeb6c7459ffc7ea3c62d932cd25c147054689595940bea276fc",
+      "bytes": 16462,
+      "project_id": "I03",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I04-orion-sentinel-core/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "e5199f0a06bb486a28929bf2111ac0865497c0d58c1b1b665bf3742f6172bd2d",
+      "bytes": 16212,
+      "project_id": "I04",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I05-pioneer-aerodrift/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "4c4428912bb6aae7cda2050e7828583c67c6e02e63bbbcb3e1e720394b40aa03",
+      "bytes": 16405,
+      "project_id": "I05",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I06-saturn-loadpath/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "b0725006d9039367374d64dd6e141d479c17f218d604b1dd713d37f7fd760a82",
+      "bytes": 16403,
+      "project_id": "I06",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I07-gateway-catsat-console/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "3856571d65980425ec5063e4e93cec6233544b6e6d979d28dda6a324790672de",
+      "bytes": 16242,
+      "project_id": "I07",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I08-voyager-frameforge/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "33fb7a70aea1af8fac1982ccd70c725d95152780cd901cfe592c9714d121e1df",
+      "bytes": 16330,
+      "project_id": "I08",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I09-osiris-regolith-leaper/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "6d0be5287f9e0d646bc2d5b1e718491dfc0f7d7e55f14c8f073aa2eb54305acf",
+      "bytes": 16353,
+      "project_id": "I09",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I10-gemini-pointlock/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "fb6feb592b10c90f6d33626b05dc39c8e1ed4fe718844940e9928ea85d8d14d3",
+      "bytes": 16387,
+      "project_id": "I10",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I11-hubble-skyvault/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "55f345d4f8087d91b9759338e8d58a03d19d7a47c467bf495116b2442a5f18cd",
+      "bytes": 16343,
+      "project_id": "I11",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I12-pioneer-phobos-pathfinder/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "16b8e150601b445b0722f3fa0b37450f973aacbdafecd32299032a5bb70a53db",
+      "bytes": 16384,
+      "project_id": "I12",
+      "fields": 8
+    },
+    {
+      "path": "research/I/I13-osiris-apophis-horizon/figures/data-map.svg",
+      "kind": "proposed_data_contract",
+      "sha256": "fc03622f0b1ea2fccbfd5a7a1c9506af0b7053d2a2d0ecf3fd2351a30c19231d",
+      "bytes": 16464,
+      "project_id": "I13",
+      "fields": 8
+    }
+  ],
+  "evidence_labels": {
+    "proposed_data_contract": "No project observations acquired; empty acquisition templates.",
+    "session_metadata": "Counts of specified documentation artifacts.",
+    "decorative_portfolio_metadata": "Original orbital motifs; documentation counts, no NASA logo."
+  }
+}

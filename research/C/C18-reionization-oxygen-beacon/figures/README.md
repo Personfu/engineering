@@ -1,0 +1,23 @@
+# C18 · Figure gallery
+
+[REIONIZATION OXYGEN BEACON](../README.md) · [Data blueprint](../data/README.md) · [Data diagnostic gallery](../../../../data/figures/README.md)
+
+## Engineering architecture
+
+![Engineering architecture](architecture.svg)
+
+Direct ionizing-photon likelihood and optical proxies enter with separate contracts, while transmission and sample selection condition any escape inference.
+
+[SVG](architecture.svg) · [Editable Mermaid source](architecture.mmd)
+
+## Data blueprint
+
+![Proposed data contract](data-map.svg)
+
+**Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
+
+## Planned scientific result
+
+O32 versus Ly-alpha separation colored by directly measured escape, with upper limits, selected-sample boundaries, and predicted probability contours.
+
+This final scientific result remains an execution deliverable; the design diagrams do not establish an empirical finding.

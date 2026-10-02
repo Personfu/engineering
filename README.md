@@ -1,39 +1,70 @@
-# ATLAS Engineering
+![ATLAS Engineering — research, models and evidence](assets/hero.svg)
 
-**117 engineering research records, preserving every original project in its exact A–I session order.** Each project has a NASA-inspired name and a detailed design basis, requirements, mathematical formulation and derivation, data specification, uncertainty analysis, trade study, verification plan, implementation work packages, failure analysis, technical architecture figure and cited primary resources.
+[Explore research](research/README.md) · [Data atlas](data/README.md) · [Figure gallery](data/figures/README.md) · [Handbooks](handbooks/README.md) · [Engineering practice](engineering/README.md)
 
-Start with the [ordered engineering document register](ENGINEERING_DOCUMENTATION.md). For continuous reading, use the nine session handbooks below. The combined D03 title retains both the autorotating probe and laminar-separation-bubble investigations as distinct work packages.
+**117 investigations. Nine disciplines. One engineering library.** Every original project is retained in its supplied A–I order, with a NASA-inspired mission name, detailed mathematical models, requirements, data definitions, uncertainty analysis, verification plans and cited primary resources.
 
-| Session | Engineering handbook | Original projects |
-| --- | --- | ---: |
-| A | [Math, Physics & Chemistry](documentation/SESSION_A.md) | 12 |
-| B | [Earth & Environmental Engineering](documentation/SESSION_B.md) | 28 |
-| C | [Astronomy & Space Physics](documentation/SESSION_C.md) | 30 |
-| D | [Aeronautics](documentation/SESSION_D.md) | 7 |
-| E | [ASCEND](documentation/SESSION_E.md) | 8 |
-| F | [Education & Public Outreach](documentation/SESSION_F.md) | 2 |
-| G | [Exploration Systems Engineering](documentation/SESSION_G.md) | 8 |
-| H | [Planetary Science](documentation/SESSION_H.md) | 9 |
-| I | [Aerospace Technology](documentation/SESSION_I.md) | 13 |
+## Choose a discipline
 
-## Engineering artifacts
+| A · Math, Physics & Chemistry | B · Earth & Environment | C · Astronomy & Space Physics |
+| --- | --- | --- |
+| [![Session A](assets/sessions/A.svg)](research/A/README.md) | [![Session B](assets/sessions/B.svg)](research/B/README.md) | [![Session C](assets/sessions/C.svg)](research/C/README.md) |
 
-- [117 individually addressable project records](ENGINEERING_DOCUMENTATION.md), totaling approximately 248,000 words.
-- [527 requirements](catalog/requirements.csv) and [434 specified verification cases](catalog/verification_cases.csv), with persistent IDs and evidence fields.
-- [117 JSON record schemas, field dictionaries and empty acquisition CSVs](data/contracts/README.md), covering 877 defined data fields.
-- 117 editable engineering architecture diagrams and their rendered SVGs, linked from the relevant records.
-- [Eight executable reduced-model demonstrations](models/README.md), nine numerical figures, tabular outputs and a separately acquired 200-row NASA Exoplanet Archive snapshot with query and retrieval provenance.
-- [20 supplementary educational reference kernels](reference_library/README.md), with the concurrent engineering contribution preserved separately and in Git history.
-- [250 distinct cited resources](catalog/source_index.csv), with project-to-source mappings.
+| D · Aeronautics | E · ASCEND | F · Education & Outreach |
+| --- | --- | --- |
+| [![Session D](assets/sessions/D.svg)](research/D/README.md) | [![Session E](assets/sessions/E.svg)](research/E/README.md) | [![Session F](assets/sessions/F.svg)](research/F/README.md) |
 
-## Design and evidence controls
+| G · Exploration Systems | H · Planetary Science | I · Aerospace Technology |
+| --- | --- | --- |
+| [![Session G](assets/sessions/G.svg)](research/G/README.md) | [![Session H](assets/sessions/H.svg)](research/H/README.md) | [![Session I](assets/sessions/I.svg)](research/I/README.md) |
 
-Use the [engineering documentation standard](docs/ENGINEERING_STANDARD.md), [interface control procedure](docs/INTERFACE_CONTROL.md), [model assurance plan](docs/MODEL_ASSURANCE.md), [uncertainty and decision rules](docs/UNCERTAINTY_AND_DECISION_RULES.md), [data management plan](docs/DATA_MANAGEMENT.md) and [execution roadmap](docs/EXECUTION_ROADMAP.md) to turn a record into an investigation with reviewable evidence.
+[Complete ordered project register](ENGINEERING_DOCUMENTATION.md) · [Nine continuous handbooks](handbooks/README.md)
 
-These are research design and analysis documents. Project-specific empirical validation remains pending. Header-only CSVs are acquisition templates; synthetic model parameters and outputs are labeled; the public exoplanet snapshot is separately identified as real data. The 434 specified cases are future verification work, distinct from the executed software checks. NASA-inspired names and use of NASA engineering references do not imply NASA affiliation, certification, clinical efficacy or flight qualification.
+## See the data
 
-The original-title register is preserved in [original_titles.json](catalog/original_titles.json). The supplied titles correspond to the [2021 Arizona Space Grant symposium program](https://spacegrant.arizona.edu/sites/spacegrant.arizona.edu/files/AZSGC%20Symposium%20Booklet%202021_website.pdf). These documents develop new engineering proposals; they do not reproduce its abstracts or claim authorship of the historical work.
+[![NASA Exoplanet Archive sample: planet values and field coverage](data/figures/10_catalog_values_and_coverage.svg)](data/README.md)
 
-## Review and reproducibility
+**OBSERVATIONAL · public catalog snapshot.** The selected 200-row NASA Exoplanet Archive extract shows planet periods, radii, discovery methods and missing metallicity. This alphabetically selected sample cannot establish occurrence rates. [CSV](models/data/exoplanet_sample.csv) · [Query & retrieval provenance](models/data/exoplanet_sample.provenance.json) · [Full figure caption](data/figures/README.md)
 
-[Release verification](reviews/RELEASE_VERIFICATION.md) records the completed assembly checks, [independent revision-2 review](reviews/INDEPENDENT_ENGINEERING_REVIEW.md), numerical verification and their limits. [Documentation build instructions](tools/README.md) explain how to regenerate records and diagrams from the versioned sources. Model execution instructions are in [models/README.md](models/README.md).
+| Thermal power and response | Water accounting | Control authority |
+| --- | --- | --- |
+| [![Synthetic thermal budget](data/figures/11_thermal_power_and_response.svg)](data/figures/README.md#thermal-power-and-response) | [![Synthetic hydrologic ledger](data/figures/12_hydrologic_water_ledger.svg)](data/figures/README.md#hydrologic-water-ledger) | [![Synthetic attitude response](data/figures/13_attitude_phase_and_authority.svg)](data/figures/README.md#attitude-phase-and-authority) |
+
+**SYNTHETIC · illustrative reduced models.** These plots expose balances, limits and numerical behavior using declared model inputs. [Explore all nine new diagnostics and their inputs](data/figures/README.md), plus the [original numerical views](models/README.md).
+
+**PROPOSED CONTRACT · acquisition pending.** Every project has a visual map of its fields, a dictionary, JSON Schema and an empty acquisition CSV. [Browse all 877 field definitions](data/CONTRACTS.md).
+
+## Inside each mission folder
+
+```text
+research/A/A01-artemis-fractal-navigator/
+├── README.md               Engineering design and analysis record
+├── data/
+│   ├── README.md           Visual blueprint and field reference
+│   ├── dictionary.csv      Units, meanings and quality rules
+│   ├── schema.json         Proposed record contract
+│   └── acquisition.csv     Empty acquisition template
+└── figures/
+    ├── README.md           Captioned figure gallery
+    ├── architecture.svg    Engineering interfaces
+    ├── architecture.mmd    Editable diagram source
+    └── data-map.svg        Every proposed field, type and unit
+```
+
+| Collection | What to explore |
+| --- | --- |
+| [Research](research/README.md) | 117 named mission folders, in original session order |
+| [Data](data/README.md) | Visual atlas, raw-table links, evidence labels and provenance |
+| [Models](models/README.md) | Eight executable reduced models, numerical tests and recorded outputs |
+| [Handbooks](handbooks/README.md) | Complete engineering records for continuous reading |
+| [Engineering](engineering/README.md) | Model assurance, interfaces, uncertainty and execution practice |
+| [Registry](registry/README.md) | 527 requirements, 434 specified cases and 250 cited resources |
+| [Evidence](evidence/README.md) | Review, integrity and reproducibility records |
+| [Archive](archive/README.md) | Preserved supplementary contribution and 20 educational kernels |
+| [Tools](tools/README.md) | Deterministic documentation and visual generators |
+
+## Evidence and provenance
+
+These are engineering research designs. Project-specific empirical validation remains pending; the 434 specified cases are distinct from executed software checks. Plot captions distinguish observed catalog values from synthetic calculations. The combined D03 entry retains both original research work packages. NASA-inspired names are creative identifiers and do not imply affiliation or qualification.
+
+The [exact original-title register](registry/original_titles.json) preserves the supplied topics from the [2021 Arizona Space Grant symposium program](https://spacegrant.arizona.edu/sites/spacegrant.arizona.edu/files/AZSGC%20Symposium%20Booklet%202021_website.pdf). The library develops new research designs and does not claim the historical teams’ data or findings. [Visual-revision verification](evidence/VISUAL_REVISION_VERIFICATION.md) records the layout and figure checks.

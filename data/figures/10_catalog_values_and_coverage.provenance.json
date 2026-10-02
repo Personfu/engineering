@@ -1,0 +1,59 @@
+{
+  "id": "10_catalog_values_and_coverage",
+  "evidence_kind": "real_public_catalog_snapshot",
+  "svg": "data/figures/10_catalog_values_and_coverage.svg",
+  "png": "data/figures/10_catalog_values_and_coverage.png",
+  "provenance": "data/figures/10_catalog_values_and_coverage.provenance.json",
+  "caption": "Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.",
+  "linked_projects": [
+    "C05",
+    "C23"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/exoplanet_sample.csv",
+      "sha256": "31d0b4ecc46e1fb7a57d41e4f35467adbfbd6d37137050b70ac6f39881f8e90e",
+      "bytes": 14272
+    },
+    {
+      "path": "models/data/exoplanet_sample.provenance.json",
+      "sha256": "e5c572bdd05f996af44d606af5a2e91cac1cabc02c01d35a9faf7f86a71d6fa3",
+      "bytes": 2170
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/10_catalog_values_and_coverage.svg",
+      "sha256": "71d57105be56b1300c83b9aea5838cbd288e06e5147c4d68940622fb7ef971c6",
+      "bytes": 72960
+    },
+    {
+      "path": "data/figures/10_catalog_values_and_coverage.png",
+      "sha256": "3b31e69cc47d6815ff571d033f276688a4679929047d778d9ce2e4e74ee50591",
+      "bytes": 207630
+    }
+  ],
+  "assumptions_and_limits": [
+    "Query selection, discovery and follow-up biases; composite values may mix references.",
+    "No per-parameter uncertainties or selection-efficiency correction in the extract."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "rows": 200,
+    "distinct_host_names": 193,
+    "discovery_method_counts": {
+      "Radial Velocity": 46,
+      "Transit": 149,
+      "Astrometry": 1,
+      "Pulsar Timing": 3,
+      "Transit Timing Variations": 1
+    },
+    "available_field_counts": {
+      "pl_orbper": 200,
+      "pl_rade": 200,
+      "st_met": 191,
+      "discoverymethod": 200
+    }
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

@@ -1,0 +1,53 @@
+{
+  "id": "14_orbit_conservation_and_refinement",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/14_orbit_conservation_and_refinement.svg",
+  "png": "data/figures/14_orbit_conservation_and_refinement.png",
+  "provenance": "data/figures/14_orbit_conservation_and_refinement.provenance.json",
+  "caption": "Synthetic two-body conservation and refinement diagnostics from immutable model outputs. Panel A scales relative specific-energy error to parts per million and reports angular-momentum conservation for the stored 400-step-per-period run. Panel B compares three recorded maximum-energy errors with a second-order reference anchored to the coarsest run. This is an integration check, not trajectory prediction validation.",
+  "linked_projects": [
+    "I08",
+    "I12",
+    "I13"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/two_body_orbit.csv",
+      "sha256": "26346ffc7b03f09342a18bb0cdc83d5e31ace0b18e364b79b912455a6712098f",
+      "bytes": 549951
+    },
+    {
+      "path": "models/data/two_body_convergence.csv",
+      "sha256": "91b4d6524ce07e6590807af8f16b793347351240c7475793f630ade259294434",
+      "bytes": 129
+    },
+    {
+      "path": "models/data/two_body_orbit.json",
+      "sha256": "d5c5abddf0a548196da2e150ed37b2f5a5582af51709474314372ef7252abf67",
+      "bytes": 960
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/14_orbit_conservation_and_refinement.svg",
+      "sha256": "fc0ee88ea19d06ef00f7861d41ba954d64db93c925d0116e4c756f3d473337e7",
+      "bytes": 33182
+    },
+    {
+      "path": "data/figures/14_orbit_conservation_and_refinement.png",
+      "sha256": "b3739491da389c2625c514014f5838ad074ae0757b3c8a48b3b684df38ec72e9",
+      "bytes": 252280
+    }
+  ],
+  "assumptions_and_limits": [
+    "Normalized point masses; no maneuver, atmospheric drag, third body or operational ephemeris.",
+    "Energy boundedness does not establish multi-body or planetary-defense solution accuracy."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "endpoint_refinement_order": 2.002711592643768,
+    "max_abs_relative_energy_error_400_steps": 0.0001341747103803526,
+    "max_abs_relative_angular_momentum_error": 4.073404867329338e-15
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

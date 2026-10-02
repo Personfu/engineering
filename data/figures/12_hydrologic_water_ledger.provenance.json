@@ -1,0 +1,46 @@
+{
+  "id": "12_hydrologic_water_ledger",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/12_hydrologic_water_ledger.svg",
+  "png": "data/figures/12_hydrologic_water_ledger.png",
+  "provenance": "data/figures/12_hydrologic_water_ledger.provenance.json",
+  "caption": "Synthetic reservoir fluxes and cumulative water accounting. Recharge means effective water entering storage, rather than rainfall. Panel B decomposes all accounted water into cumulative release and remaining storage, bounded by initial storage plus accumulated recharge. The tiny arithmetic residual verifies this implementation's conservation, not watershed predictive accuracy.",
+  "linked_projects": [
+    "B23"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/hydrologic_reservoir.csv",
+      "sha256": "54ee19e9ea1a31e587b4479d9ef0581e536fce6d5c0a3441600afae0895043a9",
+      "bytes": 26052
+    },
+    {
+      "path": "models/data/hydrologic_reservoir.json",
+      "sha256": "f816c09d8618628305c7706fefa622ee46b71feb33854f883b5b5a4062299efd",
+      "bytes": 761
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/12_hydrologic_water_ledger.svg",
+      "sha256": "cc5bb9a573ea594b232b5cd5cb1d7ca0ff90363e38d2914f3076182cff438b14",
+      "bytes": 83094
+    },
+    {
+      "path": "data/figures/12_hydrologic_water_ledger.png",
+      "sha256": "14de675f10795dd6e64b33a645c99a51f42348315cdbcc7bacb03bc6b013a2c7",
+      "bytes": 212748
+    }
+  ],
+  "assumptions_and_limits": [
+    "Single pedagogical reservoir; evapotranspiration, interception, infiltration thresholds and channels omitted.",
+    "No observed catchment data, calibrated forecast skill or flood decision claim."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "max_abs_mass_balance_residual_mm": 4.263256414560601e-14,
+    "final_storage_mm": 4.869975199553262,
+    "final_cumulative_outflow_mm": 53.722780945936925
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

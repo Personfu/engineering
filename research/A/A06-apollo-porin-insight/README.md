@@ -1,0 +1,243 @@
+# A06 · APOLLO PORIN INSIGHT
+
+**Original project:** Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi
+
+**Session A:** Math, Physics & Chemistry
+
+**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+
+**Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
+
+[Session A](../README.md) · [All projects](../../../ENGINEERING_DOCUMENTATION.md) · [Session handbook](../../../handbooks/SESSION_A.md) · [← A05](../A05-voyager-cilia-array/README.md) · [A07 →](../A07-orion-chromatin-atlas/README.md)
+
+| Proposed requirements | Specified verification cases | Defined data fields | Cited resources |
+| ---: | ---: | ---: | ---: |
+| 4 | 3 | 7 | 3 |
+
+[Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
+
+---
+
+## Purpose and scientific objective
+
+Proposed mission: preserve the protein-purification research topic as a non-operational structural and analytical-quality study of P66. Develop a literature-grounded evidence model connecting identity, sample quality, conformation, and reported porin behavior. The deliverable is a rigorous characterization specification and computational analysis, without organism cultivation, purification instructions, or pathogen manipulation.
+
+**Question:** Which orthogonal measurements are necessary to distinguish identity, chemical purity, conformational homogeneity, and functional-state evidence for P66?
+
+**Testable hypothesis:** An evidence framework that combines sequence identity, predicted topology, sample heterogeneity, and published channel-state distributions will identify uncertainty that a single apparent molecular-mass band cannot resolve.
+
+## 1. Design basis and analysis boundary
+
+This work is a literature and public-data characterization audit of P66; the boundary contains sequence provenance, published physicochemical observations, figure digitization and candidate structural-state comparison. It produces evidence contracts and uncertainty analysis rather than purification procedures or newly handled pathogenic material. Identity, chemical purity, conformational homogeneity and functional-state evidence remain separate claims.
+
+Start with accession/version consistency and a claim-to-evidence map. Reanalyze public mass or conductance summaries only when resolution supports it; otherwise record an unavailable-data finding. Predicted topology and oligomeric states are hypotheses constrained by orthogonal evidence, not substitutes for experimental structure or universal conductance constants.
+
+## 2. Requirements and verification traceability
+
+These are project design requirements or proposed analysis gates. A numerical target is not a NASA requirement unless its controlling source is explicitly identified. “TBD” identifies evidence required before a decision; it is not permission to assume a value. Verification evidence listed here is planned, unless a linked result explicitly records execution.
+
+| ID | Requirement / gate | Engineering rationale | Verification method | Basis / required evidence |
+| --- | --- | --- | --- | --- |
+| A06-R1 | Every P66 claim shall cite specimen/preparation context and an identifiable published observation. | Different literature preparations are not interchangeable. | Audit claim-to-evidence records against source tables/figures. | Existing P66 primary studies. |
+| A06-R2 | Sequence analyses shall preserve accession, version and residue numbering. | Untracked isoforms corrupt topology comparison. | Hash retrieved public sequence and map annotated residues. | Reproducibility requirement. |
+| A06-R3 | Purity and state-homogeneity outputs shall be reported separately. | One dominant band does not establish a unique oligomer. | Check separate mixture and state-evidence fields. | Analytical distinction, not a new measurement. |
+| A06-R4 | Proposed digitization gate: extraction uncertainty below one quarter of plotted separation being interpreted. | Low-resolution figures can create spurious state distinctions. | Repeat independent digitization and propagate axis/pixel errors. | Proposed screening criterion; inadequate data marked unavailable. |
+
+## 3. Architecture and controlled interfaces
+
+A provenance registry indexes public articles, sequence records and figure regions. The analytical extractor returns normalized peak areas or channel-state summaries with native units and uncertainty. A sequence/topology adapter returns residue-indexed annotations; structure candidates remain versioned models with confidence and assumptions.
+
+A claim engine joins evidence by compatible specimen context, using separate likelihood components for identity, mixture composition and state behavior. It preserves dependence between observations from the same preparation. Outputs include supported, conflicting and unresolved claims. Missing raw conductance traces disable kinetic inference rather than invite fabricated dwell times.
+
+![A06 engineering architecture](figures/architecture.svg)
+
+Public-data evidence converges on separate characterization claims through provenance and dependency checks. The architecture specifies no purification, pathogen manipulation or new functional experiment.
+
+[Editable engineering diagram source](figures/architecture.mmd)
+
+## 4. Mathematical model and derivation
+
+### Governing equations
+
+```text
+P(S|E) proportional P(E|S)P(S), where S denotes candidate structural/oligomeric states and E is independent characterization evidence.
+```
+
+```text
+I(V)=G(V,state)V for a reduced conductance description; voltage-dependent state occupancy can violate constant-G behavior.
+```
+
+```text
+y_mass=sum_k a_k y_k+epsilon; a_k>=0 and sum_k a_k=1 for a mixture-quality model.
+```
+
+```text
+H=-sum_k p_k log p_k summarizes state heterogeneity; it is not a direct purity measurement.
+```
+
+### Variables, units and conventions
+
+- Sequence accession/version, topology confidence, candidate oligomeric state, state-specific conductance, and evidence covariance.
+- Observed analytical peak/band contributions, measurement uncertainty, batch identifier, storage history metadata, and documented provenance.
+
+### Assumptions and boundary conditions
+
+- Published reports concern particular preparations and conditions; their conductance values are not universal constants.
+- Predicted structure is a hypothesis and does not substitute for experimental resolution; no new pathogenic material is handled within this proposal.
+
+### Derivation step 1
+
+$$
+y=\sum_k a_k y_k+\epsilon;\quad a_k\ge0,\ \sum_k a_k=1
+$$
+
+Mixture coefficients describe signal fractions only under the declared response model. They are not automatically mass fractions when components have different detection efficiencies.
+
+### Derivation step 2
+
+```text
+I(V,s)=G(V,s)V
+```
+
+For a fixed state and locally ohmic response, current A equals conductance S times voltage V. Voltage-dependent state occupancy must be modeled before comparing slopes across conditions.
+
+### Derivation step 3
+
+$$
+P(S\mid E)\propto P(E\mid S)P(S)
+$$
+
+Candidate structural-state inference requires a joint evidence likelihood. Multiplying topology and conductance probabilities is justified only after testing their conditional dependence.
+
+### Derivation step 4
+
+$$
+H=-\sum_s p_s\ln p_s
+$$
+
+State entropy is dimensionless and measures occupancy heterogeneity. H=0 for a single state, but does not prove chemical purity or native physiological function.
+
+### Inference or simulation procedure
+
+Review published P66 identity and physicochemical results, build a claim-to-evidence matrix, and retrieve public sequence annotations with versioned identifiers. Reanalyze reported channel-state distributions when data are available, otherwise use transparent figure digitization. Compare plausible membrane-protein structural models against sequence and topology evidence. Specify orthogonal analytical outputs that an accredited institution would need to report for a future authorized study, without prescribing experimental procedures.
+
+### Validity domain and fidelity limits
+
+Native oligomerization and membrane context may remain unresolved. Literature-derived samples differ in preparation history, and publicly available article figures may not permit reliable distribution reconstruction.
+
+## 5. Data specifications and provenance
+
+![A06 proposed data contract: field names, types, units and meanings](figures/data-map.svg)
+
+**Proposed data contract · observations pending.** This visual inventory shows the record fields to acquire or derive. It contains no project measurements. [Open the data blueprint and downloads](data/README.md).
+
+| Field | Type | Unit | Physical / statistical meaning | Quality and missing-data rule |
+| --- | --- | --- | --- | --- |
+| source_record | string | 1 | Article/table/figure provenance. | Stable URL plus figure region required. |
+| sequence_accession | string | 1 | Versioned public sequence identifier. | Residue numbering and sequence hash stored. |
+| preparation_context | record | 1 | Published specimen and analytical context. | Unknown entries null; no inferred procedure. |
+| peak_fraction | nullable<vector<float64>> | 1 | Normalized analytical signal mixture. | Sum check; response basis declared. |
+| conductance_summary | nullable<record> | S | Reported state-specific conductance evidence. | Native units and published uncertainty retained. |
+| topology_candidate | record | 1 | Predicted or observed structural annotation. | Evidence class and confidence distinguished. |
+| evidence_covariance | nullable<matrix<float64>> | mixed | Joint error for compatible measurements. | Unknown dependence flagged; null not zero. |
+
+[Machine-readable record schema](data/schema.json) · [Empty acquisition CSV](data/acquisition.csv) · [Field dictionary CSV](data/dictionary.csv)
+
+The CSV above contains column headers only. Its schema defines future records and does not establish that original-team data or a particular archive product have been acquired. Frame, timing, calibration, covariance, selection and provenance details must accompany populated records.
+
+### Original P66/Oms66 porin study
+
+[Product, archive or reference](https://pmc.ncbi.nlm.nih.gov/articles/PMC175520/)
+
+**Fields:** Protein identification evidence, published conductance summary, conformation/function discussion.
+
+**Access:** Public article; raw electrophysiology traces are not assumed available.
+
+**Role:** Historical identity/function benchmark.
+
+### Structural and physicochemical P66 study
+
+[Product, archive or reference](https://pmc.ncbi.nlm.nih.gov/articles/PMC3911182/)
+
+**Fields:** Sequence-based topology, beta-barrel evidence, and structural limitations.
+
+**Access:** Public article; versioned sequence records and model files require separate retrieval.
+
+**Role:** Independent structural evidence.
+
+## 6. Uncertainty, sensitivity and identifiability
+
+Digitized axis calibration, peak overlap and unequal response efficiencies affect apparent purity. Preparation-dependent membrane context and state occupancy affect conductance. Predictions introduce model discrepancy, particularly oligomerization and flexible segments; high model confidence is not equivalent to experimental confirmation.
+
+Compare alternate peak models and topology candidates with leave-one-evidence-type-out analysis. Use dependence bounds when joint covariance is unknown, and report whether the state ranking changes. No score is translated into pathogenic function or treatment advice. The useful engineering conclusion can be an explicit minimum set of orthogonal reporting outputs whose absence prevents a claim.
+
+## 7. Engineering trade study
+
+| Alternative | Benefit | Cost / limitation | Decision rule |
+| --- | --- | --- | --- |
+| Narrative evidence audit | Works with limited public data. | Cannot resolve quantitative mixtures. | Use when raw data are unavailable. |
+| Figure-derived summaries | Enables transparent reanalysis. | Resolution and selection bias. | Use only after digitization gate and uncertainty disclosure. |
+| Sequence/structure hypothesis ensemble | Tests topology consistency. | Models do not establish native oligomerization. | Retain multiple plausible states rather than force a winner. |
+
+## 8. Verification and validation cases
+
+| Case ID | Stimulus / condition | Expected result / criterion | Method | Evidence artifact |
+| --- | --- | --- | --- | --- |
+| A06-V1 | Mixture endpoint | One component with a=1 reproduces its template; coefficients remain nonnegative. | Synthetic mixture and normalization fixtures. | Defined response model. |
+| A06-V2 | Ohmic units/sign | Fixed G gives linear I–V slope with units S. | Check archived summaries and synthetic sign-reversed voltages. | Dimensional identity; no new channel experiment. |
+| A06-V3 | Evidence removal | Without raw state traces, kinetic outputs are unavailable rather than populated. | Exercise missing-data pipeline and leave-type-out state ranking. | Data-contract requirement. |
+
+**Execution status:** these cases are specified, not claimed as executed. Close a case only with the versioned inputs, output, uncertainty, reviewer and pass/fail rationale.
+
+### Additional scientific validation gates
+
+- Require independent sequence annotation checks and avoid using model confidence as a physical accuracy certificate.
+- Reproduce published summary statistics only where underlying observations support recalculation; otherwise label values as reported.
+- Proposed gate: every conclusion has an evidence type, uncertainty statement, and alternative explanation; no unsupported purity or therapeutic claim.
+
+## 9. Implementation and reproducible work packages
+
+1. Create p66_evidence_registry.csv with article locations and compatible contexts.
+2. Build public_sequence_manifest.json with accession and residue maps.
+3. Implement figure_digitization_audit.ipynb recording scale/error without experimental instructions.
+4. Create mixture_response.py and state_likelihood.py with missing-data gates.
+5. Generate claim_matrix.csv separating identity, purity, homogeneity and function.
+6. Publish model_candidates.json and unresolved_evidence.md with provenance and sensitivity results pending.
+
+### Investigation sequence
+
+1. Record every substantive literature claim with specimen context, uncertainty, and the technique supporting it.
+2. Define analytical quality dimensions separately: identity, impurities, aggregation, conformation, and evidence of activity.
+3. Test competing structural-state hypotheses computationally and document sensitivity to model selection and membrane assumptions.
+4. Prepare a research specification for expert institutional review, including data provenance and orthogonal evidence requirements.
+
+### Resources and interfaces to expertise
+
+- Membrane-protein structural expertise, public sequence/model databases, literature-analysis notebooks, and qualified biosafety/institutional review for any future physical work.
+
+## 10. Failure modes and interpretation controls
+
+| Failure mode | Effect on result | Detection / evidence | Design response |
+| --- | --- | --- | --- |
+| Purity conflated with function | Unsupported characterization claim. | Claim/evidence category mismatch. | Separate reporting outputs. |
+| Sequence version drift | Misaligned residue/topology interpretation. | Hash or numbering mismatch. | Versioned retrieval and mapping. |
+| Dependent evidence multiplied | Overconfident state posterior. | Shared-context dependency audit. | Joint likelihood or explicit dependence bounds. |
+
+- The bacterium causes Lyme disease; all future biological activity belongs to appropriately approved facilities.
+- Identity, purity, and native activity are distinct claims and can disagree; avoid translating this study into vaccine or treatment recommendations.
+
+## 11. Required engineering outputs
+
+- Claim-evidence matrix, structural hypothesis dossier, analytical quality specification, and reproducible non-operational analysis notebooks.
+
+### Scientific result figures to produce during execution
+
+A layered diagram links identity, analytical composition, structural hypotheses, and published conductance states; uncertainty and unsupported transitions are clearly marked.
+
+## 12. Cited technical and scientific resources
+
+- [The Oms66 (p66) protein is a Borrelia burgdorferi porin](https://pmc.ncbi.nlm.nih.gov/articles/PMC175520/) — Original identity and channel-function evidence.
+- [Structural Modeling and Physicochemical Characterization Provide Evidence that P66 Forms a beta-Barrel](https://pmc.ncbi.nlm.nih.gov/articles/PMC3911182/) — Original structural evidence and limitations for topology interpretation.
+- [Use of Nonelectrolytes Reveals the Channel Size and Oligomeric Constitution of P66](https://pmc.ncbi.nlm.nih.gov/articles/PMC3819385/) — Original evidence motivating explicit uncertainty about channel states and oligomeric interpretations.
+
+Framework and evidence rules: [engineering documentation standard](../../../engineering/ENGINEERING_STANDARD.md), [model assurance](../../../engineering/MODEL_ASSURANCE.md), [uncertainty procedure](../../../engineering/UNCERTAINTY_AND_DECISION_RULES.md), [data management](../../../engineering/DATA_MANAGEMENT.md). NASA-inspired names are creative identifiers; requirements and results are not NASA certification.
