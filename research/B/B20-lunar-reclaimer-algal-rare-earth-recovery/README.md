@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B20 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Rare Earth Metal Recovery from Waste Stream Using Algae | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Start with published target-element datasets and documented wastewater compositions. Fit competitive isotherms and kinetic models with analytical recovery/error, then compare algal media with conventional sorbent benchmarks. Model repeated adsorption–recovery cycles from actual published product measurements, recording reagents, energy and secondary waste at inventory level. For future authorized validation, specify measurement endpoints and certified reference checks without claiming an optimized process from surrogate metals.
+
+**Operating envelope:** Equilibrium fits may fail for complex speciation or solids. Product purity and regeneration data are often sparse; apparent removal can produce contaminated biomass rather than usable recovered material.
+
+**Variables and conventions**
+
+- C: element-specific dissolved concentration, mg/L; V: L; m: g dry sorbent.
+- q: sorbed mass, mg/g; b: L/mg.
+- Recovery/selectivity: dimensionless; product purity: mass fraction.
+- Lifecycle cost: USD/kg recovered target; residual-waste mass: kg/kg target.
+
+### Artifact wall
+
+![B20 proposed analysis architecture](figures/architecture.svg)
+
+The architecture makes actual target-element assays and recovered-product evidence mandatory for rare-earth claims. Aluminum surrogate records remain separate, and removal, sorption, recovery and purity retain distinct uncertainty.
+
+**Scientific result to produce:** Display feed-to-product element flows, selectivity across competing ions and capacity/purity decay across documented cycles.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build element, assay, biomass and wastewater matrix schemas with surrogate labels. |
+| 02 | Planned | Extract verified target concentration and product/cycle data from primary records. |
+| 03 | Planned | Implement dry-mass capacity and target-element inventory calculators. |
+| 04 | Planned | Fit supported equilibrium/competitive alternatives with censored covariance. |
+| 05 | Planned | Evaluate holdout matrices and cycle/product lifecycle scenarios. |
+| 06 | Planned | Release target-specific recovery, purity and waste conclusions with unresolved evidence. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

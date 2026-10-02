@@ -16,6 +16,12 @@ The diagram confines the project to archived retrospective analysis and separate
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Display studies by platform and endpoint, separating measured susceptibility from expression associations, with confidence intervals and metadata gaps.

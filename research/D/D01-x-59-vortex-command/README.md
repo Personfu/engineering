@@ -4,7 +4,7 @@
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![D01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Experimental Investigation of Active Vortex Generators | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Establish a repeated no-control baseline and matched passive-vortex-generator comparison. Use a randomized, blocked design to separate actuation settings from tunnel drift. Measure forces, pressure distributions, and velocity/vorticity fields, then fit a reduced-order response model with uncertainty. Develop a simple attachment-state controller on the validated operating region and assess sensitivity to sensor noise and delayed response.
+
+**Operating envelope:** A two-dimensional laboratory model omits sweep, real-aircraft integration, and actuator maintenance. Apparent control gains may come from transition promotion rather than the intended vortex mechanism.
+
+**Variables and conventions**
+
+- Actuation frequency, duty cycle, amplitude, jet orientation, sensor latency, and separation location.
+- Freestream speed, density, viscosity, turbulence intensity, force-balance uncertainty, pressure, and actuator electrical/pneumatic power.
+
+### Artifact wall
+
+![D01 proposed analysis architecture](figures/architecture.svg)
+
+Momentum, aerodynamic diagnostics and supply power join only at matched operating conditions. The control branch carries delay explicitly; vehicle fuel savings are beyond this laboratory ledger.
+
+**Scientific result to produce:** Velocity/vorticity snapshots show baseline and controlled attachment; a frequency–duty-cycle map overlays net power gain with measurement uncertainty.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create tunnel_condition.yaml and force_axes.json. |
+| 02 | Planned | Build pulse_momentum.py with constant/duty-cycle fixtures. |
+| 03 | Planned | Implement force_power_ledger.py with paired covariance. |
+| 04 | Planned | Create separation_diagnostics.py and blocked_response_model.py. |
+| 05 | Planned | Build controller_replay.py with delay, noise and saturation. |
+| 06 | Planned | Publish net_trade.parquet and a configuration-specific validation matrix. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D02 · LANGLEY STALL MEMORY](../D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D04 · GLENN SPHERE STANDARD](../D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D06 · LANGLEY MACH ATLAS](../D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

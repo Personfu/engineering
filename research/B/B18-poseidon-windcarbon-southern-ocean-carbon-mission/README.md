@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B18 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Use quality-controlled float/ship carbon observations and matched winds to build regional seasonal budgets. Decompose transfer and surface-chemistry effects with counterfactual terms, evaluate storm composites against matched nonstorm conditions and examine lagged mixing/biological responses. Bootstrap whole floats/events, propagate carbonate-system uncertainty and compare alternate gas-transfer formulations. Integrate regional flux only over supported space/time before presenting gap-filled estimates with their extrapolation variance.
+
+**Operating envelope:** Air–sea flux does not measure the full carbon inventory or permanent sequestration. Sparse winter/under-ice coverage and wind-product errors can substantially affect basinwide estimates.
+
+**Variables and conventions**
+
+- F: mol C/m²/s; k: m/s; K0: mol/m³/atm.
+- pCO2: atm after conversion from μatm; U: m/s.
+- C: dissolved inorganic carbon, mol/m³; h: mixed-layer depth, m.
+- Sc: dimensionless Schmidt number; sign convention retained in every product.
+
+### Artifact wall
+
+![B18 proposed analysis architecture](figures/architecture.svg)
+
+The diagram separates transfer, carbon chemistry and mixed-layer accounting with a fixed ocean-to-air sign. Supported integration and labeled gap filling remain distinct, and neither flux product alone establishes permanent carbon sequestration.
+
+**Scientific result to produce:** Map regional flux and data support; show event timelines and transfer/mixing/biology terms with sign conventions and uncertainty.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze ship/float, wind and ice product manifests with calibration levels. |
+| 02 | Planned | Implement carbonate-input covariance and pressure/sign unit adapters. |
+| 03 | Planned | Build gas-transfer alternatives and a mixed-layer inventory ledger. |
+| 04 | Planned | Define storm/matched-background intervals and whole-event/float folds. |
+| 05 | Planned | Compute exact transfer/chemistry decomposition and supported regional integrals. |
+| 06 | Planned | Publish gap-filled budgets separately with covariance, seasonal coverage and sequestration limits. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+| [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](../B20-lunar-reclaimer-algal-rare-earth-recovery/README.md) | Rare Earth Metal Recovery from Waste Stream Using Algae | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

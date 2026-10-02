@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: Determining Particle Energy Using CMOS Sensors | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Construct a forward sensor model using stopping powers or particle transport plus measured charge sharing. Acquire dark and optically shielded frames over temperature; characterize hot pixels and electronic artifacts before classifying particle candidates. Calibrate with qualified reference exposures at a licensed facility or an established detector laboratory, using measured beam geometry and dosimetry. Estimate a response matrix and use likelihood-based energy bins with abstention for overlapping species/angle responses. Evaluate onboard event compression without silently changing low-charge completeness. Treat the EagleSat label as a project identity, not proof of prior hardware performance.
+
+**Operating envelope:** One thin detector generally cannot uniquely recover incident particle energy, species, and angle. Saturation, radiation damage, rolling shutters, and shielding introduce domain shift between laboratory and orbit.
+
+**Variables and conventions**
+
+- Incident and deposited energies in keV or MeV, never interchanged
+- Collected charge q in electrons after gain/ADC calibration
+- m includes cluster extent, eccentricity, and per-pixel charge; geometry in micrometers
+- theta is incidence angle; temperature T in K; s is species label
+- R includes depletion thickness, charge diffusion, thresholds, saturation, shielding, and dead layers
+
+### Artifact wall
+
+![C09 proposed analysis architecture](figures/architecture.svg)
+
+Collected charge supports deposited-energy inference; geometry-conditioned transport is an additional interface required for incident-energy claims.
+
+**Scientific result to produce:** Incident-energy versus deposited-charge response heatmaps linked to example clusters, saturation regions, and uncertainty-aware reconstructed energy.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Inventory sensor geometry, readout and electronics metadata. |
+| 02 | Planned | Build dark/gain/nonlinearity maps with covariance and flags. |
+| 03 | Planned | Implement charge-conserving clustering and diffusion fixtures. |
+| 04 | Planned | Create NIST-based or transport response tables with species/angle types. |
+| 05 | Planned | Fit response matrices to approved qualified reference exposures. |
+| 06 | Planned | Replay compression and publish deposited-energy recovery plus incident-domain abstentions. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C08 · MARS NILI SPECTRAL VAULT](../C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C11 · ORION CORE INFERENCE](../C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C |
+| [C06 · PULSAR GEMINI WATCH](../C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C12 · HUBBLE COSMIC GLOW](../C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

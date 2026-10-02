@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C25 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Improving the Detection of Core-Collapse Supernova Through Experimentation | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Use a fixed coherent-burst baseline with network timing, polarization, and null-stream diagnostics. Propose one change at a time: time-frequency clustering, morphology features, denoising, or artifact-aware ranking. Estimate background using independent noise and justified time shifts; inject physically diverse CCSN polarizations into untouched strain. Calibrate ML scores on validation noise rather than interpreting raw scores as probabilities. Preregister efficiency and FAR reporting, computational latency, and fail-safe behavior under missing detectors. Compare performance with and without a justified neutrino trigger window.
+
+**Operating envelope:** Small background samples cannot support extraordinarily low FAR claims. A narrow waveform training library can increase efficiency only for its own morphology and reduce generalization.
+
+**Variables and conventions**
+
+- Whitened network data d use a documented noise PSD and time-frequency normalization
+- Coherent and null energies are dimensionless ranking components, not direct radiated energy
+- FAR in events per unit time; Ton is the independently justified on-source window
+- Detection efficiency is dimensionless and indexed by distance, orientation, waveform family, and network
+- P_signal projects onto detector responses for a trial sky location; sky-search trials are included in background
+
+### Artifact wall
+
+![C25 proposed analysis architecture](figures/architecture.svg)
+
+Background sets the decision threshold before held-out efficiency is measured; trigger timing and finite exposure constrain significance separately.
+
+**Scientific result to produce:** Detection efficiency versus distance at common FAR, ablation comparisons, coherent/null feature maps, and background-exposure limits.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze released-noise and physical-family partitions. |
+| 02 | Planned | Implement whitened network projector/coherent-null fixtures. |
+| 03 | Planned | Build valid-interval background and trial accounting. |
+| 04 | Planned | Calibrate frozen thresholds for each network configuration. |
+| 05 | Planned | Run paired unseen-family efficiency and latency replays. |
+| 06 | Planned | Publish finite-FAR confidence limits, trigger provenance and dropout behavior. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C11 · ORION CORE INFERENCE](../C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C; [GWOSC](https://gwosc.org/) |
+| [C24 · APOLLO DUST CLOCK](../C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C23 · KEPLER METAL WORLDS](../C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

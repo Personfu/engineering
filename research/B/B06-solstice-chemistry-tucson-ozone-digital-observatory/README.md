@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Harmonize AQS ozone and precursor records with meteorology, land cover and documented emissions inventories. Fit generalized additive meteorology normalization, then use a reduced chemical box model or established regional-model sensitivity runs to perturb vegetation and anthropogenic sources separately. Bootstrap by season/year, preserve negative-control periods and compare intervention scenarios under identical meteorology. Evaluate effects on maximum daily 8-hour ozone and spatial gradients without claiming full source attribution from correlations.
+
+**Operating envelope:** Box models cannot fully resolve basin circulation or regional transport. Sparse speciated VOC observations can make plant attribution weak; green-space policy needs heat, water and biodiversity tradeoffs as well as ozone.
+
+**Variables and conventions**
+
+- O3 and precursors: ppb or mol/m³ with explicit conversion.
+- E: emission flux, mg/m²/hour; LAI: leaf area index, dimensionless.
+- v_d: deposition velocity, m/s; h: mixing height, m.
+- γ: environmental response factors; transport is not assumed zero.
+
+### Artifact wall
+
+![B06 proposed analysis architecture](figures/architecture.svg)
+
+The architecture distinguishes observed ozone normalization from conditional chemistry scenarios and shows transport as an explicit interface. It supports bounded source sensitivities without equating vegetation correlations with causal ozone production.
+
+**Scientific result to produce:** Plot ozone response surfaces for NOx and BVOC changes by season, alongside measured monitor histories and intervention uncertainty.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create an AQS/weather/vegetation manifest with averaging and timezone definitions. |
+| 02 | Planned | Implement concentration conversions and data-completeness-aware MDA8 aggregation. |
+| 03 | Planned | Fit meteorology-normalized baselines using chronological episode folds. |
+| 04 | Planned | Develop a chemistry/deposition/exchange model with an explicit dimensional ledger. |
+| 05 | Planned | Run factorial source scenarios and uncertainty profiles under matched weather. |
+| 06 | Planned | Publish ozone, heat, water and ecological tradeoffs with source-attribution limits. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

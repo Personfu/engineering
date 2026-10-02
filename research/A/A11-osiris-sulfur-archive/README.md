@@ -4,7 +4,7 @@
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![A11 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Identification of Thiol Function Groups in GRA 95229 and Murchison | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Compile spectra, formula tables, and isotopic/provenance evidence where available. Fit standard-constrained sulfur-edge mixtures and cross-check candidate molecular classes against exchange behavior and mass accuracy. Compare Murchison and GRA 95229 only after harmonizing analytical fractions and measurement techniques. Plan future expert spectroscopy around unresolved class distinctions, emphasizing minimal material consumption and independent reference standards.
+
+**Operating envelope:** Overlapping absorption features and constitutional isomers can leave thiol/thiophene assignments ambiguous. Published extracts are operational fractions and may not represent bulk meteorite composition; raw GRA sulfur datasets may require collaboration.
+
+**Variables and conventions**
+
+- Accurate mass, molecular formula, exchangeable hydrogen count, sulfur oxidation-state indicators, spectral calibration, and standard-mixture coefficients.
+- Sample provenance, terrestrial exposure, mineral/organic sulfur partition, grain heterogeneity, instrumental detection limits, and assignment confidence.
+
+### Artifact wall
+
+![A11 proposed analysis architecture](figures/architecture.svg)
+
+Spectral and molecular branches combine only through matched specimen context. The output retains nonunique sulfur classes; formulas and isotope context are not treated as direct thiol identification.
+
+**Scientific result to produce:** Sulfur-edge spectra, molecular-class network, and a matrix of meteorite-by-technique evidence; missing GRA observations are explicit gaps rather than inferred detections.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create specimen_evidence_registry.csv with fraction/method source locations. |
+| 02 | Planned | Implement sulfur_spectrum_adapter.py retaining calibration and covariance. |
+| 03 | Planned | Build formula_adduct_checks.py and exchange_evidence.json. |
+| 04 | Planned | Implement constrained_xanes.py with degenerate-standard fixtures. |
+| 05 | Planned | Create joint_assignment.py with provenance/dependency gates. |
+| 06 | Planned | Publish assignment_uncertainty.ipynb and a class_evidence_table.parquet containing tentative/unavailable states. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A10 · HUBBLE CARINA CLOCK](../A10-hubble-carina-clock/README.md) | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | Session A |
+| [A12 · STARDUST ISOTOPE FOUNDRY](../A12-stardust-isotope-foundry/README.md) | Heterogeneous Supernova Production of Ti and Cr Isotopes | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A08 · HELIOS PULSE FORGE](../A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

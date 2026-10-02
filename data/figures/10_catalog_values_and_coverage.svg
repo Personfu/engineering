@@ -3,15 +3,15 @@
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="504pt" viewBox="0 0 864 504" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img" aria-labelledby="atlas-title atlas-description">
 <title id="atlas-title">10 catalog values and coverage</title>
-<desc id="atlas-description">Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.</desc>
- <title>Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius</title>
+<desc id="atlas-description">Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.</desc>
+ <title>Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius</title>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:title>Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius</dc:title>
+    <dc:title>Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius</dc:title>
     <dc:date>2026-10-02</dc:date>
-    <dc:description>Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.</dc:description>
+    <dc:description>Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -1240,13 +1240,13 @@ L 812.16 89.712
    <text style="font-weight: 700; font-size: 23px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #142d4e" x="56.16" y="49.392" transform="rotate(-0 56.16 49.392)">Inside the exoplanet catalog</text>
   </g>
   <g id="text_36">
-   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536779" x="56.16" y="72.072" transform="rotate(-0 56.16 72.072)">200 alphabetically selected archive rows  ·  published catalog values  ·  no occurrence inference</text>
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536779" x="56.16" y="72.072" transform="rotate(-0 56.16 72.072)">200 saved query-ordered rows  ·  published catalog values  ·  no occurrence inference</text>
   </g>
   <g id="text_37">
    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #008c95" x="812.16" y="19.152" transform="rotate(-0 812.16 19.152)">REAL CATALOG SNAPSHOT</text>
   </g>
   <g id="text_38">
-   <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536779" x="56.16" y="466.704" transform="rotate(-0 56.16 466.704)">Source: NASA Exoplanet Archive  ·  retrieved 02 Oct 2026  ·  alphabetical and detection selection biases apply</text>
+   <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536779" x="56.16" y="466.704" transform="rotate(-0 56.16 466.704)">NASA Exoplanet Archive  ·  saved 02 Oct 2026  ·  global selection ranking is not independently verified</text>
   </g>
   <g id="text_39">
    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536779" x="56.16" y="486.864" transform="rotate(-0 56.16 486.864)">Read the evidence ledger for source hashes, assumptions and project links.</text>

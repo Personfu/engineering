@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,84 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Design replicated mixtures over carbonate fraction and sieved particle sizes, randomized by measurement order. Measure dry reflectance across carbonate and olivine diagnostic bands and include blind mixtures, dust coatings, and repeat standards. Fit areal and Hapke-style or equivalent radiative-transfer models with nuisance geometry and calibration terms. Convolve every prediction with CRISM band responses, add observed noise and atmospheric-residual covariance, and estimate detection probability. Analyze orbital regions through the same observation operator with spatial controls and alternate correction settings.
+
+**Operating envelope:** Mineral assemblages can arise from multiple alteration histories. Optical-model fractions may not equal bulk abundance; laboratory vacuum, grain packing, and weathering differ from Martian surfaces.
+
+**Variables and conventions**
+
+- Reflectance R and single-scattering albedo w dimensionless
+- Wavelength in micrometers; grain size in micrometers; mass fraction distinguished from area fraction
+- i, e, g are incidence, emergence, and phase angles in degrees
+- L_j is normalized instrument spectral response; epsilon includes correlated residuals
+- Mixture densities and grain-size distributions are measured when translating optical fractions into mass fractions
+
+### Artifact wall
+
+![C08 included scientific diagnostic](../../../data/figures/15_spectral_information_and_noise.svg)
+
+Synthetic spectral-mixture estimator distributions under the same known band-noise level. Separated endmembers give narrow noise-driven fraction estimates; near-identical endmembers give a broad unconstrained distribution with unphysical values preserved as an identifiability diagnostic. Central 95% noise-realization intervals are descriptive simulation intervals, not posteriors or uncertainty bounds for measured Mars mineral abundance.
+
+[Exact inputs, transformations and output hashes](../../../data/figures/15_spectral_information_and_noise.provenance.json)
+
+**Scientific result to produce:** Measured and forward-modeled mixture spectra with carbonate-fraction versus grain-size detectability contours and masked orbital maps.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sample, grain-size and geometry manifests. |
+| 02 | Planned | Acquire or ingest traceable endmember and standard spectra. |
+| 03 | Planned | Implement areal and optical-scattering mixture branches. |
+| 04 | Planned | Build normalized CRISM response/wavelength convolution artifacts. |
+| 05 | Planned | Fit correlated-covariance inversions with blind sample IDs. |
+| 06 | Planned | Release scenario detection maps, fraction-type conversions and orbital domain diagnostics. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../../H/H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Included illustration: 08_spectral_identifiability; [PDS CRISM archive](https://pds-geosciences.wustl.edu/missions/mro/crism.htm) |
+| [C07 · ARTEMIS MEMORY BRIDGE](../C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C09 · EAGLESAT COSMIC PIXEL](../C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+| [C06 · PULSAR GEMINI WATCH](../C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C05 · KEPLER WORLDFORGE](../C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

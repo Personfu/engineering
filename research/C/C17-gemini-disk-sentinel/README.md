@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C17 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Retrieve public GPI science frames, calibration products, and observing angles for selected disk hosts. Process with frozen PSF-subtraction settings; vary disk forward models only within a preregistered robustness grid. Inject companions sparsely to avoid changing subtraction behavior, across angle, radius, flux, and plausible spectra. Use matched filtering or another declared detection statistic with independent noise controls and small-number corrections. Estimate uncertainty in completeness with binomial intervals. Translate flux completeness to optional mass-orbit constraints only after marginalizing stellar age, luminosity model, inclination, and orbital phase.
+
+**Operating envelope:** Speckles are correlated, disk structure can resemble companions, and selected bright disks do not represent all planetary systems. A nondetection excludes only the validated model and parameter domain.
+
+**Variables and conventions**
+
+- Fp in Jy or contrast relative to the star; r in arcsec and phi in degrees
+- s labels tested companion spectra; age t in Myr
+- Crec is dimensionless completeness; detection threshold tied to a declared false-positive probability
+- O includes parallactic rotation, instrument response, PSF subtraction, and image combination
+- Mass M in Jupiter masses and semimajor axis a in au require uncertain evolutionary and orbital models
+
+### Artifact wall
+
+![C17 proposed analysis architecture](figures/architecture.svg)
+
+Injection before subtraction measures disk-dependent recovery and throughput; mass constraints are a separate conditional conversion.
+
+**Scientific result to produce:** Disk image overlaid with 50/90% companion-completeness contours, angle-dependent limits, and explicitly conditional mass conversion.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze GPI science/calibration/rotation manifests. |
+| 02 | Planned | Implement normalized spectral companion injection before subtraction. |
+| 03 | Planned | Pin subtraction and detection settings using training/control data. |
+| 04 | Planned | Run sparse scenario grids and grouped uncertainty accumulation. |
+| 05 | Planned | Build disk-confusion and zero-flux control fixtures. |
+| 06 | Planned | Export 2D completeness/throughput maps and optional conditional mass-orbit likelihoods. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C16 · ORION STRAIN METROLOGY](../C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+| [C15 · WEBB PHOTON TRUTH](../C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C14 · ROMAN DARKHOLE ACADEMY](../C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+| [C20 · TRINITY ACCRETION ECHO](../C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

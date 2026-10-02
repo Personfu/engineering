@@ -4,7 +4,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,83 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![I10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Spacecraft Attitude Control Implementation and Development | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Identify inertia, friction, encoder bias, and actuator lag using low-energy bench characterization. Fuse gyro and angle measurements with an estimator that propagates bias uncertainty. Compare nominal PD control with a limit-aware controller under identical synthetic and bench maneuvers; include deadband, angular wrap, wheel saturation, and actuator quantization. Specify when momentum exhaustion makes the commanded pointing state infeasible. Run deterministic reset and sensor-dropout replays in the simulator. If extending to three axes, use a unit-norm quaternion state, verify body/inertial convention round trips, and separate wheel momentum management from pointing control. The existing one-axis data cannot substantiate the upgraded model.
+
+**Operating envelope:** A good turntable result does not establish vacuum compatibility, radiation tolerance, on-orbit disturbance rejection, or flight attitude determination. Constant friction approximation may fail around zero rate.
+
+**Variables and conventions**
+
+- Angle theta and wrapped error e in rad; reported pointing error also in degrees with explicit conversion.
+- Body inertia Ib in kg m^2; wheel torque u and external disturbance taud in N m; wheel momentum hw in N m s.
+- Viscous friction b in N m s rad^-1; Kp in N m rad^-1 and Kd in N m s rad^-1; saturation is the measured actuator bound.
+- E_elec is cumulative electrical energy consumed [J], the integral of measured electrical input power P_elec [W] including losses. It is not stored wheel kinetic energy. Settling time in s and angular rate in rad s^-1.
+
+### Artifact wall
+
+![I10 included scientific diagnostic](../../../data/figures/13_attitude_phase_and_authority.svg)
+
+Synthetic one-axis PD attitude response and actuator authority. The phase portrait is colored by elapsed model time. Requested torque is reconstructed from the recorded states and sidecar gains; the applied torque is clipped to ±8 mN·m. The right panel focuses on the first 40 seconds, while the phase portrait uses the full 120-second record.
+
+[Exact inputs, transformations and output hashes](../../../data/figures/13_attitude_phase_and_authority.provenance.json)
+
+**Scientific result to produce:** Angle command and calibrated response above wheel momentum, torque saturation, and uncertainty; polar error plots cover the full tested one-axis range.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Verify/calibrate inertia, encoder/gyro, power and actuator limits. |
+| 02 | Planned | Implement wrap/sign/conservation fixtures. |
+| 03 | Planned | Identify friction/lag with independent low-energy maneuvers. |
+| 04 | Planned | Build bias-aware estimator and nominal/limit-aware controllers. |
+| 05 | Planned | Run deterministic saturation/dropout/reset benchmarks. |
+| 06 | Planned | Publish proposed pointing acceptance, separate energy budgets and three-axis evidence gaps. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I06 · SATURN LOADPATH](../I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../../G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E08 · GATEWAY POWERBENCH](../../E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E07 · DISCOVERY TRIDENT](../../E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E02 · GEMINI HELIX](../../E/E02-gemini-helix/README.md) | Project Helix | [NASA Small Spacecraft Guidance, Navigation and Control](https://www.nasa.gov/smallsat-institute/sst-soa/guidance-navigation-and-control/) |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

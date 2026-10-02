@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C26 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Create a mechanical digital twin and derive modal frequencies and cross-axis responses. Use a low-mass bench prototype with displacement readout and independent ground/tilt sensors. Measure transfer functions with small calibrated drives and ringdown data; infer damping and hysteresis without fitting every noise source simultaneously. Compare a simple pendulum, multistage design, or spring-antispring geometry within practical stability limits. Propagate measured loss and temperature through fluctuation-dissipation modeling. Fit a closed-loop state-space controller only after identifying actuator and sensor dynamics, then measure injected readout noise and stability margins.
+
+**Operating envelope:** A room-scale prototype cannot claim astrophysical detector sensitivity. Spring-antispring reduction of resonance does not necessarily reduce thermal noise; suspension geometry and dissipative elements matter.
+
+**Variables and conventions**
+
+- Displacement x and ground motion xg in m; mass M in kg
+- Stiffness in N m^-1; damping in N s m^-1; force in N
+- Frequency f in Hz and omega=2 pi f in rad s^-1
+- Q dimensionless; temperature T in K; susceptibility chi in m N^-1
+- Sx in m^2 Hz^-1 with variance equal to its positive-frequency integral; absolute imaginary response handles Fourier-sign convention
+
+### Artifact wall
+
+![C26 proposed analysis architecture](figures/architecture.svg)
+
+Measured dynamics support separate passive thermal and active-loop noise budgets; sensor-floor and base-coupling assumptions limit isolation claims.
+
+**Scientific result to produce:** Mechanical mode sketch with measured/model Bode responses, cross-axis coupling, and displacement-noise budget in m/sqrt(Hz).
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Inventory verified geometry, materials and sensing/drive interfaces. |
+| 02 | Planned | Implement force/base susceptibilities and multi-axis digital twin. |
+| 03 | Planned | Acquire synchronized ringdown and calibrated small-drive data. |
+| 04 | Planned | Fit local dynamics with covariance and amplitude-validity checks. |
+| 05 | Planned | Build passive thermal plus active/readout/tilt noise budget. |
+| 06 | Planned | Validate robust controller margins and publish band-limited measured isolation/noise. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C25 · ORION BURST SENTINEL](../C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C24 · APOLLO DUST CLOCK](../C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C28 · LOWELL LUNAR LANTERN](../C28-lowell-lunar-lantern/README.md) | Narrow-band Filter Photometry Calibration for the Lowell 20'' | Session C |
+| [C23 · KEPLER METAL WORLDS](../C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C29 · ACE WIND SHOCK LEDGER](../C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

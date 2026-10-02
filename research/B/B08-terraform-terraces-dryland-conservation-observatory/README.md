@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Influence of Conservation Structures on Rangeland Vegetation Patterns | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Construct dated structure inventories and matched untreated channel segments. Map functional-group cover from field transects and remote sensing; fit spatial event-study models with rainfall interactions and distance effects. Test parallel pretreatment trends and sensitivity to catchment mismatches. Use water balances to evaluate mechanisms, and report incremental changes relative to controls. Propagate imagery, installation-date and spatial-correlation uncertainty through block bootstrapping.
+
+**Operating envelope:** Small structures can fall below pixel size. Nearby controls may experience spillovers; observed cover changes cannot directly establish species-diversity or soil-fertility improvement.
+
+**Variables and conventions**
+
+- Y: herb/shrub/bare cover, percent; β: percentage-point change.
+- S: stored water, mm; fluxes: mm/day.
+- d: signed channel distance, m; ℓ: influence length, m.
+- Structure condition, slope, contributing area and rainfall are covariates.
+
+### Artifact wall
+
+![B08 proposed analysis architecture](figures/architecture.svg)
+
+The architecture links vegetation effects to dated interventions and comparable reaches, with a separate water ledger. It exposes pixel support, maintenance and downstream redistribution limits rather than equating greenness with ecosystem improvement.
+
+**Scientific result to produce:** Map structures, controls and cover-change intervals; display upstream/downstream effects with rainfall-adjusted uncertainty bands.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish reach, structure-condition and installation-date inventories with source lineage. |
+| 02 | Planned | Define consistent functional-cover labels and field/image support areas. |
+| 03 | Planned | Create matched controls and pretrend diagnostics before fitting treatment effects. |
+| 04 | Planned | Implement event-time and distance alternatives with catchment-block covariance. |
+| 05 | Planned | Build inlet/storage/outlet water scenarios and explicit downstream tradeoff artifacts. |
+| 06 | Planned | Release cover-effect maps with resolution limits, spillover analyses and maintenance states. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

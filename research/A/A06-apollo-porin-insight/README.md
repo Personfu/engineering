@@ -4,7 +4,7 @@
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![A06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Review published P66 identity and physicochemical results, build a claim-to-evidence matrix, and retrieve public sequence annotations with versioned identifiers. Reanalyze reported channel-state distributions when data are available, otherwise use transparent figure digitization. Compare plausible membrane-protein structural models against sequence and topology evidence. Specify orthogonal analytical outputs that an accredited institution would need to report for a future authorized study, without prescribing experimental procedures.
+
+**Operating envelope:** Native oligomerization and membrane context may remain unresolved. Literature-derived samples differ in preparation history, and publicly available article figures may not permit reliable distribution reconstruction.
+
+**Variables and conventions**
+
+- Sequence accession/version, topology confidence, candidate oligomeric state, state-specific conductance, and evidence covariance.
+- Observed analytical peak/band contributions, measurement uncertainty, batch identifier, storage history metadata, and documented provenance.
+
+### Artifact wall
+
+![A06 proposed analysis architecture](figures/architecture.svg)
+
+Public-data evidence converges on separate characterization claims through provenance and dependency checks. The architecture specifies no purification, pathogen manipulation or new functional experiment.
+
+**Scientific result to produce:** A layered diagram links identity, analytical composition, structural hypotheses, and published conductance states; uncertainty and unsupported transitions are clearly marked.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create p66_evidence_registry.csv with article locations and compatible contexts. |
+| 02 | Planned | Build public_sequence_manifest.json with accession and residue maps. |
+| 03 | Planned | Implement figure_digitization_audit.ipynb recording scale/error without experimental instructions. |
+| 04 | Planned | Create mixture_response.py and state_likelihood.py with missing-data gates. |
+| 05 | Planned | Generate claim_matrix.csv separating identity, purity, homogeneity and function. |
+| 06 | Planned | Publish model_candidates.json and unresolved_evidence.md with provenance and sensitivity results pending. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A05 · VOYAGER CILIA ARRAY](../A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A08 · HELIOS PULSE FORGE](../A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A03 · CHANDRA VORTEX CORE](../A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

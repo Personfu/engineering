@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B15 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Numerical simulation of Laramide flat-slab subduction | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Reproduce a published benchmark, then vary physically justified input ranges through designed ensembles. Compare buoyant-slab, convergence and continental-root scenarios using thermal structure, slab geometry and upper-plate stresses. Build a fast surrogate only after verifying numerical solutions; propagate prior/observation uncertainty and identify parameter tradeoffs. Add 3D cases selectively when along-strike effects could change the inference. Keep all failed or unstable model runs in the audit trail.
+
+**Operating envelope:** Nonlinear rheology and poorly known ancient boundary conditions limit unique reconstruction. Matching one observation does not establish a mechanism, and surrogate accuracy may degrade near regime boundaries.
+
+**Variables and conventions**
+
+- u: m/s; p: Pa; η: Pa·s; ρ: kg/m³.
+- T: K; k: W/m/K; H: W/m³; c_p: J/kg/K.
+- θ: buoyancy, convergence, viscosity and lithospheric-thickness parameters.
+- Slab dip: degrees; deformation/arc position: km; geologic time: Ma.
+
+### Artifact wall
+
+![B15 proposed analysis architecture](figures/architecture.svg)
+
+The model diagram couples mechanical and thermal physics while gating inference on numerical verification and independent geological groups. It exposes ancient-boundary and dimensionality uncertainty rather than claiming one recovered tectonic history.
+
+**Scientific result to produce:** Animate temperature/slab sections and compare geological constraints; show credible mechanism regions rather than one preferred image.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze boundary-history, rheology and geological constraint manifests. |
+| 02 | Planned | Implement Stokes/thermal benchmark and independent residual/energy ledgers. |
+| 03 | Planned | Generate designed 2D ensembles and retain all failure configurations. |
+| 04 | Planned | Extract geometry, thermal and upper-plate metrics with covariance. |
+| 05 | Planned | Train supported surrogates and verify withheld direct solutions. |
+| 06 | Planned | Run targeted 3D sensitivity cases and publish compatible mechanism families. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

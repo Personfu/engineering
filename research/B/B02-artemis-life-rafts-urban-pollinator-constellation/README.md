@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Begin with paired existing sites and repeat standardized, nonlethal observations. Stratify by neighborhood heat, imperviousness and surrounding vegetation. Fit detection-corrected occupancy and visitation models, construct taxon-specific connectivity graphs, then compare candidate planting portfolios through robust multiobjective optimization. Use before/after control-impact evaluation for any future installation and include neighborhood access and maintenance feasibility as explicit constraints.
+
+**Operating envelope:** Urban areas can support some bees while disadvantaging other insects. A short pilot detects habitat use, not long-term regional population recovery; unmeasured pesticide exposure remains a possible confounder.
+
+**Variables and conventions**
+
+- d: effective movement distance, m; λ: uncertain dispersal scale, m.
+- h_j: calibrated habitat suitability in [0,1], dimensionless; psi: occupancy probability. With lambda>0 and d>=0, p_ij remains in [0,1].
+- c: lifecycle cost, USD; q: irrigation demand, L/year.
+- B and Q: community-agreed budget and water constraints.
+
+### Artifact wall
+
+![B02 proposed analysis architecture](figures/architecture.svg)
+
+The system joins detection-aware habitat use, seasonal resources and taxon-specific connectivity with maintenance constraints. Its portfolio scores describe proposed habitat performance and cannot establish regional population recovery.
+
+**Scientific result to produce:** Show candidate life rafts as nodes sized by resources, connecting uncertain movement pathways; accompany with weekly bloom coverage and costs.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Define taxon groups, patch boundaries and a community-approved objective/constraint register. |
+| 02 | Planned | Create repeat-survey and phenology schemas with explicit effort and missing visits. |
+| 03 | Planned | Implement occupancy fitting and posterior checks before constructing connectivity graphs. |
+| 04 | Planned | Build resistance ensembles and weekly resource matrices with shared weather scenarios. |
+| 05 | Planned | Compare equal-budget baselines and independently verify every optimized portfolio. |
+| 06 | Planned | Publish taxon-specific tradeoffs, maintenance inventories and restricted-data export rules. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B; [USA National Phenology Network observational data](https://nn.usanpn.org/data/observational) |
+| [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](../B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md) | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

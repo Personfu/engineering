@@ -1,10 +1,10 @@
 # SESSION C: ASTRONOMY & SPACE PHYSICS
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session C](../assets/sessions/C.svg)
 
-30 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+30 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/C/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -51,7 +51,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -64,6 +64,82 @@
 [Explore the data blueprint](../research/C/C01-apollo-windwatch/data/README.md) · [Open the figure gallery](../research/C/C01-apollo-windwatch/figures/README.md) · [Download acquisition template](../research/C/C01-apollo-windwatch/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C01-apollo-windwatch/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Characterization of EZ CMa | [Scientific objective](../research/C/C01-apollo-windwatch/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C01-apollo-windwatch/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 6 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C01-apollo-windwatch/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C01-apollo-windwatch/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C01-apollo-windwatch/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C01-apollo-windwatch/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Extract equivalent widths, line bisectors, skewness, and velocity-resolved residuals from wavelength-calibrated spectra. Fit a shared latent quasi-periodic process with line-specific response coefficients and a Student-t residual model, then compare with an orbital model and a nonperiodic stochastic baseline. Use generalized Lomb-Scargle peaks only to initialize priors; inspect the observing window before interpreting aliases. Connect fitted coherence and line delays to a beta-law wind as an interpretive layer, with uncertainty in the line-formation radii.
+
+**Operating envelope:** The beta law is a phenomenological wind description. Emission-line transfer, clumping, and inclination can imitate orbital signatures; model preference does not by itself establish rotation rate or companion absence.
+
+**Variables and conventions**
+
+- t and P in days; barycentric timestamps must use a declared time scale
+- v, gamma, K, and terminal wind velocity in km s^-1
+- ell is wind-pattern coherence time; Gamma controls periodic smoothness
+- Equivalent width in angstrom; normalized line-profile flux is dimensionless
+- e, omega, and true anomaly describe an orbital comparator, not established binary parameters
+
+#### Artifact wall
+
+![C01 proposed analysis architecture](../research/C/C01-apollo-windwatch/figures/architecture.svg)
+
+Separate line and photometric interfaces feed matched wind and orbital branches; only measured delays enter the conditional wind-radius interpretation.
+
+**Scientific result to produce:** Phase versus velocity residual maps for several lines beside season-held-out photometric predictions; simulated and observed panels clearly labeled.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create a spectrum-manifest schema with line rest wavelengths and timing provenance. |
+| 02 | Planned | Implement continuum fitting with covariance-aware line extraction. |
+| 03 | Planned | Build exposure-integrated quasi-periodic and orbital likelihoods sharing nuisance terms. |
+| 04 | Planned | Generate cadence-preserving injection fixtures and alias reports. |
+| 05 | Planned | Fit line-delay posteriors and an optional beta-law integration module. |
+| 06 | Planned | Publish seasonal predictive tables, posterior draws and a parameter-identifiability ledger. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C02 · HUBBLE NIGHTFALL LAB](../research/C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | Session C |
+| [C03 · TAURUS MOLECULE TRAIL](../research/C/C03-taurus-molecule-trail/README.md) | HCN Mapping of the Taurus Molecular Cloud | Session C |
+| [C04 · HORIZON TIDAL ECHO](../research/C/C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C01-apollo-windwatch/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C01-apollo-windwatch/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C01-apollo-windwatch/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C01-apollo-windwatch/data/README.md) | [Provenance](../research/C/C01-apollo-windwatch/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C01-apollo-windwatch/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C01-apollo-windwatch/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C01-apollo-windwatch/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C01-apollo-windwatch/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C01-apollo-windwatch/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C01-apollo-windwatch/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C01-apollo-windwatch/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -296,7 +372,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -309,6 +385,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C02-hubble-nightfall-lab/data/README.md) · [Open the figure gallery](../research/C/C02-hubble-nightfall-lab/figures/README.md) · [Download acquisition template](../research/C/C02-hubble-nightfall-lab/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C02-hubble-nightfall-lab/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | [Scientific objective](../research/C/C02-hubble-nightfall-lab/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C02-hubble-nightfall-lab/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C02-hubble-nightfall-lab/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C02-hubble-nightfall-lab/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C02-hubble-nightfall-lab/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C02-hubble-nightfall-lab/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Generate Latin-hypercube scenes spanning sky level, galaxy size and faint-end counts, PSF wings, detector position, and contamination. Propagate Poisson and read noise before applying the same resampling used for observations. Benchmark percentile clipping, ProFound-style masking, robust grid medians, and a preregistered adaptive combination. Fit a bias emulator with uncertainty rather than correcting every image by a point estimate. Keep unseen morphology generators and detector configurations exclusively for testing.
+
+**Operating envelope:** Synthetic truth depends on assumptions about undetected sources and artifacts. Algorithm precision can exceed absolute photometric accuracy; successful simulation recovery is not evidence for a cosmological diffuse component.
+
+**Variables and conventions**
+
+- D in electrons; t in seconds; B and dark current d in electrons s^-1 pixel^-1
+- F_s is source electron-rate image; P is normalized point spread function
+- g_x and g_y in electron-rate per pixel-coordinate unit
+- sigma_R in electrons; covariance is added after resampling
+- b is fractional bias; truth B0 is the designated minimum or reference sky, explicitly defined
+
+#### Artifact wall
+
+![C02 proposed analysis architecture](../research/C/C02-hubble-nightfall-lab/figures/architecture.svg)
+
+Synthetic truth enters before detector sampling; covariance and named sky estimands remain explicit through drizzle and estimator comparison.
+
+**Scientific result to produce:** Estimator fractional bias versus crowding and gradient, with interval coverage and representative inserted-truth images.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Write scene and estimand manifests with explicit detector units. |
+| 02 | Planned | Implement count-conserving source rendering and a component truth ledger. |
+| 03 | Planned | Apply calibrated detector sampling and pinned resampling code. |
+| 04 | Planned | Implement common-mask estimator adapters and diagnostic outputs. |
+| 05 | Planned | Fit a scenario bias emulator with withheld morphology tests. |
+| 06 | Planned | Release small deterministic fixtures, recovery tables and unsupported-domain maps. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C; [SKYSURF high-level science products](https://archive.stsci.edu/hlsp/skysurf); [OBrien et al. (2022), SKYSURF-4 methods](https://arxiv.org/abs/2210.08010) |
+| [I11 · HUBBLE SKYVAULT](../research/I/I11-hubble-skyvault/README.md) | Measurements of the Sky | [SKYSURF high-level science products](https://archive.stsci.edu/hlsp/skysurf); [Windhorst et al. (2022), SKYSURF overview and methods](https://arxiv.org/abs/2205.06214) |
+| [C01 · APOLLO WINDWATCH](../research/C/C01-apollo-windwatch/README.md) | The Characterization of EZ CMa | Session C |
+| [C03 · TAURUS MOLECULE TRAIL](../research/C/C03-taurus-molecule-trail/README.md) | HCN Mapping of the Taurus Molecular Cloud | Session C |
+| [C04 · HORIZON TIDAL ECHO](../research/C/C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C02-hubble-nightfall-lab/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C02-hubble-nightfall-lab/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C02-hubble-nightfall-lab/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C02-hubble-nightfall-lab/data/README.md) | [Provenance](../research/C/C02-hubble-nightfall-lab/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C02-hubble-nightfall-lab/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C02-hubble-nightfall-lab/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C02-hubble-nightfall-lab/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C02-hubble-nightfall-lab/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C02-hubble-nightfall-lab/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C02-hubble-nightfall-lab/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C02-hubble-nightfall-lab/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -543,7 +695,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -556,6 +708,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C03-taurus-molecule-trail/data/README.md) · [Open the figure gallery](../research/C/C03-taurus-molecule-trail/figures/README.md) · [Download acquisition template](../research/C/C03-taurus-molecule-trail/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C03-taurus-molecule-trail/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | HCN Mapping of the Taurus Molecular Cloud | [Scientific objective](../research/C/C03-taurus-molecule-trail/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C03-taurus-molecule-trail/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C03-taurus-molecule-trail/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C03-taurus-molecule-trail/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C03-taurus-molecule-trail/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C03-taurus-molecule-trail/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit the baseline to obtain residual diagnostics, then solve statistical equilibrium with hyperfine-resolved collisional rates and line overlap where available. Compare single-component and multi-component spectra using predictive checks, not only moment maps. Estimate filament gradients from posterior centroid samples with spatial covariance. Calibrate intensity to main-beam temperature using documented efficiencies. Use dust or an optically thinner molecular tracer to constrain temperature, column, and abundance degeneracies; do not turn HCN intensity directly into a universal dense-gas mass.
+
+**Operating envelope:** Abundance, depletion, electron excitation, beam dilution, and transfer geometry are weakly identifiable from one transition. An apparent blue asymmetry alone is insufficient to establish accretion.
+
+**Variables and conventions**
+
+- Brightness temperature TB and Tex in K; frequency nu in Hz
+- Line velocity, centroid v0, hyperfine offsets, and sigma_v in km s^-1
+- Optical depth tau dimensionless; column density in cm^-2
+- H2 number density in cm^-3; kinetic temperature distinct from excitation temperature
+- Beam filling fraction and spectral response must be included in the observation operator
+
+#### Artifact wall
+
+![C03 proposed analysis architecture](../research/C/C03-taurus-molecule-trail/figures/architecture.svg)
+
+Hyperfine transfer and competing components precede spatial flow inference; independent tracers constrain only the parameters their resolution supports.
+
+**Scientific result to produce:** Interactive sky map of posterior velocities and anomaly ratios linked to spectra and competing forward-model curves.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create cube manifest with telescope efficiency, WCS and LSR metadata. |
+| 02 | Planned | Load versioned laboratory transitions and hyperfine uncertainty tables. |
+| 03 | Planned | Implement response-convolved baseline transfer and multi-component fits. |
+| 04 | Planned | Add non-LTE solver only after collision-rate provenance review. |
+| 05 | Planned | Build posterior map and spatial-gradient assembler with ambiguity masks. |
+| 06 | Planned | Release thin/thick-limit fixtures, held-out predictions and tracer-match diagnostics. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C02 · HUBBLE NIGHTFALL LAB](../research/C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | Session C |
+| [C04 · HORIZON TIDAL ECHO](../research/C/C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C01 · APOLLO WINDWATCH](../research/C/C01-apollo-windwatch/README.md) | The Characterization of EZ CMa | Session C |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C03-taurus-molecule-trail/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C03-taurus-molecule-trail/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C03-taurus-molecule-trail/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C03-taurus-molecule-trail/data/README.md) | [Provenance](../research/C/C03-taurus-molecule-trail/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C03-taurus-molecule-trail/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C03-taurus-molecule-trail/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C03-taurus-molecule-trail/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C03-taurus-molecule-trail/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C03-taurus-molecule-trail/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C03-taurus-molecule-trail/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C03-taurus-molecule-trail/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -800,7 +1028,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -813,6 +1041,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C04-horizon-tidal-echo/data/README.md) · [Open the figure gallery](../research/C/C04-horizon-tidal-echo/figures/README.md) · [Download acquisition template](../research/C/C04-horizon-tidal-echo/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C04-horizon-tidal-echo/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | [Scientific objective](../research/C/C04-horizon-tidal-echo/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C04-horizon-tidal-echo/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C04-horizon-tidal-echo/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C04-horizon-tidal-echo/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C04-horizon-tidal-echo/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C04-horizon-tidal-echo/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit fallback-inspired and phenomenological reprocessing models to fluxes with host subtraction, heteroscedastic errors, upper-limit likelihoods, and time-dependent temperature. Introduce a viscous delay kernel and allow radiative efficiency or bolometric corrections to vary within physically motivated bounds. Compare posterior black-hole masses with stellar-velocity-dispersion or other external host estimates. Model detection probability as a function of peak flux, cadence, and host surface brightness before drawing population conclusions. Reserve late-time photometry and an entire waveband for validation.
+
+**Operating envelope:** Radiation transport, stellar mass-radius relations, and partial versus full disruptions create degeneracies. X-ray nondetection can reflect obscuration or delay; it does not establish black-hole absence.
+
+**Variables and conventions**
+
+- Black-hole and stellar masses in solar masses; radii and pericenter in a common length unit
+- tD and observed epochs converted to rest-frame days
+- Photosphere temperature T in K; spectral luminosity Lnu in erg s^-1 Hz^-1
+- Fallback rate in solar masses yr^-1; distance and extinction carry uncertainties
+- Beta is penetration factor; blackbody radius is an emission scale, not horizon radius
+
+#### Artifact wall
+
+![C04 proposed analysis architecture](../research/C/C04-horizon-tidal-echo/figures/architecture.svg)
+
+The flare emission chain is tested in observed response space; host mass information and discovery selection remain separate inputs.
+
+**Scientific result to produce:** Rest-frame UV/optical/X-ray light curves with predicted held-out points, temperature-radius tracks, and a mass-degeneracy corner plot.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build event manifests linking responses, host measurements and classifications. |
+| 02 | Planned | Implement rest-frame and filter/count response transformations. |
+| 03 | Planned | Fit thermal baseline with host/extinction covariance and censoring. |
+| 04 | Planned | Implement normalized delay kernels and alternative stellar fallback prescriptions. |
+| 05 | Planned | Create survey cadence/host injection-recovery artifact. |
+| 06 | Planned | Release posterior sensitivity tables and frozen waveband holdout predictions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C03 · TAURUS MOLECULE TRAIL](../research/C/C03-taurus-molecule-trail/README.md) | HCN Mapping of the Taurus Molecular Cloud | Session C |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C02 · HUBBLE NIGHTFALL LAB](../research/C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | Session C |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C01 · APOLLO WINDWATCH](../research/C/C01-apollo-windwatch/README.md) | The Characterization of EZ CMa | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C04-horizon-tidal-echo/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C04-horizon-tidal-echo/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C04-horizon-tidal-echo/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C04-horizon-tidal-echo/data/README.md) | [Provenance](../research/C/C04-horizon-tidal-echo/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C04-horizon-tidal-echo/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C04-horizon-tidal-echo/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C04-horizon-tidal-echo/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C04-horizon-tidal-echo/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C04-horizon-tidal-echo/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C04-horizon-tidal-echo/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C04-horizon-tidal-echo/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1048,7 +1352,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1061,6 +1365,84 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C05-kepler-worldforge/data/README.md) · [Open the figure gallery](../research/C/C05-kepler-worldforge/figures/README.md) · [Download acquisition template](../research/C/C05-kepler-worldforge/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C05-kepler-worldforge/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Exoplanet Classification using Data Mining | [Scientific objective](../research/C/C05-kepler-worldforge/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C05-kepler-worldforge/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C05-kepler-worldforge/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C05-kepler-worldforge/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/C/C05-kepler-worldforge/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C05-kepler-worldforge/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Snapshot current PS and PSCompPars schemas and provenance. Build a baseline taxonomy from radius, density where available, orbit, and host properties, then compare a regularized classifier and mixture model. Integrate asymmetric errors with posterior draws; separate unavailable values from censoring and calculated values. Fit transformations, feature selection, class balancing, and imputation inside nested training folds. Split by host system and survey, because multiplanet systems and mission-specific features otherwise leak information. Assess out-of-distribution planets using feature-domain diagnostics and probabilistic abstention.
+
+**Operating envelope:** Discovery methods have different selection functions, and the confirmed-planet catalog lacks a common nondetection denominator. Catalog-based class frequencies are not occurrence rates. Mass-radius overlaps prevent definitive composition identification.
+
+**Variables and conventions**
+
+- Planet mass Mp in Earth masses and radius Rp in Earth radii, converted before density calculation
+- Density in g cm^-3; orbital period in days; irradiation in Earth-insolation units
+- x is latent physical feature vector; y includes asymmetric uncertainties and upper/lower limits
+- c is a preregistered empirical class, not a definitive composition or life label
+- q is a soft target distribution; weights are fitted using training data only
+
+#### Artifact wall
+
+![C05 included scientific diagnostic](../data/figures/10_catalog_values_and_coverage.svg)
+
+Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
+
+[Exact inputs, transformations and output hashes](../data/figures/10_catalog_values_and_coverage.provenance.json)
+
+**Scientific result to produce:** Interactive mass-radius chart with posterior density contours, class probabilities, missing-data flags, and discovery-method filters.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Snapshot TAP query, schema and cited reference fields. |
+| 02 | Planned | Create physical measurement types separating censoring and minimum mass. |
+| 03 | Planned | Implement uncertainty-draw features and unit-aware density calculation. |
+| 04 | Planned | Version empirical class definitions and host/survey split manifests. |
+| 05 | Planned | Fit and calibrate baselines with nested preprocessing. |
+| 06 | Planned | Export probability/abstention cards and catalog-change attribution tables. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C23 · KEPLER METAL WORLDS](../research/C/C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C; Included illustration: 09_real_exoplanet_sample |
+| [C04 · HORIZON TIDAL ECHO](../research/C/C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C03 · TAURUS MOLECULE TRAIL](../research/C/C03-taurus-molecule-trail/README.md) | HCN Mapping of the Taurus Molecular Cloud | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C02 · HUBBLE NIGHTFALL LAB](../research/C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C05-kepler-worldforge/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C05-kepler-worldforge/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C05-kepler-worldforge/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C05-kepler-worldforge/data/README.md) | [Provenance](../research/C/C05-kepler-worldforge/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C05-kepler-worldforge/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C05-kepler-worldforge/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C05-kepler-worldforge/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C05-kepler-worldforge/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C05-kepler-worldforge/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C05-kepler-worldforge/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C05-kepler-worldforge/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1289,7 +1671,7 @@ Interactive mass-radius chart with posterior density contours, class probabiliti
 
 ![C05 data diagnostic](../data/figures/10_catalog_values_and_coverage.svg)
 
-Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
+Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
 
 [Inputs, downloadable figure and provenance](../data/figures/README.md)
 
@@ -1310,7 +1692,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1323,6 +1705,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C06-pulsar-gemini-watch/data/README.md) · [Open the figure gallery](../research/C/C06-pulsar-gemini-watch/figures/README.md) · [Download acquisition template](../research/C/C06-pulsar-gemini-watch/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C06-pulsar-gemini-watch/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The First Magnetar in a Binary System? | [Scientific objective](../research/C/C06-pulsar-gemini-watch/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C06-pulsar-gemini-watch/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C06-pulsar-gemini-watch/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C06-pulsar-gemini-watch/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C06-pulsar-gemini-watch/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C06-pulsar-gemini-watch/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build phase-tagged radio and X-ray/gamma-ray likelihoods with exposure windows and nondetections. Compare models through a latent state defined by characteristic-radius ordering; add free-free radio absorption and variable Be-star outflow. Fit orbital ephemeris and superorbital modulation as nuisance parameters. Quantify whether rotational, accretion, or magnetic energy can support observed luminosity under uncertainty. Use localization and population priors to compare burst association with a chance line-of-sight source. Predict a future orbit before assessing its observations.
+
+**Operating envelope:** A detection of pulsations identifies rotation, not magnetic-energy dominance. Radius formulae depend on geometry; sparse detections and strong absorption make state assignment uncertain.
+
+**Variables and conventions**
+
+- P in s and period derivative in s s^-1. Pdot_spin is total physical spin evolution after kinematic correction; Pdot_dipole is its separately identified isolated-dipole component.
+- Magnetospheric, corotation, and light-cylinder radii in cm
+- Magnetic moment mu in G cm^3; accretion rate in g s^-1
+- I in g cm^2; positive rotational-energy loss in erg s^-1, assuming approximately constant I.
+- xi parametrizes uncertain magnetosphere coupling; the field estimate assumes isolated dipole braking
+
+#### Artifact wall
+
+![C06 proposed analysis architecture](../research/C/C06-pulsar-gemini-watch/figures/architecture.svg)
+
+Timing corrections, conditional radius states and burst association contribute distinct evidence; the graph does not equate pulsations with a confirmed magnetar.
+
+**Scientific result to produce:** Orbital phase versus inferred emission state with radius-ordering bands, radio visibility, and uncertainty in burst association.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create timing/response/localization manifests for source-cited observations. |
+| 02 | Planned | Implement orbital-phase sampling and arrival-time correction fixtures. |
+| 03 | Planned | Build count-domain broadband and nondetection likelihoods. |
+| 04 | Planned | Implement characteristic-radius and energy-budget modules with typed torque terms. |
+| 05 | Planned | Fit competing state/absorption hypotheses using common data. |
+| 06 | Planned | Publish future-orbit predictions, association sensitivities and conditional field summaries. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C04 · HORIZON TIDAL ECHO](../research/C/C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C08 · MARS NILI SPECTRAL VAULT](../research/C/C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Session C |
+| [C03 · TAURUS MOLECULE TRAIL](../research/C/C03-taurus-molecule-trail/README.md) | HCN Mapping of the Taurus Molecular Cloud | Session C |
+| [C09 · EAGLESAT COSMIC PIXEL](../research/C/C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C06-pulsar-gemini-watch/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C06-pulsar-gemini-watch/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C06-pulsar-gemini-watch/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C06-pulsar-gemini-watch/data/README.md) | [Provenance](../research/C/C06-pulsar-gemini-watch/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C06-pulsar-gemini-watch/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C06-pulsar-gemini-watch/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C06-pulsar-gemini-watch/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C06-pulsar-gemini-watch/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C06-pulsar-gemini-watch/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C06-pulsar-gemini-watch/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C06-pulsar-gemini-watch/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1557,7 +2015,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1570,6 +2028,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C07-artemis-memory-bridge/data/README.md) · [Open the figure gallery](../research/C/C07-artemis-memory-bridge/figures/README.md) · [Download acquisition template](../research/C/C07-artemis-memory-bridge/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C07-artemis-memory-bridge/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | [Scientific objective](../research/C/C07-artemis-memory-bridge/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C07-artemis-memory-bridge/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C07-artemis-memory-bridge/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C07-artemis-memory-bridge/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C07-artemis-memory-bridge/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C07-artemis-memory-bridge/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Match value and derivative at the simulation endpoint, using neutrino-emission and ejecta-momentum information when supplied by the simulation team. Compare exponential, power-law, and monotone integrated-tail families with bounded total memory. Compute transforms through the derivative and analytic tail, then apply detector response and the exact analysis window. Propagate continuation, sky orientation, and filtering uncertainty into noise-weighted overlaps. Separate linear matter/neutrino memory from nonlinear GW memory; include only components actually modeled. Benchmark across waveform families and truncation times.
+
+**Operating envelope:** The late neutrino luminosity and anisotropy are poorly known; a numerically smooth tail need not be physically valid. Ground-based interferometers do not measure a permanent DC displacement directly.
+
+**Variables and conventions**
+
+- h and Delta h dimensionless; time t and tau in s; f in Hz
+- a is late-time strain rate in s^-1, with physically informed alternatives to the exponential
+- R is detector response including declared filtering; n is detector noise
+- Distance scaling h proportional to 1/D; orientation and polarization retained
+- The zero-frequency distributional component is treated separately from ordinary finite-band Fourier samples
+
+#### Artifact wall
+
+![C07 proposed analysis architecture](../research/C/C07-artemis-memory-bridge/figures/architecture.svg)
+
+Physical strain-rate decay produces a permanent offset before detector response; finite windows and the DC component are separately recorded.
+
+**Scientific result to produce:** Persistent-strain waveform, derivative-tail alternatives, and detector-weighted spectra with extrapolation bands; no artificial return to zero.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create polarization/distance/memory-component waveform manifests. |
+| 02 | Planned | Implement analytic ramp, step and exponential fixtures. |
+| 03 | Planned | Fit endpoint values/slopes with covariance and matched tail families. |
+| 04 | Planned | Build derivative-domain transform and explicit DC bookkeeping. |
+| 05 | Planned | Apply release-specific response, windows and noise-weighted comparisons. |
+| 06 | Planned | Publish truncation holdouts, asymptotic offset intervals and tail-prior sensitivity. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C08 · MARS NILI SPECTRAL VAULT](../research/C/C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Session C |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C09 · EAGLESAT COSMIC PIXEL](../research/C/C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+| [C04 · HORIZON TIDAL ECHO](../research/C/C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../research/C/C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C07-artemis-memory-bridge/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C07-artemis-memory-bridge/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C07-artemis-memory-bridge/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C07-artemis-memory-bridge/data/README.md) | [Provenance](../research/C/C07-artemis-memory-bridge/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C07-artemis-memory-bridge/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C07-artemis-memory-bridge/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C07-artemis-memory-bridge/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C07-artemis-memory-bridge/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C07-artemis-memory-bridge/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C07-artemis-memory-bridge/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C07-artemis-memory-bridge/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1804,7 +2338,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1817,6 +2351,84 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C08-mars-nili-spectral-vault/data/README.md) · [Open the figure gallery](../research/C/C08-mars-nili-spectral-vault/figures/README.md) · [Download acquisition template](../research/C/C08-mars-nili-spectral-vault/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C08-mars-nili-spectral-vault/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | [Scientific objective](../research/C/C08-mars-nili-spectral-vault/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C08-mars-nili-spectral-vault/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C08-mars-nili-spectral-vault/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C08-mars-nili-spectral-vault/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/C/C08-mars-nili-spectral-vault/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C08-mars-nili-spectral-vault/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Design replicated mixtures over carbonate fraction and sieved particle sizes, randomized by measurement order. Measure dry reflectance across carbonate and olivine diagnostic bands and include blind mixtures, dust coatings, and repeat standards. Fit areal and Hapke-style or equivalent radiative-transfer models with nuisance geometry and calibration terms. Convolve every prediction with CRISM band responses, add observed noise and atmospheric-residual covariance, and estimate detection probability. Analyze orbital regions through the same observation operator with spatial controls and alternate correction settings.
+
+**Operating envelope:** Mineral assemblages can arise from multiple alteration histories. Optical-model fractions may not equal bulk abundance; laboratory vacuum, grain packing, and weathering differ from Martian surfaces.
+
+**Variables and conventions**
+
+- Reflectance R and single-scattering albedo w dimensionless
+- Wavelength in micrometers; grain size in micrometers; mass fraction distinguished from area fraction
+- i, e, g are incidence, emergence, and phase angles in degrees
+- L_j is normalized instrument spectral response; epsilon includes correlated residuals
+- Mixture densities and grain-size distributions are measured when translating optical fractions into mass fractions
+
+#### Artifact wall
+
+![C08 included scientific diagnostic](../data/figures/15_spectral_information_and_noise.svg)
+
+Synthetic spectral-mixture estimator distributions under the same known band-noise level. Separated endmembers give narrow noise-driven fraction estimates; near-identical endmembers give a broad unconstrained distribution with unphysical values preserved as an identifiability diagnostic. Central 95% noise-realization intervals are descriptive simulation intervals, not posteriors or uncertainty bounds for measured Mars mineral abundance.
+
+[Exact inputs, transformations and output hashes](../data/figures/15_spectral_information_and_noise.provenance.json)
+
+**Scientific result to produce:** Measured and forward-modeled mixture spectra with carbonate-fraction versus grain-size detectability contours and masked orbital maps.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sample, grain-size and geometry manifests. |
+| 02 | Planned | Acquire or ingest traceable endmember and standard spectra. |
+| 03 | Planned | Implement areal and optical-scattering mixture branches. |
+| 04 | Planned | Build normalized CRISM response/wavelength convolution artifacts. |
+| 05 | Planned | Fit correlated-covariance inversions with blind sample IDs. |
+| 06 | Planned | Release scenario detection maps, fraction-type conversions and orbital domain diagnostics. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../research/H/H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Included illustration: 08_spectral_identifiability; [PDS CRISM archive](https://pds-geosciences.wustl.edu/missions/mro/crism.htm) |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C09 · EAGLESAT COSMIC PIXEL](../research/C/C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../research/C/C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C08-mars-nili-spectral-vault/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C08-mars-nili-spectral-vault/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C08-mars-nili-spectral-vault/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C08-mars-nili-spectral-vault/data/README.md) | [Provenance](../research/C/C08-mars-nili-spectral-vault/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C08-mars-nili-spectral-vault/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C08-mars-nili-spectral-vault/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C08-mars-nili-spectral-vault/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C08-mars-nili-spectral-vault/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C08-mars-nili-spectral-vault/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C08-mars-nili-spectral-vault/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C08-mars-nili-spectral-vault/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2067,7 +2679,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2080,6 +2692,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C09-eaglesat-cosmic-pixel/data/README.md) · [Open the figure gallery](../research/C/C09-eaglesat-cosmic-pixel/figures/README.md) · [Download acquisition template](../research/C/C09-eaglesat-cosmic-pixel/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C09-eaglesat-cosmic-pixel/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: Determining Particle Energy Using CMOS Sensors | [Scientific objective](../research/C/C09-eaglesat-cosmic-pixel/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C09-eaglesat-cosmic-pixel/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C09-eaglesat-cosmic-pixel/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C09-eaglesat-cosmic-pixel/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C09-eaglesat-cosmic-pixel/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C09-eaglesat-cosmic-pixel/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Construct a forward sensor model using stopping powers or particle transport plus measured charge sharing. Acquire dark and optically shielded frames over temperature; characterize hot pixels and electronic artifacts before classifying particle candidates. Calibrate with qualified reference exposures at a licensed facility or an established detector laboratory, using measured beam geometry and dosimetry. Estimate a response matrix and use likelihood-based energy bins with abstention for overlapping species/angle responses. Evaluate onboard event compression without silently changing low-charge completeness. Treat the EagleSat label as a project identity, not proof of prior hardware performance.
+
+**Operating envelope:** One thin detector generally cannot uniquely recover incident particle energy, species, and angle. Saturation, radiation damage, rolling shutters, and shielding introduce domain shift between laboratory and orbit.
+
+**Variables and conventions**
+
+- Incident and deposited energies in keV or MeV, never interchanged
+- Collected charge q in electrons after gain/ADC calibration
+- m includes cluster extent, eccentricity, and per-pixel charge; geometry in micrometers
+- theta is incidence angle; temperature T in K; s is species label
+- R includes depletion thickness, charge diffusion, thresholds, saturation, shielding, and dead layers
+
+#### Artifact wall
+
+![C09 proposed analysis architecture](../research/C/C09-eaglesat-cosmic-pixel/figures/architecture.svg)
+
+Collected charge supports deposited-energy inference; geometry-conditioned transport is an additional interface required for incident-energy claims.
+
+**Scientific result to produce:** Incident-energy versus deposited-charge response heatmaps linked to example clusters, saturation regions, and uncertainty-aware reconstructed energy.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Inventory sensor geometry, readout and electronics metadata. |
+| 02 | Planned | Build dark/gain/nonlinearity maps with covariance and flags. |
+| 03 | Planned | Implement charge-conserving clustering and diffusion fixtures. |
+| 04 | Planned | Create NIST-based or transport response tables with species/angle types. |
+| 05 | Planned | Fit response matrices to approved qualified reference exposures. |
+| 06 | Planned | Replay compression and publish deposited-energy recovery plus incident-domain abstentions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C08 · MARS NILI SPECTRAL VAULT](../research/C/C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../research/C/C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C |
+| [C06 · PULSAR GEMINI WATCH](../research/C/C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C09-eaglesat-cosmic-pixel/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C09-eaglesat-cosmic-pixel/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C09-eaglesat-cosmic-pixel/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C09-eaglesat-cosmic-pixel/data/README.md) | [Provenance](../research/C/C09-eaglesat-cosmic-pixel/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C09-eaglesat-cosmic-pixel/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C09-eaglesat-cosmic-pixel/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C09-eaglesat-cosmic-pixel/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C09-eaglesat-cosmic-pixel/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C09-eaglesat-cosmic-pixel/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C09-eaglesat-cosmic-pixel/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C09-eaglesat-cosmic-pixel/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2315,7 +3003,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2328,6 +3016,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C10-voyager-local-group-halos/data/README.md) · [Open the figure gallery](../research/C/C10-voyager-local-group-halos/figures/README.md) · [Download acquisition template](../research/C/C10-voyager-local-group-halos/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C10-voyager-local-group-halos/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | [Scientific objective](../research/C/C10-voyager-local-group-halos/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C10-voyager-local-group-halos/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C10-voyager-local-group-halos/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C10-voyager-local-group-halos/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C10-voyager-local-group-halos/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/C/C10-voyager-local-group-halos/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit mixture membership for halo, disk, foreground, and identified debris components. Use Milky Way phase-space data where available and M31 line-of-sight tracer measurements through their distinct selection functions. Combine an NFW or alternate halo with constrained disk and bulge potentials; compare constant and flexible anisotropy. Perform forward selection and observation of mock catalogs, including measurement errors. Compare profiles at matched scaled radii and tracer classes. Derive dark-matter dispersions through a separate equilibrium solution and label them as conditional predictions.
+
+**Operating envelope:** The mass-anisotropy degeneracy, non-equilibrium streams, uncertain outer tracer density, and Milky Way frame conversion can dominate. M31 projected data and Milky Way 3D data provide unequal information.
+
+**Variables and conventions**
+
+- r and R in kpc; masses in solar masses; dispersion in km s^-1
+- nu_* is stellar tracer density, distinct from dark-matter density rho
+- beta=1-(sigma_theta^2+sigma_phi^2)/(2 sigma_r^2)
+- NFW scale density and radius describe a tested potential family, not established exact profiles
+- Proper-motion, distance, line-of-sight velocity, and solar-frame covariance are propagated jointly
+
+#### Artifact wall
+
+![C10 proposed analysis architecture](../research/C/C10-voyager-local-group-halos/figures/architecture.svg)
+
+Stellar observations constrain a potential through their own density and anisotropy; dark-matter moments are derived in a separate conditional branch.
+
+**Scientific result to produce:** Measured stellar-dispersion profiles and separately labeled conditional dark-matter profiles, showing anisotropy bands and held-out tracer points.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build catalog selection/frame manifests for each galaxy. |
+| 02 | Planned | Implement covariance-preserving phase-space transformations. |
+| 03 | Planned | Fit tracer density and contamination mixtures. |
+| 04 | Planned | Implement Jeans/projection solvers with analytic fixtures. |
+| 05 | Planned | Fit potential/anisotropy branches and matched radial comparison. |
+| 06 | Planned | Generate separately typed DM dispersion predictions and mock recovery reports. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C09 · EAGLESAT COSMIC PIXEL](../research/C/C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C |
+| [C08 · MARS NILI SPECTRAL VAULT](../research/C/C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Session C |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../research/C/C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+| [C13 · HORIZON RING ATLAS](../research/C/C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C10-voyager-local-group-halos/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C10-voyager-local-group-halos/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C10-voyager-local-group-halos/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C10-voyager-local-group-halos/data/README.md) | [Provenance](../research/C/C10-voyager-local-group-halos/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C10-voyager-local-group-halos/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C10-voyager-local-group-halos/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C10-voyager-local-group-halos/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C10-voyager-local-group-halos/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C10-voyager-local-group-halos/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C10-voyager-local-group-halos/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C10-voyager-local-group-halos/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2575,7 +3339,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2588,6 +3352,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C11-orion-core-inference/data/README.md) · [Open the figure gallery](../research/C/C11-orion-core-inference/figures/README.md) · [Download acquisition template](../research/C/C11-orion-core-inference/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C11 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C11-orion-core-inference/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | [Scientific objective](../research/C/C11-orion-core-inference/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C11-orion-core-inference/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C11-orion-core-inference/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C11-orion-core-inference/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C11-orion-core-inference/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C11-orion-core-inference/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a waveform registry identifying dimensionality, transport approximations, equation of state, progenitor, resolution, and reference distance. Inject two polarizations into released real detector noise with network delays. Compare an interpretable chirplet or frequency-track fit with probabilistic neural inference. Train with domain randomization and explicit out-of-distribution checks; calibrate posteriors through simulation-based calibration. Measure which parameters correlate strongly with observable features and abstain from unsupported labels. Test noise PSD drift, glitches, and missing detectors without retuning test thresholds.
+
+**Operating envelope:** Supernova waveforms are not a dense sample of all physical uncertainty. A high test accuracy within one code does not prove that real strain identifies progenitor mass or equation of state.
+
+**Variables and conventions**
+
+- d and detector strain dimensionless; normalized waveform distance convention must be explicit
+- F antenna responses dimensionless; time delays tau in s; D in kpc
+- Sn is one-sided strain power spectral density in Hz^-1
+- theta includes rotation, waveform-morphology parameters, sky position, and polarization
+- Progenitor mass or equation-of-state class is a simulation-conditioned target and may be nonidentifiable
+
+#### Artifact wall
+
+![C11 proposed analysis architecture](../research/C/C11-orion-core-inference/figures/architecture.svg)
+
+Matched observation operators support both interpretable and learned morphology inference, while a domain gate conditions any physical-label export.
+
+**Scientific result to produce:** Frequency tracks with posterior bands beside parameter interval coverage versus distance and a simulation-family generalization matrix.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build physics-aware waveform registry with hashes and split keys. |
+| 02 | Planned | Implement network projection and fractional-delay fixtures. |
+| 03 | Planned | Freeze released-noise partitions and PSD estimation artifacts. |
+| 04 | Planned | Fit chirplet baseline and posterior morphology exporter. |
+| 05 | Planned | Train probabilistic inference with nuisance draws and calibration checks. |
+| 06 | Planned | Release code/family holdouts and separated statistical/model error budgets. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C; [Inferring astrophysical parameters of CCSNe from GW emission](https://arxiv.org/abs/2201.01397) |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C; [GWOSC](https://gwosc.org/) |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../research/C/C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+| [C09 · EAGLESAT COSMIC PIXEL](../research/C/C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+| [C13 · HORIZON RING ATLAS](../research/C/C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C11-orion-core-inference/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C11-orion-core-inference/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C11-orion-core-inference/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C11-orion-core-inference/data/README.md) | [Provenance](../research/C/C11-orion-core-inference/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C11-orion-core-inference/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C11-orion-core-inference/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C11-orion-core-inference/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C11-orion-core-inference/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C11-orion-core-inference/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C11-orion-core-inference/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C11-orion-core-inference/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2823,7 +3663,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2836,6 +3676,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C12-hubble-cosmic-glow/data/README.md) · [Open the figure gallery](../research/C/C12-hubble-cosmic-glow/figures/README.md) · [Download acquisition template](../research/C/C12-hubble-cosmic-glow/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C12 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C12-hubble-cosmic-glow/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | SKYSURF: Measuring the Brightness of the Sky | [Scientific objective](../research/C/C12-hubble-cosmic-glow/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C12-hubble-cosmic-glow/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C12-hubble-cosmic-glow/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C12-hubble-cosmic-glow/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C12-hubble-cosmic-glow/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C12-hubble-cosmic-glow/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Retrieve released SKYSURF measurements and independently reproduce a manageable filter subset from suitable exposures. Screen for Earthshine, persistence, gradients, extended objects, and documented detector anomalies. Model zodiacal geometry and dust-correlated light jointly with additive thermal/dark terms. Compare multiple foreground model families and fit shared calibration parameters. Infer diffuse residual bounds with profile likelihood or posterior intervals, including correlated systematics. Evaluate integrated galaxy counts independently and avoid subtracting the same population twice. Separate measured sky, modeled components, and residual in every output.
+
+**Operating envelope:** Foreground degeneracy can dominate the result even with enormous exposure counts. A residual is not automatically extragalactic and does not identify a physical emission mechanism.
+
+**Variables and conventions**
+
+- I in MJy sr^-1 or nW m^-2 sr^-1 with explicit band conversions
+- v indexes visits and f filters; epsilon is solar elongation in degrees
+- beta_ecl is ecliptic latitude; dust column proxy uses its documented map unit
+- g is multiplicative calibration; b is an additive calibration offset, distinct from any separately retained physical I_inst component.
+- Calibration covariance can correlate filters and visits and does not vanish by averaging pixels
+
+#### Artifact wall
+
+![C12 proposed analysis architecture](../research/C/C12-hubble-cosmic-glow/figures/architecture.svg)
+
+Absolute measurement and correlated component inference are explicit, enabling conditional residual bounds without assigning an emission origin.
+
+**Scientific result to produce:** Band-by-band absolute sky with stacked foreground components, correlated uncertainty bands, residual limits, and solar-geometry residual plots.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze release, filter subset and exposure sky histories. |
+| 02 | Planned | Implement sky-preserving screening and unit/solid-angle conversion. |
+| 03 | Planned | Create shared calibration and detector-state covariance artifacts. |
+| 04 | Planned | Build zodiacal/dust/instrument component likelihoods and galaxy-light ledger. |
+| 05 | Planned | Fit multiple documented foreground families with identifiability diagnostics. |
+| 06 | Planned | Publish measured-sky tables, conditional residual bounds and geometry holdouts. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C02 · HUBBLE NIGHTFALL LAB](../research/C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | Session C; [SKYSURF HLSP](https://archive.stsci.edu/hlsp/skysurf); [SKYSURF-4 measurement methods and results](https://arxiv.org/abs/2210.08010) |
+| [I11 · HUBBLE SKYVAULT](../research/I/I11-hubble-skyvault/README.md) | Measurements of the Sky | [SKYSURF HLSP](https://archive.stsci.edu/hlsp/skysurf) |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C |
+| [C13 · HORIZON RING ATLAS](../research/C/C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../research/C/C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C14 · ROMAN DARKHOLE ACADEMY](../research/C/C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C12-hubble-cosmic-glow/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C12-hubble-cosmic-glow/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C12-hubble-cosmic-glow/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C12-hubble-cosmic-glow/data/README.md) | [Provenance](../research/C/C12-hubble-cosmic-glow/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C12-hubble-cosmic-glow/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C12-hubble-cosmic-glow/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C12-hubble-cosmic-glow/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C12-hubble-cosmic-glow/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C12-hubble-cosmic-glow/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C12-hubble-cosmic-glow/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C12-hubble-cosmic-glow/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3072,7 +3988,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3085,6 +4001,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C13-horizon-ring-atlas/data/README.md) · [Open the figure gallery](../research/C/C13-horizon-ring-atlas/figures/README.md) · [Download acquisition template](../research/C/C13-horizon-ring-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C13 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C13-horizon-ring-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Characterizing the Images of Black Hole Shadows | [Scientific objective](../research/C/C13-horizon-ring-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C13-horizon-ring-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C13-horizon-ring-atlas/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C13-horizon-ring-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C13-horizon-ring-atlas/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C13-horizon-ring-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit rings, crescents, and deliberately nonring alternatives directly to sampled visibilities. Compare regularized maximum-likelihood, CLEAN-like, and Bayesian image families using common data exclusions and hyperparameter sweeps. Quantify diameter, width, asymmetry, and depression with posterior sampling and reconstruction ensembles. Generate synthetic sources with and without rings through real uv coverage and station errors to assess feature recoverability. Relate measured geometry to ray-traced physical models only after documenting emission, scattering, orientation, and mass-distance assumptions.
+
+**Operating envelope:** Sparse Fourier coverage can imprint structure, and emission physics changes the relationship between ring size and photon orbit. Image pixels are strongly correlated; treating every pixel as an independent measurement understates error.
+
+**Variables and conventions**
+
+- u and v in wavelengths; alpha and beta in radians
+- Visibility amplitude in Jy and closure phase in radians or degrees, declared consistently
+- Ring diameter and width in microarcseconds; M in solar masses; distance D in a common length unit
+- I is sky brightness; station gains and correlated calibration uncertainties are nuisance parameters
+- The Schwarzschild formula is a reference shadow angular diameter, not a universal fitted emission-ring relation
+
+#### Artifact wall
+
+![C13 proposed analysis architecture](../research/C/C13-horizon-ring-atlas/figures/architecture.svg)
+
+Visibility fitting and image ensembles jointly constrain emission metrics; physical shadow interpretation remains conditional on an additional model.
+
+**Scientific result to produce:** Ring-model posteriors beside uv coverage, measured closure phases, and multiple reconstructions with common angular scales.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze EHT dataset/exclusion and station calibration manifests. |
+| 02 | Planned | Implement unit-aware visibility sampling and closure likelihoods. |
+| 03 | Planned | Fit geometric ring/crescent/nonring models. |
+| 04 | Planned | Run reconstruction hyperparameter ensembles through common data. |
+| 05 | Planned | Build blinded analytic/synthetic source challenge and baseline holdouts. |
+| 06 | Planned | Publish posterior ring metrics with separate shadow-interpretation assumptions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+| [C14 · ROMAN DARKHOLE ACADEMY](../research/C/C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C |
+| [C15 · WEBB PHOTON TRUTH](../research/C/C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../research/C/C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C13-horizon-ring-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C13-horizon-ring-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C13-horizon-ring-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C13-horizon-ring-atlas/data/README.md) | [Provenance](../research/C/C13-horizon-ring-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C13-horizon-ring-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C13-horizon-ring-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C13-horizon-ring-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C13-horizon-ring-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C13-horizon-ring-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C13-horizon-ring-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C13-horizon-ring-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3319,7 +4311,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3332,6 +4324,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C14-roman-darkhole-academy/data/README.md) · [Open the figure gallery](../research/C/C14-roman-darkhole-academy/figures/README.md) · [Download acquisition template](../research/C/C14-roman-darkhole-academy/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C14 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C14-roman-darkhole-academy/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Controlling the Unseen: GIG Undergraduate Optical Research | [Scientific objective](../research/C/C14-roman-darkhole-academy/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C14-roman-darkhole-academy/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C14-roman-darkhole-academy/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C14-roman-darkhole-academy/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C14-roman-darkhole-academy/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C14-roman-darkhole-academy/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a Fourier/Fresnel optical model with measured aperture, aberrations, and detector response, using PROPER or equivalent. Estimate the complex speckle field with controlled probes, compare a calibrated Jacobian against empirical response, and apply regularized electric-field control or a simpler modal nulling baseline. Allocate sensor noise, wavefront drift, alignment, and actuator error in a measured budget. Simulate actuator faults and drift before any hardware loop. If no deformable mirror exists, use a phase modulator or constrained modal simulation and label the demonstration accordingly.
+
+**Operating envelope:** A classroom bench is not a vacuum flight test. Narrowband local suppression does not demonstrate broadband exoplanet imaging or a particular NASA mission contrast requirement.
+
+**Variables and conventions**
+
+- E is complex focal-plane field in normalized units; intensity is proportional to |E|^2
+- u is actuator command or modal wavefront coefficient; G is its measured complex Jacobian
+- lambda is regularization selected on independent validation runs
+- C is normalized contrast over a declared region in lambda/D
+- eta is off-axis throughput; wavefront optical path error in nm; drift rates in nm h^-1
+
+#### Artifact wall
+
+![C14 proposed analysis architecture](../research/C/C14-roman-darkhole-academy/figures/architecture.svg)
+
+The closed loop estimates complex response before bounded updates, while an independent off-axis branch measures the science-throughput cost.
+
+**Scientific result to produce:** Optical layout and measured control-loop diagram beside before/after speckle fields, contrast convergence, and off-axis throughput.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create verified bench/twin optical and command manifests. |
+| 02 | Planned | Implement normalized propagation and camera noise model. |
+| 03 | Planned | Generate or acquire pairwise probes with timing metadata. |
+| 04 | Planned | Estimate quadrature field and local Jacobian covariance. |
+| 05 | Planned | Implement bounded regularized controller and fault replay. |
+| 06 | Planned | Publish contrast/throughput/noise-floor traces and held-out response tests. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C13 · HORIZON RING ATLAS](../research/C/C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+| [C15 · WEBB PHOTON TRUTH](../research/C/C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C |
+| [C17 · GEMINI DISK SENTINEL](../research/C/C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C14-roman-darkhole-academy/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C14-roman-darkhole-academy/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C14-roman-darkhole-academy/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C14-roman-darkhole-academy/data/README.md) | [Provenance](../research/C/C14-roman-darkhole-academy/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C14-roman-darkhole-academy/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C14-roman-darkhole-academy/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C14-roman-darkhole-academy/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C14-roman-darkhole-academy/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C14-roman-darkhole-academy/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C14-roman-darkhole-academy/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C14-roman-darkhole-academy/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3566,7 +4634,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3579,6 +4647,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C15-webb-photon-truth/data/README.md) · [Open the figure gallery](../research/C/C15-webb-photon-truth/figures/README.md) · [Download acquisition template](../research/C/C15-webb-photon-truth/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C15 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C15-webb-photon-truth/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | [Scientific objective](../research/C/C15-webb-photon-truth/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C15-webb-photon-truth/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C15-webb-photon-truth/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C15-webb-photon-truth/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C15-webb-photon-truth/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C15-webb-photon-truth/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Choose public isolated-star exposures across detector positions, filters, flux levels, and wavefront epochs. Reproduce observation metadata and spectral energy distributions in PhoSim-NIRCam; use measured OPD references and contemporary NIRCam PSF documentation. Compare with STPSF and MIRAGE as independently implemented comparators, allowing only training-observation calibration updates. Evaluate encircled energy, radial wings, centroid, PSF moments, saturation onset, ramp statistics, and spatial noise. Propagate simulated raw exposures through the same pipeline version as observations. Maintain a discrepancy ledger with each proposed correction and its expected independent test.
+
+**Operating envelope:** A public exposure may lack complete illumination or attitude metadata. Fitting every calibration parameter to a target can hide simulator error; validation must span different stars and epochs.
+
+**Variables and conventions**
+
+- N_gamma,j is a dimensionless photon/event count; F_lambda in W m^-2 m^-1, A_tel in m^2, t in s and lambda in m. T_j is dimensionless optical/detector throughput times pixel-assignment probability.
+- t in s; OPD and wavelength in compatible length units
+- PSF encircled energy and ellipticity dimensionless; centroid errors in pixels or mas
+- Residual covariance Sigma accounts for detector correlations and mosaic resampling
+- theta includes detector position, filter, SED, wavefront epoch, readout mode, and calibration context
+
+#### Artifact wall
+
+![C15 proposed analysis architecture](../research/C/C15-webb-photon-truth/figures/architecture.svg)
+
+Collecting area is explicit in photon generation; ramp and processing interfaces allow simulator errors to be attributed by stage.
+
+**Scientific result to produce:** Observed/simulated PSFs and residuals arranged by detector/filter, with encircled-energy error and held-out astrometric bias.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze observation/source/wavefront/calibration manifests. |
+| 02 | Planned | Implement dimensional photon-count ledger including area. |
+| 03 | Planned | Run optical PSF and detector-ramp fixtures. |
+| 04 | Planned | Process paired simulated/observed inputs with pinned pipeline. |
+| 05 | Planned | Build stage-specific metrics and independent-simulator comparison. |
+| 06 | Planned | Publish MC convergence, discrepancy attribution and star/epoch holdouts. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C14 · ROMAN DARKHOLE ACADEMY](../research/C/C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+| [C13 · HORIZON RING ATLAS](../research/C/C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+| [C17 · GEMINI DISK SENTINEL](../research/C/C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../research/C/C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C15-webb-photon-truth/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C15-webb-photon-truth/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C15-webb-photon-truth/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C15-webb-photon-truth/data/README.md) | [Provenance](../research/C/C15-webb-photon-truth/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C15-webb-photon-truth/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C15-webb-photon-truth/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C15-webb-photon-truth/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C15-webb-photon-truth/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C15-webb-photon-truth/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C15-webb-photon-truth/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C15-webb-photon-truth/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3815,7 +4959,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3828,6 +4972,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C16-orion-strain-metrology/data/README.md) · [Open the figure gallery](../research/C/C16-orion-strain-metrology/figures/README.md) · [Download acquisition template](../research/C/C16-orion-strain-metrology/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C16 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C16-orion-strain-metrology/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Gravitational Wave Calibration Error for Supernovae Core Collapse | [Scientific objective](../research/C/C16-orion-strain-metrology/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C16-orion-strain-metrology/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C16-orion-strain-metrology/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C16-orion-strain-metrology/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C16-orion-strain-metrology/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C16-orion-strain-metrology/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Choose supernova waveform families with distinct durations, spectral peaks, and polarizations. Draw smooth calibration functions consistent with published magnitude/phase uncertainty products and plausible correlation lengths when covariance is unavailable. Inject calibrated signals into real noise, then analyze with ignored, fixed-shift, and marginalized calibration models. Quantify network coherence and parameter bias across distance, detector configuration, and sky location. Repeat for alternate strain releases only when documentation explains their differences. Preserve the calibrated frequency limits and apply time-domain filters consistently to data and signals.
+
+**Operating envelope:** Public envelope products may not uniquely specify the underlying calibration posterior. Low-frequency memory analyses are especially sensitive to the observation operator; results outside the stated calibrated band cannot be treated as measured sensitivity.
+
+**Variables and conventions**
+
+- deltaA dimensionless fractional amplitude error; deltaPhi in radians
+- Frequency f in Hz; detector strain dimensionless; PSD in Hz^-1
+- Calibration functions modeled by spline or Gaussian-process coefficients with supplied correlation assumptions
+- M is normalized mismatch in the declared detector band
+- theta includes signal amplitude, time, frequency-track, sky, and polarization; distance assumptions are separate
+
+#### Artifact wall
+
+![C16 proposed analysis architecture](../research/C/C16-orion-strain-metrology/figures/architecture.svg)
+
+Matched perturbations drive paired inference; the covariance generator is explicitly an assumption when public products provide only envelopes.
+
+**Scientific result to produce:** Amplitude/phase uncertainty curves with parameter bias and coverage versus signal strength, and separate statistical/model/calibration contributions.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Resolve release-specific calibration uncertainty files and band limits. |
+| 02 | Planned | Implement explicit measured/true transfer conventions. |
+| 03 | Planned | Build smooth coefficient priors and correlation sensitivity grid. |
+| 04 | Planned | Create amplitude/time-delay and exact-linearization fixtures. |
+| 05 | Planned | Run paired injection/inference branches on held-out noise. |
+| 06 | Planned | Publish coefficient provenance, bias/coverage and band-limited mismatch tables. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C; [CCSN parameter inference study](https://arxiv.org/abs/2201.01397) |
+| [C15 · WEBB PHOTON TRUTH](../research/C/C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C17 · GEMINI DISK SENTINEL](../research/C/C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+| [C14 · ROMAN DARKHOLE ACADEMY](../research/C/C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../research/C/C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+| [C13 · HORIZON RING ATLAS](../research/C/C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C16-orion-strain-metrology/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C16-orion-strain-metrology/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C16-orion-strain-metrology/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C16-orion-strain-metrology/data/README.md) | [Provenance](../research/C/C16-orion-strain-metrology/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C16-orion-strain-metrology/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C16-orion-strain-metrology/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C16-orion-strain-metrology/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C16-orion-strain-metrology/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C16-orion-strain-metrology/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C16-orion-strain-metrology/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C16-orion-strain-metrology/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4063,7 +5283,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4076,6 +5296,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C17-gemini-disk-sentinel/data/README.md) · [Open the figure gallery](../research/C/C17-gemini-disk-sentinel/figures/README.md) · [Download acquisition template](../research/C/C17-gemini-disk-sentinel/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C17 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C17-gemini-disk-sentinel/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | [Scientific objective](../research/C/C17-gemini-disk-sentinel/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C17-gemini-disk-sentinel/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C17-gemini-disk-sentinel/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C17-gemini-disk-sentinel/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C17-gemini-disk-sentinel/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C17-gemini-disk-sentinel/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Retrieve public GPI science frames, calibration products, and observing angles for selected disk hosts. Process with frozen PSF-subtraction settings; vary disk forward models only within a preregistered robustness grid. Inject companions sparsely to avoid changing subtraction behavior, across angle, radius, flux, and plausible spectra. Use matched filtering or another declared detection statistic with independent noise controls and small-number corrections. Estimate uncertainty in completeness with binomial intervals. Translate flux completeness to optional mass-orbit constraints only after marginalizing stellar age, luminosity model, inclination, and orbital phase.
+
+**Operating envelope:** Speckles are correlated, disk structure can resemble companions, and selected bright disks do not represent all planetary systems. A nondetection excludes only the validated model and parameter domain.
+
+**Variables and conventions**
+
+- Fp in Jy or contrast relative to the star; r in arcsec and phi in degrees
+- s labels tested companion spectra; age t in Myr
+- Crec is dimensionless completeness; detection threshold tied to a declared false-positive probability
+- O includes parallactic rotation, instrument response, PSF subtraction, and image combination
+- Mass M in Jupiter masses and semimajor axis a in au require uncertain evolutionary and orbital models
+
+#### Artifact wall
+
+![C17 proposed analysis architecture](../research/C/C17-gemini-disk-sentinel/figures/architecture.svg)
+
+Injection before subtraction measures disk-dependent recovery and throughput; mass constraints are a separate conditional conversion.
+
+**Scientific result to produce:** Disk image overlaid with 50/90% companion-completeness contours, angle-dependent limits, and explicitly conditional mass conversion.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze GPI science/calibration/rotation manifests. |
+| 02 | Planned | Implement normalized spectral companion injection before subtraction. |
+| 03 | Planned | Pin subtraction and detection settings using training/control data. |
+| 04 | Planned | Run sparse scenario grids and grouped uncertainty accumulation. |
+| 05 | Planned | Build disk-confusion and zero-flux control fixtures. |
+| 06 | Planned | Export 2D completeness/throughput maps and optional conditional mass-orbit likelihoods. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../research/C/C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+| [C15 · WEBB PHOTON TRUTH](../research/C/C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../research/C/C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C14 · ROMAN DARKHOLE ACADEMY](../research/C/C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C17-gemini-disk-sentinel/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C17-gemini-disk-sentinel/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C17-gemini-disk-sentinel/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C17-gemini-disk-sentinel/data/README.md) | [Provenance](../research/C/C17-gemini-disk-sentinel/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C17-gemini-disk-sentinel/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C17-gemini-disk-sentinel/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C17-gemini-disk-sentinel/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C17-gemini-disk-sentinel/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C17-gemini-disk-sentinel/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C17-gemini-disk-sentinel/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C17-gemini-disk-sentinel/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4312,7 +5608,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4325,6 +5621,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C18-reionization-oxygen-beacon/data/README.md) · [Open the figure gallery](../research/C/C18-reionization-oxygen-beacon/figures/README.md) · [Download acquisition template](../research/C/C18-reionization-oxygen-beacon/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C18 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C18-reionization-oxygen-beacon/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | [Scientific objective](../research/C/C18-reionization-oxygen-beacon/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C18-reionization-oxygen-beacon/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C18-reionization-oxygen-beacon/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C18-reionization-oxygen-beacon/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C18-reionization-oxygen-beacon/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C18-reionization-oxygen-beacon/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Measure oxygen, Balmer, HeI, HeII, and OI lines using simultaneous continuum and line fits. Infer dust and metallicity with uncertainty and compare ionization-bounded, density-bounded, shock, and hard-spectrum photoionization models. Model UV count data or censored fluxes with instrumental backgrounds, foreground contamination, and uncertain intrinsic stellar SEDs. Fit escape predictors with galaxy-level splitting and a selection model tied to sample inclusion. Compare proxy probabilities to direct UV measurements and avoid extrapolating a low-redshift calibration to the early universe without a domain-shift assessment.
+
+**Operating envelope:** Geometry and sightline dependence mean integrated optical ratios need not predict directional LyC escape. Intrinsic ionizing output, IGM transmission, and weak-line measurement errors can dominate.
+
+**Variables and conventions**
+
+- Line fluxes in erg s^-1 cm^-2 after specified extinction corrections
+- O32 convention is explicit; publications using summed OIII require conversion
+- Ly-alpha peak separation Delta v in km s^-1; metallicity Z as 12+log(O/H)
+- Escape fraction dimensionless in [0,1]; intrinsic LyC flux is model predicted
+- IGM and Milky Way transmissions dimensionless; internal attenuation is included in the absolute escaped fraction definition
+
+#### Artifact wall
+
+![C18 proposed analysis architecture](../research/C/C18-reionization-oxygen-beacon/figures/architecture.svg)
+
+Direct ionizing-photon likelihood and optical proxies enter with separate contracts, while transmission and sample selection condition any escape inference.
+
+**Scientific result to produce:** O32 versus Ly-alpha separation colored by directly measured escape, with upper limits, selected-sample boundaries, and predicted probability contours.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create optical/UV response and counterpart manifests. |
+| 02 | Planned | Implement joint continuum/line fitting and ratio covariance. |
+| 03 | Planned | Build UV count/background and contamination likelihoods. |
+| 04 | Planned | Version intrinsic SED and transmission models with explicit escape convention. |
+| 05 | Planned | Fit galaxy-grouped predictors and selection sensitivities. |
+| 06 | Planned | Release direct/proxy-labeled fraction posteriors and domain holdouts. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C17 · GEMINI DISK SENTINEL](../research/C/C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../research/C/C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+| [C15 · WEBB PHOTON TRUTH](../research/C/C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C18-reionization-oxygen-beacon/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C18-reionization-oxygen-beacon/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C18-reionization-oxygen-beacon/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C18-reionization-oxygen-beacon/data/README.md) | [Provenance](../research/C/C18-reionization-oxygen-beacon/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C18-reionization-oxygen-beacon/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C18-reionization-oxygen-beacon/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C18-reionization-oxygen-beacon/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C18-reionization-oxygen-beacon/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C18-reionization-oxygen-beacon/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C18-reionization-oxygen-beacon/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C18-reionization-oxygen-beacon/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4561,7 +5933,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4574,6 +5946,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C19-webb-young-star-atmospheres/data/README.md) · [Open the figure gallery](../research/C/C19-webb-young-star-atmospheres/figures/README.md) · [Download acquisition template](../research/C/C19-webb-young-star-atmospheres/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C19 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C19-webb-young-star-atmospheres/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | [Scientific objective](../research/C/C19-webb-young-star-atmospheres/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C19-webb-young-star-atmospheres/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C19-webb-young-star-atmospheres/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C19-webb-young-star-atmospheres/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C19-webb-young-star-atmospheres/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C19-webb-young-star-atmospheres/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Assemble public young and field M-dwarf spectra with source-specific citations and quality flags. Derive gravity-sensitive alkali, molecular, and continuum indices, then fit atmospheric grids with nuisance continuum/telluric calibration and correlated discrepancy. Include photometry and distance when available to constrain radius and luminosity. Compare field controls matched in spectral type and metallicity, and test unresolved-binary and reddening alternatives. Evaluate gravity against dynamical-mass/radius or well-characterized benchmark systems where available. Keep empirical spectral classification separate from model-derived physical parameters.
+
+**Operating envelope:** Line lists, clouds, magnetic activity, and disequilibrium chemistry can create systematic residuals. Evolutionary-model ages and gravity are not independent benchmarks if they use the same atmosphere assumptions.
+
+**Variables and conventions**
+
+- Teff in K; logg is log10 of g in cm s^-2
+- Wavelength in micrometers and flux in documented physical units or declared normalization
+- Metallicity [Fe/H] in dex; extinction A_lambda in magnitudes
+- Radius in solar radii and distance in pc, converted consistently
+- Sigma includes correlated spectral error and a model-discrepancy term; veiling is an additional continuum
+
+#### Artifact wall
+
+![C19 proposed analysis architecture](../research/C/C19-webb-young-star-atmospheres/figures/architecture.svg)
+
+Empirical gravity evidence and model-derived gravity remain distinct; absolute flux and independent benchmarks supply additional, explicitly tracked constraints.
+
+**Scientific result to produce:** Temperature-matched young/field spectra with alkali bands, gravity posterior contours, and model-discrepancy residuals.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create source and grid pedigree manifests with absolute/normalized flags. |
+| 02 | Planned | Implement line-spread/extinction/velocity response operators. |
+| 03 | Planned | Compute versioned empirical indices with covariance. |
+| 04 | Planned | Fit atmosphere alternatives and optional luminosity scaling. |
+| 05 | Planned | Build binary/reddening injections and independent benchmark splits. |
+| 06 | Planned | Publish gravity sensitivity, grid-support masks and empirical versus physical outputs. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C18 · REIONIZATION OXYGEN BEACON](../research/C/C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+| [C17 · GEMINI DISK SENTINEL](../research/C/C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C |
+| [C16 · ORION STRAIN METROLOGY](../research/C/C16-orion-strain-metrology/README.md) | Gravitational Wave Calibration Error for Supernovae Core Collapse | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../research/C/C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C19-webb-young-star-atmospheres/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C19-webb-young-star-atmospheres/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C19-webb-young-star-atmospheres/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C19-webb-young-star-atmospheres/data/README.md) | [Provenance](../research/C/C19-webb-young-star-atmospheres/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C19-webb-young-star-atmospheres/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C19-webb-young-star-atmospheres/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C19-webb-young-star-atmospheres/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C19-webb-young-star-atmospheres/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C19-webb-young-star-atmospheres/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C19-webb-young-star-atmospheres/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C19-webb-young-star-atmospheres/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4810,7 +6258,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4823,6 +6271,83 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C20-trinity-accretion-echo/data/README.md) · [Open the figure gallery](../research/C/C20-trinity-accretion-echo/figures/README.md) · [Download acquisition template](../research/C/C20-trinity-accretion-echo/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C20 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C20-trinity-accretion-echo/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | [Scientific objective](../research/C/C20-trinity-accretion-echo/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C20-trinity-accretion-echo/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C20-trinity-accretion-echo/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C20-trinity-accretion-echo/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C20-trinity-accretion-echo/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C20-trinity-accretion-echo/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Pin a TRINITY code/data release and draw black-hole mass, host, luminosity, and Eddington-ratio populations with their uncertainties. Fit conditional variability amplitudes and timescales on a training light-curve survey using a likelihood that handles irregular cadence. Compare OU, broken-power-spectrum, and multi-timescale stochastic processes. Forward simulate flux-limited target selection, host dilution, redshift, cadence, and noise. Estimate ensemble covariance through likelihood methods rather than interpolating across gaps. Hold out luminosity-redshift bins and a second survey. If spatial autocorrelation is pursued, add halo bias and angular/redshift selection separately.
+
+**Operating envelope:** Finite baselines and cadence gaps can bias timescales. Agreement with an autocorrelation does not uniquely identify disk physics; population and temporal parameters can compensate for each other.
+
+**Variables and conventions**
+
+- X is log flux or magnitude with a declared convention; tau in rest-frame days
+- sigma has X units per square-root day; K has X-squared units
+- z dimensionless; observed time intervals include cosmological dilation
+- W maps latent light curves through cadence, exposure integration, and missing observations
+- TRINITY supplies population conditions; the OU/damped-random-walk law is a proposed extension, not a native TRINITY result
+- For spatial output, r is comoving Mpc, xi is dimensionless two-point correlation, b_h halo bias, n_h halo mass function, and N_AGN selected occupation; the displayed expression is a large-scale approximation
+
+#### Artifact wall
+
+![C20 proposed analysis architecture](../research/C/C20-trinity-accretion-echo/figures/architecture.svg)
+
+A separately calibrated temporal extension turns population draws into observed autocorrelation; native TRINITY and spatial clustering are not conflated with this module.
+
+**Scientific result to produce:** TRINITY-conditioned population flow into stochastic curves and cadence sampling, with rest-frame and observed covariance comparisons.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Pin TRINITY population products and posterior provenance. |
+| 02 | Planned | Version external conditional variability laws and calibration data. |
+| 03 | Planned | Implement exact OU covariance/transition fixtures and alternatives. |
+| 04 | Planned | Build redshift/exposure/host/noise selection operator. |
+| 05 | Planned | Fit irregular-time likelihood with independent survey splits. |
+| 06 | Planned | Publish identifiable lag ranges and separate population/temporal uncertainty budgets. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C30 · ARTEMIS FIRST HORIZONS](../research/C/C30-artemis-first-horizons/README.md) | The Origins of Supermassive Black Holes | Session C; [TRINITY source repository](https://github.com/HaowenZhang/TRINITY) |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../research/C/C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../research/C/C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../research/C/C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+| [C17 · GEMINI DISK SENTINEL](../research/C/C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C20-trinity-accretion-echo/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C20-trinity-accretion-echo/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C20-trinity-accretion-echo/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C20-trinity-accretion-echo/data/README.md) | [Provenance](../research/C/C20-trinity-accretion-echo/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C20-trinity-accretion-echo/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C20-trinity-accretion-echo/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C20-trinity-accretion-echo/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C20-trinity-accretion-echo/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C20-trinity-accretion-echo/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C20-trinity-accretion-echo/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C20-trinity-accretion-echo/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5064,7 +6589,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5077,6 +6602,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C21-parker-magnetic-trail/data/README.md) · [Open the figure gallery](../research/C/C21-parker-magnetic-trail/figures/README.md) · [Download acquisition template](../research/C/C21-parker-magnetic-trail/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C21 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C21-parker-magnetic-trail/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Identification of Switchback Intervals in Parker Space Probe Data | [Scientific objective](../research/C/C21-parker-magnetic-trail/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C21-parker-magnetic-trail/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C21-parker-magnetic-trail/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C21-parker-magnetic-trail/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C21-parker-magnetic-trail/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/C/C21-parker-magnetic-trail/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Retrieve released FIELDS and SWEAP data with quality masks and coordinate definitions. Build a reproducible threshold baseline, then compare changepoint or hidden-state detection using deflection, radial polarity, magnitude stability, and Alfvenic correlation. Create blinded expert labels across quiet, current-sheet, and switchback-rich intervals. Match cadence only where statistically justified and retain gap masks. Estimate occurrence rates with exposure time, not total downloaded interval length. Compare encounter and distance statistics using block resampling and selection-aware models; field-line mapping to the Sun remains a separate uncertain interpretation.
+
+**Operating envelope:** Background definition can change event boundaries and counts. Spacecraft motion mixes spatial and temporal variation; intermittent plasma coverage can bias the subset classified as Alfvenic.
+
+**Variables and conventions**
+
+- B and local reference B0 in nT, converted to T for Alfven speed
+- Angular deflection in degrees; z is dimensionless normalized deflection
+- v and Alfven velocity in km s^-1; mass density rho in kg m^-3
+- Event duration in s; heliocentric distance in solar radii or au
+- Plasma velocity and density quality/cadence are kept separate from magnetic-field quality
+
+#### Artifact wall
+
+![C21 proposed analysis architecture](../research/C/C21-parker-magnetic-trail/figures/architecture.svg)
+
+Magnetic detection and plasma qualification have distinct quality/cadence paths, producing explicit event evidence and usable-time denominators.
+
+**Scientific result to produce:** Linked B-vector, deflection, velocity, and event-probability timelines with gaps, background windows, and encounter-level exposure-normalized rates.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Resolve versioned FIELDS/SWEAP CDF products and quality semantics. |
+| 02 | Planned | Implement coordinate/time/overlap adapters and exposure masks. |
+| 03 | Planned | Build robust B0 plus threshold/hysteresis baseline. |
+| 04 | Planned | Add changepoint and plasma diagnostic branches. |
+| 05 | Planned | Create vector/gap fixtures and blinded encounter labels. |
+| 06 | Planned | Export interval evidence, denominator tables and configuration sensitivity catalogs. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C29 · ACE WIND SHOCK LEDGER](../research/C/C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C; [NASA CDAWeb](https://cdaweb.gsfc.nasa.gov/) |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../research/C/C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../research/C/C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C23 · KEPLER METAL WORLDS](../research/C/C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../research/C/C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C21-parker-magnetic-trail/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C21-parker-magnetic-trail/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C21-parker-magnetic-trail/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C21-parker-magnetic-trail/data/README.md) | [Provenance](../research/C/C21-parker-magnetic-trail/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C21-parker-magnetic-trail/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C21-parker-magnetic-trail/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C21-parker-magnetic-trail/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C21-parker-magnetic-trail/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C21-parker-magnetic-trail/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C21-parker-magnetic-trail/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C21-parker-magnetic-trail/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5314,7 +6915,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5327,6 +6928,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C22-hubble-galactic-exhale/data/README.md) · [Open the figure gallery](../research/C/C22-hubble-galactic-exhale/figures/README.md) · [Download acquisition template](../research/C/C22-hubble-galactic-exhale/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C22 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C22-hubble-galactic-exhale/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Measuring Galactic Wind Frequency and Strength as a Function of Environment | [Scientific objective](../research/C/C22-hubble-galactic-exhale/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C22-hubble-galactic-exhale/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C22-hubble-galactic-exhale/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C22-hubble-galactic-exhale/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C22-hubble-galactic-exhale/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C22-hubble-galactic-exhale/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Select a public IFU sample and reconstruct environment through a well-defined neighbor catalog. Fit stellar continuum and narrow/broad line components with the measured instrumental response; forward model rotation and PSF smearing. Produce probabilistic wind labels instead of dropping borderline objects. Measure detection completeness using synthetic outflows in real cubes. Fit incidence and strength jointly with censoring, survey weights, and host covariates. Check covariate overlap between environments; report associational effects and sensitivity to unmeasured confounders rather than causal language. Use alternative environment scales and group assignments as robustness checks.
+
+**Operating envelope:** Inclination, sensitivity, density diagnostics, and aperture coverage vary across surveys. Ionized-gas winds sample one phase and need not describe the total outflow mass or energy.
+
+**Variables and conventions**
+
+- Environment Sigma in neighbors Mpc^-2 using a specified redshift-space estimator
+- Mass in solar masses; SFR and outflow rate in solar masses yr^-1
+- Velocities in km s^-1; projected and deprojected values reported separately
+- NH in cm^-2; r in cm; Omega is solid angle; Cf is covering fraction
+- k is a chosen line-wing convention, not a universal physical coefficient; eta is dimensionless
+
+#### Artifact wall
+
+![C22 proposed analysis architecture](../research/C/C22-hubble-galactic-exhale/figures/architecture.svg)
+
+Competing rotation and detectability models condition wind evidence; environment associations and geometry-dependent mass loading remain separate products.
+
+**Scientific result to produce:** Environment bins with adjusted incidence/velocity intervals, host-covariate overlap, and linked observed versus rotation-only spectral maps.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze IFU, response and neighbor-catalog manifests. |
+| 02 | Planned | Implement continuum/line/rotation response models. |
+| 03 | Planned | Build probabilistic component and unresolved-width outputs. |
+| 04 | Planned | Run host/resolution-stratified synthetic wind recovery. |
+| 05 | Planned | Fit selection-aware incidence/strength with overlap diagnostics. |
+| 06 | Planned | Publish conditional rate assumptions, environment sensitivities and sample holdouts. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C |
+| [C23 · KEPLER METAL WORLDS](../research/C/C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+| [C24 · APOLLO DUST CLOCK](../research/C/C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../research/C/C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C22-hubble-galactic-exhale/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C22-hubble-galactic-exhale/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C22-hubble-galactic-exhale/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C22-hubble-galactic-exhale/data/README.md) | [Provenance](../research/C/C22-hubble-galactic-exhale/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C22-hubble-galactic-exhale/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C22-hubble-galactic-exhale/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C22-hubble-galactic-exhale/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C22-hubble-galactic-exhale/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C22-hubble-galactic-exhale/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C22-hubble-galactic-exhale/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C22-hubble-galactic-exhale/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5563,7 +7240,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5576,6 +7253,84 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C23-kepler-metal-worlds/data/README.md) · [Open the figure gallery](../research/C/C23-kepler-metal-worlds/figures/README.md) · [Download acquisition template](../research/C/C23-kepler-metal-worlds/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C23 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C23-kepler-metal-worlds/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | [Scientific objective](../research/C/C23-kepler-metal-worlds/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C23-kepler-metal-worlds/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C23-kepler-metal-worlds/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C23-kepler-metal-worlds/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/C/C23-kepler-metal-worlds/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C23-kepler-metal-worlds/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a target-star denominator with temperature, gravity, observation duty cycle, and metallicity quality cuts fixed before fitting. Link DR25 candidates, stellar posteriors, detection efficiency, window functions, and Robovetter outputs. Fit an inhomogeneous Poisson occurrence model or a validated hierarchical multiplicity alternative. Integrate measurement uncertainty rather than assigning stars and planets to hard bins. Include metallicity calibration offsets and covariates such as stellar mass and age when measured. Forward simulate the entire survey and compare observed candidate counts, radii, periods, and host metallicities.
+
+**Operating envelope:** Metallicity samples may have their own selection function; photometric metallicities can be imprecise. Trends in one transit survey do not automatically transfer to direct imaging or radial-velocity domains.
+
+**Variables and conventions**
+
+- Z=[Fe/H] in dex with method-specific measurement offsets
+- Planet radius in Earth radii; orbital period in days; f in planets star^-1 per log-radius/log-period area
+- C and V are detection and vetting probabilities; p_tr is geometric transit probability
+- Target stellar radii, masses, noise metrics, and metallicity uncertainties enter jointly
+- False-positive reliability requires an explicit mixture or reliability treatment, not arbitrary deletion of candidates
+
+#### Artifact wall
+
+![C23 included scientific diagnostic](../data/figures/10_catalog_values_and_coverage.svg)
+
+Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
+
+[Exact inputs, transformations and output hashes](../data/figures/10_catalog_values_and_coverage.provenance.json)
+
+**Scientific result to produce:** Planet occurrence versus metallicity and radius-period domain, with uncertainty bands and a parallel map of detection completeness.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze target cuts and complete searched-star manifest. |
+| 02 | Planned | Link candidate/stellar/metallicity posteriors and reliability. |
+| 03 | Planned | Implement versioned geometry/window/detection/vetting operator. |
+| 04 | Planned | Build converged Poisson intensity and false-positive likelihood. |
+| 05 | Planned | Run metallicity-null, multiplicity and selection recovery simulations. |
+| 06 | Planned | Publish supported-domain occurrence posteriors and denominator/selection audits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C05 · KEPLER WORLDFORGE](../research/C/C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C; Included illustration: 09_real_exoplanet_sample |
+| [C22 · HUBBLE GALACTIC EXHALE](../research/C/C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+| [C24 · APOLLO DUST CLOCK](../research/C/C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C23-kepler-metal-worlds/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C23-kepler-metal-worlds/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C23-kepler-metal-worlds/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C23-kepler-metal-worlds/data/README.md) | [Provenance](../research/C/C23-kepler-metal-worlds/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C23-kepler-metal-worlds/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C23-kepler-metal-worlds/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C23-kepler-metal-worlds/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C23-kepler-metal-worlds/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C23-kepler-metal-worlds/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C23-kepler-metal-worlds/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C23-kepler-metal-worlds/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5805,7 +7560,7 @@ Planet occurrence versus metallicity and radius-period domain, with uncertainty 
 
 ![C23 data diagnostic](../data/figures/10_catalog_values_and_coverage.svg)
 
-Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
+Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
 
 [Inputs, downloadable figure and provenance](../data/figures/README.md)
 
@@ -5827,7 +7582,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5840,6 +7595,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C24-apollo-dust-clock/data/README.md) · [Open the figure gallery](../research/C/C24-apollo-dust-clock/figures/README.md) · [Download acquisition template](../research/C/C24-apollo-dust-clock/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C24 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C24-apollo-dust-clock/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | [Scientific objective](../research/C/C24-apollo-dust-clock/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C24-apollo-dust-clock/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C24-apollo-dust-clock/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C24-apollo-dust-clock/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C24-apollo-dust-clock/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C24-apollo-dust-clock/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reconstruct a source-cited radial-velocity and multiband photometry table, including nondetections and instrument offsets. Fit Keplerian orbital motion with robust likelihoods and wind-line nuisance terms. Link dust injection to separation using a finite-width activation function and uncertain lag, then evolve temperature and optical depth through a physically motivated expansion/cooling model. Compare single-temperature dust with broader temperature distributions. Use the documented 2024 orbital solution as an external comparison or prior, with clear accounting if the same measurements are reused. Forecast epochs whose velocities or infrared colors discriminate remaining orbital solutions.
+
+**Operating envelope:** A single-lined orbit does not determine individual masses without inclination and companion information. Dust opacity, distance, and temperature can trade off with mass; sparse multi-decade coverage can leave aliases.
+
+**Variables and conventions**
+
+- P and T0 in years or days with consistent barycentric timing
+- Vr, gamma, and K in km s^-1; e dimensionless; angles in radians
+- Dust mass Md in g; opacity kappa in cm^2 g^-1; Td in K
+- Flux density in Jy after unit conversion; distance D in cm
+- Dust-source optical depth and stellar continuum are checked before assuming optically thin emission
+
+#### Artifact wall
+
+![C24 proposed analysis architecture](../research/C/C24-apollo-dust-clock/figures/architecture.svg)
+
+Orbital separation drives a delayed dust response, while velocity and IR measurements constrain different clocks with explicit shared-data accounting.
+
+**Scientific result to produce:** Multi-decade radial velocities and infrared outbursts with joint posterior orbit, dust-response lag, and forecast uncertainty.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build source-cited velocity/IR table with timing/passbands. |
+| 02 | Planned | Implement safeguarded Kepler and line-specific velocity model. |
+| 03 | Planned | Create dust activation/cooling and response-integrated SED modules. |
+| 04 | Planned | Enforce published-data prior/comparator provenance gate. |
+| 05 | Planned | Fit orbit/dust aliases and independent-era holdouts. |
+| 06 | Planned | Publish covariance-aware future epoch predictions and dust-model sensitivity. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C23 · KEPLER METAL WORLDS](../research/C/C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../research/C/C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../research/C/C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../research/C/C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C24-apollo-dust-clock/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C24-apollo-dust-clock/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C24-apollo-dust-clock/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C24-apollo-dust-clock/data/README.md) | [Provenance](../research/C/C24-apollo-dust-clock/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C24-apollo-dust-clock/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C24-apollo-dust-clock/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C24-apollo-dust-clock/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C24-apollo-dust-clock/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C24-apollo-dust-clock/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C24-apollo-dust-clock/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C24-apollo-dust-clock/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6074,7 +7905,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6087,6 +7918,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C25-orion-burst-sentinel/data/README.md) · [Open the figure gallery](../research/C/C25-orion-burst-sentinel/figures/README.md) · [Download acquisition template](../research/C/C25-orion-burst-sentinel/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C25 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C25-orion-burst-sentinel/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Improving the Detection of Core-Collapse Supernova Through Experimentation | [Scientific objective](../research/C/C25-orion-burst-sentinel/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C25-orion-burst-sentinel/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C25-orion-burst-sentinel/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C25-orion-burst-sentinel/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C25-orion-burst-sentinel/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C25-orion-burst-sentinel/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use a fixed coherent-burst baseline with network timing, polarization, and null-stream diagnostics. Propose one change at a time: time-frequency clustering, morphology features, denoising, or artifact-aware ranking. Estimate background using independent noise and justified time shifts; inject physically diverse CCSN polarizations into untouched strain. Calibrate ML scores on validation noise rather than interpreting raw scores as probabilities. Preregister efficiency and FAR reporting, computational latency, and fail-safe behavior under missing detectors. Compare performance with and without a justified neutrino trigger window.
+
+**Operating envelope:** Small background samples cannot support extraordinarily low FAR claims. A narrow waveform training library can increase efficiency only for its own morphology and reduce generalization.
+
+**Variables and conventions**
+
+- Whitened network data d use a documented noise PSD and time-frequency normalization
+- Coherent and null energies are dimensionless ranking components, not direct radiated energy
+- FAR in events per unit time; Ton is the independently justified on-source window
+- Detection efficiency is dimensionless and indexed by distance, orientation, waveform family, and network
+- P_signal projects onto detector responses for a trial sky location; sky-search trials are included in background
+
+#### Artifact wall
+
+![C25 proposed analysis architecture](../research/C/C25-orion-burst-sentinel/figures/architecture.svg)
+
+Background sets the decision threshold before held-out efficiency is measured; trigger timing and finite exposure constrain significance separately.
+
+**Scientific result to produce:** Detection efficiency versus distance at common FAR, ablation comparisons, coherent/null feature maps, and background-exposure limits.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze released-noise and physical-family partitions. |
+| 02 | Planned | Implement whitened network projector/coherent-null fixtures. |
+| 03 | Planned | Build valid-interval background and trial accounting. |
+| 04 | Planned | Calibrate frozen thresholds for each network configuration. |
+| 05 | Planned | Run paired unseen-family efficiency and latency replays. |
+| 06 | Planned | Publish finite-FAR confidence limits, trigger provenance and dropout behavior. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C11 · ORION CORE INFERENCE](../research/C/C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C; [GWOSC](https://gwosc.org/) |
+| [C24 · APOLLO DUST CLOCK](../research/C/C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../research/C/C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C23 · KEPLER METAL WORLDS](../research/C/C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../research/C/C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../research/C/C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C25-orion-burst-sentinel/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C25-orion-burst-sentinel/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C25-orion-burst-sentinel/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C25-orion-burst-sentinel/data/README.md) | [Provenance](../research/C/C25-orion-burst-sentinel/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C25-orion-burst-sentinel/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C25-orion-burst-sentinel/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C25-orion-burst-sentinel/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C25-orion-burst-sentinel/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C25-orion-burst-sentinel/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C25-orion-burst-sentinel/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C25-orion-burst-sentinel/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6324,7 +8231,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6337,6 +8244,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C26-lisa-pendulum-pathfinder/data/README.md) · [Open the figure gallery](../research/C/C26-lisa-pendulum-pathfinder/figures/README.md) · [Download acquisition template](../research/C/C26-lisa-pendulum-pathfinder/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C26 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C26-lisa-pendulum-pathfinder/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | [Scientific objective](../research/C/C26-lisa-pendulum-pathfinder/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C26-lisa-pendulum-pathfinder/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C26-lisa-pendulum-pathfinder/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C26-lisa-pendulum-pathfinder/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C26-lisa-pendulum-pathfinder/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C26-lisa-pendulum-pathfinder/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Create a mechanical digital twin and derive modal frequencies and cross-axis responses. Use a low-mass bench prototype with displacement readout and independent ground/tilt sensors. Measure transfer functions with small calibrated drives and ringdown data; infer damping and hysteresis without fitting every noise source simultaneously. Compare a simple pendulum, multistage design, or spring-antispring geometry within practical stability limits. Propagate measured loss and temperature through fluctuation-dissipation modeling. Fit a closed-loop state-space controller only after identifying actuator and sensor dynamics, then measure injected readout noise and stability margins.
+
+**Operating envelope:** A room-scale prototype cannot claim astrophysical detector sensitivity. Spring-antispring reduction of resonance does not necessarily reduce thermal noise; suspension geometry and dissipative elements matter.
+
+**Variables and conventions**
+
+- Displacement x and ground motion xg in m; mass M in kg
+- Stiffness in N m^-1; damping in N s m^-1; force in N
+- Frequency f in Hz and omega=2 pi f in rad s^-1
+- Q dimensionless; temperature T in K; susceptibility chi in m N^-1
+- Sx in m^2 Hz^-1 with variance equal to its positive-frequency integral; absolute imaginary response handles Fourier-sign convention
+
+#### Artifact wall
+
+![C26 proposed analysis architecture](../research/C/C26-lisa-pendulum-pathfinder/figures/architecture.svg)
+
+Measured dynamics support separate passive thermal and active-loop noise budgets; sensor-floor and base-coupling assumptions limit isolation claims.
+
+**Scientific result to produce:** Mechanical mode sketch with measured/model Bode responses, cross-axis coupling, and displacement-noise budget in m/sqrt(Hz).
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Inventory verified geometry, materials and sensing/drive interfaces. |
+| 02 | Planned | Implement force/base susceptibilities and multi-axis digital twin. |
+| 03 | Planned | Acquire synchronized ringdown and calibrated small-drive data. |
+| 04 | Planned | Fit local dynamics with covariance and amplitude-validity checks. |
+| 05 | Planned | Build passive thermal plus active/readout/tilt noise budget. |
+| 06 | Planned | Validate robust controller margins and publish band-limited measured isolation/noise. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../research/C/C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C24 · APOLLO DUST CLOCK](../research/C/C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C28 · LOWELL LUNAR LANTERN](../research/C/C28-lowell-lunar-lantern/README.md) | Narrow-band Filter Photometry Calibration for the Lowell 20'' | Session C |
+| [C23 · KEPLER METAL WORLDS](../research/C/C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C29 · ACE WIND SHOCK LEDGER](../research/C/C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C26-lisa-pendulum-pathfinder/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C26-lisa-pendulum-pathfinder/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C26-lisa-pendulum-pathfinder/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C26-lisa-pendulum-pathfinder/data/README.md) | [Provenance](../research/C/C26-lisa-pendulum-pathfinder/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C26-lisa-pendulum-pathfinder/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C26-lisa-pendulum-pathfinder/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C26-lisa-pendulum-pathfinder/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C26-lisa-pendulum-pathfinder/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C26-lisa-pendulum-pathfinder/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C26-lisa-pendulum-pathfinder/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C26-lisa-pendulum-pathfinder/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6572,7 +8555,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6585,6 +8568,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C27-spherex-cosmic-prism/data/README.md) · [Open the figure gallery](../research/C/C27-spherex-cosmic-prism/figures/README.md) · [Download acquisition template](../research/C/C27-spherex-cosmic-prism/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C27 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C27-spherex-cosmic-prism/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | SPHEREx: The Future of Satellite Astronomy | [Scientific objective](../research/C/C27-spherex-cosmic-prism/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C27-spherex-cosmic-prism/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C27-spherex-cosmic-prism/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C27-spherex-cosmic-prism/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C27-spherex-cosmic-prism/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C27-spherex-cosmic-prism/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use IRSA metadata to select a small field with adequate spectral coverage and independent benchmark spectroscopy. Retrieve individual spectral-image cutouts and their PSF, uncertainty, and quality extensions. Extract forced photometry with joint nearby-source/background fitting and compare with the official tool. Propagate correlated calibration and source-confusion errors. Run an ice-absorption or redshift pilot with preregistered model assumptions; forward simulate completeness and blending through the actual coverage. Check documented header corrections and QR2/QR3 differences before combining products. Keep mission-scale forecasts separate from measured pilot performance.
+
+**Operating envelope:** Quick releases can contain evolving calibration or header corrections. A preliminary source spectrum is not a uniformly selected all-sky catalog; available wavelength coverage and calibration must be checked per target.
+
+**Variables and conventions**
+
+- e indexes exposures, p pixels; spectral flux in release-documented units
+- Each pixel has wavelength and PSF from instrument calibration; wavelength in micrometers
+- Ice wavenumber in cm^-1 and band strength A in cm molecule^-1 yield column in molecules cm^-2
+- Redshift z dimensionless; calibration nuisance parameters and foreground extinction propagated
+- Choose either ice-column or redshift pilot as primary before fitting; equations illustrate two supported scientific branches
+
+#### Artifact wall
+
+![C27 proposed analysis architecture](../research/C/C27-spherex-cosmic-prism/figures/architecture.svg)
+
+Versioned quick-release geometry and joint extraction precede the galaxy-redshift pilot; coverage and blend covariance constrain its valid domain.
+
+**Scientific result to produce:** Sky coverage and wavelength completeness linked to extracted spectra, PSF/blend residuals, and independently validated ice or redshift estimates.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze QR3/QR2 inputs and documented correction states. |
+| 02 | Planned | Implement pixel wavelength/PSF/unit adapters. |
+| 03 | Planned | Build isolated then joint forced-photometry covariance solver. |
+| 04 | Planned | Compare matched official-tool extractions and analytic injections. |
+| 05 | Planned | Fit response-integrated redshift templates with nuisance calibration. |
+| 06 | Planned | Release coverage/confusion selection maps and spectroscopy holdout posteriors. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C26 · LISA PENDULUM PATHFINDER](../research/C/C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C28 · LOWELL LUNAR LANTERN](../research/C/C28-lowell-lunar-lantern/README.md) | Narrow-band Filter Photometry Calibration for the Lowell 20'' | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C29 · ACE WIND SHOCK LEDGER](../research/C/C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C |
+| [C24 · APOLLO DUST CLOCK](../research/C/C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+| [C30 · ARTEMIS FIRST HORIZONS](../research/C/C30-artemis-first-horizons/README.md) | The Origins of Supermassive Black Holes | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C27-spherex-cosmic-prism/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C27-spherex-cosmic-prism/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C27-spherex-cosmic-prism/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C27-spherex-cosmic-prism/data/README.md) | [Provenance](../research/C/C27-spherex-cosmic-prism/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C27-spherex-cosmic-prism/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C27-spherex-cosmic-prism/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C27-spherex-cosmic-prism/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C27-spherex-cosmic-prism/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C27-spherex-cosmic-prism/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C27-spherex-cosmic-prism/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C27-spherex-cosmic-prism/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6822,7 +8881,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6835,6 +8894,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C28-lowell-lunar-lantern/data/README.md) · [Open the figure gallery](../research/C/C28-lowell-lunar-lantern/figures/README.md) · [Download acquisition template](../research/C/C28-lowell-lunar-lantern/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C28 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C28-lowell-lunar-lantern/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Narrow-band Filter Photometry Calibration for the Lowell 20'' | [Scientific objective](../research/C/C28-lowell-lunar-lantern/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C28-lowell-lunar-lantern/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C28-lowell-lunar-lantern/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C28-lowell-lunar-lantern/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C28-lowell-lunar-lantern/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/C/C28-lowell-lunar-lantern/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Inventory filter transmission curves, detector gain, linearity, shutter timing, flat fields, and focal-plane position dependence. Compute synthetic standard count rates from current CALSPEC or comparable traceable spectra. Acquire repeated standards and blanks over airmass and nights; fit nightly zero points plus extinction and optional color terms, retaining covariance. Test wavelength shifts from filter incidence angle and temperature. For emission-line science, integrate a source spectral model through the measured passband and fit continuum using off-line measurements. Publish separate absolute and relative calibration budgets with provenance for every spectrum and throughput component.
+
+**Operating envelope:** Narrow filters can be sensitive to stellar lines, telluric absorption, and redshift. Imperfect flats or atmospheric variability can dominate precision; synthetic calibration is only as accurate as throughput and reference spectra.
+
+**Variables and conventions**
+
+- Electron rate in electrons s^-1; collecting area Atel in m^2 with consistent flux units
+- F_lambda in W m^-2 m^-1 for the displayed SI form; wavelength in m inside the integral
+- t in s; airmass X dimensionless; zero point ZP and extinction k in magnitudes
+- T_sys includes optics, filter, detector QE and angle/temperature effects, and explicitly excludes atmosphere. T_atm supplies atmospheric transmission once, as a separate factor.
+- Reported monochromatic line flux requires continuum subtraction and filter-transmission correction, not only a count-to-magnitude factor
+
+#### Artifact wall
+
+![C28 proposed analysis architecture](../research/C/C28-lowell-lunar-lantern/figures/architecture.svg)
+
+Instrument and atmospheric throughput are applied separately, while nightly covariance and line-response corrections determine traceable science flux.
+
+**Scientific result to produce:** Measured passband and source spectra above standard residuals versus airmass/color, with nightly zero-point covariance and line-flux corrections.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Verify Lowell telescope/camera/filter identity and throughput pedigree. |
+| 02 | Planned | Characterize gain/linearity/shutter/flat/aperture response. |
+| 03 | Planned | Load exact reference spectra and implement separated transmission integration. |
+| 04 | Planned | Fit nightly covariance-aware zero-point/extinction models. |
+| 05 | Planned | Implement continuum-plus-line on/off-band converter. |
+| 06 | Planned | Release held-out standards, absolute/relative budgets and valid-night/count domains. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C27 · SPHEREX COSMIC PRISM](../research/C/C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C29 · ACE WIND SHOCK LEDGER](../research/C/C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../research/C/C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C30 · ARTEMIS FIRST HORIZONS](../research/C/C30-artemis-first-horizons/README.md) | The Origins of Supermassive Black Holes | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C24 · APOLLO DUST CLOCK](../research/C/C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C28-lowell-lunar-lantern/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C28-lowell-lunar-lantern/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C28-lowell-lunar-lantern/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C28-lowell-lunar-lantern/data/README.md) | [Provenance](../research/C/C28-lowell-lunar-lantern/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C28-lowell-lunar-lantern/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C28-lowell-lunar-lantern/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C28-lowell-lunar-lantern/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C28-lowell-lunar-lantern/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C28-lowell-lunar-lantern/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C28-lowell-lunar-lantern/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C28-lowell-lunar-lantern/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -7071,7 +9206,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -7084,6 +9219,83 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C29-ace-wind-shock-ledger/data/README.md) · [Open the figure gallery](../research/C/C29-ace-wind-shock-ledger/figures/README.md) · [Download acquisition template](../research/C/C29-ace-wind-shock-ledger/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C29 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C29-ace-wind-shock-ledger/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | [Scientific objective](../research/C/C29-ace-wind-shock-ledger/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C29-ace-wind-shock-ledger/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C29-ace-wind-shock-ledger/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C29-ace-wind-shock-ledger/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C29-ace-wind-shock-ledger/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/C/C29-ace-wind-shock-ledger/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Select events with resolved plasma jumps and usable proton spectra on both sides. Estimate normal and shock speed with several conservation/coplanarity methods, then transform into a common frame. Integrate spectra over the measured energy domain and compare alternative thermal-plus-tail decompositions without uncontrolled extrapolation. Fit Rankine-Hugoniot conditions with joint measurement uncertainty and allow unresolved residual energy flux. Sweep upstream/downstream averaging windows and account for instrument cross-calibration. Compare ACE and Wind encounters of related structures when geometry permits; do not assume two spacecraft sampled identical shock patches.
+
+**Operating envelope:** Missing low/high-energy channels and unknown diffusion flux prevent a closed acceleration-efficiency measurement. Time averaging samples spatially structured shocks, and shock-normal methods can disagree.
+
+**Variables and conventions**
+
+- Pressure in Pa; velocity u in shock-frame m s^-1; density in kg m^-3
+- B normal/tangential components in T; energy flux in W m^-2
+- f is isotropic phase-space density with its normalization declared; p in kg m s^-1
+- Particle spectra in instrument-specific differential-flux units must be converted with documented geometry
+- Uep is kinetic energy density in J m^-3; Qep,n is unresolved/nonadvective particle energy flux in W m^-2
+- eta_ep,band is band-limited and frame-dependent; include diffusive/anisotropic transport separately when data support it
+
+#### Artifact wall
+
+![C29 proposed analysis architecture](../research/C/C29-ace-wind-shock-ledger/figures/architecture.svg)
+
+Response-aware partial particle integrals enter a common shock-frame ledger with explicit unknown transport and residual energy terms.
+
+**Scientific result to produce:** Upstream/downstream flux-budget bars with unresolved bands, particle spectra and integration limits, and uncertainty-aware Mach/obliquity comparisons.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Resolve versioned plasma/field/proton responses and event windows. |
+| 02 | Planned | Implement unit/directional-intensity adapters. |
+| 03 | Planned | Infer normal/speed with joint posterior and alternative methods. |
+| 04 | Planned | Build finite-band relativistic pressure/energy integrators. |
+| 05 | Planned | Assemble common-frame MHD/particle/residual ledger. |
+| 06 | Planned | Publish window, anisotropy and cross-spacecraft sensitivities without forced closure. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C21 · PARKER MAGNETIC TRAIL](../research/C/C21-parker-magnetic-trail/README.md) | Identification of Switchback Intervals in Parker Space Probe Data | Session C; [NASA CDAWeb](https://cdaweb.gsfc.nasa.gov/) |
+| [C28 · LOWELL LUNAR LANTERN](../research/C/C28-lowell-lunar-lantern/README.md) | Narrow-band Filter Photometry Calibration for the Lowell 20'' | Session C |
+| [C30 · ARTEMIS FIRST HORIZONS](../research/C/C30-artemis-first-horizons/README.md) | The Origins of Supermassive Black Holes | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../research/C/C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../research/C/C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C29-ace-wind-shock-ledger/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C29-ace-wind-shock-ledger/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C29-ace-wind-shock-ledger/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C29-ace-wind-shock-ledger/data/README.md) | [Provenance](../research/C/C29-ace-wind-shock-ledger/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C29-ace-wind-shock-ledger/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C29-ace-wind-shock-ledger/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C29-ace-wind-shock-ledger/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C29-ace-wind-shock-ledger/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C29-ace-wind-shock-ledger/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C29-ace-wind-shock-ledger/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C29-ace-wind-shock-ledger/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -7326,7 +9538,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -7339,6 +9551,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/C/C30-artemis-first-horizons/data/README.md) · [Open the figure gallery](../research/C/C30-artemis-first-horizons/figures/README.md) · [Download acquisition template](../research/C/C30-artemis-first-horizons/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![C30 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/C/C30-artemis-first-horizons/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Origins of Supermassive Black Holes | [Scientific objective](../research/C/C30-artemis-first-horizons/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/C/C30-artemis-first-horizons/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/C/C30-artemis-first-horizons/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/C/C30-artemis-first-horizons/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/C/C30-artemis-first-horizons/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/C/C30-artemis-first-horizons/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Construct seed populations on a documented merger-tree or simplified host-assembly framework. Draw physically motivated light, cluster, and heavy-seed distributions and evolve stochastic accretion with efficiency and duty-cycle priors. Add merger mass loss and delays where justified. Forward predict luminosity functions, active black-hole/host ratios, and occupation fractions through survey selection. Compare to independently documented JWST/X-ray candidates with model-dependent mass and lensing uncertainties. Use posterior predictive checks and expected information gain to identify observations most sensitive to seeds rather than growth. Treat potential LISA merger forecasts as forecasts with mission-response assumptions, not measured events.
+
+**Operating envelope:** Uncertain accretion can make seed models observationally degenerate; rare bright objects do not define the full population. Spectral AGN identification, host masses, and magnification carry substantial systematics.
+
+**Variables and conventions**
+
+- Black-hole mass in solar masses; luminosity in erg s^-1
+- lambda is Eddington ratio; epsilon radiative efficiency; duty fraction dimensionless
+- Cosmic time in yr, derived from a stated cosmology; tE about 0.45 Gyr under the displayed convention
+- Seed birth redshift and host-halo mass distributions explicitly model environmental dependence
+- Constant-growth expression is an explanatory limit; variable accretion and mergers are integrated in the full model
+
+#### Artifact wall
+
+![C30 proposed analysis architecture](../research/C/C30-artemis-first-horizons/figures/architecture.svg)
+
+Seed scenarios reach observations only through growth, emission and selection, exposing why final luminous masses alone may not identify seed origin.
+
+**Scientific result to produce:** Seed-to-SMBH growth tracks with efficiency/duty-cycle bands, selection-filtered luminosity functions, and observations that discriminate viable scenarios.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Version seed distributions, cosmology and host assembly inputs. |
+| 02 | Planned | Implement growth/energy ledgers with exponential fixtures. |
+| 03 | Planned | Add stochastic duty/efficiency and justified merger-delay modules. |
+| 04 | Planned | Build luminosity/obscuration/lensing response and classification mixtures. |
+| 05 | Planned | Fit shared-envelope seed branches through survey selection. |
+| 06 | Planned | Publish identifiability, independent-constraint checks and separately labeled forecasts. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C20 · TRINITY ACCRETION ECHO](../research/C/C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C; [TRINITY population repository](https://github.com/HaowenZhang/TRINITY) |
+| [C29 · ACE WIND SHOCK LEDGER](../research/C/C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C |
+| [C28 · LOWELL LUNAR LANTERN](../research/C/C28-lowell-lunar-lantern/README.md) | Narrow-band Filter Photometry Calibration for the Lowell 20'' | Session C |
+| [C27 · SPHEREX COSMIC PRISM](../research/C/C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../research/C/C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C25 · ORION BURST SENTINEL](../research/C/C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/C/C30-artemis-first-horizons/README.md#purpose-and-scientific-objective) | [Design boundary](../research/C/C30-artemis-first-horizons/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/C/C30-artemis-first-horizons/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/C/C30-artemis-first-horizons/data/README.md) | [Provenance](../research/C/C30-artemis-first-horizons/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/C/C30-artemis-first-horizons/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/C/C30-artemis-first-horizons/README.md#7-engineering-trade-study) | [Failure modes](../research/C/C30-artemis-first-horizons/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/C/C30-artemis-first-horizons/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/C/C30-artemis-first-horizons/README.md#2-requirements-and-verification-traceability) | [Verification](../research/C/C30-artemis-first-horizons/README.md#8-verification-and-validation-cases) → [Implementation](../research/C/C30-artemis-first-horizons/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

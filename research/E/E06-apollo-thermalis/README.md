@@ -4,7 +4,7 @@
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![E06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 2 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Estimate identifiable network conductances using separate thermal transients, then propagate environmental and material uncertainty through a time-domain solver. Maintain distinct radiation, conduction and convection terms. Use measured orientation and power to explain heating asymmetry.
+
+**Operating envelope:** Small-satellite vacuum context is useful but not identical to a balloon atmosphere. Unknown attitude and view factors can dominate model error.
+
+**Variables and conventions**
+
+- C J/K; G W/K; Q W; temperatures K
+- sigma Stefan-Boltzmann constant W/(m^2 K^4)
+- h_conv and h_eff W/(m^2 K); Bi dimensionless. Use effective transfer or independently validate internal gradients.
+
+### Artifact wall
+
+![E06 included scientific diagnostic](../../../data/figures/11_thermal_power_and_response.svg)
+
+Synthetic two-node balloon thermal model. Signed component powers sum to net wall power, with wall-to-payload conduction reversed for the wall balance. The payload has a prescribed 3 W internal source. Temperatures show the model response to imposed boundary histories; they are not balloon-flight measurements or qualification limits.
+
+[Exact inputs, transformations and output hashes](../../../data/figures/11_thermal_power_and_response.provenance.json)
+
+**Scientific result to produce:** Component temperature trajectories with prediction bands and heat-flow contribution panels; included executable reduced thermal example is synthetic.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create thermal_nodes_edges.yaml with sensor geometry and reciprocal conductance. |
+| 02 | Planned | Build environment_orientation_adapter.py and radiative_view_factors.json. |
+| 03 | Planned | Implement thermal_network.py with analytic two-node fixtures. |
+| 04 | Planned | Create energy_ledger.py and Bi_gradient_checker.py. |
+| 05 | Planned | Build calibration_identifiability.ipynb and optional spatial_node_model.json. |
+| 06 | Planned | Publish hotspot_predictions.parquet and withheld-flight validation with supplied limits pending. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E03 · ARTEMIS STRATODOSE](../E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E; Included illustration: 03_balloon_thermal |
+| [I05 · PIONEER AERODRIFT](../../I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Included illustration: 03_balloon_thermal |
+| [I02 · APOLLO AQUATHERM](../../I/I02-apollo-aquatherm/README.md) | Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine | [NASA Small Spacecraft Thermal Control](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/) |
+| [E05 · ORION TRUSS](../E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+| [E07 · DISCOVERY TRIDENT](../E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E |
+| [E04 · AURA VERTICAL](../E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

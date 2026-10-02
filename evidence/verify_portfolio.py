@@ -6,6 +6,7 @@ import csv
 import hashlib
 import html
 import json
+import math
 import re
 import sys
 import unittest
@@ -262,6 +263,122 @@ class PortfolioChecks(unittest.TestCase):
                 self.assertIn(row['kind'], manifest['evidence_labels'])
                 accessible_svg(path)
 
+    def test_mission_profiles_preserve_full_controlled_facts_and_pending_evidence(self):
+        manifest = read_json(ROOT / 'assets/profile_manifest.json')
+        self.assertEqual(manifest['profile_count'], 117)
+        self.assertEqual(manifest['project_order'], [p['id'] for p in self.projects])
+        self.assertEqual([r['project_id'] for r in manifest['profiles']], [p['id'] for p in self.projects])
+        self.assertEqual(manifest['counts'], {'projects': 117, 'sessions': 9, 'fields': 877,
+                                             'requirements': 527, 'planned_verification_cases': 434})
+        self.assertTrue({'registry/projects.json', 'registry/engineering_annexes.json',
+                         'registry/project_paths.json'} <= set(manifest['input_hashes']))
+        for name, expected in manifest['input_hashes'].items():
+            self.assertEqual(digest(ROOT / name), expected, name)
+        unique_profiles = set()
+        for p, annex, row in zip(self.projects, self.annexes, manifest['profiles']):
+            with self.subTest(project=p['id']):
+                path = ROOT / row['path']
+                self.assertEqual(path, project_directory(p) / 'figures/mission-profile.svg')
+                self.assertEqual(digest(path), row['sha256'])
+                self.assertEqual(path.stat().st_size, row['bytes'])
+                unique_profiles.add(row['sha256'])
+                tree = accessible_svg(path)
+                self.assertFalse(any(tree.iter(NS + 'script')))
+                self.assertFalse(any(tree.iter(NS + 'foreignObject')))
+                visible = ''.join(node.text or '' for node in tree.iter(NS + 'text'))
+                normalized = ''.join(visible.split())
+                facts = [p['name'], p['original_title'], p['question'], p['hypothesis'],
+                         p['summary'], p['model']['limitations'], *p['model']['assumptions']]
+                facts += [r['field'] for r in annex['data_dictionary']]
+                facts += [r['id'] for r in annex['requirements']]
+                facts += [r['id'] for r in annex['verification_cases']]
+                sources = {}
+                for source in p['sources'] + annex.get('additional_sources', []):
+                    sources.setdefault(source['url'], source)
+                facts += [source['title'] for source in sources.values()]
+                for fact in facts:
+                    self.assertIn(''.join(str(fact).split()), normalized, (p['id'], fact))
+                self.assertIn('PROJECT EMPIRICAL EVIDENCE PENDING', visible)
+                self.assertIn('No project observations acquired', visible)
+                self.assertEqual(row['counts'], {
+                    'fields': len(annex['data_dictionary']),
+                    'requirements': len(annex['requirements']),
+                    'planned_verification_cases': len(annex['verification_cases']),
+                    'derivation_steps': len(annex['derivation']),
+                    'trade_options': len(annex['trade_study']),
+                    'failure_modes': len(annex['failure_modes']),
+                    'implementation_work_packages': len(annex['implementation']),
+                    'cited_resources': len(sources),
+                    'data_resource_pointers': len(p['data']),
+                    'original_investigation_steps': len(p['plan']),
+                    'validation_gates': len(p['validation']),
+                    'retained_work_packages': max(1, len(p.get('subprojects', [])))})
+        self.assertEqual(len(unique_profiles), 117)
+        dashboard = manifest['dashboard']
+        path = ROOT / dashboard['path']
+        self.assertEqual(path, ROOT / 'assets/mission-control.svg')
+        self.assertEqual(digest(path), dashboard['sha256'])
+        self.assertEqual(path.stat().st_size, dashboard['bytes'])
+        accessible_svg(path)
+
+    def test_mission_connections_have_real_resource_session_or_illustration_basis(self):
+        manifest = read_json(ROOT / 'registry/mission_connections.json')
+        self.assertIn('not physical dependencies', manifest['purpose'])
+        self.assertEqual([row['project_id'] for row in manifest['projects']], [p['id'] for p in self.projects])
+        self.assertEqual(set(manifest['input_hashes']),
+                         {'registry/projects.json', 'registry/engineering_annexes.json'})
+        for name, expected in manifest['input_hashes'].items():
+            self.assertEqual(digest(ROOT / name), expected, name)
+        # The fixed included-illustration map is controlled separately from this graph.
+        from build_engineering_documentation import DEMOS
+        sources = {}
+        for project, annex in zip(self.projects, self.annexes):
+            merged = {}
+            for source in project['sources'] + annex.get('additional_sources', []):
+                merged.setdefault(source['url'], source['title'])
+            sources[project['id']] = merged
+        frequency = Counter(url for urls in sources.values() for url in urls)
+        generic = {url for url, count in frequency.items() if count > 12}
+        self.assertEqual(set(manifest['excluded_generic_source_urls']), generic)
+        positions = {p['id']: index for index, p in enumerate(self.projects)}
+        projects = {p['id']: p for p in self.projects}
+        for row in manifest['projects']:
+            pid = row['project_id']
+            with self.subTest(project=pid):
+                selected = row['links']
+                self.assertLessEqual(len(selected), 6)
+                self.assertEqual(len({link['project_id'] for link in selected}), len(selected))
+                targets, _ = references(project_document(projects[pid]).read_text(encoding='utf-8'))
+                document_targets = {(project_document(projects[pid]).parent / unquote(target.partition('#')[0])).resolve()
+                                    for target in targets if not urlsplit(target).scheme and not target.startswith('#')}
+                candidates = []
+                for other_id, other in projects.items():
+                    if other_id == pid:
+                        continue
+                    common = (set(sources[pid]) & set(sources[other_id])) - generic
+                    same = projects[pid]['session'] == other['session']
+                    shared_demo = bool(DEMOS.get(pid)) and DEMOS.get(pid) == DEMOS.get(other_id)
+                    if common or same or shared_demo:
+                        score = 3 * shared_demo + 2 * len(common) + int(same)
+                        candidates.append((-score, abs(positions[pid] - positions[other_id]), positions[other_id], other_id))
+                expected_ids = [candidate[3] for candidate in sorted(candidates)[:6]]
+                self.assertEqual([link['project_id'] for link in selected], expected_ids)
+                for connection in selected:
+                    other_id = connection['project_id']
+                    self.assertIn(other_id, projects)
+                    self.assertNotEqual(other_id, pid)
+                    self.assertIn(project_document(projects[other_id]), document_targets)
+                    other = projects[other_id]
+                    common = (set(sources[pid]) & set(sources[other_id])) - generic
+                    self.assertEqual({source['url'] for source in connection['shared_sources']}, common)
+                    for source in connection['shared_sources']:
+                        self.assertEqual(source['title'], sources[pid][source['url']])
+                    self.assertEqual(connection['same_session'], projects[pid]['session'] == other['session'])
+                    demo = DEMOS.get(pid) if DEMOS.get(pid) and DEMOS.get(pid) == DEMOS.get(other_id) else None
+                    self.assertEqual(connection['shared_demo'], demo)
+                    self.assertTrue(connection['basis'])
+                    self.assertTrue(common or connection['same_session'] or demo)
+
     def test_data_figures_provenance_and_observational_counts(self):
         folder = ROOT / 'data/figures'
         ledger = read_json(folder / 'DATA_FIGURES.json')
@@ -290,6 +407,12 @@ class PortfolioChecks(unittest.TestCase):
                     self.assertEqual(digest(path), source['sha256'])
                     self.assertEqual(path.stat().st_size, source['bytes'])
         self.assertEqual(len(observational), 1)
+        catalog_caption = observational[0]['caption'].lower()
+        for mention in re.finditer(r'\bfirst\s*[- ]?\s*200\b', catalog_caption):
+            self.assertRegex(catalog_caption[mention.end():mention.end() + 100],
+                             r'not\s+(?:independently\s+)?verified',
+                             'A logged TOP/ORDER query needs an explicit unverified qualifier for global first-200 membership.')
+        self.assertIn('saved', catalog_caption)
         with (ROOT / 'models/data/exoplanet_sample.csv').open(encoding='utf-8', newline='') as handle:
             rows = list(csv.DictReader(handle))
         summary = observational[0]['derived_summaries']
@@ -320,6 +443,102 @@ class PortfolioChecks(unittest.TestCase):
             with self.subTest(reference=row['id']):
                 self.assertIn('SYNTHETIC', row['evidence_class'])
                 self.assertEqual(digest(history / row['path']), row['sha256'])
+
+    def test_physical_csv_inventory_matches_values_columns_missingness_and_evidence(self):
+        inventory = read_json(ROOT / 'data/DATA_INVENTORY.json')
+        self.assertEqual(inventory['schema_version'], 1)
+        self.assertEqual(digest(ROOT / inventory['generated_by']['path']), inventory['generated_by']['sha256'])
+        datasets = inventory['datasets']
+        self.assertEqual(len(datasets), 12)
+        self.assertEqual(len({row['id'] for row in datasets}), 12)
+        self.assertEqual({ROOT / row['csv_path'] for row in datasets}, set((ROOT / 'models/data').glob('*.csv')))
+        totals = Counter()
+        evidence = Counter()
+        project_ids = {p['id'] for p in self.projects}
+        for dataset in datasets:
+            with self.subTest(dataset=dataset['id']):
+                path = ROOT / dataset['csv_path']
+                with path.open(encoding='utf-8-sig', newline='') as handle:
+                    reader = csv.DictReader(handle)
+                    rows = list(reader)
+                    names = reader.fieldnames
+                self.assertEqual(dataset['row_count'], len(rows))
+                self.assertEqual(dataset['column_count'], len(names))
+                self.assertEqual(dataset['column_names'], names)
+                self.assertEqual([column['name'] for column in dataset['columns']], names)
+                evidence[dataset['evidence_kind']] += 1
+                if path.name == 'exoplanet_sample.csv':
+                    self.assertEqual(dataset['evidence_kind'], 'real_public_catalog_snapshot')
+                    self.assertTrue({'C05', 'C23'} <= set(dataset['linked_projects']))
+                else:
+                    self.assertEqual(dataset['evidence_kind'], 'synthetic_illustrative')
+                self.assertTrue(set(dataset['linked_projects']) <= project_ids)
+                self.assertTrue(dataset['domain_limits'])
+                self.assertTrue(dataset['source_assets'])
+                for source in dataset['source_assets']:
+                    self.assertEqual(digest(ROOT / source['path']), source['sha256'])
+                    self.assertEqual((ROOT / source['path']).stat().st_size, source['bytes'])
+                metadata = read_json(ROOT / dataset['provenance_path'])
+                for column in dataset['columns']:
+                    key = column['name']
+                    blank = nan = other = 0
+                    finite = []
+                    for row in rows:
+                        cell = row[key].strip()
+                        if not cell:
+                            blank += 1
+                            continue
+                        try:
+                            value = float(cell)
+                        except ValueError:
+                            continue
+                        if math.isnan(value):
+                            nan += 1
+                        elif not math.isfinite(value):
+                            other += 1
+                        else:
+                            finite.append(value)
+                    self.assertEqual(column['blank_count'], blank)
+                    self.assertEqual(column['nan_count'], nan)
+                    self.assertEqual(column['other_nonfinite_count'], other)
+                    self.assertEqual(column['finite_min'], min(finite) if finite else None)
+                    self.assertEqual(column['finite_max'], max(finite) if finite else None)
+                    totals['blank_cells'] += blank
+                    totals['nan_cells'] += nan
+                    totals['other_nonfinite_cells'] += other
+                    self.assertIn(column['unit_status'], ['documented_sidecar', 'verified_model_definition', 'not_recorded'])
+                    self.assertTrue(column['unit_basis']['detail'])
+                    self.assertTrue((ROOT / column['unit_basis']['path']).is_file())
+                    if column['unit_status'] == 'documented_sidecar':
+                        self.assertEqual(column['raw_schema_entry'], metadata['schema'][key])
+                    if column['unit_status'] == 'not_recorded':
+                        self.assertIn('not recorded', column['unit'])
+                        self.assertIn('TBD', column['unit'])
+                self.assertTrue(dataset['representative_rows'])
+                for preview in dataset['representative_rows']:
+                    index = preview['row_index_0_based']
+                    self.assertGreaterEqual(index, 0)
+                    self.assertLess(index, len(rows))
+                    self.assertEqual(preview['values'], rows[index], 'Previews must preserve original text and missing values')
+                for key in ['original_figure_path', 'diagnostic_figure_path']:
+                    if dataset.get(key):
+                        self.assertTrue((ROOT / dataset[key]).is_file())
+                totals['total_csv_rows'] += len(rows)
+                totals['total_columns'] += len(names)
+        self.assertEqual(evidence, Counter(real_public_catalog_snapshot=1, synthetic_illustrative=11))
+        self.assertEqual(inventory['summary']['dataset_count'], 12)
+        self.assertEqual(inventory['summary']['evidence_counts'], dict(evidence))
+        for key, value in totals.items():
+            self.assertEqual(inventory['summary'][key], value, key)
+        for source in inventory['source_assets']:
+            self.assertEqual(digest(ROOT / source['path']), source['sha256'])
+            self.assertEqual((ROOT / source['path']).stat().st_size, source['bytes'])
+        table = ROOT / 'data/TABLES.md'
+        self.assertTrue(table.is_file())
+        targets, _ = references(table.read_text(encoding='utf-8'))
+        resolved = {(table.parent / unquote(target.partition('#')[0])).resolve()
+                    for target in targets if not urlsplit(target).scheme and not target.startswith('#')}
+        self.assertTrue({ROOT / row['csv_path'] for row in datasets} <= resolved)
 
     def test_data_and_figure_hubs_have_legible_previews_and_source_links(self):
         for name, minimum_images in [('data/README.md', 3), ('data/figures/README.md', 9)]:

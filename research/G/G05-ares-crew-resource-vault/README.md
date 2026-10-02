@@ -4,7 +4,7 @@
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![G05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Mars In-Situ Resource Utilization for Health Applications | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Build a crew-demand and resource-flow model with separate extraction, purification/quality assessment, qualified storage, and use interfaces. Use published MOXIE performance as a bounded technology-demonstration baseline and treat scale-up as a proposal. Include Mars dust/perchlorate hazards in the quality evidence matrix. Simulate production outages and quality-rejection events, comparing imported-only, ISRU-assisted, and hybrid reserve architectures.
+
+**Operating envelope:** No site-specific Martian water or regolith composition is established here. Scale-up, continuous operation, trace-contaminant qualification, and integration with crew health systems remain unverified.
+
+**Variables and conventions**
+
+- Qualified oxygen/water production, contaminant concentration/detection limits, purity uncertainty, demand, storage losses, and outage duration.
+- Power, thermal load, consumables, crew time, spare mass, local-resource uncertainty, and independent reserve inventory.
+
+### Artifact wall
+
+![G05 proposed analysis architecture](figures/architecture.svg)
+
+Production and qualified availability are separated by an evidence gate. Imported reserve, coupled outage/rejection and mission-specific equivalence factors remain explicit; human-use quality is not inferred from gross oxygen output.
+
+**Scientific result to produce:** Resource flow from atmosphere/local water to quality assessment, qualified storage, crew use, and rejected stream; outage simulations display reserve risk and imported-mass tradeoffs.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create resource_flow_schema.json and requirement_revision_matrix.csv. |
+| 02 | Planned | Build moxie_baseline_adapter.py with measured versus proposed scale tags. |
+| 03 | Planned | Implement qualified_inventory.py and batch rejection fixtures. |
+| 04 | Planned | Create outage_quality_scenarios.yaml with dependency assumptions. |
+| 05 | Planned | Build reserve_sizing.py and native_resource_trade.py. |
+| 06 | Planned | Publish continuity_ensemble.parquet and conditional_esm.ipynb with unresolved limits/factors. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+| [G02 · DEEP SPACE QUIETLINE](../G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+| [G08 · ORION HEPATIC RECOVERY](../G08-orion-hepatic-recovery/README.md) | Mediated Liver Regeneration | Session G |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

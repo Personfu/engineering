@@ -4,7 +4,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![I09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Generate terrain ensembles with uncertain boulder size, slope, local normals, and contact properties. Simulate mechanical-foot and momentum-exchange concepts separately, preserving each actuation assumption. Propagate shape-gravity and contact uncertainty through takeoff, ballistic flight, and landing; track attitudes and available wheel momentum. Choose actions that trade scientific viewpoint gain against predicted landing failure and escape, and flag out-of-distribution terrain. Validate simple ballistic/contact limits before adding a granular model. The 2026 reaction-wheel hopper preprint offers a simulation comparator under lunar gravity, not proof of asteroid performance; reproduce its assumptions separately before transferring a control idea.
+
+**Operating envelope:** Earth bench tests cannot directly reproduce sustained asteroid gravity, and lunar simulation results are not automatically valid near an irregular asteroid. Unknown cohesion may dominate contact response.
+
+**Variables and conventions**
+
+- Body-fixed position r in m and velocity in m s^-1; shape-gravity and contact acceleration in m s^-2.
+- Body rotation Omega and robot angular velocity omega in rad s^-1; inertia I in kg m^2; wheel momentum hw in kg m^2 s^-1.
+- Contact impulse J in N s; restitution e and friction coefficient muf dimensionless; contact torque in N m.
+- Probability p_useful is conditional on the declared terrain/contact prior; it is not a flight reliability certificate.
+
+### Artifact wall
+
+![I09 proposed analysis architecture](figures/architecture.svg)
+
+Event-resolved contact and momentum conservation condition science utility; probabilities remain tied to the declared body and terrain prior.
+
+**Scientific result to produce:** Terrain panels showing successful landing density, escape probability, and science viewpoint gain; inset traces show attitude and wheel saturation for representative synthetic hops.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create independent body/robot/actuation and terrain-prior manifests. |
+| 02 | Planned | Implement frame-consistent translation/attitude and event integration. |
+| 03 | Planned | Build passive-contact and angular-momentum fixtures. |
+| 04 | Planned | Add contact-model fidelity only after calibration/domain review. |
+| 05 | Planned | Run uncertainty ensembles and useful-science outcome ledger. |
+| 06 | Planned | Publish held-out terrain failure maps, momentum limits and OOD actions. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I08 · VOYAGER FRAMEFORGE](../I08-voyager-frameforge/README.md) | Julia 1.2 Ephemeris and Gravitational Modeling Development | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I12 · PIONEER PHOBOS PATHFINDER](../I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I10 · GEMINI POINTLOCK](../I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+| [I07 · GATEWAY CATSAT CONSOLE](../I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+| [I11 · HUBBLE SKYVAULT](../I11-hubble-skyvault/README.md) | Measurements of the Sky | Session I |
+| [I06 · SATURN LOADPATH](../I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

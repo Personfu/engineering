@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B14 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Recover authorized raw readings with dates, tensions, plot identities, litter, texture, moisture and carbon. Fit hierarchical hydraulic distributions and censored repellency responses where appropriate. Compare burn-only and covariate/mediation models without claiming carbon pathways from association alone. Drive runoff ensembles using observed rainfall and spatially variable parameters; compare arithmetic, geometric and effective summaries. Keep measurement, parameter-fitting and watershed-scaling uncertainty separate in the report.
+
+**Operating envelope:** Original raw data may be unavailable. Cross-sectional comparisons cannot uniquely reconstruct recovery or prefire conditions, and hydraulic nonuniqueness limits mechanistic conclusions.
+
+**Variables and conventions**
+
+- f/K_s: mm/hour; F: cumulative infiltration, mm.
+- ψ_f: mm; θ: volumetric moisture, m³/m³.
+- S: mm/hour^0.5; A: mm/hour.
+- Litter: mm; carbon: mass fraction; repellency: documented time/score.
+
+### Artifact wall
+
+![B14 shared illustrative model](../../../models/figures/05_hydrologic_reservoir.svg)
+
+Shared illustration with a narrower domain than the project model. [Read its parameters, evidence class and checks](../../../models/README.md).
+
+**Scientific result to produce:** Compare burn strata across litter/carbon distributions and show observed/predicted storm hydrographs with propagated uncertainty.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Recover authorized raw curves and document unavailable measurements explicitly. |
+| 02 | Planned | Create device geometry/tension and plot/covariate schemas with unit conversions. |
+| 03 | Planned | Implement cumulative-curve fitting and contact/window diagnostics. |
+| 04 | Planned | Fit plot-level hydraulic distributions and profile covariate-supported burn contrasts. |
+| 05 | Planned | Build rainfall/runoff screening artifacts with explicit parameter-upscaling alternatives. |
+| 06 | Planned | Publish historical context, raw-data-dependent estimates and scale limitations together. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B; Included illustration: 05_hydrologic_reservoir |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B; [2021 Arizona NASA Space Grant symposium booklet](https://spacegrant.arizona.edu/sites/spacegrant.arizona.edu/files/AZSGC%20Symposium%20Booklet%202021_website.pdf) |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

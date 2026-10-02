@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Match value and derivative at the simulation endpoint, using neutrino-emission and ejecta-momentum information when supplied by the simulation team. Compare exponential, power-law, and monotone integrated-tail families with bounded total memory. Compute transforms through the derivative and analytic tail, then apply detector response and the exact analysis window. Propagate continuation, sky orientation, and filtering uncertainty into noise-weighted overlaps. Separate linear matter/neutrino memory from nonlinear GW memory; include only components actually modeled. Benchmark across waveform families and truncation times.
+
+**Operating envelope:** The late neutrino luminosity and anisotropy are poorly known; a numerically smooth tail need not be physically valid. Ground-based interferometers do not measure a permanent DC displacement directly.
+
+**Variables and conventions**
+
+- h and Delta h dimensionless; time t and tau in s; f in Hz
+- a is late-time strain rate in s^-1, with physically informed alternatives to the exponential
+- R is detector response including declared filtering; n is detector noise
+- Distance scaling h proportional to 1/D; orientation and polarization retained
+- The zero-frequency distributional component is treated separately from ordinary finite-band Fourier samples
+
+### Artifact wall
+
+![C07 proposed analysis architecture](figures/architecture.svg)
+
+Physical strain-rate decay produces a permanent offset before detector response; finite windows and the DC component are separately recorded.
+
+**Scientific result to produce:** Persistent-strain waveform, derivative-tail alternatives, and detector-weighted spectra with extrapolation bands; no artificial return to zero.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create polarization/distance/memory-component waveform manifests. |
+| 02 | Planned | Implement analytic ramp, step and exponential fixtures. |
+| 03 | Planned | Fit endpoint values/slopes with covariance and matched tail families. |
+| 04 | Planned | Build derivative-domain transform and explicit DC bookkeeping. |
+| 05 | Planned | Apply release-specific response, windows and noise-weighted comparisons. |
+| 06 | Planned | Publish truncation holdouts, asymptotic offset intervals and tail-prior sensitivity. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C06 · PULSAR GEMINI WATCH](../C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C08 · MARS NILI SPECTRAL VAULT](../C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Session C |
+| [C05 · KEPLER WORLDFORGE](../C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C09 · EAGLESAT COSMIC PIXEL](../C09-eaglesat-cosmic-pixel/README.md) | EagleSat Team: Determining Particle Energy Using CMOS Sensors | Session C |
+| [C04 · HORIZON TIDAL ECHO](../C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C10 · VOYAGER LOCAL GROUP HALOS](../C10-voyager-local-group-halos/README.md) | MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

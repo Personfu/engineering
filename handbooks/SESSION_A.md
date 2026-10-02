@@ -1,10 +1,10 @@
 # SESSION A: MATH, PHYSICS & CHEMISTRY
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session A](../assets/sessions/A.svg)
 
-12 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+12 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/A/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -33,7 +33,7 @@
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -46,6 +46,81 @@
 [Explore the data blueprint](../research/A/A01-artemis-fractal-navigator/data/README.md) · [Open the figure gallery](../research/A/A01-artemis-fractal-navigator/figures/README.md) · [Download acquisition template](../research/A/A01-artemis-fractal-navigator/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A01-artemis-fractal-navigator/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | New Methods for the Iteration and Visualization of Mandelbrot and Julia Sets | [Scientific objective](../research/A/A01-artemis-fractal-navigator/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A01-artemis-fractal-navigator/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A01-artemis-fractal-navigator/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A01-artemis-fractal-navigator/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/A/A01-artemis-fractal-navigator/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A01-artemis-fractal-navigator/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use cardioid and period-two-bulb analytic membership tests, then adaptive quadtree tiles, smooth escape coloring, and perturbation with glitch detection and reference rebasing. Maintain an arbitrary-precision reference renderer for sampled pixels. Track operation counts, wall time, precision escalations, and disagreement maps. An optional extension studies alternative iteration families as explicitly different dynamical systems; it never labels a modified map as the classical set.
+
+**Operating envelope:** Finite images do not determine exact boundary membership. Distance estimates have asymptotic conditions, tile interpolation can miss thin structures, and hardware timings do not transfer automatically to different GPUs.
+
+**Variables and conventions**
+
+- c and z are dimensionless complex coordinates; n is iteration count; N_max is a finite cap.
+- p is arithmetic precision in bits; pixel footprint sets requested spatial tolerance; Z is the reference trajectory.
+
+#### Artifact wall
+
+![A01 included scientific diagnostic](../data/figures/17_fractal_resolution_and_escape.svg)
+
+Finite-grid escape iteration maps from immutable Mandelbrot and Julia outputs. Logarithmic color records the first iteration whose modulus exceeds two. Navy regions identify points that did not escape within 160 iterations; these points are unresolved by this computation and are not certified members. The Julia parameter is c = −0.75 + 0.11i.
+
+[Exact inputs, transformations and output hashes](../data/figures/17_fractal_resolution_and_escape.provenance.json)
+
+**Scientific result to produce:** Four synchronized panes: Mandelbrot parameter map, Julia map, complex orbit trace, and pixel-confidence/timing heatmap; captions distinguish certified, escaped, and unresolved pixels.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create scenes.yaml with exact bounds, map identity and caps. |
+| 02 | Planned | Implement coordinates.py and analytic_certificates.py with orientation fixtures. |
+| 03 | Planned | Build direct_reference.py and perturbation.py including derivative/rebase logs. |
+| 04 | Planned | Emit pixels.parquet with null-aware evidence fields. |
+| 05 | Planned | Create precision_compare.ipynb and stratified failure atlases. |
+| 06 | Planned | Publish benchmark_manifest.json with hardware, clocks, hashes and timing samples. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A02 · NEW HORIZONS CRYOPHASE](../research/A/A02-new-horizons-cryophase/README.md) | Theory and simulation investigation of eutectic phase behavior on Pluto | Session A |
+| [A03 · CHANDRA VORTEX CORE](../research/A/A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../research/A/A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A01-artemis-fractal-navigator/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A01-artemis-fractal-navigator/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A01-artemis-fractal-navigator/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A01-artemis-fractal-navigator/data/README.md) | [Provenance](../research/A/A01-artemis-fractal-navigator/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A01-artemis-fractal-navigator/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A01-artemis-fractal-navigator/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A01-artemis-fractal-navigator/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A01-artemis-fractal-navigator/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A01-artemis-fractal-navigator/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A01-artemis-fractal-navigator/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A01-artemis-fractal-navigator/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -284,7 +359,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -297,6 +372,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A02-new-horizons-cryophase/data/README.md) · [Open the figure gallery](../research/A/A02-new-horizons-cryophase/figures/README.md) · [Download acquisition template](../research/A/A02-new-horizons-cryophase/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A02-new-horizons-cryophase/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Theory and simulation investigation of eutectic phase behavior on Pluto | [Scientific objective](../research/A/A02-new-horizons-cryophase/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A02-new-horizons-cryophase/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A02-new-horizons-cryophase/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A02-new-horizons-cryophase/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/A/A02-new-horizons-cryophase/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A02-new-horizons-cryophase/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reproduce published binary phase sections before optimizing ternary Gibbs-energy models. Use common tangents or global constrained minimization to avoid spurious local minima. Couple a seasonal energy-balance model to phase stability and compare predicted assemblages to calibrated New Horizons LEISA band behavior. Carry temperature, optical constants, and interaction-parameter uncertainty through an ensemble; mark extrapolated regions explicitly.
+
+**Operating envelope:** New Horizons is primarily a flyby snapshot and spectra are not unique measurements of bulk composition. Sparse low-pressure laboratory data may leave multiple thermodynamic models observationally indistinguishable.
+
+**Variables and conventions**
+
+- T in K; P in Pa; phase amounts n in mol; mole fractions x; Gibbs energy g in J/mol.
+- Interaction parameters L_ij and phase-specific reference functions; albedo, emissivity, thermal inertia, and sublimation flux.
+
+#### Artifact wall
+
+![A02 included scientific diagnostic](../data/figures/16_ideal_binary_phase_regions.svg)
+
+Equilibrium phase regions inferred from the existing ideal-binary liquidus model with invented melting temperatures and fusion enthalpies. Above the liquidus the material is liquid; between the liquidus and eutectic temperature it is liquid plus the indicated pure solid; below the eutectic it is A and B solids. The region labels follow the model assumptions and are not predictions for Pluto's real volatile mixtures.
+
+[Exact inputs, transformations and output hashes](../data/figures/16_ideal_binary_phase_regions.provenance.json)
+
+**Scientific result to produce:** Ternary composition triangle with phase domains, selected temperature sections, and observed-versus-synthetic spectra; extrapolation is hatched and uncertainty is shaded.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create phase_database.yaml with reference states and fitted domains. |
+| 02 | Planned | Build gibbs_solver.py with multistart constraints and tangent fixtures. |
+| 03 | Planned | Implement seasonal_balance.py with per-area ledgers. |
+| 04 | Planned | Build leisa_adapter.py with archive IDs and response convolution. |
+| 05 | Planned | Emit phase_boundary_ensemble.parquet with extrapolation masks. |
+| 06 | Planned | Publish binary_reproduction.ipynb and separate equilibrium/kinetic manifests. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A01 · ARTEMIS FRACTAL NAVIGATOR](../research/A/A01-artemis-fractal-navigator/README.md) | New Methods for the Iteration and Visualization of Mandelbrot and Julia Sets | Session A |
+| [A03 · CHANDRA VORTEX CORE](../research/A/A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../research/A/A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A02-new-horizons-cryophase/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A02-new-horizons-cryophase/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A02-new-horizons-cryophase/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A02-new-horizons-cryophase/data/README.md) | [Provenance](../research/A/A02-new-horizons-cryophase/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A02-new-horizons-cryophase/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A02-new-horizons-cryophase/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A02-new-horizons-cryophase/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A02-new-horizons-cryophase/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A02-new-horizons-cryophase/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A02-new-horizons-cryophase/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A02-new-horizons-cryophase/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -545,7 +695,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -558,6 +708,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A03-chandra-vortex-core/data/README.md) · [Open the figure gallery](../research/A/A03-chandra-vortex-core/figures/README.md) · [Download acquisition template](../research/A/A03-chandra-vortex-core/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A03-chandra-vortex-core/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Superfluidity of Neutron Star Matter | [Scientific objective](../research/A/A03-chandra-vortex-core/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A03-chandra-vortex-core/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A03-chandra-vortex-core/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A03-chandra-vortex-core/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A03-chandra-vortex-core/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/A/A03-chandra-vortex-core/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use a documented stellar cooling solver and a two-component rotational emulator with explicitly parameterized gap profiles. Construct separate likelihoods for thermal spectra and glitch timing, then combine only after checking independence and selection. Generate posterior predictive cooling tracks and glitch-relaxation distributions. Compare no-pairing, crust-pairing, and crust-plus-core alternatives while varying equations of state and envelopes.
+
+**Operating envelope:** The displayed ODE is a reduced overview, not the complete general-relativistic transport system. Ages and temperatures can have large systematics; cooling, magnetic heating, and accretion history can mimic gap effects.
+
+**Variables and conventions**
+
+- Pairing gap Delta and critical temperature T_c; effective temperature and age; neutron-star mass and radius.
+- I_s/I_total, lag Omega_s-Omega_c, mutual-friction coupling time, entrainment parameters, envelope composition, and distance.
+
+#### Artifact wall
+
+![A03 proposed analysis architecture](../research/A/A03-chandra-vortex-core/figures/architecture.svg)
+
+Cooling and rotational branches meet through controlled shared nuisance variables. Reduced torque conservation is distinguished from stellar transport; either observable can remain nonidentifying.
+
+**Scientific result to produce:** Cooling curves with observational confidence regions, rotational reservoir diagrams, and overlapping allowed pairing-gap bands; alternative interior models remain distinguishable by color.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create stellar_config.yaml with EOS hashes and pairing/redshift metadata. |
+| 02 | Planned | Build nscool_adapter.py and reproduce one documented configuration. |
+| 03 | Planned | Implement rotation_emulator.py with exact torque fixtures. |
+| 04 | Planned | Create thermal/timing likelihood modules and shared_nuisance.json. |
+| 05 | Planned | Produce sensitivity_profiles.ipynb and alternate-model recovery cases. |
+| 06 | Planned | Emit predictions.parquet and inference_manifest.json with selection and unresolved degeneracies. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A02 · NEW HORIZONS CRYOPHASE](../research/A/A02-new-horizons-cryophase/README.md) | Theory and simulation investigation of eutectic phase behavior on Pluto | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../research/A/A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A01 · ARTEMIS FRACTAL NAVIGATOR](../research/A/A01-artemis-fractal-navigator/README.md) | New Methods for the Iteration and Visualization of Mandelbrot and Julia Sets | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A03-chandra-vortex-core/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A03-chandra-vortex-core/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A03-chandra-vortex-core/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A03-chandra-vortex-core/data/README.md) | [Provenance](../research/A/A03-chandra-vortex-core/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A03-chandra-vortex-core/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A03-chandra-vortex-core/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A03-chandra-vortex-core/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A03-chandra-vortex-core/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A03-chandra-vortex-core/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A03-chandra-vortex-core/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A03-chandra-vortex-core/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -793,7 +1016,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -806,6 +1029,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A04-apollo-swarm-sentinel/data/README.md) · [Open the figure gallery](../research/A/A04-apollo-swarm-sentinel/figures/README.md) · [Download acquisition template](../research/A/A04-apollo-swarm-sentinel/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A04-apollo-swarm-sentinel/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Target Detection Using Algorithmic Matter | [Scientific objective](../research/A/A04-apollo-swarm-sentinel/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A04-apollo-swarm-sentinel/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A04-apollo-swarm-sentinel/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A04-apollo-swarm-sentinel/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A04-apollo-swarm-sentinel/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/A/A04-apollo-swarm-sentinel/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Start with static object detection on a connected lattice, then extend to boundary localization and fault-aware information flow. State invariants for connectivity and evidence provenance. Prove termination and correctness under stated scheduler assumptions. Monte Carlo experiments explore noise and failures outside the proof's ideal conditions. A small robot or software-agent demonstration validates only the primitives it actually implements.
+
+**Operating envelope:** Theoretical round complexity is not physical time. Constant-memory restrictions may preclude exact global statistics, and connectivity guarantees can fail when arbitrary particles disappear.
+
+**Variables and conventions**
+
+- n particles, local degree, observation y, bounded states, communication budget, activation schedule, failed-particle fraction.
+- Target geometry, sensor sensitivity/specificity, correlation length, connectivity, detection latency, movement energy.
+
+#### Artifact wall
+
+![A04 proposed analysis architecture](../research/A/A04-apollo-swarm-sentinel/figures/architecture.svg)
+
+Bounded particle computation is separated from the full-information oracle. Scheduler and connectivity monitors delimit correctness claims and leave physical latency unqualified.
+
+**Scientific result to produce:** Particles change color with local confidence, connectivity is overlaid, target boundaries appear only after the decision rule fires, and a sidebar shows false alarms, rounds, and energy.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create lattice_schema.json and sensor_models.yaml. |
+| 02 | Planned | Implement scheduler.py with fair/unfair replay policies. |
+| 03 | Planned | Encode detector_transition.csv as executable bounded rules. |
+| 04 | Planned | Build provenance_oracle.py independently of particle memory. |
+| 05 | Planned | Add graph_invariants.py and exhaustive small-state fixtures. |
+| 06 | Planned | Publish trials.parquet and sensitivity notebooks with seeds and assumption flags. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A03 · CHANDRA VORTEX CORE](../research/A/A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A02 · NEW HORIZONS CRYOPHASE](../research/A/A02-new-horizons-cryophase/README.md) | Theory and simulation investigation of eutectic phase behavior on Pluto | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A01 · ARTEMIS FRACTAL NAVIGATOR](../research/A/A01-artemis-fractal-navigator/README.md) | New Methods for the Iteration and Visualization of Mandelbrot and Julia Sets | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A04-apollo-swarm-sentinel/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A04-apollo-swarm-sentinel/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A04-apollo-swarm-sentinel/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A04-apollo-swarm-sentinel/data/README.md) | [Provenance](../research/A/A04-apollo-swarm-sentinel/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A04-apollo-swarm-sentinel/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A04-apollo-swarm-sentinel/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A04-apollo-swarm-sentinel/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A04-apollo-swarm-sentinel/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A04-apollo-swarm-sentinel/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A04-apollo-swarm-sentinel/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A04-apollo-swarm-sentinel/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1041,7 +1337,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1054,6 +1350,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A05-voyager-cilia-array/data/README.md) · [Open the figure gallery](../research/A/A05-voyager-cilia-array/figures/README.md) · [Download acquisition template](../research/A/A05-voyager-cilia-array/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A05-voyager-cilia-array/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Artificial Cilia Creation for Advanced Sensor Devices | [Scientific objective](../research/A/A05-voyager-cilia-array/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A05-voyager-cilia-array/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A05-voyager-cilia-array/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A05-voyager-cilia-array/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A05-voyager-cilia-array/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A05-voyager-cilia-array/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit beam and readout parameters using independent mechanical and temperature calibration data. Build a response library over velocity, viscosity, and drive frequency, then infer environmental parameters using uncertainty-aware optimization. Compare passive and active operating modes under the same readout bandwidth and energy budget. Analyze sparse cilia versus arrays to determine whether cross-coupling adds useful information or destabilizes calibration.
+
+**Operating envelope:** A sensor-integrated magnetic cilium precedent does not demonstrate space readiness. Viscosity–velocity degeneracy, fabrication scatter, and wall-dependent flow can limit generalization between channels.
+
+**Variables and conventions**
+
+- Cilium length L, bending stiffness EI, displacement w, viscosity mu, drag coefficient zeta, drive frequency omega.
+- Magnetic actuation torque/force, strain readout, temperature, flow velocity U, sensor noise covariance, and inter-cilium spacing.
+
+#### Artifact wall
+
+![A05 proposed analysis architecture](../research/A/A05-voyager-cilia-array/figures/architecture.svg)
+
+Mechanics and readout are separately calibrated before inversion. The diagram exposes temperature and wall drag as nuisance pathways and requires rank/validity gates before reporting two fluid parameters.
+
+**Scientific result to produce:** Cilium deflection schematic beside measured phase/amplitude response surfaces; velocity–viscosity confidence ellipses show when active probing resolves the degeneracy.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create geometry_and_calibration.yaml with EI, drive and readout provenance. |
+| 02 | Planned | Implement cantilever_response.py and analytic fixtures. |
+| 03 | Planned | Build drag_wall_adapter.py and optional array_coupling.py. |
+| 04 | Planned | Produce frequency_response.parquet with phase conventions and masks. |
+| 05 | Planned | Implement joint_inverse.py with rank diagnostics and profile likelihood. |
+| 06 | Planned | Publish passive_active_compare.ipynb and an energy/bandwidth matched manifest. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A04 · APOLLO SWARM SENTINEL](../research/A/A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A03 · CHANDRA VORTEX CORE](../research/A/A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A02 · NEW HORIZONS CRYOPHASE](../research/A/A02-new-horizons-cryophase/README.md) | Theory and simulation investigation of eutectic phase behavior on Pluto | Session A |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A05-voyager-cilia-array/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A05-voyager-cilia-array/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A05-voyager-cilia-array/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A05-voyager-cilia-array/data/README.md) | [Provenance](../research/A/A05-voyager-cilia-array/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A05-voyager-cilia-array/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A05-voyager-cilia-array/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A05-voyager-cilia-array/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A05-voyager-cilia-array/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A05-voyager-cilia-array/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A05-voyager-cilia-array/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A05-voyager-cilia-array/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1288,7 +1657,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1301,6 +1670,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A06-apollo-porin-insight/data/README.md) · [Open the figure gallery](../research/A/A06-apollo-porin-insight/figures/README.md) · [Download acquisition template](../research/A/A06-apollo-porin-insight/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A06-apollo-porin-insight/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | [Scientific objective](../research/A/A06-apollo-porin-insight/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A06-apollo-porin-insight/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A06-apollo-porin-insight/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A06-apollo-porin-insight/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A06-apollo-porin-insight/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/A/A06-apollo-porin-insight/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Review published P66 identity and physicochemical results, build a claim-to-evidence matrix, and retrieve public sequence annotations with versioned identifiers. Reanalyze reported channel-state distributions when data are available, otherwise use transparent figure digitization. Compare plausible membrane-protein structural models against sequence and topology evidence. Specify orthogonal analytical outputs that an accredited institution would need to report for a future authorized study, without prescribing experimental procedures.
+
+**Operating envelope:** Native oligomerization and membrane context may remain unresolved. Literature-derived samples differ in preparation history, and publicly available article figures may not permit reliable distribution reconstruction.
+
+**Variables and conventions**
+
+- Sequence accession/version, topology confidence, candidate oligomeric state, state-specific conductance, and evidence covariance.
+- Observed analytical peak/band contributions, measurement uncertainty, batch identifier, storage history metadata, and documented provenance.
+
+#### Artifact wall
+
+![A06 proposed analysis architecture](../research/A/A06-apollo-porin-insight/figures/architecture.svg)
+
+Public-data evidence converges on separate characterization claims through provenance and dependency checks. The architecture specifies no purification, pathogen manipulation or new functional experiment.
+
+**Scientific result to produce:** A layered diagram links identity, analytical composition, structural hypotheses, and published conductance states; uncertainty and unsupported transitions are clearly marked.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create p66_evidence_registry.csv with article locations and compatible contexts. |
+| 02 | Planned | Build public_sequence_manifest.json with accession and residue maps. |
+| 03 | Planned | Implement figure_digitization_audit.ipynb recording scale/error without experimental instructions. |
+| 04 | Planned | Create mixture_response.py and state_likelihood.py with missing-data gates. |
+| 05 | Planned | Generate claim_matrix.csv separating identity, purity, homogeneity and function. |
+| 06 | Planned | Publish model_candidates.json and unresolved_evidence.md with provenance and sensitivity results pending. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../research/A/A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A03 · CHANDRA VORTEX CORE](../research/A/A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../research/A/A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A06-apollo-porin-insight/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A06-apollo-porin-insight/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A06-apollo-porin-insight/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A06-apollo-porin-insight/data/README.md) | [Provenance](../research/A/A06-apollo-porin-insight/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A06-apollo-porin-insight/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A06-apollo-porin-insight/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A06-apollo-porin-insight/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A06-apollo-porin-insight/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A06-apollo-porin-insight/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A06-apollo-porin-insight/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A06-apollo-porin-insight/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1536,7 +1978,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1549,6 +1991,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A07-orion-chromatin-atlas/data/README.md) · [Open the figure gallery](../research/A/A07-orion-chromatin-atlas/figures/README.md) · [Download acquisition template](../research/A/A07-orion-chromatin-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A07-orion-chromatin-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | [Scientific objective](../research/A/A07-orion-chromatin-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A07-orion-chromatin-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A07-orion-chromatin-atlas/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A07-orion-chromatin-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A07-orion-chromatin-atlas/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A07-orion-chromatin-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Define the planned comparison as a factorial analysis of status and fraction, with mass balance and compositional statistics. Public accessibility data provide contextual genomic annotations. Associate fraction changes with accessibility and expression only after testing technical recovery and copy-number confounding. Use effect sizes and corrected uncertainty intervals, and evaluate whether an independent cell-line pair reproduces directions rather than treating one pair as representative of all esophageal cancer.
+
+**Operating envelope:** The primary salt-fractionation precedent is in Drosophila and cannot establish the result in human esophageal cells. Tissue snATAC differs from cultured cell-line fractionation, and a single malignant/nonmalignant pair cannot isolate a cancer-specific causal effect.
+
+**Variables and conventions**
+
+- Fraction mass M, DNA/protein/histone-associated signals, gene-level counts, cell-line identifier, replicate, and batch.
+- Recovery fraction, ploidy/copy number, accessibility, transcription, and detection limits; tumor status is not automatically the only causal difference.
+
+#### Artifact wall
+
+![A07 proposed analysis architecture](../research/A/A07-orion-chromatin-atlas/figures/architecture.svg)
+
+The diagram preserves total recovery separately from composition and checks confounding before interpreting status interactions. Public annotations can inform context but cannot create missing line-pair replication.
+
+**Scientific result to produce:** Fraction-mass Sankey plot, cancer-by-fraction interaction effects, and genomic annotation tracks; tissue analogs and proposed paired-cell data are labeled separately.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sample_registry.csv and genome_build_manifest.json. |
+| 02 | Planned | Implement mass_recovery.py with remainder and assay-basis ledgers. |
+| 03 | Planned | Build zero_censoring.py and logratio_transform.py using K-1 coordinates. |
+| 04 | Planned | Create design_rank_report.py and NB_fraction_model.py. |
+| 05 | Planned | Produce fraction_effects.parquet with intervals and declared test families. |
+| 06 | Planned | Publish line_pair_holdout.ipynb and a tissue-context annotation report. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../research/A/A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../research/A/A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A10 · HUBBLE CARINA CLOCK](../research/A/A10-hubble-carina-clock/README.md) | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A07-orion-chromatin-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A07-orion-chromatin-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A07-orion-chromatin-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A07-orion-chromatin-atlas/data/README.md) | [Provenance](../research/A/A07-orion-chromatin-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A07-orion-chromatin-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A07-orion-chromatin-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A07-orion-chromatin-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A07-orion-chromatin-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A07-orion-chromatin-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A07-orion-chromatin-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A07-orion-chromatin-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1783,7 +2298,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1796,6 +2311,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A08-helios-pulse-forge/data/README.md) · [Open the figure gallery](../research/A/A08-helios-pulse-forge/figures/README.md) · [Download acquisition template](../research/A/A08-helios-pulse-forge/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A08-helios-pulse-forge/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Nonlinear Laser Pulse Compression with a Multipass Cell | [Scientific objective](../research/A/A08-helios-pulse-forge/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A08-helios-pulse-forge/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A08-helios-pulse-forge/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A08-helios-pulse-forge/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A08-helios-pulse-forge/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A08-helios-pulse-forge/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reconstruct the input pulse from appropriate phase-sensitive metrology supplied by an authorized laser laboratory. Use split-step propagation with pass-specific focusing and dispersion, then add a transverse model when self-focusing or spatial spectral variation matters. Optimize a multiobjective score using main-pulse energy, throughput, beam quality, and sensitivity to input fluctuations. Compare model predictions to published and independently measured output spectra and retrieved temporal profiles.
+
+**Operating envelope:** Autocorrelation alone cannot uniquely reconstruct a pulse. Material nonlinearities and mirror phase errors can dominate, and favorable simulations do not establish safe operating fluences or high-power qualification.
+
+**Variables and conventions**
+
+- Pulse envelope A, duration, energy, repetition rate, spectrum, chirp, nonlinear index n_2, dispersion beta_2.
+- Pass count, beam radius, mirror dispersion, spot fluence, thermal load, M-squared, and temporal main-feature integration window.
+
+#### Artifact wall
+
+![A08 proposed analysis architecture](../research/A/A08-helios-pulse-forge/figures/architecture.svg)
+
+Per-pass dispersion and Kerr phase feed a separately defined compressor and energy metric. The diagram requires field retrieval and supplied hardware limits; it does not establish operating safety or full transverse validity.
+
+**Scientific result to produce:** Input/output spectra and phase-retrieved temporal intensity accompany a main-pulse-fraction versus throughput Pareto map; model and laboratory results use different line styles.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create field_manifest.json with retrieval, units and Fourier conventions. |
+| 02 | Planned | Implement split_step.py and analytic linear/Kerr fixtures. |
+| 03 | Planned | Build pass_geometry.yaml and phase_library.parquet with supplied constraint fields. |
+| 04 | Planned | Create compressor.py and immutable main_window.py. |
+| 05 | Planned | Produce convergence.ipynb and transverse-validity comparison. |
+| 06 | Planned | Publish robust_trade.parquet and run hashes; reserve laboratory performance claims for actual data. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../research/A/A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A10 · HUBBLE CARINA CLOCK](../research/A/A10-hubble-carina-clock/README.md) | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../research/A/A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A11 · OSIRIS SULFUR ARCHIVE](../research/A/A11-osiris-sulfur-archive/README.md) | Identification of Thiol Function Groups in GRA 95229 and Murchison | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A08-helios-pulse-forge/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A08-helios-pulse-forge/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A08-helios-pulse-forge/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A08-helios-pulse-forge/data/README.md) | [Provenance](../research/A/A08-helios-pulse-forge/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A08-helios-pulse-forge/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A08-helios-pulse-forge/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A08-helios-pulse-forge/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A08-helios-pulse-forge/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A08-helios-pulse-forge/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A08-helios-pulse-forge/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A08-helios-pulse-forge/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2030,7 +2618,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2043,6 +2631,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A09-spitzer-radio-origins/data/README.md) · [Open the figure gallery](../research/A/A09-spitzer-radio-origins/figures/README.md) · [Download acquisition template](../research/A/A09-spitzer-radio-origins/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A09-spitzer-radio-origins/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | [Scientific objective](../research/A/A09-spitzer-radio-origins/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A09-spitzer-radio-origins/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A09-spitzer-radio-origins/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A09-spitzer-radio-origins/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A09-spitzer-radio-origins/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A09-spitzer-radio-origins/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reproduce a documented VLA-COSMOS baseline with its native definitions, then fit probabilistic radio-power labels using infrared-radio relations and ancillary information. Model upper limits rather than discard undetected infrared or X-ray sources. Forward-model flux scatter and resolution losses through the selection function. Use stratified bootstrap or hierarchical field effects and test alternative AGN definitions without changing the primary definition after seeing results.
+
+**Operating envelope:** IR-radio evolution and dust modeling affect classification. An observed majority in one survey does not prove all microjansky surveys are star-formation dominated, and extrapolation beyond the measured completeness limit is a model prediction.
+
+**Variables and conventions**
+
+- Flux density S in Jy, redshift z, luminosity distance D_L, spectral index alpha, infrared luminosity, and radio excess.
+- Counterpart reliability, completeness, source size, class probability, flux-bin covariance, and survey area.
+
+#### Artifact wall
+
+![A09 proposed analysis architecture](../research/A/A09-spitzer-radio-origins/figures/architecture.svg)
+
+Flux selection and uncertain radio-power classification enter the population model separately. The resulting majority criterion applies only to declared labels, flux ranges and survey context.
+
+**Scientific result to produce:** Flux-versus-star-formation-powered fraction with credible bands, redshift strata, and a classification flow diagram; observed bins and extrapolations are clearly separated.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create catalog_manifest.json preserving native columns and cosmology. |
+| 02 | Planned | Implement counterpart_likelihood.py and censored_ir.py. |
+| 03 | Planned | Build luminosity_kcorrect.py with unit/sign fixtures. |
+| 04 | Planned | Implement selection_forward.py using injection-completeness metadata. |
+| 05 | Planned | Create population_hierarchy.py and regional holdout notebooks. |
+| 06 | Planned | Emit fractions.parquet with covariance, label definitions and unassessable bins. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A10 · HUBBLE CARINA CLOCK](../research/A/A10-hubble-carina-clock/README.md) | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A11 · OSIRIS SULFUR ARCHIVE](../research/A/A11-osiris-sulfur-archive/README.md) | Identification of Thiol Function Groups in GRA 95229 and Murchison | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A12 · STARDUST ISOTOPE FOUNDRY](../research/A/A12-stardust-isotope-foundry/README.md) | Heterogeneous Supernova Production of Ti and Cr Isotopes | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A09-spitzer-radio-origins/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A09-spitzer-radio-origins/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A09-spitzer-radio-origins/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A09-spitzer-radio-origins/data/README.md) | [Provenance](../research/A/A09-spitzer-radio-origins/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A09-spitzer-radio-origins/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A09-spitzer-radio-origins/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A09-spitzer-radio-origins/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A09-spitzer-radio-origins/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A09-spitzer-radio-origins/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A09-spitzer-radio-origins/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A09-spitzer-radio-origins/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2277,7 +2938,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2290,6 +2951,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A10-hubble-carina-clock/data/README.md) · [Open the figure gallery](../research/A/A10-hubble-carina-clock/figures/README.md) · [Download acquisition template](../research/A/A10-hubble-carina-clock/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A10-hubble-carina-clock/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | [Scientific objective](../research/A/A10-hubble-carina-clock/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A10-hubble-carina-clock/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A10-hubble-carina-clock/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A10-hubble-carina-clock/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A10-hubble-carina-clock/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A10-hubble-carina-clock/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reproduce the published bisector approach, then compare centroids and several bisector levels on continuum-normalized spectra. Fit a common orbit plus cycle-specific profile systematics, and test simple positive delay kernels against instantaneous velocities. Preserve full profile residuals to diagnose absorption contamination and colliding-wind effects. Use leave-one-cycle-out prediction to judge whether the model generalizes rather than merely fits dense observations around one event.
+
+**Operating envelope:** H-beta may remain an imperfect tracer even with a delay kernel. Inclination and mass estimates require additional constraints, and irregular cadence or instrument zero points can mimic cycle differences.
+
+**Variables and conventions**
+
+- Period P, eccentricity e, systemic velocity gamma, semi-amplitude K, periastron time T_0, and argument omega.
+- H-beta line bisector depth, profile asymmetry, formation-delay kernel Psi, instrumental zero point, and barycentric correction.
+
+#### Artifact wall
+
+![A10 proposed analysis architecture](../research/A/A10-hubble-carina-clock/figures/architecture.svg)
+
+Separate profile estimators compare to an orbit filtered through a causal wind model. Time conventions and nuisance offsets are explicit; line-only fits do not establish inclination or stellar masses.
+
+**Scientific result to produce:** Phase-folded H-beta trailed spectra, velocity estimators with uncertainty, instantaneous and wind-delayed orbital curves, and residuals by periastron cycle.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create spectra_manifest.csv with time, wavelength and aperture conventions. |
+| 02 | Planned | Implement normalize_and_mask.py preserving profile uncertainty. |
+| 03 | Planned | Build bisector_centroid.py with translated-profile fixtures. |
+| 04 | Planned | Implement kepler_orbit.py and causal_wind_kernel.py. |
+| 05 | Planned | Create joint_cycle_fit.py with instrument-offset priors. |
+| 06 | Planned | Publish leave_cycle_out.ipynb, velocity_covariance.parquet and full profile residuals. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A09 · SPITZER RADIO ORIGINS](../research/A/A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A11 · OSIRIS SULFUR ARCHIVE](../research/A/A11-osiris-sulfur-archive/README.md) | Identification of Thiol Function Groups in GRA 95229 and Murchison | Session A |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A12 · STARDUST ISOTOPE FOUNDRY](../research/A/A12-stardust-isotope-foundry/README.md) | Heterogeneous Supernova Production of Ti and Cr Isotopes | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A10-hubble-carina-clock/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A10-hubble-carina-clock/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A10-hubble-carina-clock/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A10-hubble-carina-clock/data/README.md) | [Provenance](../research/A/A10-hubble-carina-clock/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A10-hubble-carina-clock/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A10-hubble-carina-clock/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A10-hubble-carina-clock/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A10-hubble-carina-clock/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A10-hubble-carina-clock/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A10-hubble-carina-clock/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A10-hubble-carina-clock/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2524,7 +3258,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2537,6 +3271,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A11-osiris-sulfur-archive/data/README.md) · [Open the figure gallery](../research/A/A11-osiris-sulfur-archive/figures/README.md) · [Download acquisition template](../research/A/A11-osiris-sulfur-archive/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A11 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A11-osiris-sulfur-archive/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Identification of Thiol Function Groups in GRA 95229 and Murchison | [Scientific objective](../research/A/A11-osiris-sulfur-archive/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A11-osiris-sulfur-archive/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A11-osiris-sulfur-archive/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A11-osiris-sulfur-archive/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A11-osiris-sulfur-archive/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/A/A11-osiris-sulfur-archive/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Compile spectra, formula tables, and isotopic/provenance evidence where available. Fit standard-constrained sulfur-edge mixtures and cross-check candidate molecular classes against exchange behavior and mass accuracy. Compare Murchison and GRA 95229 only after harmonizing analytical fractions and measurement techniques. Plan future expert spectroscopy around unresolved class distinctions, emphasizing minimal material consumption and independent reference standards.
+
+**Operating envelope:** Overlapping absorption features and constitutional isomers can leave thiol/thiophene assignments ambiguous. Published extracts are operational fractions and may not represent bulk meteorite composition; raw GRA sulfur datasets may require collaboration.
+
+**Variables and conventions**
+
+- Accurate mass, molecular formula, exchangeable hydrogen count, sulfur oxidation-state indicators, spectral calibration, and standard-mixture coefficients.
+- Sample provenance, terrestrial exposure, mineral/organic sulfur partition, grain heterogeneity, instrumental detection limits, and assignment confidence.
+
+#### Artifact wall
+
+![A11 proposed analysis architecture](../research/A/A11-osiris-sulfur-archive/figures/architecture.svg)
+
+Spectral and molecular branches combine only through matched specimen context. The output retains nonunique sulfur classes; formulas and isotope context are not treated as direct thiol identification.
+
+**Scientific result to produce:** Sulfur-edge spectra, molecular-class network, and a matrix of meteorite-by-technique evidence; missing GRA observations are explicit gaps rather than inferred detections.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create specimen_evidence_registry.csv with fraction/method source locations. |
+| 02 | Planned | Implement sulfur_spectrum_adapter.py retaining calibration and covariance. |
+| 03 | Planned | Build formula_adduct_checks.py and exchange_evidence.json. |
+| 04 | Planned | Implement constrained_xanes.py with degenerate-standard fixtures. |
+| 05 | Planned | Create joint_assignment.py with provenance/dependency gates. |
+| 06 | Planned | Publish assignment_uncertainty.ipynb and a class_evidence_table.parquet containing tentative/unavailable states. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A10 · HUBBLE CARINA CLOCK](../research/A/A10-hubble-carina-clock/README.md) | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | Session A |
+| [A12 · STARDUST ISOTOPE FOUNDRY](../research/A/A12-stardust-isotope-foundry/README.md) | Heterogeneous Supernova Production of Ti and Cr Isotopes | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../research/A/A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A11-osiris-sulfur-archive/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A11-osiris-sulfur-archive/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A11-osiris-sulfur-archive/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A11-osiris-sulfur-archive/data/README.md) | [Provenance](../research/A/A11-osiris-sulfur-archive/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A11-osiris-sulfur-archive/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A11-osiris-sulfur-archive/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A11-osiris-sulfur-archive/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A11-osiris-sulfur-archive/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A11-osiris-sulfur-archive/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A11-osiris-sulfur-archive/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A11-osiris-sulfur-archive/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2772,7 +3579,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2785,6 +3592,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/A/A12-stardust-isotope-foundry/data/README.md) · [Open the figure gallery](../research/A/A12-stardust-isotope-foundry/figures/README.md) · [Download acquisition template](../research/A/A12-stardust-isotope-foundry/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![A12 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/A/A12-stardust-isotope-foundry/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Heterogeneous Supernova Production of Ti and Cr Isotopes | [Scientific objective](../research/A/A12-stardust-isotope-foundry/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/A/A12-stardust-isotope-foundry/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/A/A12-stardust-isotope-foundry/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/A/A12-stardust-isotope-foundry/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/A/A12-stardust-isotope-foundry/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/A/A12-stardust-isotope-foundry/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Ingest published grain isotope tables with errors and source-family yield grids where accessible. Compute isotope-number mixtures and simulate measurement beam dilution. Use hierarchical inference to separate source variation, mixing, and grain-size effects. Compare Type Ia, electron-capture, and core-collapse candidates; report posterior predictive isotope patterns and identify measurements that best break degeneracies. Any new reaction-network calculation requires verified nuclear-rate libraries and conservation tests.
+
+**Operating envelope:** Mass-50 attribution and sub-beam grain sizes can strongly influence inference. Published model grids incompletely span explosion physics, so a poor fit may identify missing models rather than a novel stellar source.
+
+**Variables and conventions**
+
+- Isotope yields, electron fraction Y_e, temperature/density history, mixing fractions, grain size, beam overlap a, and background composition.
+- Mass-50 contributions from Ti and Cr, measurement covariance, elemental condensation efficiencies, and normalization conventions.
+
+#### Artifact wall
+
+![A12 proposed analysis architecture](../research/A/A12-stardust-isotope-foundry/figures/architecture.svg)
+
+Counts are mixed before ratios and before inference. Beam/background response and mass-fractionation covariance remain visible, preventing ratio averaging or nominal dilution from masquerading as source evidence.
+
+**Scientific result to produce:** Ti–Cr anomaly diagrams with source-yield families, count-space mixing curves, beam-dilution arrows, and grain-size-coded observations; ambiguous mass-50 contributions receive separate symbols.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create yield_manifest.json with family, isotope inventory and normalization. |
+| 02 | Planned | Build yield_to_counts.py and element_condensation.py. |
+| 03 | Planned | Implement beam_count_mixture.py with endpoint/denominator fixtures. |
+| 04 | Planned | Create isotope_measurement_adapter.py preserving correction covariance. |
+| 05 | Planned | Build source_hierarchy.py and synthetic coverage notebooks. |
+| 06 | Planned | Publish predictive_patterns.parquet and an identifiability report distinguishing grid gaps from evidence against models. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A11 · OSIRIS SULFUR ARCHIVE](../research/A/A11-osiris-sulfur-archive/README.md) | Identification of Thiol Function Groups in GRA 95229 and Murchison | Session A |
+| [A10 · HUBBLE CARINA CLOCK](../research/A/A10-hubble-carina-clock/README.md) | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | Session A |
+| [A09 · SPITZER RADIO ORIGINS](../research/A/A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A08 · HELIOS PULSE FORGE](../research/A/A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../research/A/A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../research/A/A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/A/A12-stardust-isotope-foundry/README.md#purpose-and-scientific-objective) | [Design boundary](../research/A/A12-stardust-isotope-foundry/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/A/A12-stardust-isotope-foundry/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/A/A12-stardust-isotope-foundry/data/README.md) | [Provenance](../research/A/A12-stardust-isotope-foundry/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/A/A12-stardust-isotope-foundry/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/A/A12-stardust-isotope-foundry/README.md#7-engineering-trade-study) | [Failure modes](../research/A/A12-stardust-isotope-foundry/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/A/A12-stardust-isotope-foundry/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/A/A12-stardust-isotope-foundry/README.md#2-requirements-and-verification-traceability) | [Verification](../research/A/A12-stardust-isotope-foundry/README.md#8-verification-and-validation-cases) → [Implementation](../research/A/A12-stardust-isotope-foundry/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

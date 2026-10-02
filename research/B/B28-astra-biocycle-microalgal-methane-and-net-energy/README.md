@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B28 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Biogas Production from Microalgae following Freeze-Heat Pretreatment | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Extract methane time series, solids, biomass composition and reported pretreatment energy from primary studies. Fit several kinetic candidates and censored/replicate errors; avoid extrapolating ultimate yield from short runs without adequate evidence. Build mass/energy inventories with heat recovery, refrigeration, concentration and digestate handling. Compare untreated and separate-treatment baselines with combined scenarios, propagating uncertain synergy instead of assuming multiplicative benefits.
+
+**Operating envelope:** Published biomass composition and digestion systems may differ. Kinetic acceleration does not guarantee higher ultimate yield or positive energy balance; emissions and digestate quality need independent measurements.
+
+**Variables and conventions**
+
+- M/V: methane volume normalized to stated temperature/pressure, L or Nm³.
+- Yield: L CH4/kg volatile solids added; Rmax: L/day.
+- λ: lag, day; m: kg; c_p: kJ/kg/K; energy: kWh after conversion.
+- η_use/recovery: fractions; water/solids and emission inventories retain units.
+
+### Artifact wall
+
+![B28 proposed analysis architecture](figures/architecture.svg)
+
+The diagram connects normalized methane and kinetic uncertainty to a complete energy ledger, with a separate combined-treatment evidence gate. It cannot establish freeze-heat synergy or positive net energy from larger gas volume alone.
+
+**Scientific result to produce:** Plot solids concentration versus heat/refrigeration recovery with net energy intervals; compare observed separate treatments with labeled combined scenarios.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create study/treatment/biomass/solids schemas and separate combined-evidence flags. |
+| 02 | Planned | Extract replicate and blank gas records with condition/measurement uncertainty. |
+| 03 | Planned | Implement normalized methane and volatile-solids yield calculators. |
+| 04 | Planned | Fit kinetic alternatives with covariance and late-time identifiability artifacts. |
+| 05 | Planned | Build cooling/heating/auxiliary energy inventories and break-even scenarios. |
+| 06 | Planned | Release treatment-specific yield, rate and net-energy conclusions with unresolved synergy. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B27 · TRITON WATERWATCH — Autonomous Aquatic Observatory](../B27-triton-waterwatch-autonomous-aquatic-observatory/README.md) | Aquatic Data Analysis from Deployable, Autonomous Boat | Session B |
+| [B26 · HELIOS POWERLOOP — Solar Electrolysis Dispatch](../B26-helios-powerloop-solar-electrolysis-dispatch/README.md) | Electrolytic Application of Load-Managing Photovoltaic System | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

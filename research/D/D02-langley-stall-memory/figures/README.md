@@ -16,6 +16,12 @@ History, synchronization and flow state constrain competing memory models. A mea
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Lift–angle loops are colored by sweep rate and annotated with measured flow topology; dwell-state plots separate static branches from finite-rate delay.

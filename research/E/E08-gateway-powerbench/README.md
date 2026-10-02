@@ -4,7 +4,7 @@
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![E08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Represent the harness as a state machine with independently observed voltage/current and explicit fixture self-checks. Propagate meter gain, offset, sampling skew and harness resistance into power uncertainty. Compare repeated duty-cycle replays; a fault is diagnosed only with evidence separating DUT, stimulus and measurement paths.
+
+**Operating envelope:** Published EPS architectures do not supply this team’s wiring, limit settings or qualification requirements. State-of-charge models depend on chemistry, temperature and aging.
+
+**Variables and conventions**
+
+- V volts; I A; E J; R ohm
+- Q_Ah ampere-hours; SOC dimensionless
+- r_E J; a calibrated loss/temperature model is required
+
+### Artifact wall
+
+![E08 proposed analysis architecture](figures/architecture.svg)
+
+The isolated state machine gates stimulus on controlled limits and separates wiring, sensing and DUT boundaries. Surrogate replay supports reproducibility without high-energy fault procedures or flight qualification claims.
+
+**Scientific result to produce:** EPS/harness interface schematic and energy balance Sankey using measured data only after acquisition; prospective traceability matrix.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create eps_harness_requirements.json with limit provenance and pending status. |
+| 02 | Planned | Build local_harness_state_machine.py and interlock fixtures. |
+| 03 | Planned | Implement surrogate_source_load.py with benign fault variants. |
+| 04 | Planned | Create independent_meter_adapter.py and timing_calibration.py. |
+| 05 | Planned | Build harness_loss_energy.py and chemistry_labeled_soc.py. |
+| 06 | Planned | Publish repeated_replay.ipynb, fault_hypotheses.parquet and a fixture/DUT evidence matrix. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E07 · DISCOVERY TRIDENT](../E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E05 · ORION TRUSS](../E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E; [GSFC-STD-7000 GEVS](https://standards.nasa.gov/standard/GSFC/GSFC-STD-7000) |
+| [D07 · ARES DUAL-WORLD SCOUT](../../D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../../G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../../I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I06 · SATURN LOADPATH](../../I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

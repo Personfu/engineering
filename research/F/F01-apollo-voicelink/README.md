@@ -4,7 +4,7 @@
 
 **Session F:** Education & Public Outreach
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,75 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![F01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Communication and Exploration | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Preregister a crossover analog comparison with order effects, task complexity and team clustering. Combine coded interviews with objective ambiguity-resolution events; keep discordant themes and negative cases. Assess whether protocol benefits are shared across groups rather than maximizing an aggregate success metric.
+
+**Operating envelope:** Small crew counts limit inference. Cultural categories are contextual and should not be treated as deterministic participant traits.
+
+**Variables and conventions**
+
+- Delay and resolution time s; success binary with independently defined rubric
+- u_team random team effect; beta coefficients estimated
+- kappa agreement statistic; not a substitute for qualitative interpretation
+
+### Artifact wall
+
+![F01 proposed analysis architecture](figures/architecture.svg)
+
+Objective analog tasks and controlled delays feed independent coding and clustered analysis. Context and negative cases limit generalization; no result is a direct ISS prediction or a ranking of cultures.
+
+**Scientific result to produce:** Paired task outcomes and resolution-time distributions with annotated qualitative themes; no individual performance leaderboard.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create analog_task_rubric.yaml and preregistered_design.json. |
+| 02 | Planned | Build delayed_text_simulator.py with deterministic queue tests. |
+| 03 | Planned | Create consent_access_plan.md and pseudonymous_evidence_schema.json before participant work. |
+| 04 | Planned | Implement codebook_and_agreement.py with undefined cases. |
+| 05 | Planned | Build mixed_effects_success_time.py and censored-time analysis. |
+| 06 | Planned | Publish team_task_holdout.ipynb and a contextual findings template retaining negative cases. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [F02 · DISCOVERY QUILL](../F02-discovery-quill/README.md) | The Impact and Importance of Science Writing | Session F; [NASA educational outreach evaluation framework](https://ntrs.nasa.gov/citations/20000033841) |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

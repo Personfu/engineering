@@ -4,7 +4,7 @@
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![H07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Increasing CO Gas Detections in Protoplanetary Disks | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Select a frozen archive sample including all eligible nondetections, not only promising cubes. Reproduce imaging and continuum subtraction with recorded CASA settings, spectral frames, weighting, and beam parameters. Align annular spectra using disk geometry, then compare aperture sums, annular stacks, and covariance-aware matched filters. Estimate null distributions from spatial offsets, line-free channels, and sign-preserving transformations that retain noise correlations. Account for every searched radius, velocity, isotopologue, and geometry in the detection procedure. Inject weak model disks into representative calibrated data before imaging when practical, spanning temperature, emitting height, size, and line-width assumptions. Report completeness and upper limits alongside detections. Use radiative-transfer and chemical model grids only as an explicitly assumption-dependent second stage.
+
+**Operating envelope:** CO freeze-out, photodissociation, chemical depletion, optical depth, and isotope-selective effects break a simple CO-flux-to-gas-mass conversion. Stacking can hide spatial contamination; an apparent aligned line still requires cube-level inspection.
+
+**Variables and conventions**
+
+- r is disk-plane radius in meters, M_star in kilograms, inclination i and azimuth phi in radians; velocities are reported in kilometers per second.
+- I and normalized stack S are in janskys per beam; weights account for primary-beam response and covariance rather than assuming every pixel is independent.
+- F_line is aperture flux in jansky kilometers per second after pixel/beam solid-angle conversion; A is the defined aperture. The normalized stack supports detection, not an automatic total-flux claim.
+- t is a line template and C the measured noise covariance; pixel and beam solid angles use matching units.
+
+### Artifact wall
+
+![H07 proposed analysis architecture](figures/architecture.svg)
+
+The diagram separates rotation-aligned detection from beam-corrected aperture flux and accounts for correlated noise and every search trial. It supports faint-line recovery without treating detections as direct total-gas-mass measurements.
+
+**Scientific result to produce:** Channel-map velocity tracks, unaligned versus aligned spectra, empirical null distribution, and injected-flux recovery curves; measured and simulated panels remain distinct.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze eligible target/product and CASA imaging manifests with nondetections. |
+| 02 | Planned | Implement spectral-frame, disk-coordinate and beam-area adapters. |
+| 03 | Planned | Reproduce aperture sums before rotation-aligned extraction. |
+| 04 | Planned | Build covariance estimators and complete search/null ledgers. |
+| 05 | Planned | Run synthetic disk injections and target holdouts through the same pipeline. |
+| 06 | Planned | Release significance, completeness, flux/limits and separate mass-inference caveats. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H06 · MARS ODYSSEY RIDGEWORK](../H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H08 · GENESIS RIM CHRONICLE](../H08-genesis-rim-chronicle/README.md) | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Session H |
+| [H04 · STARDUST CARBON ATLAS](../H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

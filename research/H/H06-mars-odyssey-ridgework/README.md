@@ -4,7 +4,7 @@
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![H06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Variability of Martian Wrinkle Ridges | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Select complete ridges with documented topographic coverage, then establish a centerline and extract many perpendicular profiles at spacing compatible with DTM resolution. Record height, width, asymmetry, crest separation, local slope, and uncertainty. Benchmark the original k-means approach with uncertainty-aware mixture clustering and bootstrap stability, retaining continuous morphology rather than forcing three classes. Fit thrust/backthrust and trishear forward models, allowing along-strike changes through a hierarchical prior. Use geologically motivated bounds that are stated before fitting. Examine whether inferred discontinuities align with mapped intersections or stratigraphic changes, and compare alternative regional detrending and erosion treatments. Reserve entire ridges or long contiguous segments for predictive tests to prevent neighboring profiles leaking into train and test sets.
+
+**Operating envelope:** Surface shape alone rarely constrains deep detachment depth uniquely. Model-derived shortening cannot become a global thermal-contraction estimate without representative sampling, age constraints, and uncertainty in nontectonic relief.
+
+**Variables and conventions**
+
+- z and cross-ridge coordinate x are meters; s is along-strike distance; j denotes a profile.
+- theta contains fault dip, depth, slip, and layering parameters in declared units; M labels thrust, backthrust, or trishear model families.
+- C_z includes correlated DTM uncertainty and detrending uncertainty; ell is the physical along-strike correlation length.
+
+### Artifact wall
+
+![H06 proposed analysis architecture](figures/architecture.svg)
+
+The diagram ties profile geometry and correlated terrain error to distinct fault-model families. Continuous morphology and whole-ridge validation remain separate from nonunique deep architecture and unsupported global contraction estimates.
+
+**Scientific result to produce:** Along-strike curtain of measured profiles above competing fault cross-sections, with cluster probabilities and credible intervals; inferred faults use dashed lines.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze actual terrain coverage and regional ridge/stratigraphic inventories. |
+| 02 | Planned | Implement centerline-normal extraction and datum/background ensembles. |
+| 03 | Planned | Build continuous morphometric and bootstrap-cluster artifacts. |
+| 04 | Planned | Implement separately documented elastic and trishear forward families. |
+| 05 | Planned | Fit covariance-aware along-strike models and ridge/segment holdouts. |
+| 06 | Planned | Release morphology/fault-family evidence with depth, erosion and contraction limits. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Session H; [HiRISE Digital Terrain Models](https://hirise.lpl.arizona.edu/dtm/) |
+| [H05 · TERRA SEVEN GENERATIONS](../H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H07 · KEPLER CO ECHO](../H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+| [H04 · STARDUST CARBON ATLAS](../H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H08 · GENESIS RIM CHRONICLE](../H08-genesis-rim-chronicle/README.md) | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

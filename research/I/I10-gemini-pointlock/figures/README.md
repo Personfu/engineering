@@ -16,6 +16,12 @@ Opposite wheel/body torque and momentum limits close the control loop; electrica
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Data diagnostic
 
 ![I10 data diagnostic](../../../../data/figures/13_attitude_phase_and_authority.svg)

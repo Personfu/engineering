@@ -16,6 +16,12 @@ Shock-aware inference and time/spatial alignment precede a confidence-based core
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Test-section cross-plane Mach/pitot contours, longitudinal profiles, operating-condition response surfaces, and the uncertainty-qualified uniform-core mask.

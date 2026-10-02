@@ -4,7 +4,7 @@
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![D05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | CIS Aviation-ISAC | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Map a representative aviation organization's current and proposed practices to NIST CSF 2.0 outcomes and the public Aviation ISAC mission. Define a minimum information record, escalation roles, and reviewable evidence trail. Conduct benign tabletop comparisons using fictitious organizations, synthetic service outages, and simulated advisories. Analyze response quality and timing while protecting participants' and member organizations' confidential information.
+
+**Operating envelope:** Public ISAC pages describe purpose and community, not member intelligence. Tabletop performance may differ from real incidents, and no particular operator's security posture can be inferred without authorized evidence.
+
+**Variables and conventions**
+
+- Report confidence, provenance, permitted sharing audience, owner, acknowledgment time, triage time, escalation correctness, and recovery time.
+- Scenario impact category, dependencies, supplier criticality, exercise ground truth, and participant experience.
+
+### Artifact wall
+
+![D05 proposed analysis architecture](figures/architecture.svg)
+
+The isolated workflow evaluates ownership, permitted sharing and safety escalation through synthetic replay. It supports defensive governance comparison without contacting systems or reproducing vulnerabilities.
+
+**Scientific result to produce:** A report-to-recovery swimlane shows human decision owners and evidence handoffs; a CSF profile heatmap distinguishes documented, exercised, and unverified outcomes without exposing real-system details.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create synthetic_scenarios.yaml with locked truth and no operational targets. |
+| 02 | Planned | Build report_schema.json and role_audience_policy.json. |
+| 03 | Planned | Implement local_tabletop_replay.py with append-only exercise events. |
+| 04 | Planned | Create csf_outcome_mapping.csv and safety_escalation_matrix.csv. |
+| 05 | Planned | Build scoring.py with censoring/undefined-denominator fixtures. |
+| 06 | Planned | Publish paired_workflow_review.ipynb and sanitized governance evidence records. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D04 · GLENN SPHERE STANDARD](../D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D06 · LANGLEY MACH ATLAS](../D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+| [D02 · LANGLEY STALL MEMORY](../D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D01 · X-59 VORTEX COMMAND](../D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

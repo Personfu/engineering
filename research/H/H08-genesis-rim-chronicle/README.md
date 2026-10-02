@@ -4,7 +4,7 @@
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![H08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Assemble curator-approved sections spanning independently characterized alteration and heating. Image with standardized backscattered-electron contrast and elemental mapping, recording weathering and preparation artifacts. Two analysts annotate chondrule boundaries, rim intervals, matrix contacts, and fabric blindly to sample alteration labels. Use three-dimensional tomography only where its spatial resolution can resolve the rims; otherwise simulate random sections through plausible geometries. Estimate thickness distributions, perimeter-normalized rim volumes, porosity proxies, and preferred orientation. Fit a hierarchical relationship with measurement error and left-censoring for unresolved thin rims. Compare nebular accretion followed by compaction, parent-body growth, and mixed mechanisms through posterior predictive tests. Couple porous-aggregate simulations to observed distributions as a mechanism check rather than tuning all disk parameters until any outcome fits.
+
+**Operating envelope:** Present-day porosity differs from initial porosity, and mineral replacement can obscure original dust. Strong size-thickness correlation is compatible with several histories; chemical zoning, cross-cutting relations, and fabric add necessary evidence.
+
+**Variables and conventions**
+
+- m is kilograms; radii and rim thickness t_r are meters; rho_d is nebular dust mass density and rho_s solid-grain density in kilograms per cubic meter.
+- Delta v is relative speed in meters per second, sticking efficiency epsilon and porosity phi are dimensionless.
+- A is an independently measured alteration indicator; sample and section effects account for nested, nonindependent observations.
+
+### Artifact wall
+
+![H08 proposed analysis architecture](figures/architecture.svg)
+
+The diagram links real section conventions and uncertain rim boundaries to mass-conserving accretion/modification models. It distinguishes present morphology from initial porosity and supports competing histories rather than one unmodified origin.
+
+**Scientific result to produce:** Annotated chondrule sections, three-dimensional sectioning bias demonstration, size-thickness distributions by alteration, and a sequential accretion/overprint hypothesis diagram.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze curator/section and primary appendix measurement manifests. |
+| 02 | Planned | Define dual-annotation boundaries, censor limits and alteration metadata. |
+| 03 | Planned | Implement shell-mass and random-section geometry calculators. |
+| 04 | Planned | Build nested censored size-thickness models with full specimen folds. |
+| 05 | Planned | Compare accretion/compaction/mixed forward scenarios against reserved fabric and geometry. |
+| 06 | Planned | Release rim-distribution and origin-compatibility artifacts with initial-state uncertainty. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H07 · KEPLER CO ECHO](../H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H04 · STARDUST CARBON ATLAS](../H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

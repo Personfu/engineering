@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Build cloud- and season-controlled reflectance composites, persistent vegetation/canopy trends and change points. Combine documented thermal imagery with air-temperature transects and socioeconomic records on consistent spatial units. Compare matched redevelopment/control areas or panel models with pretrend checks. Weight outputs by exposure and green-space access; evaluate restoration scenarios with water demand, establishment survival and maintenance. Propagate classification and demographic uncertainty rather than ranking neighborhoods by unqualified point estimates.
+
+**Operating envelope:** Mixed pixels can miss street trees. Associations do not establish causal health effects; unobserved irrigation and neighborhood change can bias estimates.
+
+**Variables and conventions**
+
+- ρ: unitless reflectance; canopy: validated percent cover.
+- T: surface-temperature anomaly, K; air temperature needs separate calibration.
+- g: neighborhood; p: spatial cell.
+- Exposure: ecological aggregate, not an individual heat dose.
+
+### Artifact wall
+
+![B10 proposed analysis architecture](figures/architecture.svg)
+
+The diagram distinguishes canopy, surface heat, air-temperature calibration and usable access before neighborhood aggregation. The release boundary preserves community authority and prevents environmental exposure estimates from becoming unsupported health claims.
+
+**Scientific result to produce:** Pair canopy-change maps with measured thermal anomalies, population-weighted exposure and uncertain restoration benefits/water demand.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create a community-reviewed estimand, data-authority and public-release register. |
+| 02 | Planned | Freeze imagery, population and boundary versions with scene-quality manifests. |
+| 03 | Planned | Implement seasonal composites and canopy validation with spatial/year folds. |
+| 04 | Planned | Build separate thermal retrieval and air-temperature calibration artifacts. |
+| 05 | Planned | Calculate population exposure and network access with full covariance sensitivity. |
+| 06 | Planned | Release reviewable restoration scenarios with water/maintenance and overlapping-rank uncertainty. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B; [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [H05 · TERRA SEVEN GENERATIONS](../../H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

@@ -4,7 +4,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,83 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![I08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Julia 1.2 Ephemeris and Gravitational Modeling Development | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Implement a thin Julia interface over documented SPICE/Horizons conventions and maintain a cached, checksum-tagged reference manifest. Create round-trip transformations and compare state vectors only after matching center, reference frame, aberration correction, and epoch. Add point-mass and spherical-harmonic evaluators with unit tests at analytic limits; a later uniform-density polyhedral evaluator must verify closed mesh orientation and mass consistency. Compare acceleration with numerical potential gradients and external-field Laplace residuals. Benchmark runtime only after correctness, separating kernel loading, interpolation, compilation, and repeated evaluation. Archive Julia 1.2 behavior in compatibility notes instead of making it a requirement for all future work.
+
+**Operating envelope:** Independent outputs may share underlying JPL ephemerides, so agreement is an implementation check rather than independent astronomical validation. Harmonic truncation, uncertain small-body density, and shape resolution limit physical accuracy.
+
+**Variables and conventions**
+
+- Position r and reference radius R in m; time in s with explicit TDB/UTC/other labels; gravitational parameter muk in m^3 s^-2.
+- Potential V in m^2 s^-2 uses the positive mu/r convention; acceleration a in m s^-2 is its gradient.
+- phi/varphi and lambda in rad; harmonic coefficients and consistently normalized Legendre functions are dimensionless.
+- L is harmonic truncation degree; each state carries center, frame, epoch, units, kernel/source version, and interpolation setting.
+
+### Artifact wall
+
+![I08 included scientific diagnostic](../../../data/figures/14_orbit_conservation_and_refinement.svg)
+
+Synthetic two-body conservation and refinement diagnostics from immutable model outputs. Panel A scales relative specific-energy error to parts per million and reports angular-momentum conservation for the stored 400-step-per-period run. Panel B compares three recorded maximum-energy errors with a second-order reference anchored to the coarsest run. This is an integration check, not trajectory prediction validation.
+
+[Exact inputs, transformations and output hashes](../../../data/figures/14_orbit_conservation_and_refinement.provenance.json)
+
+**Scientific result to produce:** A provenance diagram beside state-residual plots and a radial gravity-model disagreement map, with convergence boundaries and reference conventions labeled.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create source/checksum and fully typed state/context contracts. |
+| 02 | Planned | Implement matched SPICE/Horizons adapters and cached validity checks. |
+| 03 | Planned | Build position-velocity frame/time round-trip fixtures. |
+| 04 | Planned | Implement point-mass and normalized-harmonic potential/gradient APIs. |
+| 05 | Planned | Gate closed-shape evaluator on topology/mass and domain validation. |
+| 06 | Planned | Release archival Julia notes, matched-reference residuals and separated runtime benchmarks. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I12 · PIONEER PHOBOS PATHFINDER](../I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I; Included illustration: 07_two_body_convergence; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html); [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I09 · OSIRIS REGOLITH LEAPER](../I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I13 · OSIRIS APOPHIS HORIZON](../I13-osiris-apophis-horizon/README.md) | A Study of the Deflection of 99942 Apophis from Earth | Session I; [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I07 · GATEWAY CATSAT CONSOLE](../I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+| [I06 · SATURN LOADPATH](../I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+| [I10 · GEMINI POINTLOCK](../I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

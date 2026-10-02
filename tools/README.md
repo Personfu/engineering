@@ -21,6 +21,17 @@ The visual design generator reads the controlled registry and produces 127 acces
 python tools/build_visual_design.py --repo . --out assets --co-locate
 ```
 
+The richer profile generator adds 117 source-bound mission profiles and the portfolio mission-control dashboard. It wraps the full scientific question, hypothesis, model framing and traceability content without inventing measurements or readiness scores:
+
+```sh
+python tools/build_mission_profiles.py --repo .
+python tools/build_data_inventory.py
+```
+
+The table inventory reads all 12 original CSVs and their recorded provenance. It exposes headers, units and their sources, missing/non-finite values, finite ranges, full-precision raw preview rows, parameters and linked plots in JSON and a readable notebook. Unknown units remain explicit. Both generators use the Python standard library and are called by the documentation builder. Profile generation runs after final register generation so its input hashes cover the exact source revision.
+
+The builder also writes the mission-control portal and a transparent resource-connection register. Rankings use actual shared citations, supplied sessions and shared included illustrations. Reading connections are separate from physical dependencies or validation.
+
 The [data diagnostic gallery](../data/figures/README.md) adds nine scientific figure pairs from the existing, immutable model CSVs. Regeneration requires the model plotting dependencies:
 
 ```sh

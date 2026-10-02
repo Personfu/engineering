@@ -4,7 +4,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![I07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | CatSat Groundstation Command and Control | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Define a versioned telemetry dictionary, event ledger, and abstract state machine for simulated commissioning and routine image collection. Build a local packet-replay service with reproducible loss, delay, duplication, and reset patterns. Use Open MCT as an optional visualization framework while keeping telemetry ingestion and reconstruction independently testable. Display source time, receive time, freshness, uncertainty, and provenance beside every engineering value. Reassemble synthetic images using chunk identifiers and integrity checks; diagnose incomplete transfers from the manifest rather than treating a successful socket read as completed science delivery. Evaluate operator tasks using randomized scenario order, including cases where the correct answer is that current state cannot be established.
+
+**Operating envelope:** A public operations description is not an interface-control document or authorization to command CatSat. Local replay verifies software behavior and operator interpretation, not radio-link performance or mission readiness.
+
+**Variables and conventions**
+
+- Buffer B and produced image/data size S in bytes; useful downlink capacity C in bytes s^-1; interval dt in s.
+- Telemetry age A in s refers to source-valid time, distinct from reception time; clock uncertainty is included.
+- Completeness fraction counts valid unique chunks; expected chunk count comes from a trusted synthetic manifest.
+- State s and event e are abstract simulator records. Real radio commands, frequencies, credentials, and flight protocols are outside this package.
+
+### Artifact wall
+
+![I07 proposed analysis architecture](figures/architecture.svg)
+
+All interfaces are owned synthetic records; manifest integrity, timestamp evidence and idempotent reconstruction precede operator display.
+
+**Scientific result to produce:** A pass timeline, freshness-aware telemetry panel, and synthetic image-chunk map that reveal gaps and delayed events without implying live spacecraft control.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Define synthetic telemetry dictionary, event IDs and image manifests. |
+| 02 | Planned | Implement isolated replay with seeded delay/loss/duplicate/reset patterns. |
+| 03 | Planned | Build idempotent state ledger and checkpoint recovery. |
+| 04 | Planned | Implement manifest-based image assembly and clock-aware freshness. |
+| 05 | Planned | Connect optional operator view only to reconstructed contracts. |
+| 06 | Planned | Release expected-state fixtures and randomized unknown-state operator scenarios. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E01 · APOLLO HELIOSCOPE](../../E/E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | [NASA AMMOS Open MCT](https://ammos.nasa.gov/openmct/) |
+| [I06 · SATURN LOADPATH](../I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+| [I08 · VOYAGER FRAMEFORGE](../I08-voyager-frameforge/README.md) | Julia 1.2 Ephemeris and Gravitational Modeling Development | Session I |
+| [I05 · PIONEER AERODRIFT](../I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Session I |
+| [I09 · OSIRIS REGOLITH LEAPER](../I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I |
+| [I04 · ORION SENTINEL CORE](../I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

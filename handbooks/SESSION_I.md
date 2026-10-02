@@ -1,10 +1,10 @@
 # SESSION I: AEROSPACE TECHNOLOGY
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session I](../assets/sessions/I.svg)
 
-13 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+13 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/I/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -34,7 +34,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -47,6 +47,82 @@
 [Explore the data blueprint](../research/I/I01-saturn-transient-shield/data/README.md) · [Open the figure gallery](../research/I/I01-saturn-transient-shield/figures/README.md) · [Download acquisition template](../research/I/I01-saturn-transient-shield/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I01-saturn-transient-shield/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Rocket Development Lab Team: The Effects of Equivalence Ratio during shutdown of a rocket engine on hardware longevity | [Scientific objective](../research/I/I01-saturn-transient-shield/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I01-saturn-transient-shield/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I01-saturn-transient-shield/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I01-saturn-transient-shield/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I01-saturn-transient-shield/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/I/I01-saturn-transient-shield/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Define a factorial virtual experiment over normalized pulse shapes, thermal-contact conductance, and material property uncertainty. Treat supplied chemistry scenarios as labels and propagate their heat-load envelopes through a transient conduction solver. Fit an interpretable response surface for peak gradient, residual strain, and cycle-damage proxy. A Bayesian discrepancy term separates thermocouple error from model inadequacy. Rank factors with variance decomposition and report parameter combinations where the simple fatigue representation fails; never infer a recommended shutdown recipe from this reduced model.
+
+**Operating envelope:** Equilibrium temperature does not determine heat transfer, and a Miner-rule proxy cannot certify hardware life. Historical datasets may omit stress, surface condition, and sensor lag.
+
+**Variables and conventions**
+
+- phi is dimensionless fuel-to-oxidizer equivalence ratio; it is an explanatory covariate, not an operating instruction.
+- T in K; rho in kg m^-3; cp in J kg^-1 K^-1; conductivity k in W m^-1 K^-1; volumetric heating qv in W m^-3.
+- E and thermal stress in Pa; expansion coefficient alphaT in K^-1; Poisson ratio nu dimensionless.
+- n_j and N_j are applied and estimated allowable cycle counts; D is a screening damage index with uncertain material calibration.
+- Reference scales define dimensionless time tau and temperature theta; no numeric engine geometry is assumed.
+
+#### Artifact wall
+
+![I01 proposed analysis architecture](../research/I/I01-saturn-transient-shield/figures/architecture.svg)
+
+Externally supplied heat, rather than a combustion schedule, drives an inert thermal model; mechanical damage remains gated by applicable material evidence.
+
+**Scientific result to produce:** A dimensionless heat-duration versus contact-conductance map colored by damage proxy, with separate uncertainty contours and clearly labeled synthetic cases.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create chemistry-label and externally supplied heat-envelope schemas. |
+| 02 | Planned | Verify inert coupon/material/sensor metadata and allowed domain. |
+| 03 | Planned | Implement conservative conduction and sensor-response operators. |
+| 04 | Planned | Fit contact/property uncertainty with independent lag calibration. |
+| 05 | Planned | Add restrained elasticity and gated material-cycle model. |
+| 06 | Planned | Publish normalized response surfaces, uncertainty ranking and withheld-surrogate predictions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I02 · APOLLO AQUATHERM](../research/I/I02-apollo-aquatherm/README.md) | Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Low-thrust chemical rocket engine study](https://ntrs.nasa.gov/citations/19810012596) |
+| [I03 · SATURN CHANNEL ATLAS](../research/I/I03-saturn-channel-atlas/README.md) | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Low-thrust chemical rocket engine study](https://ntrs.nasa.gov/citations/19810012596) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+| [I05 · PIONEER AERODRIFT](../research/I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Session I |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I01-saturn-transient-shield/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I01-saturn-transient-shield/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I01-saturn-transient-shield/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I01-saturn-transient-shield/data/README.md) | [Provenance](../research/I/I01-saturn-transient-shield/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I01-saturn-transient-shield/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I01-saturn-transient-shield/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I01-saturn-transient-shield/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I01-saturn-transient-shield/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I01-saturn-transient-shield/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I01-saturn-transient-shield/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I01-saturn-transient-shield/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -288,7 +364,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -301,6 +377,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I02-apollo-aquatherm/data/README.md) · [Open the figure gallery](../research/I/I02-apollo-aquatherm/figures/README.md) · [Download acquisition template](../research/I/I02-apollo-aquatherm/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I02-apollo-aquatherm/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine | [Scientific objective](../research/I/I02-apollo-aquatherm/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I02-apollo-aquatherm/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I02-apollo-aquatherm/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I02-apollo-aquatherm/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I02-apollo-aquatherm/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/I/I02-apollo-aquatherm/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Represent the wall as a small thermal graph coupled to an advection network. Calibrate loss conductance using heater-off cooling and use separate instrument calibration for inlet/outlet thermometry. Infer contact resistance and convection only after checking parameter identifiability; add distributed wall sensors where competing parameter combinations make different predictions. Propagate property uncertainty and sensor response functions through transient simulations. Use a reduced-order emulator for rapid what-if analysis, with interpolation restricted to the validated dimensionless envelope. Report hot-spot uncertainty rather than only bulk coolant temperature.
+
+**Operating envelope:** A laboratory surrogate tests energy accounting and model structure; it does not reproduce reactive flow, combustion-chamber geometry, or full-scale cooling performance. Correlations lose validity outside their specified flow regime.
+
+**Variables and conventions**
+
+- T in K; thermal capacitance C in J K^-1; conductance G in W K^-1; heat load Q in W.
+- h in W m^-2 K^-1; wetted area A in m^2; coolant mass flow mdot in kg s^-1; cp in J kg^-1 K^-1.
+- u in m s^-1; hydraulic diameter Dh in m; dynamic viscosity mu in Pa s; fluid conductivity kf in W m^-1 K^-1.
+- Re and Nu are dimensionless; stored energy U in J and heat-loss uncertainty must be retained.
+
+#### Artifact wall
+
+![I02 proposed analysis architecture](../research/I/I02-apollo-aquatherm/figures/architecture.svg)
+
+Wall storage, coolant enthalpy and ambient loss are accounted separately; surrogate validation is restricted to independently characterized single-phase states.
+
+**Scientific result to produce:** A heat-flow diagram showing input, coolant uptake, storage, and loss beside held-out measured/predicted temperature traces with uncertainty bands.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Verify inert loop/thermal graph and independently set single-phase limits. |
+| 02 | Planned | Calibrate electrical power, flow and temperature/lag interfaces. |
+| 03 | Planned | Implement conservative wall/advection enthalpy model. |
+| 04 | Planned | Fit ambient losses before contact/convection where identifiable. |
+| 05 | Planned | Run withheld load/flow cases and spatial hotspot checks. |
+| 06 | Planned | Release energy ledgers, parameter covariance and emulator domain masks. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I01 · SATURN TRANSIENT SHIELD](../research/I/I01-saturn-transient-shield/README.md) | Rocket Development Lab Team: The Effects of Equivalence Ratio during shutdown of a rocket engine on hardware longevity | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Published cooling/transport analysis](https://ntrs.nasa.gov/citations/19810012596) |
+| [I03 · SATURN CHANNEL ATLAS](../research/I/I03-saturn-channel-atlas/README.md) | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Published cooling/transport analysis](https://ntrs.nasa.gov/citations/19810012596) |
+| [E06 · APOLLO THERMALIS](../research/E/E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | [NASA Small Spacecraft Thermal Control](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+| [I05 · PIONEER AERODRIFT](../research/I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Session I |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I02-apollo-aquatherm/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I02-apollo-aquatherm/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I02-apollo-aquatherm/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I02-apollo-aquatherm/data/README.md) | [Provenance](../research/I/I02-apollo-aquatherm/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I02-apollo-aquatherm/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I02-apollo-aquatherm/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I02-apollo-aquatherm/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I02-apollo-aquatherm/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I02-apollo-aquatherm/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I02-apollo-aquatherm/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I02-apollo-aquatherm/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -541,7 +692,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -554,6 +705,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I03-saturn-channel-atlas/data/README.md) · [Open the figure gallery](../research/I/I03-saturn-channel-atlas/figures/README.md) · [Download acquisition template](../research/I/I03-saturn-channel-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I03-saturn-channel-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | [Scientific objective](../research/I/I03-saturn-channel-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I03-saturn-channel-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I03-saturn-channel-atlas/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I03-saturn-channel-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I03-saturn-channel-atlas/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/I/I03-saturn-channel-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Sweep normalized channel families with a conjugate thermal model and a flow-network comparator. Compute pressure losses and local heat-transfer regimes consistently, distinguishing Darcy and Fanning friction-factor conventions. Calibrate uncertainty with inert coupon data where available. Use multiobjective optimization to identify a Pareto front, then quantify ranking reversal under uncertain roughness, contact resistance, and uneven branch flow. Add geometry only when it produces a testable information gain; the atlas emphasizes robust trends, not a supposedly optimal engine channel.
+
+**Operating envelope:** A straight-passage correlation may fail in developing, curved, or strongly heated flow. Surrogate validation does not establish compatibility with cryogenic/reactive fluids, combustion loading, or additive-manufactured material life.
+
+**Variables and conventions**
+
+- Ac in m^2 is channel cross section; Pw and Dh in m are wetted perimeter and hydraulic diameter.
+- Delta p in Pa; length L in m; Darcy friction factor fD and local loss K are dimensionless; density rho in kg m^-3.
+- Volumetric flow Vdot in m^3 s^-1; pump efficiency etap dimensionless; pumping power in W.
+- xi contains dimensionless aspect, curvature, and roughness ratios; starred temperature and pumping power use explicitly documented reference scales.
+- CVaR0.95 is the mean of the hottest 5% of modeled cases; it is a proposed risk metric, not a measured safety limit.
+
+#### Artifact wall
+
+![I03 proposed analysis architecture](../research/I/I03-saturn-channel-atlas/figures/architecture.svg)
+
+Fair hydraulic budgets and external heat loads feed an uncertainty-aware thermal/Pareto atlas, validated only within noncombusting coupon domains.
+
+**Scientific result to produce:** A wall-temperature versus normalized pumping-power frontier, colored by channel family, with uncertainty ellipses and a separate correlation-validity map.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create normalized family and controlled-budget manifests. |
+| 02 | Planned | Implement typed friction/Nu and property regime service. |
+| 03 | Planned | Build coupled hydraulic/conservative thermal solvers. |
+| 04 | Planned | Generate manufacturing/maldistribution/discrepancy ensembles. |
+| 05 | Planned | Compute uncertain Pareto fronts and tail metric convergence. |
+| 06 | Planned | Release inert coupon holdouts, rank reversals and extrapolation ledger. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I02 · APOLLO AQUATHERM](../research/I/I02-apollo-aquatherm/README.md) | Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Published cooling/transport analysis reference](https://ntrs.nasa.gov/citations/19810012596) |
+| [I01 · SATURN TRANSIENT SHIELD](../research/I/I01-saturn-transient-shield/README.md) | Rocket Development Lab Team: The Effects of Equivalence Ratio during shutdown of a rocket engine on hardware longevity | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Published cooling/transport analysis reference](https://ntrs.nasa.gov/citations/19810012596) |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I; [NASA Small Spacecraft Structures, Materials and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | [NASA Small Spacecraft Structures, Materials and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+| [I05 · PIONEER AERODRIFT](../research/I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I03-saturn-channel-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I03-saturn-channel-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I03-saturn-channel-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I03-saturn-channel-atlas/data/README.md) | [Provenance](../research/I/I03-saturn-channel-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I03-saturn-channel-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I03-saturn-channel-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I03-saturn-channel-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I03-saturn-channel-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I03-saturn-channel-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I03-saturn-channel-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I03-saturn-channel-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -795,7 +1022,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -808,6 +1035,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I04-orion-sentinel-core/data/README.md) · [Open the figure gallery](../research/I/I04-orion-sentinel-core/figures/README.md) · [Download acquisition template](../research/I/I04-orion-sentinel-core/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I04-orion-sentinel-core/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: On-board Computer Subsystem | [Scientific objective](../research/I/I04-orion-sentinel-core/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I04-orion-sentinel-core/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I04-orion-sentinel-core/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I04-orion-sentinel-core/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I04-orion-sentinel-core/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I04-orion-sentinel-core/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Define an interface contract for each subsystem and map tasks to a soft-core processor or FPGA logic using timing evidence. Specify a finite-state operational model with boot, nominal, science, safe, and recovery states. Simulate scheduled science acquisition, intermittent downlink, corrected memory errors, and isolated logical faults in a local test bench. Inject declared software/emulator faults into representative interfaces and log every transition with sequence number and clock quality. Measure the effect of a voter or shared-clock failure separately from independent lane errors. Use a stable packet schema and idempotent record handling so reset recovery does not create duplicate scientific observations.
+
+**Operating envelope:** Logic simulation and software fault injection do not reproduce radiation susceptibility, latch-up, thermal effects, or flight qualification. The historical MicroBlaze concept is retained as context; device and toolchain choices require an actual board inventory.
+
+**Variables and conventions**
+
+- Response R, execution C, blocking B_i, period T, and deadline D in s; hp(i) is the set of higher-priority tasks.
+- p is independent per-lane failure probability in a stated interval; pTMR excludes voter and shared-resource failures.
+- Data buffer B in bytes; science and downlink rates in bytes s^-1. Buffer B and task blocking B_i are distinct quantities.
+- Availability A is useful-science time fraction, with boot, degraded mode, and recovery time included.
+
+#### Artifact wall
+
+![I04 proposed analysis architecture](../research/I/I04-orion-sentinel-core/figures/architecture.svg)
+
+Scheduling, committed scientific records and shared-fault recovery are connected through explicit timing and storage boundaries rather than a nominal redundancy claim.
+
+**Scientific result to produce:** An FPGA/soft-core architecture linked to a timeline of injected fault, detection, safe-state entry, recovery, and science-record continuity.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Inventory board/toolchain or mark architecture emulator-only. |
+| 02 | Planned | Create task/resource/blocking and scientific packet contracts. |
+| 03 | Planned | Implement response-time analyzer and deterministic workload simulator. |
+| 04 | Planned | Build committed-record journal and finite-buffer loss accounting. |
+| 05 | Planned | Implement observable fault/recovery state machine with lane/common modes. |
+| 06 | Planned | Release expected-record manifests, deadline traces and service-availability comparisons. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I04-orion-sentinel-core/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I04-orion-sentinel-core/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I04-orion-sentinel-core/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I04-orion-sentinel-core/data/README.md) | [Provenance](../research/I/I04-orion-sentinel-core/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I04-orion-sentinel-core/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I04-orion-sentinel-core/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I04-orion-sentinel-core/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I04-orion-sentinel-core/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I04-orion-sentinel-core/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I04-orion-sentinel-core/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I04-orion-sentinel-core/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1047,7 +1349,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1060,6 +1362,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I05-pioneer-aerodrift/data/README.md) · [Open the figure gallery](../research/I/I05-pioneer-aerodrift/figures/README.md) · [Download acquisition template](../research/I/I05-pioneer-aerodrift/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I05-pioneer-aerodrift/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Pico Balloon Platform for Atmospheric Exploration | [Scientific objective](../research/I/I05-pioneer-aerodrift/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I05-pioneer-aerodrift/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I05-pioneer-aerodrift/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I05-pioneer-aerodrift/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/I/I05-pioneer-aerodrift/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I05-pioneer-aerodrift/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a synthetic telemetry generator and assimilate a wind field into a trajectory ensemble. Calibrate temperature and pressure sensors against reference instruments in a supervised environmental chamber, including illumination and response lag. Compare recovered atmospheric gradients with independent radiosonde soundings only where separation in time and space is small enough for a meaningful test. Infer missing-data effects by replaying complete simulated tracks through realistic packet-loss patterns. Treat a Venus extension as a requirements trade covering atmospheric composition, thermal environment, envelope compatibility, solar geometry, communications, and planetary protection; avoid interpreting an uncalibrated chemical response as evidence of life.
+
+**Operating envelope:** A pico-balloon cannot independently determine a three-dimensional wind field from position alone. IGRA station profiles are comparison data, not ground truth for distant trajectories. NASA heavy-lift balloon practice is useful context rather than a pico-platform specification.
+
+**Variables and conventions**
+
+- Position x in m in a declared Earth-fixed or geodetic frame; wind u and slip v in m s^-1; time t in s.
+- True variable X and measured y retain their physical units, such as K or Pa; response time taus in s and solar bias is sensor specific.
+- Energy E in J; component power in W; air/lifting-gas densities in kg m^-3; volume V in m^3; force Fb in N.
+- Trajectory covariance, sample altitude uncertainty, and telemetry completeness are required fields, not optional annotations.
+
+#### Artifact wall
+
+![I05 shared illustrative model](../models/figures/03_balloon_thermal.svg)
+
+Shared illustration with a narrower domain than the project model. [Read its parameters, evidence class and checks](../models/README.md).
+
+**Scientific result to produce:** A drifting-track map with uncertainty tubes above a solar-energy timeline and calibrated atmospheric samples; Venus assumptions appear in a separate feasibility panel.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create synthetic track/power/sample and calibration manifests. |
+| 02 | Planned | Implement geodetic/Earth-fixed covariance adapters. |
+| 03 | Planned | Calibrate sensor lag/illumination on independent chamber references. |
+| 04 | Planned | Build wind/slip trajectory and energy ensemble model. |
+| 05 | Planned | Replay telemetry gaps/delays and collocate supported IGRA segments. |
+| 06 | Planned | Publish sampling-error/energy budgets and separate planetary feasibility gaps. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E06 · APOLLO THERMALIS](../research/E/E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | Included illustration: 03_balloon_thermal |
+| [E03 · ARTEMIS STRATODOSE](../research/E/E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Included illustration: 03_balloon_thermal |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+| [I03 · SATURN CHANNEL ATLAS](../research/I/I03-saturn-channel-atlas/README.md) | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | Session I |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I05-pioneer-aerodrift/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I05-pioneer-aerodrift/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I05-pioneer-aerodrift/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I05-pioneer-aerodrift/data/README.md) | [Provenance](../research/I/I05-pioneer-aerodrift/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I05-pioneer-aerodrift/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I05-pioneer-aerodrift/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I05-pioneer-aerodrift/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I05-pioneer-aerodrift/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I05-pioneer-aerodrift/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I05-pioneer-aerodrift/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I05-pioneer-aerodrift/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1305,7 +1682,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1318,6 +1695,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I06-saturn-loadpath/data/README.md) · [Open the figure gallery](../research/I/I06-saturn-loadpath/figures/README.md) · [Download acquisition template](../research/I/I06-saturn-loadpath/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I06-saturn-loadpath/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [Scientific objective](../research/I/I06-saturn-loadpath/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I06-saturn-loadpath/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I06-saturn-loadpath/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I06-saturn-loadpath/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I06-saturn-loadpath/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I06-saturn-loadpath/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Construct a parameterized load-path model and map requirements to force cases, constraints, and allowable deflections. Use beam and shell models only within declared applicability limits. Represent bolted/bonded joints by measured or uncertain stiffness rather than perfect connections. Introduce bounded geometric imperfections and compare linear modes, static compliance, and stability trends. Select a subscale inert test article using dimensionless similitude targets; document which similarity groups cannot be matched. An optimization study trades mass against compliance, uncertainty, and manufacturability, then exports reviewable CAD and an interface definition. Each CAD revision must link to the exact analysis mesh and assumptions.
+
+**Operating envelope:** Subscale compression and modal tests do not reproduce integrated launch vibration, aeroelastic loading, propellant motion, thermal conditions, or full-scale shell instability. Predicted buckling must be called a model-dependent screening value.
+
+**Variables and conventions**
+
+- Displacement q in m; mass matrix M in kg; damping C in N s m^-1; stiffness K in N m^-1; applied force f in N.
+- Angular natural frequency omega in rad s^-1; E in Pa; section area A in m^2; second moment I in m^4.
+- Column length L in m and effective-length factor Ke dimensionless; critical load Pcr is a simple column comparator.
+- Pi terms are dimensionless similarity measures; shell buckling is not certified by the Euler-column equation.
+
+#### Artifact wall
+
+![I06 proposed analysis architecture](../research/I/I06-saturn-loadpath/figures/architecture.svg)
+
+Configuration-linked analysis and measured inert boundaries support only those structural trends whose similarity groups and uncertainty are documented.
+
+**Scientific result to produce:** A load-path schematic next to finite-element modes and a similarity-group table, with measured and predicted subscale compliance distinctly labeled.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Define supplied inert load/constraint and CAD configuration contracts. |
+| 02 | Planned | Implement beam/frame analytic fixtures and mass checks. |
+| 03 | Planned | Generate revision-linked shell meshes and uncertain joints. |
+| 04 | Planned | Run imperfection/material/fixture ensembles and Pareto trades. |
+| 05 | Planned | Select reviewable nonpropulsive subscale similarity targets. |
+| 06 | Planned | Publish load/modal holdouts and unmatched full-scale similarity limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I03 · SATURN CHANNEL ATLAS](../research/I/I03-saturn-channel-atlas/README.md) | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | Session I; [NASA Small Spacecraft Structures, Materials and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I06-saturn-loadpath/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I06-saturn-loadpath/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I06-saturn-loadpath/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I06-saturn-loadpath/data/README.md) | [Provenance](../research/I/I06-saturn-loadpath/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I06-saturn-loadpath/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I06-saturn-loadpath/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I06-saturn-loadpath/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I06-saturn-loadpath/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I06-saturn-loadpath/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I06-saturn-loadpath/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I06-saturn-loadpath/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1557,7 +2009,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1570,6 +2022,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I07-gateway-catsat-console/data/README.md) · [Open the figure gallery](../research/I/I07-gateway-catsat-console/figures/README.md) · [Download acquisition template](../research/I/I07-gateway-catsat-console/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I07-gateway-catsat-console/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | CatSat Groundstation Command and Control | [Scientific objective](../research/I/I07-gateway-catsat-console/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I07-gateway-catsat-console/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I07-gateway-catsat-console/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I07-gateway-catsat-console/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I07-gateway-catsat-console/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I07-gateway-catsat-console/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Define a versioned telemetry dictionary, event ledger, and abstract state machine for simulated commissioning and routine image collection. Build a local packet-replay service with reproducible loss, delay, duplication, and reset patterns. Use Open MCT as an optional visualization framework while keeping telemetry ingestion and reconstruction independently testable. Display source time, receive time, freshness, uncertainty, and provenance beside every engineering value. Reassemble synthetic images using chunk identifiers and integrity checks; diagnose incomplete transfers from the manifest rather than treating a successful socket read as completed science delivery. Evaluate operator tasks using randomized scenario order, including cases where the correct answer is that current state cannot be established.
+
+**Operating envelope:** A public operations description is not an interface-control document or authorization to command CatSat. Local replay verifies software behavior and operator interpretation, not radio-link performance or mission readiness.
+
+**Variables and conventions**
+
+- Buffer B and produced image/data size S in bytes; useful downlink capacity C in bytes s^-1; interval dt in s.
+- Telemetry age A in s refers to source-valid time, distinct from reception time; clock uncertainty is included.
+- Completeness fraction counts valid unique chunks; expected chunk count comes from a trusted synthetic manifest.
+- State s and event e are abstract simulator records. Real radio commands, frequencies, credentials, and flight protocols are outside this package.
+
+#### Artifact wall
+
+![I07 proposed analysis architecture](../research/I/I07-gateway-catsat-console/figures/architecture.svg)
+
+All interfaces are owned synthetic records; manifest integrity, timestamp evidence and idempotent reconstruction precede operator display.
+
+**Scientific result to produce:** A pass timeline, freshness-aware telemetry panel, and synthetic image-chunk map that reveal gaps and delayed events without implying live spacecraft control.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Define synthetic telemetry dictionary, event IDs and image manifests. |
+| 02 | Planned | Implement isolated replay with seeded delay/loss/duplicate/reset patterns. |
+| 03 | Planned | Build idempotent state ledger and checkpoint recovery. |
+| 04 | Planned | Implement manifest-based image assembly and clock-aware freshness. |
+| 05 | Planned | Connect optional operator view only to reconstructed contracts. |
+| 06 | Planned | Release expected-state fixtures and randomized unknown-state operator scenarios. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E01 · APOLLO HELIOSCOPE](../research/E/E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | [NASA AMMOS Open MCT](https://ammos.nasa.gov/openmct/) |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+| [I08 · VOYAGER FRAMEFORGE](../research/I/I08-voyager-frameforge/README.md) | Julia 1.2 Ephemeris and Gravitational Modeling Development | Session I |
+| [I05 · PIONEER AERODRIFT](../research/I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Session I |
+| [I09 · OSIRIS REGOLITH LEAPER](../research/I/I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I07-gateway-catsat-console/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I07-gateway-catsat-console/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I07-gateway-catsat-console/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I07-gateway-catsat-console/data/README.md) | [Provenance](../research/I/I07-gateway-catsat-console/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I07-gateway-catsat-console/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I07-gateway-catsat-console/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I07-gateway-catsat-console/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I07-gateway-catsat-console/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I07-gateway-catsat-console/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I07-gateway-catsat-console/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I07-gateway-catsat-console/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1809,7 +2336,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1822,6 +2349,83 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I08-voyager-frameforge/data/README.md) · [Open the figure gallery](../research/I/I08-voyager-frameforge/figures/README.md) · [Download acquisition template](../research/I/I08-voyager-frameforge/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I08-voyager-frameforge/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Julia 1.2 Ephemeris and Gravitational Modeling Development | [Scientific objective](../research/I/I08-voyager-frameforge/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I08-voyager-frameforge/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I08-voyager-frameforge/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I08-voyager-frameforge/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/I/I08-voyager-frameforge/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I08-voyager-frameforge/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Implement a thin Julia interface over documented SPICE/Horizons conventions and maintain a cached, checksum-tagged reference manifest. Create round-trip transformations and compare state vectors only after matching center, reference frame, aberration correction, and epoch. Add point-mass and spherical-harmonic evaluators with unit tests at analytic limits; a later uniform-density polyhedral evaluator must verify closed mesh orientation and mass consistency. Compare acceleration with numerical potential gradients and external-field Laplace residuals. Benchmark runtime only after correctness, separating kernel loading, interpolation, compilation, and repeated evaluation. Archive Julia 1.2 behavior in compatibility notes instead of making it a requirement for all future work.
+
+**Operating envelope:** Independent outputs may share underlying JPL ephemerides, so agreement is an implementation check rather than independent astronomical validation. Harmonic truncation, uncertain small-body density, and shape resolution limit physical accuracy.
+
+**Variables and conventions**
+
+- Position r and reference radius R in m; time in s with explicit TDB/UTC/other labels; gravitational parameter muk in m^3 s^-2.
+- Potential V in m^2 s^-2 uses the positive mu/r convention; acceleration a in m s^-2 is its gradient.
+- phi/varphi and lambda in rad; harmonic coefficients and consistently normalized Legendre functions are dimensionless.
+- L is harmonic truncation degree; each state carries center, frame, epoch, units, kernel/source version, and interpolation setting.
+
+#### Artifact wall
+
+![I08 included scientific diagnostic](../data/figures/14_orbit_conservation_and_refinement.svg)
+
+Synthetic two-body conservation and refinement diagnostics from immutable model outputs. Panel A scales relative specific-energy error to parts per million and reports angular-momentum conservation for the stored 400-step-per-period run. Panel B compares three recorded maximum-energy errors with a second-order reference anchored to the coarsest run. This is an integration check, not trajectory prediction validation.
+
+[Exact inputs, transformations and output hashes](../data/figures/14_orbit_conservation_and_refinement.provenance.json)
+
+**Scientific result to produce:** A provenance diagram beside state-residual plots and a radial gravity-model disagreement map, with convergence boundaries and reference conventions labeled.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create source/checksum and fully typed state/context contracts. |
+| 02 | Planned | Implement matched SPICE/Horizons adapters and cached validity checks. |
+| 03 | Planned | Build position-velocity frame/time round-trip fixtures. |
+| 04 | Planned | Implement point-mass and normalized-harmonic potential/gradient APIs. |
+| 05 | Planned | Gate closed-shape evaluator on topology/mass and domain validation. |
+| 06 | Planned | Release archival Julia notes, matched-reference residuals and separated runtime benchmarks. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I12 · PIONEER PHOBOS PATHFINDER](../research/I/I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I; Included illustration: 07_two_body_convergence; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html); [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I09 · OSIRIS REGOLITH LEAPER](../research/I/I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I13 · OSIRIS APOPHIS HORIZON](../research/I/I13-osiris-apophis-horizon/README.md) | A Study of the Deflection of 99942 Apophis from Earth | Session I; [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I08-voyager-frameforge/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I08-voyager-frameforge/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I08-voyager-frameforge/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I08-voyager-frameforge/data/README.md) | [Provenance](../research/I/I08-voyager-frameforge/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I08-voyager-frameforge/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I08-voyager-frameforge/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I08-voyager-frameforge/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I08-voyager-frameforge/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I08-voyager-frameforge/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I08-voyager-frameforge/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I08-voyager-frameforge/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2075,7 +2679,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2088,6 +2692,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I09-osiris-regolith-leaper/data/README.md) · [Open the figure gallery](../research/I/I09-osiris-regolith-leaper/figures/README.md) · [Download acquisition template](../research/I/I09-osiris-regolith-leaper/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I09-osiris-regolith-leaper/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | [Scientific objective](../research/I/I09-osiris-regolith-leaper/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I09-osiris-regolith-leaper/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I09-osiris-regolith-leaper/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I09-osiris-regolith-leaper/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I09-osiris-regolith-leaper/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/I/I09-osiris-regolith-leaper/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Generate terrain ensembles with uncertain boulder size, slope, local normals, and contact properties. Simulate mechanical-foot and momentum-exchange concepts separately, preserving each actuation assumption. Propagate shape-gravity and contact uncertainty through takeoff, ballistic flight, and landing; track attitudes and available wheel momentum. Choose actions that trade scientific viewpoint gain against predicted landing failure and escape, and flag out-of-distribution terrain. Validate simple ballistic/contact limits before adding a granular model. The 2026 reaction-wheel hopper preprint offers a simulation comparator under lunar gravity, not proof of asteroid performance; reproduce its assumptions separately before transferring a control idea.
+
+**Operating envelope:** Earth bench tests cannot directly reproduce sustained asteroid gravity, and lunar simulation results are not automatically valid near an irregular asteroid. Unknown cohesion may dominate contact response.
+
+**Variables and conventions**
+
+- Body-fixed position r in m and velocity in m s^-1; shape-gravity and contact acceleration in m s^-2.
+- Body rotation Omega and robot angular velocity omega in rad s^-1; inertia I in kg m^2; wheel momentum hw in kg m^2 s^-1.
+- Contact impulse J in N s; restitution e and friction coefficient muf dimensionless; contact torque in N m.
+- Probability p_useful is conditional on the declared terrain/contact prior; it is not a flight reliability certificate.
+
+#### Artifact wall
+
+![I09 proposed analysis architecture](../research/I/I09-osiris-regolith-leaper/figures/architecture.svg)
+
+Event-resolved contact and momentum conservation condition science utility; probabilities remain tied to the declared body and terrain prior.
+
+**Scientific result to produce:** Terrain panels showing successful landing density, escape probability, and science viewpoint gain; inset traces show attitude and wheel saturation for representative synthetic hops.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create independent body/robot/actuation and terrain-prior manifests. |
+| 02 | Planned | Implement frame-consistent translation/attitude and event integration. |
+| 03 | Planned | Build passive-contact and angular-momentum fixtures. |
+| 04 | Planned | Add contact-model fidelity only after calibration/domain review. |
+| 05 | Planned | Run uncertainty ensembles and useful-science outcome ledger. |
+| 06 | Planned | Publish held-out terrain failure maps, momentum limits and OOD actions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I08 · VOYAGER FRAMEFORGE](../research/I/I08-voyager-frameforge/README.md) | Julia 1.2 Ephemeris and Gravitational Modeling Development | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I12 · PIONEER PHOBOS PATHFINDER](../research/I/I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+| [I11 · HUBBLE SKYVAULT](../research/I/I11-hubble-skyvault/README.md) | Measurements of the Sky | Session I |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I09-osiris-regolith-leaper/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I09-osiris-regolith-leaper/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I09-osiris-regolith-leaper/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I09-osiris-regolith-leaper/data/README.md) | [Provenance](../research/I/I09-osiris-regolith-leaper/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I09-osiris-regolith-leaper/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I09-osiris-regolith-leaper/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I09-osiris-regolith-leaper/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I09-osiris-regolith-leaper/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I09-osiris-regolith-leaper/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I09-osiris-regolith-leaper/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I09-osiris-regolith-leaper/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2338,7 +3017,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2351,6 +3030,83 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I10-gemini-pointlock/data/README.md) · [Open the figure gallery](../research/I/I10-gemini-pointlock/figures/README.md) · [Download acquisition template](../research/I/I10-gemini-pointlock/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I10-gemini-pointlock/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Spacecraft Attitude Control Implementation and Development | [Scientific objective](../research/I/I10-gemini-pointlock/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I10-gemini-pointlock/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I10-gemini-pointlock/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I10-gemini-pointlock/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/I/I10-gemini-pointlock/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I10-gemini-pointlock/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Identify inertia, friction, encoder bias, and actuator lag using low-energy bench characterization. Fuse gyro and angle measurements with an estimator that propagates bias uncertainty. Compare nominal PD control with a limit-aware controller under identical synthetic and bench maneuvers; include deadband, angular wrap, wheel saturation, and actuator quantization. Specify when momentum exhaustion makes the commanded pointing state infeasible. Run deterministic reset and sensor-dropout replays in the simulator. If extending to three axes, use a unit-norm quaternion state, verify body/inertial convention round trips, and separate wheel momentum management from pointing control. The existing one-axis data cannot substantiate the upgraded model.
+
+**Operating envelope:** A good turntable result does not establish vacuum compatibility, radiation tolerance, on-orbit disturbance rejection, or flight attitude determination. Constant friction approximation may fail around zero rate.
+
+**Variables and conventions**
+
+- Angle theta and wrapped error e in rad; reported pointing error also in degrees with explicit conversion.
+- Body inertia Ib in kg m^2; wheel torque u and external disturbance taud in N m; wheel momentum hw in N m s.
+- Viscous friction b in N m s rad^-1; Kp in N m rad^-1 and Kd in N m s rad^-1; saturation is the measured actuator bound.
+- E_elec is cumulative electrical energy consumed [J], the integral of measured electrical input power P_elec [W] including losses. It is not stored wheel kinetic energy. Settling time in s and angular rate in rad s^-1.
+
+#### Artifact wall
+
+![I10 included scientific diagnostic](../data/figures/13_attitude_phase_and_authority.svg)
+
+Synthetic one-axis PD attitude response and actuator authority. The phase portrait is colored by elapsed model time. Requested torque is reconstructed from the recorded states and sidecar gains; the applied torque is clipped to ±8 mN·m. The right panel focuses on the first 40 seconds, while the phase portrait uses the full 120-second record.
+
+[Exact inputs, transformations and output hashes](../data/figures/13_attitude_phase_and_authority.provenance.json)
+
+**Scientific result to produce:** Angle command and calibrated response above wheel momentum, torque saturation, and uncertainty; polar error plots cover the full tested one-axis range.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Verify/calibrate inertia, encoder/gyro, power and actuator limits. |
+| 02 | Planned | Implement wrap/sign/conservation fixtures. |
+| 03 | Planned | Identify friction/lag with independent low-energy maneuvers. |
+| 04 | Planned | Build bias-aware estimator and nominal/limit-aware controllers. |
+| 05 | Planned | Run deterministic saturation/dropout/reset benchmarks. |
+| 06 | Planned | Publish proposed pointing acceptance, separate energy budgets and three-axis evidence gaps. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E02 · GEMINI HELIX](../research/E/E02-gemini-helix/README.md) | Project Helix | [NASA Small Spacecraft Guidance, Navigation and Control](https://www.nasa.gov/smallsat-institute/sst-soa/guidance-navigation-and-control/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I10-gemini-pointlock/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I10-gemini-pointlock/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I10-gemini-pointlock/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I10-gemini-pointlock/data/README.md) | [Provenance](../research/I/I10-gemini-pointlock/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I10-gemini-pointlock/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I10-gemini-pointlock/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I10-gemini-pointlock/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I10-gemini-pointlock/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I10-gemini-pointlock/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I10-gemini-pointlock/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I10-gemini-pointlock/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2604,7 +3360,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2617,6 +3373,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I11-hubble-skyvault/data/README.md) · [Open the figure gallery](../research/I/I11-hubble-skyvault/figures/README.md) · [Download acquisition template](../research/I/I11-hubble-skyvault/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I11 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I11-hubble-skyvault/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Measurements of the Sky | [Scientific objective](../research/I/I11-hubble-skyvault/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I11-hubble-skyvault/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I11-hubble-skyvault/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I11-hubble-skyvault/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/I/I11-hubble-skyvault/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I11-hubble-skyvault/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Select a stratified archive sample and freeze an exposure manifest with data-quality flags and calibration reference versions. Reprocess each image through approved sky-preserving variants, documenting dark, flat, persistence, scattered-light and masking differences. Estimate the sky with a fixed robust method, then vary masking in a distinct sensitivity analysis. Fit exposure-paired mixed-effects differences so scene brightness cancels while filter and detector interactions remain observable. Compare minimally correlated spatial regions to avoid treating drizzled pixels as independent samples. Use published SKYSURF definitions as the baseline and annotate every departure; report inaccessible products and unsuccessful reprocessing instead of silently dropping them.
+
+**Operating envelope:** Repeatability and pipeline agreement do not prove absolute sky accuracy. Foregrounds and undetected source wings are degenerate with diffuse emission, and archive selection may correlate with viewing geometry.
+
+**Variables and conventions**
+
+- Exposure e and calibration variant k are indices; D and subtracted dark/debias term d in electrons for this schematic detector model.
+- Exposure t in s, pixel solid angle Omega in sr, flat sensitivity f dimensionless; B is electron-rate surface brightness until filter-specific flux conversion is applied.
+- Z, A, G denote zodiacal, other foreground, and Galactic contributions in matching brightness units; Ediffuse is an unconstrained residual comparator.
+- z includes detector position, epoch, filter and viewing geometry; beta and gamma encode calibration effects, not established physical components.
+- Covariance terms are retained because calibration variants reuse the same exposure and masks.
+
+#### Artifact wall
+
+![I11 proposed analysis architecture](../research/I/I11-hubble-skyvault/figures/architecture.svg)
+
+Identical exposure/mask interfaces isolate calibration changes; shared covariance and distinct masking sensitivity prevent overinterpretation of sky residuals.
+
+**Scientific result to produce:** Identical-exposure thumbnails beside a calibration-difference forest plot by filter/epoch and a foreground-geometry map; all units and selection flags are visible.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze stratified HST exposure/reference/quality manifest. |
+| 02 | Planned | Implement explicit sky-preservation ledgers for each branch. |
+| 03 | Planned | Apply one versioned common mask/sky estimator. |
+| 04 | Planned | Build paired covariance and known dark/flat fixtures. |
+| 05 | Planned | Fit supported context interactions with grouped holdouts. |
+| 06 | Planned | Publish all reduction statuses, calibration differences and distinct mask/foreground sensitivities. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C02 · HUBBLE NIGHTFALL LAB](../research/C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | [MAST SKYSURF High-Level Science Products](https://archive.stsci.edu/hlsp/skysurf); [Windhorst et al. (2022), SKYSURF overview](https://arxiv.org/abs/2205.06214) |
+| [C12 · HUBBLE COSMIC GLOW](../research/C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | [MAST SKYSURF High-Level Science Products](https://archive.stsci.edu/hlsp/skysurf) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+| [I12 · PIONEER PHOBOS PATHFINDER](../research/I/I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I |
+| [I09 · OSIRIS REGOLITH LEAPER](../research/I/I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I |
+| [I13 · OSIRIS APOPHIS HORIZON](../research/I/I13-osiris-apophis-horizon/README.md) | A Study of the Deflection of 99942 Apophis from Earth | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I11-hubble-skyvault/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I11-hubble-skyvault/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I11-hubble-skyvault/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I11-hubble-skyvault/data/README.md) | [Provenance](../research/I/I11-hubble-skyvault/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I11-hubble-skyvault/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I11-hubble-skyvault/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I11-hubble-skyvault/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I11-hubble-skyvault/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I11-hubble-skyvault/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I11-hubble-skyvault/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I11-hubble-skyvault/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2857,7 +3689,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2870,6 +3702,83 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I12-pioneer-phobos-pathfinder/data/README.md) · [Open the figure gallery](../research/I/I12-pioneer-phobos-pathfinder/figures/README.md) · [Download acquisition template](../research/I/I12-pioneer-phobos-pathfinder/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I12 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I12-pioneer-phobos-pathfinder/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | [Scientific objective](../research/I/I12-pioneer-phobos-pathfinder/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 5 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I12-pioneer-phobos-pathfinder/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I12-pioneer-phobos-pathfinder/data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/I/I12-pioneer-phobos-pathfinder/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/I/I12-pioneer-phobos-pathfinder/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/I/I12-pioneer-phobos-pathfinder/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Generate reference DRO families and low-orbit boundary conditions using versioned constants. Define a common multiple-shooting or collocation representation and independent feasibility checker. Compare particle-swarm initialization followed by local refinement, deterministic multistart refinement, and a simple coarse-grid baseline under the same propagation budget. Run independent seeds and report feasible-solution frequency, Pareto coverage, and compute cost. Promote selected trajectories into a Mars-Phobos ephemeris model with Mars J2 and a declared Phobos gravity approximation; quantify how much correction the simplified solution requires. Use GMAT or another independently configured mission-analysis tool as a comparator only where its documented model supports the required bodies and forces.
+
+**Operating envelope:** Heuristic methods provide candidate solutions and no global-optimality guarantee. Model promotion can destroy feasibility; unspecified target orbit definitions make cost comparisons meaningless.
+
+**Variables and conventions**
+
+- x,y,z and time are nondimensional rotating-frame coordinates scaled by primary separation a in m and inverse mean motion n^-1 in s.
+- mu=mass_Phobos/(mass_Mars+mass_Phobos); r1/r2 are dimensionless distances to the primaries.
+- Physical velocity scale is a*n in m s^-1; Delta v in m s^-1 after conversion; flight time Tf in s or days with explicit unit labels.
+- CJ is the dimensionless Jacobi constant; target DRO is defined by an actual periodic-orbit family and acceptance tolerance.
+
+#### Artifact wall
+
+![I12 included scientific diagnostic](../data/figures/14_orbit_conservation_and_refinement.svg)
+
+Synthetic two-body conservation and refinement diagnostics from immutable model outputs. Panel A scales relative specific-energy error to parts per million and reports angular-momentum conservation for the stored 400-step-per-period run. Panel B compares three recorded maximum-energy errors with a second-order reference anchored to the coarsest run. This is an integration check, not trajectory prediction validation.
+
+[Exact inputs, transformations and output hashes](../data/figures/14_orbit_conservation_and_refinement.provenance.json)
+
+**Scientific result to produce:** Mars-Phobos rotating-frame candidate trajectories next to Delta-v/time Pareto points, seed distributions, and arrival-error shifts after higher-fidelity promotion.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze Mars/Phobos source constants and scaling/frame contracts. |
+| 02 | Planned | Generate validated DRO family and low-orbit boundary cases. |
+| 03 | Planned | Implement common shooting/collocation plus independent checker. |
+| 04 | Planned | Build counted optimizer adapters and complete run ledger. |
+| 05 | Planned | Run repeated equal-budget baseline/heuristic comparisons. |
+| 06 | Planned | Promote selected candidates with documented ephemeris/J2/gravity forces and publish correction/error distributions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I08 · VOYAGER FRAMEFORGE](../research/I/I08-voyager-frameforge/README.md) | Julia 1.2 Ephemeris and Gravitational Modeling Development | Session I; Included illustration: 07_two_body_convergence; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html); [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I13 · OSIRIS APOPHIS HORIZON](../research/I/I13-osiris-apophis-horizon/README.md) | A Study of the Deflection of 99942 Apophis from Earth | Session I; [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I09 · OSIRIS REGOLITH LEAPER](../research/I/I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I; [NASA/JPL NAIF SPICE Tutorials](https://naif.jpl.nasa.gov/naif/tutorials.html) |
+| [I11 · HUBBLE SKYVAULT](../research/I/I11-hubble-skyvault/README.md) | Measurements of the Sky | Session I |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I12-pioneer-phobos-pathfinder/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I12-pioneer-phobos-pathfinder/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I12-pioneer-phobos-pathfinder/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I12-pioneer-phobos-pathfinder/data/README.md) | [Provenance](../research/I/I12-pioneer-phobos-pathfinder/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I12-pioneer-phobos-pathfinder/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I12-pioneer-phobos-pathfinder/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I12-pioneer-phobos-pathfinder/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I12-pioneer-phobos-pathfinder/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I12-pioneer-phobos-pathfinder/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I12-pioneer-phobos-pathfinder/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I12-pioneer-phobos-pathfinder/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3142,7 +4051,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3155,6 +4064,84 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/I/I13-osiris-apophis-horizon/data/README.md) · [Open the figure gallery](../research/I/I13-osiris-apophis-horizon/figures/README.md) · [Download acquisition template](../research/I/I13-osiris-apophis-horizon/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![I13 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/I/I13-osiris-apophis-horizon/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | A Study of the Deflection of 99942 Apophis from Earth | [Scientific objective](../research/I/I13-osiris-apophis-horizon/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 5 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/I/I13-osiris-apophis-horizon/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/I/I13-osiris-apophis-horizon/data/README.md) |
+| Verification queue | 6 proposed requirements; 5 specified cases; project execution evidence pending | [Case definitions](../research/I/I13-osiris-apophis-horizon/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/I/I13-osiris-apophis-horizon/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/I/I13-osiris-apophis-horizon/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Retrieve and freeze a passive reference ephemeris, source metadata, time conventions and force model. Reproduce the unperturbed close-approach geometry before any sensitivity analysis. Propagate synthetic initial-state ensembles through the encounter and compare full nonlinear Monte Carlo distributions with the linear covariance approximation. Compute encounter-plane residuals and show when ellipsoidal uncertainty becomes misleading. In a distinct educational sandbox, apply normalized generic state offsets solely to illustrate sensitivity; do not conflate those cases with current Apophis risk. Compare synthetic optical, radar, and passive spacecraft observation schedules by expected information gain using stated noise models. Present the correct historical-to-current premise prominently in every public visual.
+
+**Operating envelope:** This proposal is not an orbit-determination service, a new hazard assessment, or a physical intervention design. Rare-event probabilities require validated observational covariance and much stronger sampling than a classroom ensemble.
+
+**Variables and conventions**
+
+- State x contains position in m and velocity in m s^-1; time in s with declared TDB/UTC handling.
+- Phi is the state transition matrix with block units consistent with the position/velocity state; covariance P has corresponding mixed units.
+- Process covariance Q represents explicitly justified unmodeled-force uncertainty, not an arbitrary tuning term.
+- b contains encounter-plane coordinates in m; Hb is their Jacobian; EIG is expected information gain in nats.
+- Synthetic perturbations are dimensionless offsets scaled by a declared illustrative uncertainty ellipsoid; no impactor or maneuver parameters are specified.
+
+#### Artifact wall
+
+![I13 included scientific diagnostic](../data/figures/14_orbit_conservation_and_refinement.svg)
+
+Synthetic two-body conservation and refinement diagnostics from immutable model outputs. Panel A scales relative specific-energy error to parts per million and reports angular-momentum conservation for the stored 400-step-per-period run. Panel B compares three recorded maximum-energy errors with a second-order reference anchored to the coarsest run. This is an integration check, not trajectory prediction validation.
+
+[Exact inputs, transformations and output hashes](../data/figures/14_orbit_conservation_and_refinement.provenance.json)
+
+**Scientific result to produce:** An unperturbed encounter trajectory with labeled synthetic uncertainty ensembles, linear-versus-nonlinear comparison, and observation information-gain bars; the nonthreatening premise appears on the figure.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze passive reference, force/time/frame metadata and safe premise. |
+| 02 | Planned | Create sourced/illustrative covariance types and output gates. |
+| 03 | Planned | Implement variational propagation and event-plane derivatives. |
+| 04 | Planned | Build finite-difference and linear-dynamics sensitivity fixtures. |
+| 05 | Planned | Compare nonlinear ensembles over normalized offset scales. |
+| 06 | Planned | Evaluate explicitly hypothetical passive observation information with correlated noise and publish capability/uncertainty limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I12 · PIONEER PHOBOS PATHFINDER](../research/I/I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I; [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I08 · VOYAGER FRAMEFORGE](../research/I/I08-voyager-frameforge/README.md) | Julia 1.2 Ephemeris and Gravitational Modeling Development | Session I; [JPL Horizons System Manual](https://ssd.jpl.nasa.gov/horizons/manual.html) |
+| [I11 · HUBBLE SKYVAULT](../research/I/I11-hubble-skyvault/README.md) | Measurements of the Sky | Session I |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+| [I09 · OSIRIS REGOLITH LEAPER](../research/I/I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | Session I |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/I/I13-osiris-apophis-horizon/README.md#purpose-and-scientific-objective) | [Design boundary](../research/I/I13-osiris-apophis-horizon/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/I/I13-osiris-apophis-horizon/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/I/I13-osiris-apophis-horizon/data/README.md) | [Provenance](../research/I/I13-osiris-apophis-horizon/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/I/I13-osiris-apophis-horizon/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/I/I13-osiris-apophis-horizon/README.md#7-engineering-trade-study) | [Failure modes](../research/I/I13-osiris-apophis-horizon/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/I/I13-osiris-apophis-horizon/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/I/I13-osiris-apophis-horizon/README.md#2-requirements-and-verification-traceability) | [Verification](../research/I/I13-osiris-apophis-horizon/README.md#8-verification-and-validation-cases) → [Implementation](../research/I/I13-osiris-apophis-horizon/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

@@ -4,7 +4,7 @@
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![A10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Reproduce the published bisector approach, then compare centroids and several bisector levels on continuum-normalized spectra. Fit a common orbit plus cycle-specific profile systematics, and test simple positive delay kernels against instantaneous velocities. Preserve full profile residuals to diagnose absorption contamination and colliding-wind effects. Use leave-one-cycle-out prediction to judge whether the model generalizes rather than merely fits dense observations around one event.
+
+**Operating envelope:** H-beta may remain an imperfect tracer even with a delay kernel. Inclination and mass estimates require additional constraints, and irregular cadence or instrument zero points can mimic cycle differences.
+
+**Variables and conventions**
+
+- Period P, eccentricity e, systemic velocity gamma, semi-amplitude K, periastron time T_0, and argument omega.
+- H-beta line bisector depth, profile asymmetry, formation-delay kernel Psi, instrumental zero point, and barycentric correction.
+
+### Artifact wall
+
+![A10 proposed analysis architecture](figures/architecture.svg)
+
+Separate profile estimators compare to an orbit filtered through a causal wind model. Time conventions and nuisance offsets are explicit; line-only fits do not establish inclination or stellar masses.
+
+**Scientific result to produce:** Phase-folded H-beta trailed spectra, velocity estimators with uncertainty, instantaneous and wind-delayed orbital curves, and residuals by periastron cycle.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create spectra_manifest.csv with time, wavelength and aperture conventions. |
+| 02 | Planned | Implement normalize_and_mask.py preserving profile uncertainty. |
+| 03 | Planned | Build bisector_centroid.py with translated-profile fixtures. |
+| 04 | Planned | Implement kepler_orbit.py and causal_wind_kernel.py. |
+| 05 | Planned | Create joint_cycle_fit.py with instrument-offset priors. |
+| 06 | Planned | Publish leave_cycle_out.ipynb, velocity_covariance.parquet and full profile residuals. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A09 · SPITZER RADIO ORIGINS](../A09-spitzer-radio-origins/README.md) | Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN | Session A |
+| [A11 · OSIRIS SULFUR ARCHIVE](../A11-osiris-sulfur-archive/README.md) | Identification of Thiol Function Groups in GRA 95229 and Murchison | Session A |
+| [A08 · HELIOS PULSE FORGE](../A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+| [A12 · STARDUST ISOTOPE FOUNDRY](../A12-stardust-isotope-foundry/README.md) | Heterogeneous Supernova Production of Ti and Cr Isotopes | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

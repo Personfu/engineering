@@ -4,7 +4,7 @@
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![E07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Glendale Community College (GCC) ASCEND Team | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Specify a common telemetry dictionary and hardware boundary for each module. Infer clock offset and sensor bias from shared calibration periods, then test consistency on withheld trajectory segments. Model redundant science return using a fault tree with common causes rather than a simple component count.
+
+**Operating envelope:** Original GCC telemetry is not supplied. Three modules do not guarantee independent measurements if they share power or calibration bias.
+
+**Variables and conventions**
+
+- z sensor observation; x common environmental state
+- delta_t clock offset s; b calibration bias in measurement units
+- A_j: probability that module j supplies an acceptable record over the specified interval; these closed forms require independent module availability. A common-cause fault tree replaces them when dependence is present.
+
+### Artifact wall
+
+![E07 proposed analysis architecture](figures/architecture.svg)
+
+Science availability is conditioned on record comparability and two surviving acceptable records. A separate dependency branch preserves shared faults; pairwise agreement remains distinct from absolute calibration accuracy.
+
+**Scientific result to produce:** Three-lane timeline showing measured fields, missing data and clock corrections; interface graph shows shared dependencies.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create common_telemetry_schema.json and three native adapters. |
+| 02 | Planned | Build clock_placement_registry.csv and alignment_bias.py. |
+| 03 | Planned | Implement acceptable_record_gate.py with pending science tolerances. |
+| 04 | Planned | Create joint_fault_tree.py and all-survival fixtures. |
+| 05 | Planned | Build withheld_segment_consistency.ipynb using synthetic/available approved records. |
+| 06 | Planned | Publish science_availability.parquet distinguishing two-of-three, one-only and common-fault scenarios. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E08 · GATEWAY POWERBENCH](../E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | Session E; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E02 · GEMINI HELIX](../E02-gemini-helix/README.md) | Project Helix | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [E01 · APOLLO HELIOSCOPE](../E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [D07 · ARES DUAL-WORLD SCOUT](../../D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../../G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../../I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

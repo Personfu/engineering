@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Generate Latin-hypercube scenes spanning sky level, galaxy size and faint-end counts, PSF wings, detector position, and contamination. Propagate Poisson and read noise before applying the same resampling used for observations. Benchmark percentile clipping, ProFound-style masking, robust grid medians, and a preregistered adaptive combination. Fit a bias emulator with uncertainty rather than correcting every image by a point estimate. Keep unseen morphology generators and detector configurations exclusively for testing.
+
+**Operating envelope:** Synthetic truth depends on assumptions about undetected sources and artifacts. Algorithm precision can exceed absolute photometric accuracy; successful simulation recovery is not evidence for a cosmological diffuse component.
+
+**Variables and conventions**
+
+- D in electrons; t in seconds; B and dark current d in electrons s^-1 pixel^-1
+- F_s is source electron-rate image; P is normalized point spread function
+- g_x and g_y in electron-rate per pixel-coordinate unit
+- sigma_R in electrons; covariance is added after resampling
+- b is fractional bias; truth B0 is the designated minimum or reference sky, explicitly defined
+
+### Artifact wall
+
+![C02 proposed analysis architecture](figures/architecture.svg)
+
+Synthetic truth enters before detector sampling; covariance and named sky estimands remain explicit through drizzle and estimator comparison.
+
+**Scientific result to produce:** Estimator fractional bias versus crowding and gradient, with interval coverage and representative inserted-truth images.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Write scene and estimand manifests with explicit detector units. |
+| 02 | Planned | Implement count-conserving source rendering and a component truth ledger. |
+| 03 | Planned | Apply calibrated detector sampling and pinned resampling code. |
+| 04 | Planned | Implement common-mask estimator adapters and diagnostic outputs. |
+| 05 | Planned | Fit a scenario bias emulator with withheld morphology tests. |
+| 06 | Planned | Release small deterministic fixtures, recovery tables and unsupported-domain maps. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C12 · HUBBLE COSMIC GLOW](../C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | Session C; [SKYSURF high-level science products](https://archive.stsci.edu/hlsp/skysurf); [OBrien et al. (2022), SKYSURF-4 methods](https://arxiv.org/abs/2210.08010) |
+| [I11 · HUBBLE SKYVAULT](../../I/I11-hubble-skyvault/README.md) | Measurements of the Sky | [SKYSURF high-level science products](https://archive.stsci.edu/hlsp/skysurf); [Windhorst et al. (2022), SKYSURF overview and methods](https://arxiv.org/abs/2205.06214) |
+| [C01 · APOLLO WINDWATCH](../C01-apollo-windwatch/README.md) | The Characterization of EZ CMa | Session C |
+| [C03 · TAURUS MOLECULE TRAIL](../C03-taurus-molecule-trail/README.md) | HCN Mapping of the Taurus Molecular Cloud | Session C |
+| [C04 · HORIZON TIDAL ECHO](../C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C05 · KEPLER WORLDFORGE](../C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

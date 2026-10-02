@@ -4,7 +4,7 @@
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![D03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 5 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** D03a searches a constrained mass–geometry–atmosphere space using torque equilibrium, stability derivatives, and Monte Carlo descent. D03b uses pressure/velocity time series to distinguish genuine low-frequency bubble modes from drift and sparse-sampling artifacts. Combine only validated aerodynamic response envelopes in the descent model, then test an independent prototype or higher-fidelity simulation. Maintain separate datasets, acceptance gates, and publications for each package.
+
+**Operating envelope:** Matching Reynolds number alone does not match gravity, rotor inertia, density, Mach number, and dynamic similarity. A low-frequency spectral peak does not prove a unique bubble-bursting mechanism.
+
+**Variables and conventions**
+
+- Probe mass m, rotor inertia I_r, descent speed V, rotation Omega, local relative speed U_rel, blade chord c_r, flow angle phi.
+- Atmospheric density/viscosity, gravitational acceleration, deployed geometry, bubble length L_b, Reynolds number, turbulence intensity, and signal duration.
+
+### Artifact wall
+
+![D03 proposed analysis architecture](figures/architecture.svg)
+
+D03a and D03b retain separate physics and acceptance paths. Only a reviewed aerodynamic uncertainty envelope connects them; stationary bubble spectra do not directly establish autorotating-probe performance.
+
+**Scientific result to produce:** Left: descent speed/rotation stability and feasible payload region. Right: bubble time series, spectra, and flow modes. A clearly labeled transferability link shows which aerodynamic statistics enter the probe model.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create D03a/rotor_manifest.yaml and D03b/bubble_manifest.yaml as distinct contracts. |
+| 02 | Planned | Implement blade_element.py, coupled_descent.py and stability_jacobian.py. |
+| 03 | Planned | Build bubble_spectrum.py with Parseval/window fixtures. |
+| 04 | Planned | Implement weighted_pod.py and segmented_stationarity.ipynb. |
+| 05 | Planned | Create transfer_review.json with dimensionless comparisons and covariance mapping. |
+| 06 | Planned | Publish separate descent_candidates.parquet and bubble_modes.parquet; assemble only approved envelopes. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D02 · LANGLEY STALL MEMORY](../D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D04 · GLENN SPHERE STANDARD](../D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D01 · X-59 VORTEX COMMAND](../D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D06 · LANGLEY MACH ATLAS](../D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

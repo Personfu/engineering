@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B27 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Aquatic Data Analysis from Deployable, Autonomous Boat | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Audit boat logs, GPS timestamps, calibration and response times, then align sensor streams and reject unsupported corrections. Design baseline stratified transects and an adaptive alternative using a Gaussian process or robust spatial interpolator. Pair measurements with independent reference samples and depth profiles where permitted. Propagate sensor, position, drift and interpolation errors into maps; retain blank/flagged areas instead of silently filling all water surfaces.
+
+**Operating envelope:** Spatial covariance may change rapidly with inflows, mixing or blooms. Optical/conductivity proxies cannot establish specific contaminants without validated chemistry; repeated trajectories do not supply independent reference truth.
+
+**Variables and conventions**
+
+- Temperature: °C; conductivity: μS/cm with reference temperature stated.
+- DO: mg/L and saturation percent using documented compensation.
+- Position: projected m; dead-time t_dead and response tau_response: s; depth: m.
+- Energy: Wh; uncertainty: parameter-specific physical units.
+
+### Artifact wall
+
+![B27 proposed analysis architecture](figures/architecture.svg)
+
+The diagram makes time, sensor response and depth part of the observation operator and compares routes within simulator constraints. Its maps remain near-surface and time-supported unless independent profiles and chemistry extend the evidence.
+
+**Scientific result to produce:** Display measured tracks/depths, parameter maps and uncertainty; compare adaptive/uniform coverage with independent reference residuals.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create platform/sensor/clock/depth calibration manifests and permitted survey constraints. |
+| 02 | Planned | Implement time-position alignment with offset and GPS covariance. |
+| 03 | Planned | Build first-order/dead-time response diagnostics and qualified correction artifacts. |
+| 04 | Planned | Generate fixed/adaptive equal-budget survey simulations. |
+| 05 | Planned | Fit supported spatial models and independent transect/reference holdout reports. |
+| 06 | Planned | Release depth/time support masks, uncertainty maps and contaminant-interpretation limits. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B26 · HELIOS POWERLOOP — Solar Electrolysis Dispatch](../B26-helios-powerloop-solar-electrolysis-dispatch/README.md) | Electrolytic Application of Load-Managing Photovoltaic System | Session B |
+| [B28 · ASTRA BIOCYCLE — Microalgal Methane and Net Energy](../B28-astra-biocycle-microalgal-methane-and-net-energy/README.md) | Biogas Production from Microalgae following Freeze-Heat Pretreatment | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

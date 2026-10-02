@@ -16,6 +16,12 @@ Event-resolved contact and momentum conservation condition science utility; prob
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Terrain panels showing successful landing density, escape probability, and science viewpoint gain; inset traces show attitude and wheel saturation for representative synthetic hops.

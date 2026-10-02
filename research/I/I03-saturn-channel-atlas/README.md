@@ -4,7 +4,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![I03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Sweep normalized channel families with a conjugate thermal model and a flow-network comparator. Compute pressure losses and local heat-transfer regimes consistently, distinguishing Darcy and Fanning friction-factor conventions. Calibrate uncertainty with inert coupon data where available. Use multiobjective optimization to identify a Pareto front, then quantify ranking reversal under uncertain roughness, contact resistance, and uneven branch flow. Add geometry only when it produces a testable information gain; the atlas emphasizes robust trends, not a supposedly optimal engine channel.
+
+**Operating envelope:** A straight-passage correlation may fail in developing, curved, or strongly heated flow. Surrogate validation does not establish compatibility with cryogenic/reactive fluids, combustion loading, or additive-manufactured material life.
+
+**Variables and conventions**
+
+- Ac in m^2 is channel cross section; Pw and Dh in m are wetted perimeter and hydraulic diameter.
+- Delta p in Pa; length L in m; Darcy friction factor fD and local loss K are dimensionless; density rho in kg m^-3.
+- Volumetric flow Vdot in m^3 s^-1; pump efficiency etap dimensionless; pumping power in W.
+- xi contains dimensionless aspect, curvature, and roughness ratios; starred temperature and pumping power use explicitly documented reference scales.
+- CVaR0.95 is the mean of the hottest 5% of modeled cases; it is a proposed risk metric, not a measured safety limit.
+
+### Artifact wall
+
+![I03 proposed analysis architecture](figures/architecture.svg)
+
+Fair hydraulic budgets and external heat loads feed an uncertainty-aware thermal/Pareto atlas, validated only within noncombusting coupon domains.
+
+**Scientific result to produce:** A wall-temperature versus normalized pumping-power frontier, colored by channel family, with uncertainty ellipses and a separate correlation-validity map.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create normalized family and controlled-budget manifests. |
+| 02 | Planned | Implement typed friction/Nu and property regime service. |
+| 03 | Planned | Build coupled hydraulic/conservative thermal solvers. |
+| 04 | Planned | Generate manufacturing/maldistribution/discrepancy ensembles. |
+| 05 | Planned | Compute uncertain Pareto fronts and tail metric convergence. |
+| 06 | Planned | Release inert coupon holdouts, rank reversals and extrapolation ledger. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [I02 · APOLLO AQUATHERM](../I02-apollo-aquatherm/README.md) | Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Published cooling/transport analysis reference](https://ntrs.nasa.gov/citations/19810012596) |
+| [I01 · SATURN TRANSIENT SHIELD](../I01-saturn-transient-shield/README.md) | Rocket Development Lab Team: The Effects of Equivalence Ratio during shutdown of a rocket engine on hardware longevity | Session I; [NASA cooling technical reference, NTRS 19810012596](https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf); [Published cooling/transport analysis reference](https://ntrs.nasa.gov/citations/19810012596) |
+| [I06 · SATURN LOADPATH](../I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | Session I; [NASA Small Spacecraft Structures, Materials and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [E05 · ORION TRUSS](../../E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | [NASA Small Spacecraft Structures, Materials and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [I04 · ORION SENTINEL CORE](../I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | Session I |
+| [I05 · PIONEER AERODRIFT](../I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Session I |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

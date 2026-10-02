@@ -140,7 +140,7 @@ def exoplanets(root, out):
     period = np.array([float(x["pl_orbper"]) for x in rows])
     radius = np.array([float(x["pl_rade"]) for x in rows])
     methods = Counter(x["discoverymethod"] for x in rows)
-    fig = canvas("Inside the exoplanet catalog", "200 alphabetically selected archive rows  ·  published catalog values  ·  no occurrence inference", "REAL CATALOG SNAPSHOT")
+    fig = canvas("Inside the exoplanet catalog", "200 saved query-ordered rows  ·  published catalog values  ·  no occurrence inference", "REAL CATALOG SNAPSHOT")
     gs = grid(fig, width_ratios=[1.15, 1])
     ax = fig.add_subplot(gs[0, 0]); panel(ax, "A", "Period and radius")
     symbols = ["o", "s", "^", "D", "P"]
@@ -162,11 +162,11 @@ def exoplanets(root, out):
     ax.legend(loc="upper right", bbox_to_anchor=(1, 1.015), ncol=2, fontsize=9.5)
     ax.text(.02, .03, "Period and radius were required by the query.\n193 distinct host names; no quoted error bars.",
             transform=ax.transAxes, fontsize=9, color=MUTED)
-    caption = "Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels."
+    caption = "Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels."
     return save(fig, root, out, "10_catalog_values_and_coverage", caption, "real_public_catalog_snapshot",
                 ["exoplanet_sample.csv", "exoplanet_sample.provenance.json"], ["C05", "C23"],
-                ["Query selection, discovery and follow-up biases; composite values may mix references.", "No per-parameter uncertainties or selection-efficiency correction in the extract."],
-                "Source: NASA Exoplanet Archive  ·  retrieved 02 Oct 2026  ·  alphabetical and detection selection biases apply",
+                ["Saved 200-row query-ordered extract; intended TOP 200 ORDER BY request is preserved in the source sidecar, but global selection ranking is not independently verified.", "Query truncation, discovery and follow-up biases; composite values may mix references.", "No per-parameter uncertainties or selection-efficiency correction in the extract."],
+                "NASA Exoplanet Archive  ·  saved 02 Oct 2026  ·  global selection ranking is not independently verified",
                 {"rows": len(rows), "distinct_host_names": len(set(r["hostname"] for r in rows)), "discovery_method_counts": dict(methods), "available_field_counts": dict(zip(keys, available.tolist()))})
 
 

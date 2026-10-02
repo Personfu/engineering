@@ -16,6 +16,12 @@ Controlled interfaces and loads feed independent structural branches and an inte
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Pareto plot of mass versus first mode plus load-path/keep-out assembly diagram; all CAD geometry is conceptual until ICD-controlled.

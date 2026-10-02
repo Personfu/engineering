@@ -1,10 +1,10 @@
 # SESSION H: PLANETARY SCIENCE
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session H](../assets/sessions/H.svg)
 
-9 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+9 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/H/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -30,7 +30,7 @@
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -43,6 +43,80 @@
 [Explore the data blueprint](../research/H/H01-voyager-storywalk/data/README.md) · [Open the figure gallery](../research/H/H01-voyager-storywalk/figures/README.md) · [Download acquisition template](../research/H/H01-voyager-storywalk/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H01-voyager-storywalk/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | USGS Science Center: Solar System Exhibit Captions | [Scientific objective](../research/H/H01-voyager-storywalk/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H01-voyager-storywalk/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H01-voyager-storywalk/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H01-voyager-storywalk/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H01-voyager-storywalk/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/H/H01-voyager-storywalk/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build an inventory from exhibit photographs and staff records, identifying original products through Photojournal or instrument archives. A visually similar image is insufficient identification: verify scene geometry, crop, mission metadata, and processing. Draft three layers: an approximately 40-word observation, an approximately 100-word explanation, and an optional source-backed exploration. Mark enhanced color, mosaic seams, artistic renderings, and uncertain interpretations. Co-design mobile navigation with visitors using screen readers and people with limited bandwidth; provide readable print or staff-accessible alternatives. Randomize two equally accurate caption formats and score an observation-versus-inference task immediately and after a consented follow-up. Estimate effects with hierarchical logistic regression, retaining nonresponses and uncertainty rather than selecting favorable responses.
+
+**Operating envelope:** One exhibit's audience does not represent all museums. Device ownership, language, motivation, and voluntary participation influence estimates. No individual visitor tracking is needed for the basic caption system.
+
+**Variables and conventions**
+
+- Y is a scored comprehension response; T is randomized caption assignment; Delta is an absolute probability difference.
+- K is a preregistered prior-knowledge score; visitor and day effects represent clustered observations.
+- G is a provenance graph; each image node stores product identifier, mission, acquisition date, processing description, and credit.
+
+#### Artifact wall
+
+![H01 proposed analysis architecture](../research/H/H01-voyager-storywalk/figures/architecture.svg)
+
+The diagram establishes physical-image identity, source-backed captions and separate access channels before visitor evaluation. It provides a reviewable engineering package without claiming an updated exhibit or demonstrated learning benefit.
+
+**Scientific result to produce:** A sample planet image beside observation, inference, scale, and source layers; a separate diagram shows randomized caption evaluation. Proposed outcomes remain unfilled until measured.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build a curator-reviewed exhibit inventory with exact image-product matches. |
+| 02 | Planned | Create claim/source/processing/scale graph schemas and revision rules. |
+| 03 | Planned | Author layered caption artifacts with print and accessible digital specifications. |
+| 04 | Planned | Run provenance and assistive-technology task checks before evaluation. |
+| 05 | Planned | Preregister clustered assignment, scoring rubric and nonresponse analysis. |
+| 06 | Planned | Publish reviewed captions and learning-evidence limitations without claiming prior deployment. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H02 · OSIRIS PHOTONFORGE](../research/H/H02-osiris-photonforge/README.md) | Calibration of Images from the OSIRIS-REx Camera Suite | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H01-voyager-storywalk/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H01-voyager-storywalk/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H01-voyager-storywalk/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H01-voyager-storywalk/data/README.md) | [Provenance](../research/H/H01-voyager-storywalk/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H01-voyager-storywalk/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H01-voyager-storywalk/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H01-voyager-storywalk/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H01-voyager-storywalk/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H01-voyager-storywalk/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H01-voyager-storywalk/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H01-voyager-storywalk/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -276,7 +350,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -289,6 +363,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H02-osiris-photonforge/data/README.md) · [Open the figure gallery](../research/H/H02-osiris-photonforge/figures/README.md) · [Download acquisition template](../research/H/H02-osiris-photonforge/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H02-osiris-photonforge/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Calibration of Images from the OSIRIS-REx Camera Suite | [Scientific objective](../research/H/H02-osiris-photonforge/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H02-osiris-photonforge/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H02-osiris-photonforge/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H02-osiris-photonforge/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H02-osiris-photonforge/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/H/H02-osiris-photonforge/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reconstruct the published processing order using archived calibration files before changing any correction. Derive the smear matrix from the actual frame-transfer sequence rather than using an arbitrary column convolution. Fit timing corrections on dark-sky boundaries or dedicated calibration observations, with camera- and campaign-specific priors. Compare the published correction, fixed physical transfer model, and constrained joint estimator. Propagate shot noise, overscan bias uncertainty, dark-current uncertainty, flat response, and timing through radiance and reflectance products. Use carefully labeled synthetic images spanning sharp limbs, bright boulders, low signal, and saturated regions to obtain exact ground truth, then compare repeat observations at compatible geometry to assess real-image consistency.
+
+**Operating envelope:** Inverse regularization can erase narrow genuine features. Calibration cannot remove illumination-angle differences or point-source aliasing automatically. Improved relative precision does not establish an improved absolute calibration.
+
+**Variables and conventions**
+
+- y and bias b are digital numbers; x is unsmeared scene signal in electrons; g converts electrons to digital numbers.
+- d is dark rate in digital numbers per second; T is detector temperature; t and row-transfer timing tau are seconds.
+- F contains dimensionless flat response; S is a camera-specific transfer operator; W is inverse noise covariance.
+- C_theta describes calibration-parameter uncertainty; radiance conversion is applied after detector correction with documented units.
+
+#### Artifact wall
+
+![H02 proposed analysis architecture](../research/H/H02-osiris-photonforge/figures/architecture.svg)
+
+The diagram binds correction to actual camera acquisition conventions and separates exact synthetic truth from flight consistency. It exposes saturation, timing and regularization limits before any claim of improved radiometry.
+
+**Scientific result to produce:** Synthetic truth, smeared input, baseline correction, proposed correction, and uncertainty-normalized residual panels; flight images appear separately without a truth label.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze raw/calibrated/calibration PDS manifests and camera coordinate conventions. |
+| 02 | Planned | Reproduce published offset/dark/flat/transfer order with unit checks. |
+| 03 | Planned | Implement camera-specific forward transfer matrices and analytic fixtures. |
+| 04 | Planned | Build noiseless/noisy synthetic limb, boulder and low-signal benchmarks. |
+| 05 | Planned | Fit supported fixed/joint alternatives with parameter covariance and profiles. |
+| 06 | Planned | Publish held-out radiance/feature results and absolute-calibration limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H01 · VOYAGER STORYWALK](../research/H/H01-voyager-storywalk/README.md) | USGS Science Center: Solar System Exhibit Captions | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H02-osiris-photonforge/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H02-osiris-photonforge/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H02-osiris-photonforge/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H02-osiris-photonforge/data/README.md) | [Provenance](../research/H/H02-osiris-photonforge/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H02-osiris-photonforge/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H02-osiris-photonforge/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H02-osiris-photonforge/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H02-osiris-photonforge/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H02-osiris-photonforge/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H02-osiris-photonforge/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H02-osiris-photonforge/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -522,7 +671,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -535,6 +684,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H03-artemis-polar-compass/data/README.md) · [Open the figure gallery](../research/H/H03-artemis-polar-compass/figures/README.md) · [Download acquisition template](../research/H/H03-artemis-polar-compass/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H03-artemis-polar-compass/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Magnetic Anomalies in the South Polar Region of the Moon | [Scientific objective](../research/H/H03-artemis-polar-compass/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H03-artemis-polar-compass/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H03-artemis-polar-compass/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H03-artemis-polar-compass/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H03-artemis-polar-compass/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/H/H03-artemis-polar-compass/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Select south-polar Kaguya LMAG passes using instrument flags, ephemerides, altitude, local time, and evidence of quiet external conditions. Compare several quiet-pass definitions instead of accepting a single threshold. Transform vectors into a documented lunar coordinate frame and invert on a polar mesh, testing source depth, spacing, and regularization. Jointly estimate slowly varying external terms with constraints that prevent them absorbing the crustal signal. Map radial and horizontal components at a declared reference altitude and evaluate spatial sensitivity with synthetic anomaly recovery. Compare independent Lunar Prospector passes at matched altitude rather than judging agreement between maps at different heights. Overlay geological boundaries only after the magnetic inversion is frozen.
+
+**Operating envelope:** Source magnetization magnitude, orientation, depth, and lateral extent are nonunique. External currents and sparse low-altitude coverage may dominate some pixels. The commonly cited PDS large-scale 30-km crustal map covers only 65 degrees south to 65 degrees north and cannot supply the polar study area.
+
+**Variables and conventions**
+
+- B is magnetic induction in tesla, reported in nanotesla; r and dipole displacement R are meters; m is dipole moment in ampere square meters.
+- G maps source moments to measured vector components; H a represents smooth external-field nuisance terms per pass.
+- C includes correlated measurement and environmental errors; the resolution matrix R differs from dipole displacement R_j.
+- W_perp: covariance-weighted projection after jointly fitting H a; superscript + denotes the Moore-Penrose pseudoinverse. R_m is source resolution under the declared constraints, not the resolution of a source-only fit.
+
+#### Artifact wall
+
+![H03 proposed analysis architecture](../research/H/H03-artemis-polar-compass/figures/architecture.svg)
+
+The diagram makes external-field nuisance projection part of source estimation and resolution. It supports an altitude-specific polar magnetic atlas with identifiable-mode masks, while excluding unsupported surface shielding and nonpolar-map substitution.
+
+**Scientific result to produce:** Matched-altitude polar maps of field components, posterior spread, sampled orbit tracks, and resolution length; unsampled regions are visibly masked.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze observation-level polar product manifests and quiet-pass alternatives. |
+| 02 | Planned | Implement lunar vector/frame/time and nT-to-T adapters. |
+| 03 | Planned | Construct source/nuisance matrices with correlated covariance and gauge checks. |
+| 04 | Planned | Compute projected singular modes, regularized estimates and R_m kernels. |
+| 05 | Planned | Generate dipole recovery/continuation benchmarks and held-out mission comparisons. |
+| 06 | Planned | Publish altitude-specific fields, resolution masks and nonunique geological interpretations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H02 · OSIRIS PHOTONFORGE](../research/H/H02-osiris-photonforge/README.md) | Calibration of Images from the OSIRIS-REx Camera Suite | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H01 · VOYAGER STORYWALK](../research/H/H01-voyager-storywalk/README.md) | USGS Science Center: Solar System Exhibit Captions | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H03-artemis-polar-compass/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H03-artemis-polar-compass/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H03-artemis-polar-compass/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H03-artemis-polar-compass/data/README.md) | [Provenance](../research/H/H03-artemis-polar-compass/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H03-artemis-polar-compass/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H03-artemis-polar-compass/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H03-artemis-polar-compass/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H03-artemis-polar-compass/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H03-artemis-polar-compass/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H03-artemis-polar-compass/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H03-artemis-polar-compass/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -770,7 +994,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -783,6 +1007,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H04-stardust-carbon-atlas/data/README.md) · [Open the figure gallery](../research/H/H04-stardust-carbon-atlas/figures/README.md) · [Download acquisition template](../research/H/H04-stardust-carbon-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H04-stardust-carbon-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | [Scientific objective](../research/H/H04-stardust-carbon-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H04-stardust-carbon-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H04-stardust-carbon-atlas/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H04-stardust-carbon-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H04-stardust-carbon-atlas/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/H/H04-stardust-carbon-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Begin with non-destructive optical, Raman, and infrared mapping to identify organics, carbonates, and weathering products, documenting laser dose and sample history. Register SEM/EDS mineral maps and targeted NanoSIMS measurements to the same coordinate system. Fit counts with phase-specific instrumental mass-fractionation and detector corrections, explicitly including low-count pixels. Use a hierarchical background-plus-anomaly model to control multiple testing across spatially correlated pixels. Compare carbon isotope distributions across phase boundaries and weathering fronts; where sample allocation permits, seek independent oxygen or hydrogen isotope constraints. Reserve material for confirmation rather than consuming the entire particle during exploratory mapping. Record coatings, adhesives, and preparation residues as potential carbon sources.
+
+**Operating envelope:** A carbon isotope difference alone cannot identify a new parent body or demonstrate biological material. Destructive sampling, beam mixing, terrestrial contamination, and matrix effects can create or mask heterogeneity. The original target's raw maps and sample permissions remain to be obtained.
+
+**Variables and conventions**
+
+- delta is reported in per mil relative to a declared carbon isotope reference; R is an isotope ratio, not a delta value.
+- N denotes secondary-ion counts per pixel; eta is phase-dependent sensitivity; Lambda is expected carbon signal; b is background.
+- q labels candidate carbon-bearing phases; mixing weights use isotope atom inventories rather than unqualified volume fractions.
+
+#### Artifact wall
+
+![H04 proposed analysis architecture](../research/H/H04-stardust-carbon-atlas/figures/architecture.svg)
+
+The diagram binds target identity, preparation and spatial registration to calibrated count inference. It distinguishes isotope heterogeneity from phase-carrier and origin claims, with unavailable TAM19B-7 records retained as explicit gaps.
+
+**Scientific result to produce:** Co-registered morphology, Raman phase, calibrated delta-carbon, count uncertainty, and anomaly-probability maps with beam footprints and weathering boundaries.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Obtain target-specific records and create a custodian-approved allocation/gap register. |
+| 02 | Planned | Build specimen/preparation and correlative-map schemas with coordinate transforms. |
+| 03 | Planned | Implement phase classification and registration covariance artifacts. |
+| 04 | Planned | Create calibrated raw-count isotope models with background/standard provenance. |
+| 05 | Planned | Run spatial heterogeneity and alteration/contamination alternative comparisons. |
+| 06 | Planned | Publish specimen-specific evidence limits and confirmation priorities without new-result claims. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H02 · OSIRIS PHOTONFORGE](../research/H/H02-osiris-photonforge/README.md) | Calibration of Images from the OSIRIS-REx Camera Suite | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H01 · VOYAGER STORYWALK](../research/H/H01-voyager-storywalk/README.md) | USGS Science Center: Solar System Exhibit Captions | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H04-stardust-carbon-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H04-stardust-carbon-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H04-stardust-carbon-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H04-stardust-carbon-atlas/data/README.md) | [Provenance](../research/H/H04-stardust-carbon-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H04-stardust-carbon-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H04-stardust-carbon-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H04-stardust-carbon-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H04-stardust-carbon-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H04-stardust-carbon-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H04-stardust-carbon-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H04-stardust-carbon-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1015,7 +1313,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1028,6 +1326,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H05-terra-seven-generations/data/README.md) · [Open the figure gallery](../research/H/H05-terra-seven-generations/figures/README.md) · [Download acquisition template](../research/H/H05-terra-seven-generations/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H05-terra-seven-generations/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Supporting the Climate Change Department | [Scientific objective](../research/H/H05-terra-seven-generations/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H05-terra-seven-generations/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H05-terra-seven-generations/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H05-terra-seven-generations/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H05-terra-seven-generations/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/H/H05-terra-seven-generations/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Begin with a listening and governance agreement defining the decisions, authorized participants, data ownership, and permitted public outputs. Assemble a source-checked catalog of wildfire and heat actions from ITEP resources and participating communities' approved plans. Calculate locally meaningful heat indicators from station observations and NASA NEX-GDDP-CMIP6 scenarios, using an ensemble and validating historical performance. Combine remotely observed burn or vegetation patterns with locally reviewed exposure information; refrain from converting coarse projections directly into parcel-level risk. Compare actions using community-selected criteria such as reliability, cost, maintenance, cultural compatibility, and access. Stress-test implementation under scenarios for staffing, power outages, funding delay, and climate severity. Facilitate youth/Elder review and document where quantitative metrics fail to represent community priorities.
+
+**Operating envelope:** Probability and consequence estimates may be weakly constrained, making ordinal scenario comparisons more honest than expected monetary losses. A decision aid does not replace Tribal plans, emergency instructions, or community judgment.
+
+**Variables and conventions**
+
+- H and C are heat-exceedance days and maximum run length per year; thresholds are chosen locally with technical support.
+- s indexes climate and implementation scenarios; a indexes feasible actions; h is a hazard event; E denotes exposed assets.
+- V is consequence per exposed asset under each action and scenario; totals use declared commensurate units. Cultural significance is recorded separately unless the community elects a weighting scheme.
+
+#### Artifact wall
+
+![H05 proposed analysis architecture](../research/H/H05-terra-seven-generations/figures/architecture.svg)
+
+The diagram preserves Tribal authority and community climate decisions as the system boundary. It joins supported heat/wildfire evidence with implementation feasibility, without imposing vulnerability rankings, disclosing protected knowledge or substituting planetary context.
+
+**Scientific result to produce:** An accessible action-by-scenario matrix showing robustness, maintenance needs, evidence gaps, and community-defined priorities; sensitive assets remain in approved local materials only.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Establish Tribal listening/governance and youth/Elder review agreements. |
+| 02 | Planned | Create approved action/resource and protected-knowledge access registries. |
+| 03 | Planned | Freeze station/NEX/Earth-observation product versions, units and calendars. |
+| 04 | Planned | Implement historical heat validation and supported hazard/exposure indicators. |
+| 05 | Planned | Build staffing/power/funding/climate action stress tests and ordinal/loss alternatives. |
+| 06 | Planned | Release only Tribal-approved planning artifacts with metric and scenario limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H05-terra-seven-generations/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H05-terra-seven-generations/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H05-terra-seven-generations/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H05-terra-seven-generations/data/README.md) | [Provenance](../research/H/H05-terra-seven-generations/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H05-terra-seven-generations/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H05-terra-seven-generations/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H05-terra-seven-generations/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H05-terra-seven-generations/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H05-terra-seven-generations/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H05-terra-seven-generations/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H05-terra-seven-generations/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1263,7 +1635,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1276,6 +1648,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H06-mars-odyssey-ridgework/data/README.md) · [Open the figure gallery](../research/H/H06-mars-odyssey-ridgework/figures/README.md) · [Download acquisition template](../research/H/H06-mars-odyssey-ridgework/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H06-mars-odyssey-ridgework/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Variability of Martian Wrinkle Ridges | [Scientific objective](../research/H/H06-mars-odyssey-ridgework/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H06-mars-odyssey-ridgework/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H06-mars-odyssey-ridgework/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H06-mars-odyssey-ridgework/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H06-mars-odyssey-ridgework/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/H/H06-mars-odyssey-ridgework/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Select complete ridges with documented topographic coverage, then establish a centerline and extract many perpendicular profiles at spacing compatible with DTM resolution. Record height, width, asymmetry, crest separation, local slope, and uncertainty. Benchmark the original k-means approach with uncertainty-aware mixture clustering and bootstrap stability, retaining continuous morphology rather than forcing three classes. Fit thrust/backthrust and trishear forward models, allowing along-strike changes through a hierarchical prior. Use geologically motivated bounds that are stated before fitting. Examine whether inferred discontinuities align with mapped intersections or stratigraphic changes, and compare alternative regional detrending and erosion treatments. Reserve entire ridges or long contiguous segments for predictive tests to prevent neighboring profiles leaking into train and test sets.
+
+**Operating envelope:** Surface shape alone rarely constrains deep detachment depth uniquely. Model-derived shortening cannot become a global thermal-contraction estimate without representative sampling, age constraints, and uncertainty in nontectonic relief.
+
+**Variables and conventions**
+
+- z and cross-ridge coordinate x are meters; s is along-strike distance; j denotes a profile.
+- theta contains fault dip, depth, slip, and layering parameters in declared units; M labels thrust, backthrust, or trishear model families.
+- C_z includes correlated DTM uncertainty and detrending uncertainty; ell is the physical along-strike correlation length.
+
+#### Artifact wall
+
+![H06 proposed analysis architecture](../research/H/H06-mars-odyssey-ridgework/figures/architecture.svg)
+
+The diagram ties profile geometry and correlated terrain error to distinct fault-model families. Continuous morphology and whole-ridge validation remain separate from nonunique deep architecture and unsupported global contraction estimates.
+
+**Scientific result to produce:** Along-strike curtain of measured profiles above competing fault cross-sections, with cluster probabilities and credible intervals; inferred faults use dashed lines.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze actual terrain coverage and regional ridge/stratigraphic inventories. |
+| 02 | Planned | Implement centerline-normal extraction and datum/background ensembles. |
+| 03 | Planned | Build continuous morphometric and bootstrap-cluster artifacts. |
+| 04 | Planned | Implement separately documented elastic and trishear forward families. |
+| 05 | Planned | Fit covariance-aware along-strike models and ridge/segment holdouts. |
+| 06 | Planned | Release morphology/fault-family evidence with depth, erosion and contraction limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../research/H/H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Session H; [HiRISE Digital Terrain Models](https://hirise.lpl.arizona.edu/dtm/) |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H08 · GENESIS RIM CHRONICLE](../research/H/H08-genesis-rim-chronicle/README.md) | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H06-mars-odyssey-ridgework/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H06-mars-odyssey-ridgework/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H06-mars-odyssey-ridgework/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H06-mars-odyssey-ridgework/data/README.md) | [Provenance](../research/H/H06-mars-odyssey-ridgework/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H06-mars-odyssey-ridgework/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H06-mars-odyssey-ridgework/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H06-mars-odyssey-ridgework/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H06-mars-odyssey-ridgework/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H06-mars-odyssey-ridgework/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H06-mars-odyssey-ridgework/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H06-mars-odyssey-ridgework/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1521,7 +1967,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1534,6 +1980,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H07-kepler-co-echo/data/README.md) · [Open the figure gallery](../research/H/H07-kepler-co-echo/figures/README.md) · [Download acquisition template](../research/H/H07-kepler-co-echo/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H07-kepler-co-echo/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Increasing CO Gas Detections in Protoplanetary Disks | [Scientific objective](../research/H/H07-kepler-co-echo/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H07-kepler-co-echo/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H07-kepler-co-echo/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H07-kepler-co-echo/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H07-kepler-co-echo/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/H/H07-kepler-co-echo/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Select a frozen archive sample including all eligible nondetections, not only promising cubes. Reproduce imaging and continuum subtraction with recorded CASA settings, spectral frames, weighting, and beam parameters. Align annular spectra using disk geometry, then compare aperture sums, annular stacks, and covariance-aware matched filters. Estimate null distributions from spatial offsets, line-free channels, and sign-preserving transformations that retain noise correlations. Account for every searched radius, velocity, isotopologue, and geometry in the detection procedure. Inject weak model disks into representative calibrated data before imaging when practical, spanning temperature, emitting height, size, and line-width assumptions. Report completeness and upper limits alongside detections. Use radiative-transfer and chemical model grids only as an explicitly assumption-dependent second stage.
+
+**Operating envelope:** CO freeze-out, photodissociation, chemical depletion, optical depth, and isotope-selective effects break a simple CO-flux-to-gas-mass conversion. Stacking can hide spatial contamination; an apparent aligned line still requires cube-level inspection.
+
+**Variables and conventions**
+
+- r is disk-plane radius in meters, M_star in kilograms, inclination i and azimuth phi in radians; velocities are reported in kilometers per second.
+- I and normalized stack S are in janskys per beam; weights account for primary-beam response and covariance rather than assuming every pixel is independent.
+- F_line is aperture flux in jansky kilometers per second after pixel/beam solid-angle conversion; A is the defined aperture. The normalized stack supports detection, not an automatic total-flux claim.
+- t is a line template and C the measured noise covariance; pixel and beam solid angles use matching units.
+
+#### Artifact wall
+
+![H07 proposed analysis architecture](../research/H/H07-kepler-co-echo/figures/architecture.svg)
+
+The diagram separates rotation-aligned detection from beam-corrected aperture flux and accounts for correlated noise and every search trial. It supports faint-line recovery without treating detections as direct total-gas-mass measurements.
+
+**Scientific result to produce:** Channel-map velocity tracks, unaligned versus aligned spectra, empirical null distribution, and injected-flux recovery curves; measured and simulated panels remain distinct.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze eligible target/product and CASA imaging manifests with nondetections. |
+| 02 | Planned | Implement spectral-frame, disk-coordinate and beam-area adapters. |
+| 03 | Planned | Reproduce aperture sums before rotation-aligned extraction. |
+| 04 | Planned | Build covariance estimators and complete search/null ledgers. |
+| 05 | Planned | Run synthetic disk injections and target holdouts through the same pipeline. |
+| 06 | Planned | Release significance, completeness, flux/limits and separate mass-inference caveats. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H08 · GENESIS RIM CHRONICLE](../research/H/H08-genesis-rim-chronicle/README.md) | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../research/H/H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H07-kepler-co-echo/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H07-kepler-co-echo/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H07-kepler-co-echo/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H07-kepler-co-echo/data/README.md) | [Provenance](../research/H/H07-kepler-co-echo/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H07-kepler-co-echo/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H07-kepler-co-echo/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H07-kepler-co-echo/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H07-kepler-co-echo/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H07-kepler-co-echo/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H07-kepler-co-echo/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H07-kepler-co-echo/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1768,7 +2289,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1781,6 +2302,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H08-genesis-rim-chronicle/data/README.md) · [Open the figure gallery](../research/H/H08-genesis-rim-chronicle/figures/README.md) · [Download acquisition template](../research/H/H08-genesis-rim-chronicle/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H08-genesis-rim-chronicle/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | [Scientific objective](../research/H/H08-genesis-rim-chronicle/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H08-genesis-rim-chronicle/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H08-genesis-rim-chronicle/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H08-genesis-rim-chronicle/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/H/H08-genesis-rim-chronicle/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/H/H08-genesis-rim-chronicle/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Assemble curator-approved sections spanning independently characterized alteration and heating. Image with standardized backscattered-electron contrast and elemental mapping, recording weathering and preparation artifacts. Two analysts annotate chondrule boundaries, rim intervals, matrix contacts, and fabric blindly to sample alteration labels. Use three-dimensional tomography only where its spatial resolution can resolve the rims; otherwise simulate random sections through plausible geometries. Estimate thickness distributions, perimeter-normalized rim volumes, porosity proxies, and preferred orientation. Fit a hierarchical relationship with measurement error and left-censoring for unresolved thin rims. Compare nebular accretion followed by compaction, parent-body growth, and mixed mechanisms through posterior predictive tests. Couple porous-aggregate simulations to observed distributions as a mechanism check rather than tuning all disk parameters until any outcome fits.
+
+**Operating envelope:** Present-day porosity differs from initial porosity, and mineral replacement can obscure original dust. Strong size-thickness correlation is compatible with several histories; chemical zoning, cross-cutting relations, and fabric add necessary evidence.
+
+**Variables and conventions**
+
+- m is kilograms; radii and rim thickness t_r are meters; rho_d is nebular dust mass density and rho_s solid-grain density in kilograms per cubic meter.
+- Delta v is relative speed in meters per second, sticking efficiency epsilon and porosity phi are dimensionless.
+- A is an independently measured alteration indicator; sample and section effects account for nested, nonindependent observations.
+
+#### Artifact wall
+
+![H08 proposed analysis architecture](../research/H/H08-genesis-rim-chronicle/figures/architecture.svg)
+
+The diagram links real section conventions and uncertain rim boundaries to mass-conserving accretion/modification models. It distinguishes present morphology from initial porosity and supports competing histories rather than one unmodified origin.
+
+**Scientific result to produce:** Annotated chondrule sections, three-dimensional sectioning bias demonstration, size-thickness distributions by alteration, and a sequential accretion/overprint hypothesis diagram.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze curator/section and primary appendix measurement manifests. |
+| 02 | Planned | Define dual-annotation boundaries, censor limits and alteration metadata. |
+| 03 | Planned | Implement shell-mass and random-section geometry calculators. |
+| 04 | Planned | Build nested censored size-thickness models with full specimen folds. |
+| 05 | Planned | Compare accretion/compaction/mixed forward scenarios against reserved fabric and geometry. |
+| 06 | Planned | Release rim-distribution and origin-compatibility artifacts with initial-state uncertainty. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+| [H09 · PERSEVERANCE LAKE ARCHIVE](../research/H/H09-perseverance-lake-archive/README.md) | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../research/H/H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H08-genesis-rim-chronicle/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H08-genesis-rim-chronicle/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H08-genesis-rim-chronicle/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H08-genesis-rim-chronicle/data/README.md) | [Provenance](../research/H/H08-genesis-rim-chronicle/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H08-genesis-rim-chronicle/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H08-genesis-rim-chronicle/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H08-genesis-rim-chronicle/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H08-genesis-rim-chronicle/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H08-genesis-rim-chronicle/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H08-genesis-rim-chronicle/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H08-genesis-rim-chronicle/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2014,7 +2609,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2027,6 +2622,84 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/H/H09-perseverance-lake-archive/data/README.md) · [Open the figure gallery](../research/H/H09-perseverance-lake-archive/figures/README.md) · [Download acquisition template](../research/H/H09-perseverance-lake-archive/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![H09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/H/H09-perseverance-lake-archive/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars | [Scientific objective](../research/H/H09-perseverance-lake-archive/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/H/H09-perseverance-lake-archive/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/H/H09-perseverance-lake-archive/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/H/H09-perseverance-lake-archive/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/H/H09-perseverance-lake-archive/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/H/H09-perseverance-lake-archive/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Define a basin-selection rubric that records evidence for lacustrine deposition and includes comparison units with uncertain or nonlacustrine histories. Start with Terby and identify actual CRISM target products and morphology coverage before assigning mineral trends. Use map-projected targeted products with quality masks, then compare repeat observations and alternative continuum choices. Map diagnostic mineral features conservatively; fit probabilistic radiative-transfer models to estimate sets of acceptable compositions and effective grain sizes. Build laboratory-mixture tests spanning candidate clays, mafic minerals, carbonates, and dust with known particle distributions. Degrade those spectra to CRISM sampling and noise to measure identifiability. Register spectral, thermal, and imagery products at their true spatial resolutions and aggregate to common footprints. Compare predicted trends along mapped depositional transects and across stratigraphic units with full-basin holdouts.
+
+**Operating envelope:** Spectral non-detection does not prove mineral absence. Surface dust can conceal underlying sediment, and compositional/grain-size tradeoffs can be large. Neither clay nor carbonate detection alone establishes an ancient lake or habitability.
+
+**Variables and conventions**
+
+- r is dimensionless reflectance; f is mineral fraction under a stated mixing convention; a is effective optical grain size in micrometers.
+- i, e, and g are incidence, emission, and phase angles; theta includes roughness, porosity, and scattering parameters.
+- Thermal inertia I_th has units joules per square meter per kelvin per square-root second; k is conductivity, rho density, c heat capacity.
+- BD is continuum-normalized band depth; T denotes thermal observations, and M competing transport/alteration scenarios.
+- p(M): declared prior probability of each competing model or scenario; report sensitivity to prior choices.
+
+#### Artifact wall
+
+![H09 included scientific diagnostic](../data/figures/15_spectral_information_and_noise.svg)
+
+Synthetic spectral-mixture estimator distributions under the same known band-noise level. Separated endmembers give narrow noise-driven fraction estimates; near-identical endmembers give a broad unconstrained distribution with unphysical values preserved as an identifiability diagnostic. Central 95% noise-realization intervals are descriptive simulation intervals, not posteriors or uncertainty bounds for measured Mars mineral abundance.
+
+[Exact inputs, transformations and output hashes](../data/figures/15_spectral_information_and_noise.provenance.json)
+
+**Scientific result to produce:** Terby geomorphology with spectral footprints, diagnostic-band maps, grain-size/composition ambiguity plots, and model predictions along depositional transects; inferred lake histories are labeled.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze basin-selection, lacustrine-evidence and actual product coverage manifests. |
+| 02 | Planned | Implement wavelength/geometry/artifact and native-footprint registration adapters. |
+| 03 | Planned | Create conservative band maps with continuum covariance. |
+| 04 | Planned | Build versioned mixing/transport/alteration model priors and laboratory-degraded fixtures. |
+| 05 | Planned | Fit joint composition/size/thermal posteriors and full-basin holdouts. |
+| 06 | Planned | Release feature, effective-size and geological-scenario products with model-averaged uncertainty. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C08 · MARS NILI SPECTRAL VAULT](../research/C/C08-mars-nili-spectral-vault/README.md) | Laboratory Analysis of olivine-carbonate mixtures as observed on Mars | Included illustration: 08_spectral_identifiability; [PDS CRISM mission archive](https://pds-geosciences.wustl.edu/missions/mro/crism.htm) |
+| [H06 · MARS ODYSSEY RIDGEWORK](../research/H/H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H; [HiRISE DTM archive](https://hirise.lpl.arizona.edu/dtm/) |
+| [H08 · GENESIS RIM CHRONICLE](../research/H/H08-genesis-rim-chronicle/README.md) | Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites | Session H |
+| [H07 · KEPLER CO ECHO](../research/H/H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H04 · STARDUST CARBON ATLAS](../research/H/H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/H/H09-perseverance-lake-archive/README.md#purpose-and-scientific-objective) | [Design boundary](../research/H/H09-perseverance-lake-archive/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/H/H09-perseverance-lake-archive/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/H/H09-perseverance-lake-archive/data/README.md) | [Provenance](../research/H/H09-perseverance-lake-archive/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/H/H09-perseverance-lake-archive/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/H/H09-perseverance-lake-archive/README.md#7-engineering-trade-study) | [Failure modes](../research/H/H09-perseverance-lake-archive/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/H/H09-perseverance-lake-archive/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/H/H09-perseverance-lake-archive/README.md#2-requirements-and-verification-traceability) | [Verification](../research/H/H09-perseverance-lake-archive/README.md#8-verification-and-validation-cases) → [Implementation](../research/H/H09-perseverance-lake-archive/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

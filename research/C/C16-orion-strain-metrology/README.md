@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C16 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Gravitational Wave Calibration Error for Supernovae Core Collapse | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Choose supernova waveform families with distinct durations, spectral peaks, and polarizations. Draw smooth calibration functions consistent with published magnitude/phase uncertainty products and plausible correlation lengths when covariance is unavailable. Inject calibrated signals into real noise, then analyze with ignored, fixed-shift, and marginalized calibration models. Quantify network coherence and parameter bias across distance, detector configuration, and sky location. Repeat for alternate strain releases only when documentation explains their differences. Preserve the calibrated frequency limits and apply time-domain filters consistently to data and signals.
+
+**Operating envelope:** Public envelope products may not uniquely specify the underlying calibration posterior. Low-frequency memory analyses are especially sensitive to the observation operator; results outside the stated calibrated band cannot be treated as measured sensitivity.
+
+**Variables and conventions**
+
+- deltaA dimensionless fractional amplitude error; deltaPhi in radians
+- Frequency f in Hz; detector strain dimensionless; PSD in Hz^-1
+- Calibration functions modeled by spline or Gaussian-process coefficients with supplied correlation assumptions
+- M is normalized mismatch in the declared detector band
+- theta includes signal amplitude, time, frequency-track, sky, and polarization; distance assumptions are separate
+
+### Artifact wall
+
+![C16 proposed analysis architecture](figures/architecture.svg)
+
+Matched perturbations drive paired inference; the covariance generator is explicitly an assumption when public products provide only envelopes.
+
+**Scientific result to produce:** Amplitude/phase uncertainty curves with parameter bias and coverage versus signal strength, and separate statistical/model/calibration contributions.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Resolve release-specific calibration uncertainty files and band limits. |
+| 02 | Planned | Implement explicit measured/true transfer conventions. |
+| 03 | Planned | Build smooth coefficient priors and correlation sensitivity grid. |
+| 04 | Planned | Create amplitude/time-delay and exact-linearization fixtures. |
+| 05 | Planned | Run paired injection/inference branches on held-out noise. |
+| 06 | Planned | Publish coefficient provenance, bias/coverage and band-limited mismatch tables. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C11 · ORION CORE INFERENCE](../C11-orion-core-inference/README.md) | Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data | Session C; [CCSN parameter inference study](https://arxiv.org/abs/2201.01397) |
+| [C15 · WEBB PHOTON TRUTH](../C15-webb-photon-truth/README.md) | Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam | Session C |
+| [C17 · GEMINI DISK SENTINEL](../C17-gemini-disk-sentinel/README.md) | Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager | Session C |
+| [C14 · ROMAN DARKHOLE ACADEMY](../C14-roman-darkhole-academy/README.md) | Controlling the Unseen: GIG Undergraduate Optical Research | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+| [C13 · HORIZON RING ATLAS](../C13-horizon-ring-atlas/README.md) | Characterizing the Images of Black Hole Shadows | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

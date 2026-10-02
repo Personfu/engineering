@@ -4,7 +4,7 @@
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![D07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Create separate Earth and Mars concept-of-operations diagrams with science traceability. Model sensing geometry and trajectory envelopes using public environmental information and documented aerodynamic data. Compare fixed-wing, rotorcraft, and passive descent only at concept level, including packaging/deployment and communications uncertainty. Use Monte Carlo mission outcomes to estimate usable science return and identify architecture features that are common versus environment-specific.
+
+**Operating envelope:** ARES was a mission concept, not a flown Mars airplane. Concept trade scores depend on requirements and assumptions, and local test flights do not establish entry/deployment or Mars thermal qualification.
+
+**Variables and conventions**
+
+- Vehicle mass, wing/rotor dimensions, lift/drag model, local atmosphere, gravity, flight/trajectory duration, and scientific footprint.
+- Sensor resolution, calibration, pointing, onboard processing, communications availability, deployment success, and data-return probability.
+
+### Artifact wall
+
+![D07 proposed analysis architecture](figures/architecture.svg)
+
+Environment-specific trajectory and sensing branches feed a dependent data-return model. The diagram separates concept delivery assumptions from usable science and does not transfer Earth validation into Mars qualification.
+
+**Scientific result to produce:** Separate Earth and Mars mission timelines show delivery and aerial sensing phases; a mass–energy–science-return Pareto plot displays uncertainty and shared interface opportunities.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create earth_conops.yaml and mars_conops.yaml separately. |
+| 02 | Planned | Build science_traceability.csv and authorized-observation constraints. |
+| 03 | Planned | Implement environment_adapter.py and aerodynamic_domain_checker.py. |
+| 04 | Planned | Create sensor_footprint.py with GSD/blur fixtures. |
+| 05 | Planned | Build subsystem_energy.py and dependent_return_tree.py. |
+| 06 | Planned | Publish mission_pareto.ipynb and concept_results.parquet with TBD probabilities and delivery-interface gates. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E07 · DISCOVERY TRIDENT](../../E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E08 · GATEWAY POWERBENCH](../../E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../../G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../../I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I06 · SATURN LOADPATH](../../I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I10 · GEMINI POINTLOCK](../../I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

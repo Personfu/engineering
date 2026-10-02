@@ -2,7 +2,7 @@
 
 **Inspect what was checked, how it was checked, and where the claim stops.**
 
-Start with the [release verification record](RELEASE_VERIFICATION.md). It distinguishes executed documentation/software checks from the 434 specified project cases and pending empirical validation. Earlier revision records remain available here as dated evidence.
+Start with the [detailed mission-profile verification](MISSION_PROFILE_VERIFICATION.md), [visual assembly verification](VISUAL_REVISION_VERIFICATION.md) and [release verification record](RELEASE_VERIFICATION.md). They distinguish executed documentation/software checks from the 434 specified project cases and pending empirical validation. Earlier revision records remain available here as dated evidence.
 
 | Evidence | Open |
 | --- | --- |

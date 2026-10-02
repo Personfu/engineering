@@ -2,7 +2,9 @@
 
 **117 complete engineering records · nine sessions · every supplied idea in A–I order.**
 
-Choose a session below. Each project opens as a self-contained folder with its engineering record, field guide, acquisition contract and editable technical figures.
+Choose a session below. Each project opens as a self-contained mission profile, followed by its complete engineering dossier, field guide, acquisition contract and editable technical figures. Profiles include their scientific identity, model cockpit, artifact wall, planned-work feed, resource connections and reading playlist.
+
+[Mission-control dashboard and detailed directory](../MISSION_CONTROL.md) · [Complete numerical table notebook](../data/TABLES.md) · [Transparent mission connections](../registry/mission_connections.json)
 
 | Session A | Session B | Session C |
 | --- | --- | --- |

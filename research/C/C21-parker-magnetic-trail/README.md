@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C21 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Identification of Switchback Intervals in Parker Space Probe Data | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Retrieve released FIELDS and SWEAP data with quality masks and coordinate definitions. Build a reproducible threshold baseline, then compare changepoint or hidden-state detection using deflection, radial polarity, magnitude stability, and Alfvenic correlation. Create blinded expert labels across quiet, current-sheet, and switchback-rich intervals. Match cadence only where statistically justified and retain gap masks. Estimate occurrence rates with exposure time, not total downloaded interval length. Compare encounter and distance statistics using block resampling and selection-aware models; field-line mapping to the Sun remains a separate uncertain interpretation.
+
+**Operating envelope:** Background definition can change event boundaries and counts. Spacecraft motion mixes spatial and temporal variation; intermittent plasma coverage can bias the subset classified as Alfvenic.
+
+**Variables and conventions**
+
+- B and local reference B0 in nT, converted to T for Alfven speed
+- Angular deflection in degrees; z is dimensionless normalized deflection
+- v and Alfven velocity in km s^-1; mass density rho in kg m^-3
+- Event duration in s; heliocentric distance in solar radii or au
+- Plasma velocity and density quality/cadence are kept separate from magnetic-field quality
+
+### Artifact wall
+
+![C21 proposed analysis architecture](figures/architecture.svg)
+
+Magnetic detection and plasma qualification have distinct quality/cadence paths, producing explicit event evidence and usable-time denominators.
+
+**Scientific result to produce:** Linked B-vector, deflection, velocity, and event-probability timelines with gaps, background windows, and encounter-level exposure-normalized rates.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Resolve versioned FIELDS/SWEAP CDF products and quality semantics. |
+| 02 | Planned | Implement coordinate/time/overlap adapters and exposure masks. |
+| 03 | Planned | Build robust B0 plus threshold/hysteresis baseline. |
+| 04 | Planned | Add changepoint and plasma diagnostic branches. |
+| 05 | Planned | Create vector/gap fixtures and blinded encounter labels. |
+| 06 | Planned | Export interval evidence, denominator tables and configuration sensitivity catalogs. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C29 · ACE WIND SHOCK LEDGER](../C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C; [NASA CDAWeb](https://cdaweb.gsfc.nasa.gov/) |
+| [C20 · TRINITY ACCRETION ECHO](../C20-trinity-accretion-echo/README.md) | Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model | Session C |
+| [C22 · HUBBLE GALACTIC EXHALE](../C22-hubble-galactic-exhale/README.md) | Measuring Galactic Wind Frequency and Strength as a Function of Environment | Session C |
+| [C19 · WEBB YOUNG STAR ATMOSPHERES](../C19-webb-young-star-atmospheres/README.md) | Characterizing the Atmospheres of Low Surface Gravity M-dwarfs | Session C |
+| [C23 · KEPLER METAL WORLDS](../C23-kepler-metal-worlds/README.md) | Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity | Session C |
+| [C18 · REIONIZATION OXYGEN BEACON](../C18-reionization-oxygen-beacon/README.md) | Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

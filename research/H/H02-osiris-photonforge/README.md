@@ -4,7 +4,7 @@
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![H02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Calibration of Images from the OSIRIS-REx Camera Suite | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Reconstruct the published processing order using archived calibration files before changing any correction. Derive the smear matrix from the actual frame-transfer sequence rather than using an arbitrary column convolution. Fit timing corrections on dark-sky boundaries or dedicated calibration observations, with camera- and campaign-specific priors. Compare the published correction, fixed physical transfer model, and constrained joint estimator. Propagate shot noise, overscan bias uncertainty, dark-current uncertainty, flat response, and timing through radiance and reflectance products. Use carefully labeled synthetic images spanning sharp limbs, bright boulders, low signal, and saturated regions to obtain exact ground truth, then compare repeat observations at compatible geometry to assess real-image consistency.
+
+**Operating envelope:** Inverse regularization can erase narrow genuine features. Calibration cannot remove illumination-angle differences or point-source aliasing automatically. Improved relative precision does not establish an improved absolute calibration.
+
+**Variables and conventions**
+
+- y and bias b are digital numbers; x is unsmeared scene signal in electrons; g converts electrons to digital numbers.
+- d is dark rate in digital numbers per second; T is detector temperature; t and row-transfer timing tau are seconds.
+- F contains dimensionless flat response; S is a camera-specific transfer operator; W is inverse noise covariance.
+- C_theta describes calibration-parameter uncertainty; radiance conversion is applied after detector correction with documented units.
+
+### Artifact wall
+
+![H02 proposed analysis architecture](figures/architecture.svg)
+
+The diagram binds correction to actual camera acquisition conventions and separates exact synthetic truth from flight consistency. It exposes saturation, timing and regularization limits before any claim of improved radiometry.
+
+**Scientific result to produce:** Synthetic truth, smeared input, baseline correction, proposed correction, and uncertainty-normalized residual panels; flight images appear separately without a truth label.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze raw/calibrated/calibration PDS manifests and camera coordinate conventions. |
+| 02 | Planned | Reproduce published offset/dark/flat/transfer order with unit checks. |
+| 03 | Planned | Implement camera-specific forward transfer matrices and analytic fixtures. |
+| 04 | Planned | Build noiseless/noisy synthetic limb, boulder and low-signal benchmarks. |
+| 05 | Planned | Fit supported fixed/joint alternatives with parameter covariance and profiles. |
+| 06 | Planned | Publish held-out radiance/feature results and absolute-calibration limitations. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H01 · VOYAGER STORYWALK](../H01-voyager-storywalk/README.md) | USGS Science Center: Solar System Exhibit Captions | Session H |
+| [H03 · ARTEMIS POLAR COMPASS](../H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+| [H04 · STARDUST CARBON ATLAS](../H04-stardust-carbon-atlas/README.md) | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H07 · KEPLER CO ECHO](../H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

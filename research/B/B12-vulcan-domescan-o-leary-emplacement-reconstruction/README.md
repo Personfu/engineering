@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B12 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Digitize authoritative contacts and derive morphometrics from a documented DEM. Add permitted field fabric, jointing and contact observations. Start with analytic volume/runout checks and reduced rheology; add thermal/3D complexity only if observations support it. Fit ensembles, score alternatives against reserved contacts/transects and publish parameter combinations the data cannot distinguish. Propagate DEM, contact-position and erosional uncertainty through reconstruction intervals.
+
+**Operating envelope:** Yield stress, viscosity and extrusion rate trade off. Surface exposure may conceal buried architecture; map/DEM resolution limits uniqueness and precise chronology.
+
+**Variables and conventions**
+
+- ρ: kg/m³; u: m/s; p/τ/yield stress: Pa.
+- K: Pa·s^n; n: dimensionless flow index.
+- θ: extrusion rate, vent geometry, duration and rheology.
+- m: volume, thickness, slope or fabric metrics with stated units.
+
+### Artifact wall
+
+![B12 proposed analysis architecture](figures/architecture.svg)
+
+The diagram separates modern terrain, inferred basal geometry, extrusion physics and post-emplacement alteration. It supports competing emplacement families while exposing the absence of unique rheology, discharge history or absolute chronology.
+
+**Scientific result to produce:** Compare observed profiles/contacts with credible single/multipulse histories and highlight observationally indistinguishable regions.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze map/DEM provenance and a regional stratigraphic crosswalk. |
+| 02 | Planned | Implement basal-surface, contact and morphology extraction notebooks. |
+| 03 | Planned | Build unit-checked constitutive and volume-conservation benchmarks. |
+| 04 | Planned | Generate extrusion/rheology ensembles with erosion operators and invalid-run logs. |
+| 05 | Planned | Profile nonunique parameter combinations and evaluate reserved transects. |
+| 06 | Planned | Publish compatible emplacement families with fidelity and chronology limits. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](../B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md) | Nevada Offsite Management | Session B |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

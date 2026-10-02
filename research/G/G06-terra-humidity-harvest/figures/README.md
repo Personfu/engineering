@@ -16,6 +16,12 @@ Loading and cycle mass feed utilities and a separate downstream-fate boundary. N
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Humidity/loading hysteresis curves, carbon/water Sankey accounting, climate-dependent net-removal map, and a fan/drying energy Pareto plot; unmeasured scale factors are hatched.

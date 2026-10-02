@@ -4,7 +4,7 @@
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![D04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** First apply manufactured solutions and analytic creeping-flow tests to the discretization. Run at least three systematically refined meshes and time steps, with independent domain-size sweeps. Compare integrated forces, wake profiles, and symmetry, then move to unsteady regimes with sampling long enough for stable statistics. Introduce turbulence or transition closures as explicitly separate model choices and maintain identical boundary conditions for cross-solver comparisons.
+
+**Operating envelope:** A sphere benchmark cannot establish general solver validity for arbitrary geometries or compressible reacting flows. At transition and drag crisis, roughness and freestream turbulence can produce strong physical variation.
+
+**Variables and conventions**
+
+- Sphere diameter D, freestream U, density, viscosity, Mach number, mesh scale, time step, and computational-domain extent.
+- Residual, conservation error, wake recirculation length, shedding frequency, wall resolution, and turbulence/transition assumptions.
+
+### Artifact wall
+
+![D04 included scientific diagnostic](../../../data/figures/18_sphere_drag_reference_departure.svg)
+
+Synthetic reference values from the Schiller–Naumann sphere-drag correlation and Stokes creeping-flow asymptote. The percent-departure panel makes the approximation difference explicit, with a descriptive 10% reference crossing computed from the same formula. Neither curve is an observed drag dataset or a CFD solver result; the crossing is not a physical validation tolerance.
+
+[Exact inputs, transformations and output hashes](../../../data/figures/18_sphere_drag_reference_departure.provenance.json)
+
+**Scientific result to produce:** Drag-versus-Reynolds reference and simulation curves sit beside mesh-convergence plots, pressure/viscous decomposition, and wake snapshots; validation regimes are color-coded.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sphere_cases.yaml with matched regimes and boundaries. |
+| 02 | Planned | Build mesh_sequence_manifest.json and independent domain sweeps. |
+| 03 | Planned | Implement traction_integral.py and Stokes fixtures. |
+| 04 | Planned | Create conservation_ledger.py and manufactured_solution.py. |
+| 05 | Planned | Build convergence_report.py with nonasymptotic flags. |
+| 06 | Planned | Publish drag_wake_validation.parquet and uncertainty-separated comparison notebooks. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D02 · LANGLEY STALL MEMORY](../D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D06 · LANGLEY MACH ATLAS](../D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D01 · X-59 VORTEX COMMAND](../D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

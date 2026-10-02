@@ -4,7 +4,7 @@
 
 **Session I:** Aerospace Technology
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![I11 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Measurements of the Sky | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Select a stratified archive sample and freeze an exposure manifest with data-quality flags and calibration reference versions. Reprocess each image through approved sky-preserving variants, documenting dark, flat, persistence, scattered-light and masking differences. Estimate the sky with a fixed robust method, then vary masking in a distinct sensitivity analysis. Fit exposure-paired mixed-effects differences so scene brightness cancels while filter and detector interactions remain observable. Compare minimally correlated spatial regions to avoid treating drizzled pixels as independent samples. Use published SKYSURF definitions as the baseline and annotate every departure; report inaccessible products and unsuccessful reprocessing instead of silently dropping them.
+
+**Operating envelope:** Repeatability and pipeline agreement do not prove absolute sky accuracy. Foregrounds and undetected source wings are degenerate with diffuse emission, and archive selection may correlate with viewing geometry.
+
+**Variables and conventions**
+
+- Exposure e and calibration variant k are indices; D and subtracted dark/debias term d in electrons for this schematic detector model.
+- Exposure t in s, pixel solid angle Omega in sr, flat sensitivity f dimensionless; B is electron-rate surface brightness until filter-specific flux conversion is applied.
+- Z, A, G denote zodiacal, other foreground, and Galactic contributions in matching brightness units; Ediffuse is an unconstrained residual comparator.
+- z includes detector position, epoch, filter and viewing geometry; beta and gamma encode calibration effects, not established physical components.
+- Covariance terms are retained because calibration variants reuse the same exposure and masks.
+
+### Artifact wall
+
+![I11 proposed analysis architecture](figures/architecture.svg)
+
+Identical exposure/mask interfaces isolate calibration changes; shared covariance and distinct masking sensitivity prevent overinterpretation of sky residuals.
+
+**Scientific result to produce:** Identical-exposure thumbnails beside a calibration-difference forest plot by filter/epoch and a foreground-geometry map; all units and selection flags are visible.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze stratified HST exposure/reference/quality manifest. |
+| 02 | Planned | Implement explicit sky-preservation ledgers for each branch. |
+| 03 | Planned | Apply one versioned common mask/sky estimator. |
+| 04 | Planned | Build paired covariance and known dark/flat fixtures. |
+| 05 | Planned | Fit supported context interactions with grouped holdouts. |
+| 06 | Planned | Publish all reduction statuses, calibration differences and distinct mask/foreground sensitivities. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C02 · HUBBLE NIGHTFALL LAB](../../C/C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | [MAST SKYSURF High-Level Science Products](https://archive.stsci.edu/hlsp/skysurf); [Windhorst et al. (2022), SKYSURF overview](https://arxiv.org/abs/2205.06214) |
+| [C12 · HUBBLE COSMIC GLOW](../../C/C12-hubble-cosmic-glow/README.md) | SKYSURF: Measuring the Brightness of the Sky | [MAST SKYSURF High-Level Science Products](https://archive.stsci.edu/hlsp/skysurf) |
+| [I10 · GEMINI POINTLOCK](../I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | Session I |
+| [I12 · PIONEER PHOBOS PATHFINDER](../I12-pioneer-phobos-pathfinder/README.md) | Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits | Session I |
+| [I09 · OSIRIS REGOLITH LEAPER](../I09-osiris-regolith-leaper/README.md) | Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration | Session I |
+| [I13 · OSIRIS APOPHIS HORIZON](../I13-osiris-apophis-horizon/README.md) | A Study of the Deflection of 99942 Apophis from Earth | Session I |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

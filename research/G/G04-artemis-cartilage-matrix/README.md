@@ -4,7 +4,7 @@
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![G04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Photocurable nanocomposites for customizable cartilage replacements | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Compile published material-response ranges and build a region-specific cartilage target envelope. Fit poro-viscoelastic models to supported relaxation data and simulate contact/loading under uncertainty. Explore geometry and parameter tradeoffs with constraints on permeability and strain concentration. Specify nonclinical characterization outputs needed to distinguish mechanical promise from printing/cure artifacts. Plan any physical or biological study only through qualified materials/biomedical investigators.
+
+**Operating envelope:** Long-term wear, integration, inflammation, and patient variability are not established by short laboratory tests. Nanofillers may alter optics, curing, degradation, and cell response in ways a mechanics-only model cannot predict.
+
+**Variables and conventions**
+
+- Solid modulus, Poisson response, hydraulic permeability k, relaxation times tau, filler distribution, and swelling.
+- Construct geometry, loading rate, contact stress, interface strength, wear particles, cure heterogeneity, and manufacturing tolerance.
+- In the Darcy relation, k is intrinsic permeability [m^2], mu_f fluid dynamic viscosity [Pa s], p pressure [Pa], and q Darcy flux [m/s]; hydraulic conductivity is a different coefficient.
+
+### Artifact wall
+
+![G04 proposed analysis architecture](figures/architecture.svg)
+
+Correct intrinsic-permeability transport couples to solid response and a conservation ledger. Region-specific comparison and interface stress remain separate from wear, biological compatibility and clinical approval.
+
+**Scientific result to produce:** Generic cartilage contact model, relaxation curves, permeability–modulus Pareto map, and cure/strain heterogeneity contours; all synthetic curves are labeled simulations.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create region_target_registry.csv with source and loading context. |
+| 02 | Planned | Build biphasic_material.yaml with permeability units and covariance. |
+| 03 | Planned | Implement poroelastic_solver.py and Darcy/closed-domain fixtures. |
+| 04 | Planned | Create relaxation_identifiability.ipynb across rates and dimensions. |
+| 05 | Planned | Build contact_interface.py with spatial material-field scenarios. |
+| 06 | Planned | Publish response_trade.parquet and an evidence-gap matrix for wear/interface/compatibility. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G02 · DEEP SPACE QUIETLINE](../G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G01 · ARTEMIS BONE WATCH](../G01-artemis-bone-watch/README.md) | Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

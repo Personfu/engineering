@@ -1,10 +1,10 @@
 # SESSION F: EDUCATION & PUBLIC OUTREACH
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session F](../assets/sessions/F.svg)
 
-2 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+2 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/F/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -23,7 +23,7 @@
 
 **Session F:** Education & Public Outreach
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -36,6 +36,75 @@
 [Explore the data blueprint](../research/F/F01-apollo-voicelink/data/README.md) · [Open the figure gallery](../research/F/F01-apollo-voicelink/figures/README.md) · [Download acquisition template](../research/F/F01-apollo-voicelink/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![F01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/F/F01-apollo-voicelink/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Communication and Exploration | [Scientific objective](../research/F/F01-apollo-voicelink/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/F/F01-apollo-voicelink/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/F/F01-apollo-voicelink/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/F/F01-apollo-voicelink/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/F/F01-apollo-voicelink/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/F/F01-apollo-voicelink/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Preregister a crossover analog comparison with order effects, task complexity and team clustering. Combine coded interviews with objective ambiguity-resolution events; keep discordant themes and negative cases. Assess whether protocol benefits are shared across groups rather than maximizing an aggregate success metric.
+
+**Operating envelope:** Small crew counts limit inference. Cultural categories are contextual and should not be treated as deterministic participant traits.
+
+**Variables and conventions**
+
+- Delay and resolution time s; success binary with independently defined rubric
+- u_team random team effect; beta coefficients estimated
+- kappa agreement statistic; not a substitute for qualitative interpretation
+
+#### Artifact wall
+
+![F01 proposed analysis architecture](../research/F/F01-apollo-voicelink/figures/architecture.svg)
+
+Objective analog tasks and controlled delays feed independent coding and clustered analysis. Context and negative cases limit generalization; no result is a direct ISS prediction or a ranking of cultures.
+
+**Scientific result to produce:** Paired task outcomes and resolution-time distributions with annotated qualitative themes; no individual performance leaderboard.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create analog_task_rubric.yaml and preregistered_design.json. |
+| 02 | Planned | Build delayed_text_simulator.py with deterministic queue tests. |
+| 03 | Planned | Create consent_access_plan.md and pseudonymous_evidence_schema.json before participant work. |
+| 04 | Planned | Implement codebook_and_agreement.py with undefined cases. |
+| 05 | Planned | Build mixed_effects_success_time.py and censored-time analysis. |
+| 06 | Planned | Publish team_task_holdout.ipynb and a contextual findings template retaining negative cases. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [F02 · DISCOVERY QUILL](../research/F/F02-discovery-quill/README.md) | The Impact and Importance of Science Writing | Session F; [NASA educational outreach evaluation framework](https://ntrs.nasa.gov/citations/20000033841) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/F/F01-apollo-voicelink/README.md#purpose-and-scientific-objective) | [Design boundary](../research/F/F01-apollo-voicelink/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/F/F01-apollo-voicelink/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/F/F01-apollo-voicelink/data/README.md) | [Provenance](../research/F/F01-apollo-voicelink/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/F/F01-apollo-voicelink/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/F/F01-apollo-voicelink/README.md#7-engineering-trade-study) | [Failure modes](../research/F/F01-apollo-voicelink/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/F/F01-apollo-voicelink/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/F/F01-apollo-voicelink/README.md#2-requirements-and-verification-traceability) | [Verification](../research/F/F01-apollo-voicelink/README.md#8-verification-and-validation-cases) → [Implementation](../research/F/F01-apollo-voicelink/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -269,7 +338,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session F:** Education & Public Outreach
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -282,6 +351,75 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/F/F02-discovery-quill/data/README.md) · [Open the figure gallery](../research/F/F02-discovery-quill/figures/README.md) · [Download acquisition template](../research/F/F02-discovery-quill/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![F02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/F/F02-discovery-quill/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Impact and Importance of Science Writing | [Scientific objective](../research/F/F02-discovery-quill/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/F/F02-discovery-quill/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/F/F02-discovery-quill/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/F/F02-discovery-quill/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/F/F02-discovery-quill/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/F/F02-discovery-quill/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build paired articles from the same source claims and obtain blind expert accuracy ratings. Randomize audience exposure, measure immediate and delayed understanding, and assess confidence calibration. Compare across topics and reading contexts; publish failures of appealing prose to improve understanding.
+
+**Operating envelope:** A convenience sample does not represent every audience. Format, reading time and visual complexity must be separated to avoid confounding.
+
+**Variables and conventions**
+
+- Y rubric-scored comprehension; p confidence 0-1; y correctness 0 or 1
+- beta adjusted format effect; reader/topic random effects
+- Delayed interval fixed before recruitment; engagement counts are secondary
+
+#### Artifact wall
+
+![F02 proposed analysis architecture](../research/F/F02-discovery-quill/figures/architecture.svg)
+
+Source-linked claim equivalence and independent factual review precede audience comparison. Retention and probability calibration are separate outcomes, with topic holdout and delayed attrition limiting format claims.
+
+**Scientific result to produce:** Format comparison of delayed comprehension and confidence calibration; source-to-claim map identifies what each sentence supports.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create primary_source_claims.csv and article_claim_graph.json. |
+| 02 | Planned | Draft matched article variants with immutable uncertainty statements. |
+| 03 | Planned | Build blind_expert_accuracy_rubric.yaml and accessibility_burden_review.md. |
+| 04 | Planned | Create consented_assignment_schema.json and preregistered_assessments.yaml. |
+| 05 | Planned | Implement rubric_brier_scoring.py and reader_topic_effects.py. |
+| 06 | Planned | Publish heldout_topic_attrition.ipynb and a findings template reporting negative calibration outcomes. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [F01 · APOLLO VOICELINK](../research/F/F01-apollo-voicelink/README.md) | Communication and Exploration | Session F; [NASA educational outreach evaluation framework](https://ntrs.nasa.gov/citations/20000033841) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/F/F02-discovery-quill/README.md#purpose-and-scientific-objective) | [Design boundary](../research/F/F02-discovery-quill/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/F/F02-discovery-quill/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/F/F02-discovery-quill/data/README.md) | [Provenance](../research/F/F02-discovery-quill/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/F/F02-discovery-quill/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/F/F02-discovery-quill/README.md#7-engineering-trade-study) | [Failure modes](../research/F/F02-discovery-quill/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/F/F02-discovery-quill/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/F/F02-discovery-quill/README.md#2-requirements-and-verification-traceability) | [Verification](../research/F/F02-discovery-quill/README.md#8-verification-and-validation-cases) → [Implementation](../research/F/F02-discovery-quill/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

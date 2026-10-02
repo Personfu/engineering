@@ -1,10 +1,10 @@
 # SESSION G: EXPLORATION SYSTEMS ENGINEERING
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session G](../assets/sessions/G.svg)
 
-8 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+8 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/G/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -29,7 +29,7 @@
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -42,6 +42,79 @@
 [Explore the data blueprint](../research/G/G01-artemis-bone-watch/data/README.md) · [Open the figure gallery](../research/G/G01-artemis-bone-watch/figures/README.md) · [Download acquisition template](../research/G/G01-artemis-bone-watch/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G01-artemis-bone-watch/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring | [Scientific objective](../research/G/G01-artemis-bone-watch/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G01-artemis-bone-watch/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G01-artemis-bone-watch/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G01-artemis-bone-watch/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G01-artemis-bone-watch/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G01-artemis-bone-watch/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a calibration and forward-error model on synthetic structures or archived load/strain data. Compare candidate modalities under identical mechanical/thermal variation and use independent optical or mechanical references. Fit attachment transfer and temperature coefficients separately from load-induced strain. Use leave-one-specimen-out validation and test whether fusion gains survive geometry, orientation, and material variation. Report measurement accuracy without converting it into fracture-healing or treatment advice.
+
+**Operating envelope:** Synthetic femur and ex vivo data do not establish in vivo biocompatibility, infection risk, long-term drift, or clinical utility. Regularization can make estimates look smooth while hiding missing spatial information.
+
+**Variables and conventions**
+
+- Local strain tensor, loading direction, force, temperature, sensor orientation, adhesive/attachment transfer, bias, and noise covariance.
+- Specimen geometry, material anisotropy, moisture state, device stiffness, sensor bandwidth, and reference uncertainty.
+
+#### Artifact wall
+
+![G01 proposed analysis architecture](../research/G/G01-artemis-bone-watch/figures/architecture.svg)
+
+Native observations enter a rank-aware inverse with explicit orientation, attachment and temperature pathways. Independent reference holdout tests fusion value; unobservable components and nonclinical limitations remain visible.
+
+**Scientific result to produce:** A generic bone/device schematic shows proposed modalities and orientations; load–strain curves and held-out error distributions expose thermal and attachment uncertainty.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create specimen_sensor_manifest.json with axes and modality identities. |
+| 02 | Planned | Implement strain_projection.py and orientation fixtures. |
+| 03 | Planned | Build native_readout_adapters.py and thermal_transfer.py. |
+| 04 | Planned | Create fusion_inverse.py with rank/resolution diagnostics. |
+| 05 | Planned | Produce leave_specimen_out.ipynb with independent-reference uncertainty. |
+| 06 | Planned | Publish strain_predictions.parquet and configuration-specific limitations, without clinical interpretation. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G02 · DEEP SPACE QUIETLINE](../research/G/G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../research/G/G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../research/G/G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../research/G/G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../research/G/G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G01-artemis-bone-watch/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G01-artemis-bone-watch/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G01-artemis-bone-watch/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G01-artemis-bone-watch/data/README.md) | [Provenance](../research/G/G01-artemis-bone-watch/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G01-artemis-bone-watch/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G01-artemis-bone-watch/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G01-artemis-bone-watch/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G01-artemis-bone-watch/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G01-artemis-bone-watch/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G01-artemis-bone-watch/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G01-artemis-bone-watch/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -276,7 +349,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -289,6 +362,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G02-deep-space-quietline/data/README.md) · [Open the figure gallery](../research/G/G02-deep-space-quietline/figures/README.md) · [Download acquisition template](../research/G/G02-deep-space-quietline/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G02-deep-space-quietline/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Minimizing Local Electromagnetic Interference Using Adaptive Filters | [Scientific objective](../research/G/G02-deep-space-quietline/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G02-deep-space-quietline/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G02-deep-space-quietline/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G02-deep-space-quietline/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G02-deep-space-quietline/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G02-deep-space-quietline/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Generate controlled mixtures from synthetic science signals and recorded benign interference references. Compare fixed notch, LMS/NLMS, and selected robust alternatives using the same training/test split. Add known calibration tones and scientific transients to quantify amplitude/phase distortion. Adapt only on validated states, freeze or bypass when reference coherence/quality fails, and retain both raw and corrected streams with filter provenance.
+
+**Operating envelope:** Filtered residual power alone does not demonstrate better measurement accuracy. Nonlinear coupling, clipping, and rapidly changing reference paths may invalidate linear adaptive models. Physical emission compliance requires separate EMC measurements.
+
+**Variables and conventions**
+
+- Desired signal s, contamination v, reference vector r, filter length, adaptation step mu, regularizer epsilon, and leakage.
+- Sampling rate, interference drift, coherence, convergence time, residual spectrum, science-feature distortion, and processing latency.
+
+#### Artifact wall
+
+![G02 proposed analysis architecture](../research/G/G02-deep-space-quietline/figures/architecture.svg)
+
+Reference quality governs adaptation before corrected data are scored against known science features. Residual suppression, leakage, clipping and provenance remain separate engineering outcomes.
+
+**Scientific result to produce:** Raw and corrected time series, coherence spectrum, filter adaptation history, and injected-science amplitude/phase errors; physical emissions and data contamination occupy separate lanes.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create stream_schema.json with native units, limits and clock mapping. |
+| 02 | Planned | Implement aligned_ingest.py and reference_quality.py. |
+| 03 | Planned | Build nlms.py with saved coefficient/state logs. |
+| 04 | Planned | Create fault_policy.py for clipping/dropout/leakage fixtures. |
+| 05 | Planned | Implement feature_preservation.py and matched notch baseline. |
+| 06 | Planned | Publish heldout_interference.ipynb, raw/corrected hashes and feature-error tables. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G01 · ARTEMIS BONE WATCH](../research/G/G01-artemis-bone-watch/README.md) | Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../research/G/G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../research/G/G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../research/G/G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../research/G/G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G02-deep-space-quietline/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G02-deep-space-quietline/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G02-deep-space-quietline/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G02-deep-space-quietline/data/README.md) | [Provenance](../research/G/G02-deep-space-quietline/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G02-deep-space-quietline/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G02-deep-space-quietline/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G02-deep-space-quietline/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G02-deep-space-quietline/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G02-deep-space-quietline/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G02-deep-space-quietline/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G02-deep-space-quietline/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -523,7 +669,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -536,6 +682,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G03-deep-space-beam-cartographer/data/README.md) · [Open the figure gallery](../research/G/G03-deep-space-beam-cartographer/figures/README.md) · [Download acquisition template](../research/G/G03-deep-space-beam-cartographer/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G03-deep-space-beam-cartographer/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Measuring Antenna Patterns for Ground Station | [Scientific objective](../research/G/G03-deep-space-beam-cartographer/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G03-deep-space-beam-cartographer/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G03-deep-space-beam-cartographer/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G03-deep-space-beam-cartographer/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G03-deep-space-beam-cartographer/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G03-deep-space-beam-cartographer/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Define required angular coverage and accuracy from the station link budget. Choose a verified far-field range or a near-field scan with adequate extent and sampling. Perform reference-antenna calibration and track cable/receiver drift. Separate antenna-alone patterns from installed-system observations, using reference measurements or justified reflection modeling. Propagate amplitude, phase, range, and pointing errors into beamwidth, sidelobe, gain, and link uncertainty.
+
+**Operating envelope:** Outdoor ground reflections and nearby structures can create patterns unlike free-space results. Limited near-field coverage and missing scan phases restrict angular fidelity; receive gain alone does not determine system G/T.
+
+**Variables and conventions**
+
+- Frequency, wavelength lambda, largest aperture D, range R, azimuth/elevation, co/cross polarization, amplitude, and phase.
+- Cable loss, calibration antenna gain, angular encoder error, reflections, near-field scan extent/spacing, and receiver system temperature.
+
+#### Artifact wall
+
+![G03 proposed analysis architecture](../research/G/G03-deep-space-beam-cartographer/figures/architecture.svg)
+
+Complex near-field and calibrated far-field branches share configuration and chain evidence, then produce supported pattern metrics. G/T remains a separate output requiring qualified noise temperature.
+
+**Scientific result to produce:** 3D co/cross-polarized gain surfaces, principal-plane cuts with uncertainty, and pointing-loss versus angular error; installed and free-space configurations are visibly distinct.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create antenna_configuration.yaml and angular_polarization_schema.json. |
+| 02 | Planned | Build chain_calibration.py with gain/loss covariance. |
+| 03 | Planned | Implement farfield_friis.py and reflection_assessment.ipynb. |
+| 04 | Planned | Build complex_nearfield_transform.py with probe/extent masks. |
+| 05 | Planned | Create pattern_metrics.py and rectangular-aperture fixtures. |
+| 06 | Planned | Publish gain_pattern.parquet and optional gt_report.json only with qualified temperature metadata. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G02 · DEEP SPACE QUIETLINE](../research/G/G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../research/G/G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G01 · ARTEMIS BONE WATCH](../research/G/G01-artemis-bone-watch/README.md) | Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../research/G/G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../research/G/G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G03-deep-space-beam-cartographer/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G03-deep-space-beam-cartographer/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G03-deep-space-beam-cartographer/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G03-deep-space-beam-cartographer/data/README.md) | [Provenance](../research/G/G03-deep-space-beam-cartographer/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G03-deep-space-beam-cartographer/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G03-deep-space-beam-cartographer/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G03-deep-space-beam-cartographer/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G03-deep-space-beam-cartographer/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G03-deep-space-beam-cartographer/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G03-deep-space-beam-cartographer/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G03-deep-space-beam-cartographer/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -770,7 +989,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -783,6 +1002,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G04-artemis-cartilage-matrix/data/README.md) · [Open the figure gallery](../research/G/G04-artemis-cartilage-matrix/figures/README.md) · [Download acquisition template](../research/G/G04-artemis-cartilage-matrix/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G04-artemis-cartilage-matrix/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Photocurable nanocomposites for customizable cartilage replacements | [Scientific objective](../research/G/G04-artemis-cartilage-matrix/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G04-artemis-cartilage-matrix/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G04-artemis-cartilage-matrix/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G04-artemis-cartilage-matrix/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G04-artemis-cartilage-matrix/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G04-artemis-cartilage-matrix/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Compile published material-response ranges and build a region-specific cartilage target envelope. Fit poro-viscoelastic models to supported relaxation data and simulate contact/loading under uncertainty. Explore geometry and parameter tradeoffs with constraints on permeability and strain concentration. Specify nonclinical characterization outputs needed to distinguish mechanical promise from printing/cure artifacts. Plan any physical or biological study only through qualified materials/biomedical investigators.
+
+**Operating envelope:** Long-term wear, integration, inflammation, and patient variability are not established by short laboratory tests. Nanofillers may alter optics, curing, degradation, and cell response in ways a mechanics-only model cannot predict.
+
+**Variables and conventions**
+
+- Solid modulus, Poisson response, hydraulic permeability k, relaxation times tau, filler distribution, and swelling.
+- Construct geometry, loading rate, contact stress, interface strength, wear particles, cure heterogeneity, and manufacturing tolerance.
+- In the Darcy relation, k is intrinsic permeability [m^2], mu_f fluid dynamic viscosity [Pa s], p pressure [Pa], and q Darcy flux [m/s]; hydraulic conductivity is a different coefficient.
+
+#### Artifact wall
+
+![G04 proposed analysis architecture](../research/G/G04-artemis-cartilage-matrix/figures/architecture.svg)
+
+Correct intrinsic-permeability transport couples to solid response and a conservation ledger. Region-specific comparison and interface stress remain separate from wear, biological compatibility and clinical approval.
+
+**Scientific result to produce:** Generic cartilage contact model, relaxation curves, permeability–modulus Pareto map, and cure/strain heterogeneity contours; all synthetic curves are labeled simulations.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create region_target_registry.csv with source and loading context. |
+| 02 | Planned | Build biphasic_material.yaml with permeability units and covariance. |
+| 03 | Planned | Implement poroelastic_solver.py and Darcy/closed-domain fixtures. |
+| 04 | Planned | Create relaxation_identifiability.ipynb across rates and dimensions. |
+| 05 | Planned | Build contact_interface.py with spatial material-field scenarios. |
+| 06 | Planned | Publish response_trade.parquet and an evidence-gap matrix for wear/interface/compatibility. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../research/G/G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../research/G/G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G02 · DEEP SPACE QUIETLINE](../research/G/G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../research/G/G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G01 · ARTEMIS BONE WATCH](../research/G/G01-artemis-bone-watch/README.md) | Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G04-artemis-cartilage-matrix/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G04-artemis-cartilage-matrix/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G04-artemis-cartilage-matrix/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G04-artemis-cartilage-matrix/data/README.md) | [Provenance](../research/G/G04-artemis-cartilage-matrix/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G04-artemis-cartilage-matrix/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G04-artemis-cartilage-matrix/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G04-artemis-cartilage-matrix/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G04-artemis-cartilage-matrix/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G04-artemis-cartilage-matrix/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G04-artemis-cartilage-matrix/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G04-artemis-cartilage-matrix/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1018,7 +1311,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1031,6 +1324,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G05-ares-crew-resource-vault/data/README.md) · [Open the figure gallery](../research/G/G05-ares-crew-resource-vault/figures/README.md) · [Download acquisition template](../research/G/G05-ares-crew-resource-vault/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G05-ares-crew-resource-vault/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Mars In-Situ Resource Utilization for Health Applications | [Scientific objective](../research/G/G05-ares-crew-resource-vault/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G05-ares-crew-resource-vault/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G05-ares-crew-resource-vault/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G05-ares-crew-resource-vault/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G05-ares-crew-resource-vault/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/G/G05-ares-crew-resource-vault/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a crew-demand and resource-flow model with separate extraction, purification/quality assessment, qualified storage, and use interfaces. Use published MOXIE performance as a bounded technology-demonstration baseline and treat scale-up as a proposal. Include Mars dust/perchlorate hazards in the quality evidence matrix. Simulate production outages and quality-rejection events, comparing imported-only, ISRU-assisted, and hybrid reserve architectures.
+
+**Operating envelope:** No site-specific Martian water or regolith composition is established here. Scale-up, continuous operation, trace-contaminant qualification, and integration with crew health systems remain unverified.
+
+**Variables and conventions**
+
+- Qualified oxygen/water production, contaminant concentration/detection limits, purity uncertainty, demand, storage losses, and outage duration.
+- Power, thermal load, consumables, crew time, spare mass, local-resource uncertainty, and independent reserve inventory.
+
+#### Artifact wall
+
+![G05 proposed analysis architecture](../research/G/G05-ares-crew-resource-vault/figures/architecture.svg)
+
+Production and qualified availability are separated by an evidence gate. Imported reserve, coupled outage/rejection and mission-specific equivalence factors remain explicit; human-use quality is not inferred from gross oxygen output.
+
+**Scientific result to produce:** Resource flow from atmosphere/local water to quality assessment, qualified storage, crew use, and rejected stream; outage simulations display reserve risk and imported-mass tradeoffs.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create resource_flow_schema.json and requirement_revision_matrix.csv. |
+| 02 | Planned | Build moxie_baseline_adapter.py with measured versus proposed scale tags. |
+| 03 | Planned | Implement qualified_inventory.py and batch rejection fixtures. |
+| 04 | Planned | Create outage_quality_scenarios.yaml with dependency assumptions. |
+| 05 | Planned | Build reserve_sizing.py and native_resource_trade.py. |
+| 06 | Planned | Publish continuity_ensemble.parquet and conditional_esm.ipynb with unresolved limits/factors. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../research/G/G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../research/G/G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../research/G/G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+| [G02 · DEEP SPACE QUIETLINE](../research/G/G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+| [G08 · ORION HEPATIC RECOVERY](../research/G/G08-orion-hepatic-recovery/README.md) | Mediated Liver Regeneration | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G05-ares-crew-resource-vault/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G05-ares-crew-resource-vault/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G05-ares-crew-resource-vault/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G05-ares-crew-resource-vault/data/README.md) | [Provenance](../research/G/G05-ares-crew-resource-vault/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G05-ares-crew-resource-vault/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G05-ares-crew-resource-vault/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G05-ares-crew-resource-vault/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G05-ares-crew-resource-vault/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G05-ares-crew-resource-vault/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G05-ares-crew-resource-vault/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G05-ares-crew-resource-vault/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1276,7 +1642,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1289,6 +1655,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G06-terra-humidity-harvest/data/README.md) · [Open the figure gallery](../research/G/G06-terra-humidity-harvest/figures/README.md) · [Download acquisition template](../research/G/G06-terra-humidity-harvest/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G06-terra-humidity-harvest/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Direct Air Capture Using Moisture Swing Chemistry | [Scientific objective](../research/G/G06-terra-humidity-harvest/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G06-terra-humidity-harvest/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G06-terra-humidity-harvest/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G06-terra-humidity-harvest/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G06-terra-humidity-harvest/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G06-terra-humidity-harvest/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reconstruct published humidity-dependent loading and kinetics where numerical data are accessible. Fit coupled water/CO2 response surfaces with uncertainty, then embed them in a cycle mass/energy model driven by representative climate time series. Compare fixed and adaptive cycle scheduling, track regeneration water and fan/thermal work, and perform cradle-to-storage accounting with transparent boundary choices. Identify material properties that improve robust performance rather than only peak capacity.
+
+**Operating envelope:** Bench-scale results do not establish large-contactor pressure drop, multiyear durability, or permanent removal. Figure digitization can support screening but is insufficient for a tightly optimized engineering design without raw data.
+
+**Variables and conventions**
+
+- CO2 partial pressure, water activity a_w, temperature, loading q in mol/kg, working capacity Delta q, and kinetic coefficient.
+- Water uptake/recovery, cycle duration, pressure drop, fan power, drying duty, sorbent degradation, capture purity, and storage fate.
+
+#### Artifact wall
+
+![G06 proposed analysis architecture](../research/G/G06-terra-humidity-harvest/figures/architecture.svg)
+
+Loading and cycle mass feed utilities and a separate downstream-fate boundary. Net removal appears only after water/energy/emission and retention accounting, preserving the distinction between bench capture and durable climate benefit.
+
+**Scientific result to produce:** Humidity/loading hysteresis curves, carbon/water Sankey accounting, climate-dependent net-removal map, and a fan/drying energy Pareto plot; unmeasured scale factors are hatched.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sorbent_data_registry.csv with digitization/domain flags. |
+| 02 | Planned | Build coupled_loading.py and LDF analytic fixtures. |
+| 03 | Planned | Implement cycle_controller.py and separate CO2/water ledgers. |
+| 04 | Planned | Create contactor_energy.py with geometry-specific pressure drop. |
+| 05 | Planned | Build downstream_carbon_fate.py and emissions_boundary.json. |
+| 06 | Planned | Publish climate_holdout.ipynb and cycle_trade.parquet containing negative/unqualified outcomes. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G05 · ARES CREW RESOURCE VAULT](../research/G/G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../research/G/G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G08 · ORION HEPATIC RECOVERY](../research/G/G08-orion-hepatic-recovery/README.md) | Mediated Liver Regeneration | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../research/G/G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G02 · DEEP SPACE QUIETLINE](../research/G/G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G06-terra-humidity-harvest/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G06-terra-humidity-harvest/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G06-terra-humidity-harvest/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G06-terra-humidity-harvest/data/README.md) | [Provenance](../research/G/G06-terra-humidity-harvest/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G06-terra-humidity-harvest/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G06-terra-humidity-harvest/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G06-terra-humidity-harvest/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G06-terra-humidity-harvest/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G06-terra-humidity-harvest/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G06-terra-humidity-harvest/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G06-terra-humidity-harvest/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1523,7 +1962,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1536,6 +1975,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G07-hubble-spectral-anchor/data/README.md) · [Open the figure gallery](../research/G/G07-hubble-spectral-anchor/figures/README.md) · [Download acquisition template](../research/G/G07-hubble-spectral-anchor/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G07-hubble-spectral-anchor/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | An Introduction to Systems Engineering: Building a Monochromator Mount | [Scientific objective](../research/G/G07-hubble-spectral-anchor/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G07-hubble-spectral-anchor/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G07-hubble-spectral-anchor/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G07-hubble-spectral-anchor/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G07-hubble-spectral-anchor/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G07-hubble-spectral-anchor/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a science-to-performance-to-mount requirement tree and identify mechanical/optical interfaces. Compare candidate architectures in a parametric CAD model with structural and thermal sensitivities. Propagate alignment errors into wavelength/throughput effects, then define calibration-line and mechanical inspection tests. Use a configuration-controlled build package and a verification matrix that links each requirement to analysis, inspection, demonstration, or test.
+
+**Operating envelope:** Instrument-specific interfaces and loads have not been supplied. A laboratory mount is not flight-qualified without launch, material, contamination, and environmental requirements; this dossier does not imply such qualification.
+
+**Variables and conventions**
+
+- Mount material, constraints, mass, stiffness, natural frequency, thermal expansion, and fastener/interface preload uncertainty.
+- Grating/slit angles, optical axis height, alignment degrees of freedom, adjustment resolution, spectral line centroid, and throughput.
+
+#### Artifact wall
+
+![G07 proposed analysis architecture](../research/G/G07-hubble-spectral-anchor/figures/architecture.svg)
+
+Mechanical/thermal motion becomes wavelength error through declared optical frames. The budget connects CAD choices to calibration evidence while leaving missing interfaces, loads and qualification requirements explicit.
+
+**Scientific result to produce:** A generic mount exploded schematic connects adjustment freedoms to optical errors; a tolerance waterfall and verification matrix show how mechanical choices affect wavelength/throughput.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create mount_requirements.csv and interface_frames.json. |
+| 02 | Planned | Build parametric_mount CAD model only after supplied drawing inputs. |
+| 03 | Planned | Implement grating_sensitivity.py and exact-angle fixtures. |
+| 04 | Planned | Create static_thermal_modal_model.json with attachment assumptions. |
+| 05 | Planned | Build tolerance_budget.ipynb and calibration_line_fit.py. |
+| 06 | Planned | Publish build_package_manifest.json and verification_matrix.csv with pending tests clearly labeled. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G07-hubble-spectral-anchor/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G07-hubble-spectral-anchor/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G07-hubble-spectral-anchor/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G07-hubble-spectral-anchor/data/README.md) | [Provenance](../research/G/G07-hubble-spectral-anchor/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G07-hubble-spectral-anchor/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G07-hubble-spectral-anchor/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G07-hubble-spectral-anchor/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G07-hubble-spectral-anchor/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G07-hubble-spectral-anchor/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G07-hubble-spectral-anchor/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G07-hubble-spectral-anchor/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1770,7 +2282,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1783,6 +2295,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/G/G08-orion-hepatic-recovery/data/README.md) · [Open the figure gallery](../research/G/G08-orion-hepatic-recovery/figures/README.md) · [Download acquisition template](../research/G/G08-orion-hepatic-recovery/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![G08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/G/G08-orion-hepatic-recovery/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Mediated Liver Regeneration | [Scientific objective](../research/G/G08-orion-hepatic-recovery/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/G/G08-orion-hepatic-recovery/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/G/G08-orion-hepatic-recovery/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/G/G08-orion-hepatic-recovery/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/G/G08-orion-hepatic-recovery/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/G/G08-orion-hepatic-recovery/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reproduce a published baseline model and document species, observation times, and parameter provenance. Fit a hierarchy of volume-only, cell-state, and mechanics/perfusion-augmented alternatives to available de-identified data. Use profile likelihood, sensitivity analysis, and posterior predictive checks to identify parameters that data can actually constrain. Compare mediator hypotheses by expected observable differences and propose non-operational follow-up measurements, without interventions, dosing, or surgical procedures.
+
+**Operating envelope:** Published human pilot samples can be small, with sparse mediator measurements. Rodent-to-human timescale transfer is a modeling hypothesis, not a universal scaling law; disease and surgery populations may differ substantially.
+
+**Variables and conventions**
+
+- Quiescent Q, primed P, replicating R cell populations; cytokine signal C; growth-factor signal GF; transition/division/loss rates.
+- Metabolic load per cell, average cell volume, extracellular matrix state, perfusion, imaging error, and subject-level heterogeneity.
+
+#### Artifact wall
+
+![G08 proposed analysis architecture](../research/G/G08-orion-hepatic-recovery/figures/architecture.svg)
+
+Division bookkeeping and the volume observation model are separate modules. Latent mediators and alternative volume contributions expose the limits of mechanism inference and leave functional/clinical recovery outside the claim.
+
+**Scientific result to produce:** Cell-state/signaling diagram, observed volume with competing model intervals, and parameter-identifiability heatmap; structural and functional recovery occupy separate output panels.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create regeneration_data_registry.csv with species/time/source context. |
+| 02 | Planned | Implement positive_cell_state_ode.py and division fixtures. |
+| 03 | Planned | Build volume_observation.py with size/vascular terms. |
+| 04 | Planned | Create mediator_status.json and hierarchical_likelihood.py. |
+| 05 | Planned | Produce identifiability_profiles.ipynb and alternate-model coverage cases. |
+| 06 | Planned | Publish nonclinical_predictions.parquet and unresolved_measurements.md without intervention guidance. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../research/G/G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../research/G/G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../research/G/G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../research/G/G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G02 · DEEP SPACE QUIETLINE](../research/G/G02-deep-space-quietline/README.md) | Minimizing Local Electromagnetic Interference Using Adaptive Filters | Session G |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/G/G08-orion-hepatic-recovery/README.md#purpose-and-scientific-objective) | [Design boundary](../research/G/G08-orion-hepatic-recovery/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/G/G08-orion-hepatic-recovery/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/G/G08-orion-hepatic-recovery/data/README.md) | [Provenance](../research/G/G08-orion-hepatic-recovery/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/G/G08-orion-hepatic-recovery/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/G/G08-orion-hepatic-recovery/README.md#7-engineering-trade-study) | [Failure modes](../research/G/G08-orion-hepatic-recovery/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/G/G08-orion-hepatic-recovery/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/G/G08-orion-hepatic-recovery/README.md#2-requirements-and-verification-traceability) | [Verification](../research/G/G08-orion-hepatic-recovery/README.md#8-verification-and-validation-cases) → [Implementation](../research/G/G08-orion-hepatic-recovery/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

@@ -16,6 +16,12 @@ The architecture preserves community authority and separates ecological, access 
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Show habitat/flow scenarios alongside community-defined dependence and access indicators; compare adaptation outcomes with uncertainty and agreed aggregation.

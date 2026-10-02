@@ -4,7 +4,7 @@
   "path_basis": "Repository-relative paths for included assets; source tables remain under models/data.",
   "renderer": {
     "path": "tools/render_data_figures.py",
-    "sha256": "c1a37455ebcea2283b48ce23dd5c60d44ed07c01b109e7d18006395e247b2873",
+    "sha256": "f98f4ca6c25fe7d52bb1d0d010ca99461a36b8a94b90f0281806b4c430434399",
     "numpy_version": "2.5.3",
     "matplotlib_version": "3.11.2",
     "svg_metadata_date": "2026-10-02"
@@ -16,7 +16,7 @@
       "svg": "data/figures/10_catalog_values_and_coverage.svg",
       "png": "data/figures/10_catalog_values_and_coverage.png",
       "provenance": "data/figures/10_catalog_values_and_coverage.provenance.json",
-      "caption": "Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.",
+      "caption": "Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.",
       "linked_projects": [
         "C05",
         "C23"
@@ -36,17 +36,18 @@
       "output_assets": [
         {
           "path": "data/figures/10_catalog_values_and_coverage.svg",
-          "sha256": "71d57105be56b1300c83b9aea5838cbd288e06e5147c4d68940622fb7ef971c6",
-          "bytes": 72960
+          "sha256": "020efa2be7151b78428a7d35f777bd48905d69c4fa444d33d593102b98956bcf",
+          "bytes": 73087
         },
         {
           "path": "data/figures/10_catalog_values_and_coverage.png",
-          "sha256": "3b31e69cc47d6815ff571d033f276688a4679929047d778d9ce2e4e74ee50591",
-          "bytes": 207630
+          "sha256": "0c5386f34fb0df8c60eeeb2ddc75c76b348a920da6ffdb9be6bba9fe26d377ff",
+          "bytes": 205781
         }
       ],
       "assumptions_and_limits": [
-        "Query selection, discovery and follow-up biases; composite values may mix references.",
+        "Saved 200-row query-ordered extract; intended TOP 200 ORDER BY request is preserved in the source sidecar, but global selection ranking is not independently verified.",
+        "Query truncation, discovery and follow-up biases; composite values may mix references.",
         "No per-parameter uncertainties or selection-efficiency correction in the extract."
       ],
       "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",

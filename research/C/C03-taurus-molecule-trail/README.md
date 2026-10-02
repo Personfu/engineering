@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | HCN Mapping of the Taurus Molecular Cloud | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Fit the baseline to obtain residual diagnostics, then solve statistical equilibrium with hyperfine-resolved collisional rates and line overlap where available. Compare single-component and multi-component spectra using predictive checks, not only moment maps. Estimate filament gradients from posterior centroid samples with spatial covariance. Calibrate intensity to main-beam temperature using documented efficiencies. Use dust or an optically thinner molecular tracer to constrain temperature, column, and abundance degeneracies; do not turn HCN intensity directly into a universal dense-gas mass.
+
+**Operating envelope:** Abundance, depletion, electron excitation, beam dilution, and transfer geometry are weakly identifiable from one transition. An apparent blue asymmetry alone is insufficient to establish accretion.
+
+**Variables and conventions**
+
+- Brightness temperature TB and Tex in K; frequency nu in Hz
+- Line velocity, centroid v0, hyperfine offsets, and sigma_v in km s^-1
+- Optical depth tau dimensionless; column density in cm^-2
+- H2 number density in cm^-3; kinetic temperature distinct from excitation temperature
+- Beam filling fraction and spectral response must be included in the observation operator
+
+### Artifact wall
+
+![C03 proposed analysis architecture](figures/architecture.svg)
+
+Hyperfine transfer and competing components precede spatial flow inference; independent tracers constrain only the parameters their resolution supports.
+
+**Scientific result to produce:** Interactive sky map of posterior velocities and anomaly ratios linked to spectra and competing forward-model curves.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create cube manifest with telescope efficiency, WCS and LSR metadata. |
+| 02 | Planned | Load versioned laboratory transitions and hyperfine uncertainty tables. |
+| 03 | Planned | Implement response-convolved baseline transfer and multi-component fits. |
+| 04 | Planned | Add non-LTE solver only after collision-rate provenance review. |
+| 05 | Planned | Build posterior map and spatial-gradient assembler with ambiguity masks. |
+| 06 | Planned | Release thin/thick-limit fixtures, held-out predictions and tracer-match diagnostics. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C02 · HUBBLE NIGHTFALL LAB](../C02-hubble-nightfall-lab/README.md) | Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms | Session C |
+| [C04 · HORIZON TIDAL ECHO](../C04-horizon-tidal-echo/README.md) | A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable | Session C |
+| [C01 · APOLLO WINDWATCH](../C01-apollo-windwatch/README.md) | The Characterization of EZ CMa | Session C |
+| [C05 · KEPLER WORLDFORGE](../C05-kepler-worldforge/README.md) | Exoplanet Classification using Data Mining | Session C |
+| [C06 · PULSAR GEMINI WATCH](../C06-pulsar-gemini-watch/README.md) | The First Magnetar in a Binary System? | Session C |
+| [C07 · ARTEMIS MEMORY BRIDGE](../C07-artemis-memory-bridge/README.md) | Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

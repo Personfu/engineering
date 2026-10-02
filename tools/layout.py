@@ -17,11 +17,13 @@ def project_document(project):
 def relative(source_file,target_file):
     return os.path.relpath(target_file,source_file.parent).replace('\\','/')
 
-def rebase_markdown(content,source_file,destination_file):
+def rebase_markdown(content,source_file,destination_file,local_anchors_to_source=False):
     """Rebase actual Markdown links while preserving external URLs and anchors."""
     def change(match):
         target=match.group(1)
-        if '://' in target or target.startswith('#'):return match.group(0)
+        if '://' in target:return match.group(0)
+        if target.startswith('#'):
+            return '('+relative(destination_file,source_file)+target+')' if local_anchors_to_source else match.group(0)
         path,sep,anchor=target.partition('#')
         absolute=(source_file.parent/path).resolve()
         return '('+relative(destination_file,absolute)+(sep+anchor if sep else '')+')'

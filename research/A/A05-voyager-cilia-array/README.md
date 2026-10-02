@@ -4,7 +4,7 @@
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![A05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Artificial Cilia Creation for Advanced Sensor Devices | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Fit beam and readout parameters using independent mechanical and temperature calibration data. Build a response library over velocity, viscosity, and drive frequency, then infer environmental parameters using uncertainty-aware optimization. Compare passive and active operating modes under the same readout bandwidth and energy budget. Analyze sparse cilia versus arrays to determine whether cross-coupling adds useful information or destabilizes calibration.
+
+**Operating envelope:** A sensor-integrated magnetic cilium precedent does not demonstrate space readiness. Viscosity–velocity degeneracy, fabrication scatter, and wall-dependent flow can limit generalization between channels.
+
+**Variables and conventions**
+
+- Cilium length L, bending stiffness EI, displacement w, viscosity mu, drag coefficient zeta, drive frequency omega.
+- Magnetic actuation torque/force, strain readout, temperature, flow velocity U, sensor noise covariance, and inter-cilium spacing.
+
+### Artifact wall
+
+![A05 proposed analysis architecture](figures/architecture.svg)
+
+Mechanics and readout are separately calibrated before inversion. The diagram exposes temperature and wall drag as nuisance pathways and requires rank/validity gates before reporting two fluid parameters.
+
+**Scientific result to produce:** Cilium deflection schematic beside measured phase/amplitude response surfaces; velocity–viscosity confidence ellipses show when active probing resolves the degeneracy.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create geometry_and_calibration.yaml with EI, drive and readout provenance. |
+| 02 | Planned | Implement cantilever_response.py and analytic fixtures. |
+| 03 | Planned | Build drag_wall_adapter.py and optional array_coupling.py. |
+| 04 | Planned | Produce frequency_response.parquet with phase conventions and masks. |
+| 05 | Planned | Implement joint_inverse.py with rank diagnostics and profile likelihood. |
+| 06 | Planned | Publish passive_active_compare.ipynb and an energy/bandwidth matched manifest. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A04 · APOLLO SWARM SENTINEL](../A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A03 · CHANDRA VORTEX CORE](../A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+| [A02 · NEW HORIZONS CRYOPHASE](../A02-new-horizons-cryophase/README.md) | Theory and simulation investigation of eutectic phase behavior on Pluto | Session A |
+| [A08 · HELIOS PULSE FORGE](../A08-helios-pulse-forge/README.md) | Nonlinear Laser Pulse Compression with a Multipass Cell | Session A |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

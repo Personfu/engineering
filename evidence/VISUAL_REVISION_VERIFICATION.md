@@ -1,5 +1,7 @@
 # Visual and layout revision · 3
 
+**Historical assembly record:** this describes the visual revision at commit `0094c824a753906e8ad1d5733425378e58851489`. The [detailed mission-profile revision](MISSION_PROFILE_VERIFICATION.md) adds later presentation layers and qualifies catalog-selection wording; its current checks supersede this earlier presentation snapshot. Original scientific input bytes remain preserved.
+
 [Evidence library](README.md) · [Data atlas](../data/README.md) · [Visual manifest](../assets/visual_design_manifest.json) · [Scientific figure manifest](../data/figures/DATA_FIGURES.json)
 
 This revision organizes all 117 engineering records into named mission folders under `research/`, preserving the exact supplied A–I title order. Each folder contains its engineering record, local data blueprint, downloads and figure gallery. The root and session guides use original navy, teal and copper artwork; these are independent NASA-inspired creative identifiers.

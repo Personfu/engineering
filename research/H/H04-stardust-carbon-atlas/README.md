@@ -4,7 +4,7 @@
 
 **Session H:** Planetary Science
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![H04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Exploring Carbon-bearing Matter in an Antarctic Micrometeorite | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Begin with non-destructive optical, Raman, and infrared mapping to identify organics, carbonates, and weathering products, documenting laser dose and sample history. Register SEM/EDS mineral maps and targeted NanoSIMS measurements to the same coordinate system. Fit counts with phase-specific instrumental mass-fractionation and detector corrections, explicitly including low-count pixels. Use a hierarchical background-plus-anomaly model to control multiple testing across spatially correlated pixels. Compare carbon isotope distributions across phase boundaries and weathering fronts; where sample allocation permits, seek independent oxygen or hydrogen isotope constraints. Reserve material for confirmation rather than consuming the entire particle during exploratory mapping. Record coatings, adhesives, and preparation residues as potential carbon sources.
+
+**Operating envelope:** A carbon isotope difference alone cannot identify a new parent body or demonstrate biological material. Destructive sampling, beam mixing, terrestrial contamination, and matrix effects can create or mask heterogeneity. The original target's raw maps and sample permissions remain to be obtained.
+
+**Variables and conventions**
+
+- delta is reported in per mil relative to a declared carbon isotope reference; R is an isotope ratio, not a delta value.
+- N denotes secondary-ion counts per pixel; eta is phase-dependent sensitivity; Lambda is expected carbon signal; b is background.
+- q labels candidate carbon-bearing phases; mixing weights use isotope atom inventories rather than unqualified volume fractions.
+
+### Artifact wall
+
+![H04 proposed analysis architecture](figures/architecture.svg)
+
+The diagram binds target identity, preparation and spatial registration to calibrated count inference. It distinguishes isotope heterogeneity from phase-carrier and origin claims, with unavailable TAM19B-7 records retained as explicit gaps.
+
+**Scientific result to produce:** Co-registered morphology, Raman phase, calibrated delta-carbon, count uncertainty, and anomaly-probability maps with beam footprints and weathering boundaries.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Obtain target-specific records and create a custodian-approved allocation/gap register. |
+| 02 | Planned | Build specimen/preparation and correlative-map schemas with coordinate transforms. |
+| 03 | Planned | Implement phase classification and registration covariance artifacts. |
+| 04 | Planned | Create calibrated raw-count isotope models with background/standard provenance. |
+| 05 | Planned | Run spatial heterogeneity and alteration/contamination alternative comparisons. |
+| 06 | Planned | Publish specimen-specific evidence limits and confirmation priorities without new-result claims. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [H03 · ARTEMIS POLAR COMPASS](../H03-artemis-polar-compass/README.md) | Magnetic Anomalies in the South Polar Region of the Moon | Session H |
+| [H05 · TERRA SEVEN GENERATIONS](../H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | Session H |
+| [H02 · OSIRIS PHOTONFORGE](../H02-osiris-photonforge/README.md) | Calibration of Images from the OSIRIS-REx Camera Suite | Session H |
+| [H06 · MARS ODYSSEY RIDGEWORK](../H06-mars-odyssey-ridgework/README.md) | Variability of Martian Wrinkle Ridges | Session H |
+| [H01 · VOYAGER STORYWALK](../H01-voyager-storywalk/README.md) | USGS Science Center: Solar System Exhibit Captions | Session H |
+| [H07 · KEPLER CO ECHO](../H07-kepler-co-echo/README.md) | Increasing CO Gas Detections in Protoplanetary Disks | Session H |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

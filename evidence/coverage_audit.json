@@ -1,5 +1,5 @@
 {
-  "revision": 3,
+  "revision": 4,
   "date": "2026-10-02",
   "listed_entries": 117,
   "sessions": {
@@ -24,12 +24,14 @@
   "empty_csv_templates": 117,
   "dictionary_csv_count": 117,
   "unique_source_urls": 250,
-  "engineering_record_words": 259371,
+  "engineering_record_words": 347612,
   "data_field_maps": 117,
   "local_data_galleries": 117,
   "local_figure_galleries": 117,
   "session_cards": 9,
   "additional_data_diagnostics": 9,
+  "mission_profiles": 117,
+  "mission_connection_register_entries": 117,
   "content_sha256": "543e2a2b8954f6010aeb833967db3f00687f96ad9755b2ac295e9c75a297434d",
   "annex_sha256": "228e4b03df2a004dad7573b1d0e283ee6e30d574c13a44a03d65fd74abd90baf",
   "content_hash_basis": "UTF-8 canonical LF repository bytes",

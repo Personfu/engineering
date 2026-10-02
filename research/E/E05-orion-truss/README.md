@@ -4,7 +4,7 @@
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![E05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: Design and Refinement of 3U CubeSat Structure | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Build a coarse beam/plate surrogate followed by independently checked finite-element analysis. Use topology proposals only after keeping rail interfaces, fasteners, harness access and thermal straps as protected regions. Propagate joint-stiffness and manufacturing variability to modal/stress margins.
+
+**Operating envelope:** No launch loads or deployer ICD are supplied; this is a design framework and CAD handoff, not qualified flight hardware.
+
+**Variables and conventions**
+
+- K N/m; u m; F N; M kg; omega rad/s
+- rho kg/m^3; sigma Pa; L m; alpha 1/K
+- FOS safety factor chosen from controlling requirements, not assumed universal
+
+### Artifact wall
+
+![E05 proposed analysis architecture](figures/architecture.svg)
+
+Controlled interfaces and loads feed independent structural branches and an integration checker. The candidate trade retains missing-input gates and cannot be rendered as qualified CubeSat hardware.
+
+**Scientific result to produce:** Pareto plot of mass versus first mode plus load-path/keep-out assembly diagram; all CAD geometry is conceptual until ICD-controlled.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create controlling_inputs.json with ICD/load/allowable pending states. |
+| 02 | Planned | Build parametric_3u CAD and protected_region_map.json. |
+| 03 | Planned | Implement beam_plate_surrogate.py with analytic fixtures. |
+| 04 | Planned | Create FE_model_manifest.json and mesh/contact studies. |
+| 05 | Planned | Build tolerance_and_integration.py and joint_sensitivity.ipynb. |
+| 06 | Planned | Publish candidate_trade.parquet and a drawing/analysis handoff with qualification status pending. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E08 · GATEWAY POWERBENCH](../E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | Session E; [GSFC-STD-7000 GEVS](https://standards.nasa.gov/standard/GSFC/GSFC-STD-7000) |
+| [I03 · SATURN CHANNEL ATLAS](../../I/I03-saturn-channel-atlas/README.md) | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | [NASA Small Spacecraft Structures](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [I06 · SATURN LOADPATH](../../I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Small Spacecraft Structures](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [E04 · AURA VERTICAL](../E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+| [E06 · APOLLO THERMALIS](../E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | Session E |
+| [E03 · ARTEMIS STRATODOSE](../E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

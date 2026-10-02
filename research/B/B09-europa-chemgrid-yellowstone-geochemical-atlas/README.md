@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Mapping Hot Spring Geochemistry in Yellowstone | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Separate sites, samples, methods and analytes in a relational archive. Retain censored values and qualifiers rather than substituting zero. Classify major-ion compositions with uncertainty-aware compositional methods, then compare basin-specific Gaussian processes, nearest neighbors and sample-only baselines. Evaluate time-window dependence, retain unmodeled features and select prospective samples by expected variance reduction under access constraints. Keep chemistry measurements separate from optional speciation calculations.
+
+**Operating envelope:** Maps represent sampled periods rather than permanent spring compositions. Sharp boundaries challenge smooth models; complete speciation requires additional temperature, redox and equilibrium assumptions.
+
+**Variables and conventions**
+
+- s: projected location, m; t: sample date.
+- Concentrations: mg/L and meq/L; pH remains logarithmic.
+- g: setting-constrained spatial process; h: temporal process.
+- Facies probabilities: dimensionless; uncertainty layers retain physical units.
+
+### Artifact wall
+
+![B09 proposed analysis architecture](figures/architecture.svg)
+
+The diagram defines a versioned sample-to-map lineage and basin/time support boundary. Measured concentration, inferred facies and optional equilibrium interpretation remain separate products with explicit sparse-data limits.
+
+**Scientific result to produce:** Basin map with measured points, assay/date filters, facies probabilities and an explicit unsupported-prediction mask.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create feature/sample/analyte/method schemas and alias-review artifacts. |
+| 02 | Planned | Freeze exact USGS table versions with checksums and date windows. |
+| 03 | Planned | Implement valence-aware equivalent conversion and qualified charge balance. |
+| 04 | Planned | Build sample-only, nearest-neighbor and basin-process baselines with feature folds. |
+| 05 | Planned | Publish concentration/facies distributions and support-distance layers. |
+| 06 | Planned | Produce access-constrained sampling priorities and separate optional-speciation assumptions. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](../B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md) | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | Session B; [USGS Yellowstone water chemistry and isotope data, version 2.0](https://www.usgs.gov/data/water-chemistry-and-isotope-data-selected-springs-geysers-streams-and-rivers-yellowstone) |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+| [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](../B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md) | Nevada Offsite Management | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

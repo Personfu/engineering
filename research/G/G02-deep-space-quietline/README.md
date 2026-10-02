@@ -4,7 +4,7 @@
 
 **Session G:** Exploration Systems Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,79 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![G02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Minimizing Local Electromagnetic Interference Using Adaptive Filters | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Generate controlled mixtures from synthetic science signals and recorded benign interference references. Compare fixed notch, LMS/NLMS, and selected robust alternatives using the same training/test split. Add known calibration tones and scientific transients to quantify amplitude/phase distortion. Adapt only on validated states, freeze or bypass when reference coherence/quality fails, and retain both raw and corrected streams with filter provenance.
+
+**Operating envelope:** Filtered residual power alone does not demonstrate better measurement accuracy. Nonlinear coupling, clipping, and rapidly changing reference paths may invalidate linear adaptive models. Physical emission compliance requires separate EMC measurements.
+
+**Variables and conventions**
+
+- Desired signal s, contamination v, reference vector r, filter length, adaptation step mu, regularizer epsilon, and leakage.
+- Sampling rate, interference drift, coherence, convergence time, residual spectrum, science-feature distortion, and processing latency.
+
+### Artifact wall
+
+![G02 proposed analysis architecture](figures/architecture.svg)
+
+Reference quality governs adaptation before corrected data are scored against known science features. Residual suppression, leakage, clipping and provenance remain separate engineering outcomes.
+
+**Scientific result to produce:** Raw and corrected time series, coherence spectrum, filter adaptation history, and injected-science amplitude/phase errors; physical emissions and data contamination occupy separate lanes.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create stream_schema.json with native units, limits and clock mapping. |
+| 02 | Planned | Implement aligned_ingest.py and reference_quality.py. |
+| 03 | Planned | Build nlms.py with saved coefficient/state logs. |
+| 04 | Planned | Create fault_policy.py for clipping/dropout/leakage fixtures. |
+| 05 | Planned | Implement feature_preservation.py and matched notch baseline. |
+| 06 | Planned | Publish heldout_interference.ipynb, raw/corrected hashes and feature-error tables. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [G01 · ARTEMIS BONE WATCH](../G01-artemis-bone-watch/README.md) | Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring | Session G |
+| [G03 · DEEP SPACE BEAM CARTOGRAPHER](../G03-deep-space-beam-cartographer/README.md) | Measuring Antenna Patterns for Ground Station | Session G |
+| [G04 · ARTEMIS CARTILAGE MATRIX](../G04-artemis-cartilage-matrix/README.md) | Photocurable nanocomposites for customizable cartilage replacements | Session G |
+| [G05 · ARES CREW RESOURCE VAULT](../G05-ares-crew-resource-vault/README.md) | Mars In-Situ Resource Utilization for Health Applications | Session G |
+| [G06 · TERRA HUMIDITY HARVEST](../G06-terra-humidity-harvest/README.md) | Direct Air Capture Using Moisture Swing Chemistry | Session G |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | Session G |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

@@ -4,7 +4,7 @@
 
 **Session A:** Math, Physics & Chemistry
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,81 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![A02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Theory and simulation investigation of eutectic phase behavior on Pluto | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Reproduce published binary phase sections before optimizing ternary Gibbs-energy models. Use common tangents or global constrained minimization to avoid spurious local minima. Couple a seasonal energy-balance model to phase stability and compare predicted assemblages to calibrated New Horizons LEISA band behavior. Carry temperature, optical constants, and interaction-parameter uncertainty through an ensemble; mark extrapolated regions explicitly.
+
+**Operating envelope:** New Horizons is primarily a flyby snapshot and spectra are not unique measurements of bulk composition. Sparse low-pressure laboratory data may leave multiple thermodynamic models observationally indistinguishable.
+
+**Variables and conventions**
+
+- T in K; P in Pa; phase amounts n in mol; mole fractions x; Gibbs energy g in J/mol.
+- Interaction parameters L_ij and phase-specific reference functions; albedo, emissivity, thermal inertia, and sublimation flux.
+
+### Artifact wall
+
+![A02 included scientific diagnostic](../../../data/figures/16_ideal_binary_phase_regions.svg)
+
+Equilibrium phase regions inferred from the existing ideal-binary liquidus model with invented melting temperatures and fusion enthalpies. Above the liquidus the material is liquid; between the liquidus and eutectic temperature it is liquid plus the indicated pure solid; below the eutectic it is A and B solids. The region labels follow the model assumptions and are not predictions for Pluto's real volatile mixtures.
+
+[Exact inputs, transformations and output hashes](../../../data/figures/16_ideal_binary_phase_regions.provenance.json)
+
+**Scientific result to produce:** Ternary composition triangle with phase domains, selected temperature sections, and observed-versus-synthetic spectra; extrapolation is hatched and uncertainty is shaded.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create phase_database.yaml with reference states and fitted domains. |
+| 02 | Planned | Build gibbs_solver.py with multistart constraints and tangent fixtures. |
+| 03 | Planned | Implement seasonal_balance.py with per-area ledgers. |
+| 04 | Planned | Build leisa_adapter.py with archive IDs and response convolution. |
+| 05 | Planned | Emit phase_boundary_ensemble.parquet with extrapolation masks. |
+| 06 | Planned | Publish binary_reproduction.ipynb and separate equilibrium/kinetic manifests. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [A01 · ARTEMIS FRACTAL NAVIGATOR](../A01-artemis-fractal-navigator/README.md) | New Methods for the Iteration and Visualization of Mandelbrot and Julia Sets | Session A |
+| [A03 · CHANDRA VORTEX CORE](../A03-chandra-vortex-core/README.md) | Superfluidity of Neutron Star Matter | Session A |
+| [A04 · APOLLO SWARM SENTINEL](../A04-apollo-swarm-sentinel/README.md) | Target Detection Using Algorithmic Matter | Session A |
+| [A05 · VOYAGER CILIA ARRAY](../A05-voyager-cilia-array/README.md) | Artificial Cilia Creation for Advanced Sensor Devices | Session A |
+| [A06 · APOLLO PORIN INSIGHT](../A06-apollo-porin-insight/README.md) | Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi | Session A |
+| [A07 · ORION CHROMATIN ATLAS](../A07-orion-chromatin-atlas/README.md) | Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line | Session A |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

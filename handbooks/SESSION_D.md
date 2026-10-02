@@ -1,10 +1,10 @@
 # SESSION D: AERONAUTICS
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session D](../assets/sessions/D.svg)
 
-7 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+7 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/D/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -28,7 +28,7 @@
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -41,6 +41,79 @@
 [Explore the data blueprint](../research/D/D01-x-59-vortex-command/data/README.md) · [Open the figure gallery](../research/D/D01-x-59-vortex-command/figures/README.md) · [Download acquisition template](../research/D/D01-x-59-vortex-command/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D01-x-59-vortex-command/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Experimental Investigation of Active Vortex Generators | [Scientific objective](../research/D/D01-x-59-vortex-command/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D01-x-59-vortex-command/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D01-x-59-vortex-command/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/D/D01-x-59-vortex-command/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/D/D01-x-59-vortex-command/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/D/D01-x-59-vortex-command/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Establish a repeated no-control baseline and matched passive-vortex-generator comparison. Use a randomized, blocked design to separate actuation settings from tunnel drift. Measure forces, pressure distributions, and velocity/vorticity fields, then fit a reduced-order response model with uncertainty. Develop a simple attachment-state controller on the validated operating region and assess sensitivity to sensor noise and delayed response.
+
+**Operating envelope:** A two-dimensional laboratory model omits sweep, real-aircraft integration, and actuator maintenance. Apparent control gains may come from transition promotion rather than the intended vortex mechanism.
+
+**Variables and conventions**
+
+- Actuation frequency, duty cycle, amplitude, jet orientation, sensor latency, and separation location.
+- Freestream speed, density, viscosity, turbulence intensity, force-balance uncertainty, pressure, and actuator electrical/pneumatic power.
+
+#### Artifact wall
+
+![D01 proposed analysis architecture](../research/D/D01-x-59-vortex-command/figures/architecture.svg)
+
+Momentum, aerodynamic diagnostics and supply power join only at matched operating conditions. The control branch carries delay explicitly; vehicle fuel savings are beyond this laboratory ledger.
+
+**Scientific result to produce:** Velocity/vorticity snapshots show baseline and controlled attachment; a frequency–duty-cycle map overlays net power gain with measurement uncertainty.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create tunnel_condition.yaml and force_axes.json. |
+| 02 | Planned | Build pulse_momentum.py with constant/duty-cycle fixtures. |
+| 03 | Planned | Implement force_power_ledger.py with paired covariance. |
+| 04 | Planned | Create separation_diagnostics.py and blocked_response_model.py. |
+| 05 | Planned | Build controller_replay.py with delay, noise and saturation. |
+| 06 | Planned | Publish net_trade.parquet and a configuration-specific validation matrix. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D02 · LANGLEY STALL MEMORY](../research/D/D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../research/D/D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D04 · GLENN SPHERE STANDARD](../research/D/D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../research/D/D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D06 · LANGLEY MACH ATLAS](../research/D/D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D01-x-59-vortex-command/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D01-x-59-vortex-command/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D01-x-59-vortex-command/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D01-x-59-vortex-command/data/README.md) | [Provenance](../research/D/D01-x-59-vortex-command/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D01-x-59-vortex-command/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D01-x-59-vortex-command/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D01-x-59-vortex-command/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D01-x-59-vortex-command/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D01-x-59-vortex-command/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D01-x-59-vortex-command/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D01-x-59-vortex-command/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -275,7 +348,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -288,6 +361,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/D/D02-langley-stall-memory/data/README.md) · [Open the figure gallery](../research/D/D02-langley-stall-memory/figures/README.md) · [Download acquisition template](../research/D/D02-langley-stall-memory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D02-langley-stall-memory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | [Scientific objective](../research/D/D02-langley-stall-memory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D02-langley-stall-memory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D02-langley-stall-memory/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/D/D02-langley-stall-memory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/D/D02-langley-stall-memory/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/D/D02-langley-stall-memory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Run ascending/descending sweeps at several rates with sufficiently long dwell tests to identify equilibrium. Use pressure and velocity-field measurements to distinguish trailing-edge separation, leading-edge bubble failure, and vortex-mediated dynamics. Fit a memory-free baseline, relaxation model, and possible bistable model to separate finite-rate lag from persistent state dependence. Predict a withheld sweep rate and disturbance level.
+
+**Operating envelope:** Stall topology depends strongly on airfoil shape, Reynolds number, surface condition, and turbulence. Dynamic-stall models from rotating blades do not automatically validate static hysteresis on a different airfoil.
+
+**Variables and conventions**
+
+- Angle alpha, sweep rate, reduced frequency, Reynolds number, freestream turbulence Tu, and separated fraction s.
+- Lift, drag, moment, transition location, reattachment location, pressure spectra, and response timescale tau_s.
+
+#### Artifact wall
+
+![D02 proposed analysis architecture](../research/D/D02-langley-stall-memory/figures/architecture.svg)
+
+History, synchronization and flow state constrain competing memory models. A measured loop enters a discrimination process; it is not itself proof of static bistability or a particular separation mechanism.
+
+**Scientific result to produce:** Lift–angle loops are colored by sweep rate and annotated with measured flow topology; dwell-state plots separate static branches from finite-rate delay.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sweep_protocol_manifest.json with history and angle units. |
+| 02 | Planned | Implement clock_alignment.py and calibration covariance. |
+| 03 | Planned | Build loop_metrics.py with orientation/threshold fixtures. |
+| 04 | Planned | Implement equilibrium.py, relaxation.py and bistable.py as separate branches. |
+| 05 | Planned | Create chronological_holdout.ipynb for rate/dwell prediction. |
+| 06 | Planned | Publish flow_state.parquet and a mechanism-discrimination report with unresolved alternatives. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D01 · X-59 VORTEX COMMAND](../research/D/D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../research/D/D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D04 · GLENN SPHERE STANDARD](../research/D/D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../research/D/D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D06 · LANGLEY MACH ATLAS](../research/D/D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D02-langley-stall-memory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D02-langley-stall-memory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D02-langley-stall-memory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D02-langley-stall-memory/data/README.md) | [Provenance](../research/D/D02-langley-stall-memory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D02-langley-stall-memory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D02-langley-stall-memory/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D02-langley-stall-memory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D02-langley-stall-memory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D02-langley-stall-memory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D02-langley-stall-memory/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D02-langley-stall-memory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -522,7 +668,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -535,6 +681,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/D/D03-ingenuity-descent-bubble-lab/data/README.md) · [Open the figure gallery](../research/D/D03-ingenuity-descent-bubble-lab/figures/README.md) · [Download acquisition template](../research/D/D03-ingenuity-descent-bubble-lab/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D03-ingenuity-descent-bubble-lab/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | [Scientific objective](../research/D/D03-ingenuity-descent-bubble-lab/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 5 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D03-ingenuity-descent-bubble-lab/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D03-ingenuity-descent-bubble-lab/data/README.md) |
+| Verification queue | 5 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/D/D03-ingenuity-descent-bubble-lab/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/D/D03-ingenuity-descent-bubble-lab/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/D/D03-ingenuity-descent-bubble-lab/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** D03a searches a constrained mass–geometry–atmosphere space using torque equilibrium, stability derivatives, and Monte Carlo descent. D03b uses pressure/velocity time series to distinguish genuine low-frequency bubble modes from drift and sparse-sampling artifacts. Combine only validated aerodynamic response envelopes in the descent model, then test an independent prototype or higher-fidelity simulation. Maintain separate datasets, acceptance gates, and publications for each package.
+
+**Operating envelope:** Matching Reynolds number alone does not match gravity, rotor inertia, density, Mach number, and dynamic similarity. A low-frequency spectral peak does not prove a unique bubble-bursting mechanism.
+
+**Variables and conventions**
+
+- Probe mass m, rotor inertia I_r, descent speed V, rotation Omega, local relative speed U_rel, blade chord c_r, flow angle phi.
+- Atmospheric density/viscosity, gravitational acceleration, deployed geometry, bubble length L_b, Reynolds number, turbulence intensity, and signal duration.
+
+#### Artifact wall
+
+![D03 proposed analysis architecture](../research/D/D03-ingenuity-descent-bubble-lab/figures/architecture.svg)
+
+D03a and D03b retain separate physics and acceptance paths. Only a reviewed aerodynamic uncertainty envelope connects them; stationary bubble spectra do not directly establish autorotating-probe performance.
+
+**Scientific result to produce:** Left: descent speed/rotation stability and feasible payload region. Right: bubble time series, spectra, and flow modes. A clearly labeled transferability link shows which aerodynamic statistics enter the probe model.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create D03a/rotor_manifest.yaml and D03b/bubble_manifest.yaml as distinct contracts. |
+| 02 | Planned | Implement blade_element.py, coupled_descent.py and stability_jacobian.py. |
+| 03 | Planned | Build bubble_spectrum.py with Parseval/window fixtures. |
+| 04 | Planned | Implement weighted_pod.py and segmented_stationarity.ipynb. |
+| 05 | Planned | Create transfer_review.json with dimensionless comparisons and covariance mapping. |
+| 06 | Planned | Publish separate descent_candidates.parquet and bubble_modes.parquet; assemble only approved envelopes. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D02 · LANGLEY STALL MEMORY](../research/D/D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D04 · GLENN SPHERE STANDARD](../research/D/D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D01 · X-59 VORTEX COMMAND](../research/D/D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../research/D/D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D06 · LANGLEY MACH ATLAS](../research/D/D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D03-ingenuity-descent-bubble-lab/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D03-ingenuity-descent-bubble-lab/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D03-ingenuity-descent-bubble-lab/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D03-ingenuity-descent-bubble-lab/data/README.md) | [Provenance](../research/D/D03-ingenuity-descent-bubble-lab/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D03-ingenuity-descent-bubble-lab/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D03-ingenuity-descent-bubble-lab/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D03-ingenuity-descent-bubble-lab/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D03-ingenuity-descent-bubble-lab/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D03-ingenuity-descent-bubble-lab/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D03-ingenuity-descent-bubble-lab/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D03-ingenuity-descent-bubble-lab/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -804,7 +1023,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -817,6 +1036,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/D/D04-glenn-sphere-standard/data/README.md) · [Open the figure gallery](../research/D/D04-glenn-sphere-standard/figures/README.md) · [Download acquisition template](../research/D/D04-glenn-sphere-standard/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D04-glenn-sphere-standard/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | [Scientific objective](../research/D/D04-glenn-sphere-standard/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D04-glenn-sphere-standard/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D04-glenn-sphere-standard/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/D/D04-glenn-sphere-standard/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/D/D04-glenn-sphere-standard/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/D/D04-glenn-sphere-standard/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** First apply manufactured solutions and analytic creeping-flow tests to the discretization. Run at least three systematically refined meshes and time steps, with independent domain-size sweeps. Compare integrated forces, wake profiles, and symmetry, then move to unsteady regimes with sampling long enough for stable statistics. Introduce turbulence or transition closures as explicitly separate model choices and maintain identical boundary conditions for cross-solver comparisons.
+
+**Operating envelope:** A sphere benchmark cannot establish general solver validity for arbitrary geometries or compressible reacting flows. At transition and drag crisis, roughness and freestream turbulence can produce strong physical variation.
+
+**Variables and conventions**
+
+- Sphere diameter D, freestream U, density, viscosity, Mach number, mesh scale, time step, and computational-domain extent.
+- Residual, conservation error, wake recirculation length, shedding frequency, wall resolution, and turbulence/transition assumptions.
+
+#### Artifact wall
+
+![D04 included scientific diagnostic](../data/figures/18_sphere_drag_reference_departure.svg)
+
+Synthetic reference values from the Schiller–Naumann sphere-drag correlation and Stokes creeping-flow asymptote. The percent-departure panel makes the approximation difference explicit, with a descriptive 10% reference crossing computed from the same formula. Neither curve is an observed drag dataset or a CFD solver result; the crossing is not a physical validation tolerance.
+
+[Exact inputs, transformations and output hashes](../data/figures/18_sphere_drag_reference_departure.provenance.json)
+
+**Scientific result to produce:** Drag-versus-Reynolds reference and simulation curves sit beside mesh-convergence plots, pressure/viscous decomposition, and wake snapshots; validation regimes are color-coded.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create sphere_cases.yaml with matched regimes and boundaries. |
+| 02 | Planned | Build mesh_sequence_manifest.json and independent domain sweeps. |
+| 03 | Planned | Implement traction_integral.py and Stokes fixtures. |
+| 04 | Planned | Create conservation_ledger.py and manufactured_solution.py. |
+| 05 | Planned | Build convergence_report.py with nonasymptotic flags. |
+| 06 | Planned | Publish drag_wake_validation.parquet and uncertainty-separated comparison notebooks. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../research/D/D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D05 · APOLLO CYBER FLIGHT DECK](../research/D/D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D02 · LANGLEY STALL MEMORY](../research/D/D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D06 · LANGLEY MACH ATLAS](../research/D/D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D01 · X-59 VORTEX COMMAND](../research/D/D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D04-glenn-sphere-standard/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D04-glenn-sphere-standard/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D04-glenn-sphere-standard/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D04-glenn-sphere-standard/data/README.md) | [Provenance](../research/D/D04-glenn-sphere-standard/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D04-glenn-sphere-standard/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D04-glenn-sphere-standard/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D04-glenn-sphere-standard/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D04-glenn-sphere-standard/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D04-glenn-sphere-standard/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D04-glenn-sphere-standard/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D04-glenn-sphere-standard/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1066,7 +1360,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1079,6 +1373,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/D/D05-apollo-cyber-flight-deck/data/README.md) · [Open the figure gallery](../research/D/D05-apollo-cyber-flight-deck/figures/README.md) · [Download acquisition template](../research/D/D05-apollo-cyber-flight-deck/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D05-apollo-cyber-flight-deck/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | CIS Aviation-ISAC | [Scientific objective](../research/D/D05-apollo-cyber-flight-deck/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D05-apollo-cyber-flight-deck/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D05-apollo-cyber-flight-deck/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/D/D05-apollo-cyber-flight-deck/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/D/D05-apollo-cyber-flight-deck/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/D/D05-apollo-cyber-flight-deck/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Map a representative aviation organization's current and proposed practices to NIST CSF 2.0 outcomes and the public Aviation ISAC mission. Define a minimum information record, escalation roles, and reviewable evidence trail. Conduct benign tabletop comparisons using fictitious organizations, synthetic service outages, and simulated advisories. Analyze response quality and timing while protecting participants' and member organizations' confidential information.
+
+**Operating envelope:** Public ISAC pages describe purpose and community, not member intelligence. Tabletop performance may differ from real incidents, and no particular operator's security posture can be inferred without authorized evidence.
+
+**Variables and conventions**
+
+- Report confidence, provenance, permitted sharing audience, owner, acknowledgment time, triage time, escalation correctness, and recovery time.
+- Scenario impact category, dependencies, supplier criticality, exercise ground truth, and participant experience.
+
+#### Artifact wall
+
+![D05 proposed analysis architecture](../research/D/D05-apollo-cyber-flight-deck/figures/architecture.svg)
+
+The isolated workflow evaluates ownership, permitted sharing and safety escalation through synthetic replay. It supports defensive governance comparison without contacting systems or reproducing vulnerabilities.
+
+**Scientific result to produce:** A report-to-recovery swimlane shows human decision owners and evidence handoffs; a CSF profile heatmap distinguishes documented, exercised, and unverified outcomes without exposing real-system details.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create synthetic_scenarios.yaml with locked truth and no operational targets. |
+| 02 | Planned | Build report_schema.json and role_audience_policy.json. |
+| 03 | Planned | Implement local_tabletop_replay.py with append-only exercise events. |
+| 04 | Planned | Create csf_outcome_mapping.csv and safety_escalation_matrix.csv. |
+| 05 | Planned | Build scoring.py with censoring/undefined-denominator fixtures. |
+| 06 | Planned | Publish paired_workflow_review.ipynb and sanitized governance evidence records. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D04 · GLENN SPHERE STANDARD](../research/D/D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D06 · LANGLEY MACH ATLAS](../research/D/D06-langley-mach-atlas/README.md) | Characterization of a Hypersonic Wind Tunnel Nozzle | Session D |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../research/D/D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+| [D02 · LANGLEY STALL MEMORY](../research/D/D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D01 · X-59 VORTEX COMMAND](../research/D/D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D05-apollo-cyber-flight-deck/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D05-apollo-cyber-flight-deck/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D05-apollo-cyber-flight-deck/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D05-apollo-cyber-flight-deck/data/README.md) | [Provenance](../research/D/D05-apollo-cyber-flight-deck/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D05-apollo-cyber-flight-deck/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D05-apollo-cyber-flight-deck/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D05-apollo-cyber-flight-deck/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D05-apollo-cyber-flight-deck/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D05-apollo-cyber-flight-deck/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D05-apollo-cyber-flight-deck/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D05-apollo-cyber-flight-deck/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1313,7 +1680,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1326,6 +1693,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/D/D06-langley-mach-atlas/data/README.md) · [Open the figure gallery](../research/D/D06-langley-mach-atlas/figures/README.md) · [Download acquisition template](../research/D/D06-langley-mach-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D06-langley-mach-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Characterization of a Hypersonic Wind Tunnel Nozzle | [Scientific objective](../research/D/D06-langley-mach-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D06-langley-mach-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D06-langley-mach-atlas/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/D/D06-langley-mach-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/D/D06-langley-mach-atlas/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/D/D06-langley-mach-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Compile nozzle geometry and operating limits from the authorized facility. Design a blocked and randomized calibration matrix with centerline and cross-plane traverses. Combine pitot/static pressure and total-temperature information with appropriate gas models, documenting any indirect inference. Fit a response surface or physics-informed surrogate and derive a uniform-core mask tied to stated Mach/pressure tolerances. Compare observed variation to boundary-layer and shock-structure predictions.
+
+**Operating envelope:** Probe disturbance, vibration, finite run duration, and reservoir drift can affect inferred fields. Calibration is specific to facility configuration and nozzle condition; repairs require re-evaluation.
+
+**Variables and conventions**
+
+- Mach M, reservoir pressure/temperature, pitot pressure, gas heat-capacity ratio, spatial coordinates, and nozzle-wall condition.
+- Probe alignment/size, transducer calibration, test duration, boundary-layer displacement thickness, core uniformity, and correlated uncertainty.
+
+#### Artifact wall
+
+![D06 proposed analysis architecture](../research/D/D06-langley-mach-atlas/figures/architecture.svg)
+
+Shock-aware inference and time/spatial alignment precede a confidence-based core mask. The mask is tied to one nozzle configuration and gas domain; no facility Mach capability is assumed.
+
+**Scientific result to produce:** Test-section cross-plane Mach/pitot contours, longitudinal profiles, operating-condition response surfaces, and the uncertainty-qualified uniform-core mask.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create nozzle_configuration.yaml and gas_model_manifest.json. |
+| 02 | Planned | Implement normal_shock_pitot.py with sonic/ratio fixtures. |
+| 03 | Planned | Build traverse_alignment.py retaining calibration covariance. |
+| 04 | Planned | Create response_surface.py with blocked DOE inputs. |
+| 05 | Planned | Implement confidence_core_mask.py and extrapolation rules. |
+| 06 | Planned | Publish calibration_holdout.ipynb and configuration-specific field/core tables. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [D05 · APOLLO CYBER FLIGHT DECK](../research/D/D05-apollo-cyber-flight-deck/README.md) | CIS Aviation-ISAC | Session D |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | Session D |
+| [D04 · GLENN SPHERE STANDARD](../research/D/D04-glenn-sphere-standard/README.md) | Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere | Session D |
+| [D03 · INGENUITY DESCENT & BUBBLE LAB](../research/D/D03-ingenuity-descent-bubble-lab/README.md) | Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles | Session D |
+| [D02 · LANGLEY STALL MEMORY](../research/D/D02-langley-stall-memory/README.md) | Stall Hysteresis: Why the reattachment angle is less than the separation stall angle | Session D |
+| [D01 · X-59 VORTEX COMMAND](../research/D/D01-x-59-vortex-command/README.md) | Experimental Investigation of Active Vortex Generators | Session D |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D06-langley-mach-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D06-langley-mach-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D06-langley-mach-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D06-langley-mach-atlas/data/README.md) | [Provenance](../research/D/D06-langley-mach-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D06-langley-mach-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D06-langley-mach-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D06-langley-mach-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D06-langley-mach-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D06-langley-mach-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D06-langley-mach-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D06-langley-mach-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1561,7 +2001,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session D:** Aeronautics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1574,6 +2014,79 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/D/D07-ares-dual-world-scout/data/README.md) · [Open the figure gallery](../research/D/D07-ares-dual-world-scout/figures/README.md) · [Download acquisition template](../research/D/D07-ares-dual-world-scout/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![D07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/D/D07-ares-dual-world-scout/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [Scientific objective](../research/D/D07-ares-dual-world-scout/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/D/D07-ares-dual-world-scout/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/D/D07-ares-dual-world-scout/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/D/D07-ares-dual-world-scout/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/D/D07-ares-dual-world-scout/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/D/D07-ares-dual-world-scout/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Create separate Earth and Mars concept-of-operations diagrams with science traceability. Model sensing geometry and trajectory envelopes using public environmental information and documented aerodynamic data. Compare fixed-wing, rotorcraft, and passive descent only at concept level, including packaging/deployment and communications uncertainty. Use Monte Carlo mission outcomes to estimate usable science return and identify architecture features that are common versus environment-specific.
+
+**Operating envelope:** ARES was a mission concept, not a flown Mars airplane. Concept trade scores depend on requirements and assumptions, and local test flights do not establish entry/deployment or Mars thermal qualification.
+
+**Variables and conventions**
+
+- Vehicle mass, wing/rotor dimensions, lift/drag model, local atmosphere, gravity, flight/trajectory duration, and scientific footprint.
+- Sensor resolution, calibration, pointing, onboard processing, communications availability, deployment success, and data-return probability.
+
+#### Artifact wall
+
+![D07 proposed analysis architecture](../research/D/D07-ares-dual-world-scout/figures/architecture.svg)
+
+Environment-specific trajectory and sensing branches feed a dependent data-return model. The diagram separates concept delivery assumptions from usable science and does not transfer Earth validation into Mars qualification.
+
+**Scientific result to produce:** Separate Earth and Mars mission timelines show delivery and aerial sensing phases; a mass–energy–science-return Pareto plot displays uncertainty and shared interface opportunities.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create earth_conops.yaml and mars_conops.yaml separately. |
+| 02 | Planned | Build science_traceability.csv and authorized-observation constraints. |
+| 03 | Planned | Implement environment_adapter.py and aerodynamic_domain_checker.py. |
+| 04 | Planned | Create sensor_footprint.py with GSD/blur fixtures. |
+| 05 | Planned | Build subsystem_energy.py and dependent_return_tree.py. |
+| 06 | Planned | Publish mission_pareto.ipynb and concept_results.parquet with TBD probabilities and delivery-interface gates. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/D/D07-ares-dual-world-scout/README.md#purpose-and-scientific-objective) | [Design boundary](../research/D/D07-ares-dual-world-scout/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/D/D07-ares-dual-world-scout/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/D/D07-ares-dual-world-scout/data/README.md) | [Provenance](../research/D/D07-ares-dual-world-scout/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/D/D07-ares-dual-world-scout/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/D/D07-ares-dual-world-scout/README.md#7-engineering-trade-study) | [Failure modes](../research/D/D07-ares-dual-world-scout/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/D/D07-ares-dual-world-scout/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/D/D07-ares-dual-world-scout/README.md#2-requirements-and-verification-traceability) | [Verification](../research/D/D07-ares-dual-world-scout/README.md#8-verification-and-validation-cases) → [Implementation](../research/D/D07-ares-dual-world-scout/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

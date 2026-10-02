@@ -16,6 +16,12 @@ The diagram identifies separate chemical, geodetic and hydrologic interfaces and
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Planned scientific result
 
 Linked spring map, chemistry and displacement histories with the held-out period shaded; overlay forecast intervals and hydrology-only residuals.

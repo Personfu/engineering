@@ -4,7 +4,7 @@
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,80 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![E04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Estimate a hierarchical vertical-profile model with flight effects and correlated residuals. Fit instrument lag using independent response characterization; compare dry-air profiles to colocated or regionally relevant NOAA observations. Separate ascent and descent to detect hysteresis and avoid converting pressure decline into a concentration result.
+
+**Operating envelope:** NOAA flights are comparison observations, not contemporaneous ground truth for Arizona. Balloon horizontal drift and diurnal boundary-layer change complicate an altitude-only analysis.
+
+**Variables and conventions**
+
+- p Pa; T K; n_air molecules/m^3
+- x dimensionless mole fraction, reported ppm CO2 or ppb CH4
+- tau s; b mole fraction per m; u_flight flight-specific intercept
+
+### Artifact wall
+
+![E04 proposed analysis architecture](figures/architecture.svg)
+
+Calibration, humidity basis and response lag precede the altitude model. External profiles provide context; molecular density, horizontal/time confounding and missing analyzer selectivity remain distinct limitations.
+
+**Scientific result to produce:** Raw voltage, corrected wet/dry mole fractions and number density in aligned altitude panels, with systematic uncertainty bands.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create analyzer_calibration_manifest.json and gas_basis_schema.json. |
+| 02 | Planned | Implement humidity_conversion.py and ideal_gas_density.py. |
+| 03 | Planned | Build flight_clock_position.py with phase/path metadata. |
+| 04 | Planned | Create first_order_response.py and latent_vertical_profile.py. |
+| 05 | Planned | Implement noaa_profile_adapter.py preserving calibration scale. |
+| 06 | Planned | Publish withheld_flight.ipynb and dry_profile.parquet with domain/identity/lag flags. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E03 · ARTEMIS STRATODOSE](../E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E |
+| [E05 · ORION TRUSS](../E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+| [E02 · GEMINI HELIX](../E02-gemini-helix/README.md) | Project Helix | Session E |
+| [E06 · APOLLO THERMALIS](../E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | Session E |
+| [E01 · APOLLO HELIOSCOPE](../E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | Session E |
+| [E07 · DISCOVERY TRIDENT](../E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

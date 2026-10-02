@@ -4,7 +4,7 @@
 
 **Session C:** Astronomy & Space Physics
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![C28 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Narrow-band Filter Photometry Calibration for the Lowell 20'' | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 6 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Inventory filter transmission curves, detector gain, linearity, shutter timing, flat fields, and focal-plane position dependence. Compute synthetic standard count rates from current CALSPEC or comparable traceable spectra. Acquire repeated standards and blanks over airmass and nights; fit nightly zero points plus extinction and optional color terms, retaining covariance. Test wavelength shifts from filter incidence angle and temperature. For emission-line science, integrate a source spectral model through the measured passband and fit continuum using off-line measurements. Publish separate absolute and relative calibration budgets with provenance for every spectrum and throughput component.
+
+**Operating envelope:** Narrow filters can be sensitive to stellar lines, telluric absorption, and redshift. Imperfect flats or atmospheric variability can dominate precision; synthetic calibration is only as accurate as throughput and reference spectra.
+
+**Variables and conventions**
+
+- Electron rate in electrons s^-1; collecting area Atel in m^2 with consistent flux units
+- F_lambda in W m^-2 m^-1 for the displayed SI form; wavelength in m inside the integral
+- t in s; airmass X dimensionless; zero point ZP and extinction k in magnitudes
+- T_sys includes optics, filter, detector QE and angle/temperature effects, and explicitly excludes atmosphere. T_atm supplies atmospheric transmission once, as a separate factor.
+- Reported monochromatic line flux requires continuum subtraction and filter-transmission correction, not only a count-to-magnitude factor
+
+### Artifact wall
+
+![C28 proposed analysis architecture](figures/architecture.svg)
+
+Instrument and atmospheric throughput are applied separately, while nightly covariance and line-response corrections determine traceable science flux.
+
+**Scientific result to produce:** Measured passband and source spectra above standard residuals versus airmass/color, with nightly zero-point covariance and line-flux corrections.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Verify Lowell telescope/camera/filter identity and throughput pedigree. |
+| 02 | Planned | Characterize gain/linearity/shutter/flat/aperture response. |
+| 03 | Planned | Load exact reference spectra and implement separated transmission integration. |
+| 04 | Planned | Fit nightly covariance-aware zero-point/extinction models. |
+| 05 | Planned | Implement continuum-plus-line on/off-band converter. |
+| 06 | Planned | Release held-out standards, absolute/relative budgets and valid-night/count domains. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [C27 · SPHEREX COSMIC PRISM](../C27-spherex-cosmic-prism/README.md) | SPHEREx: The Future of Satellite Astronomy | Session C |
+| [C29 · ACE WIND SHOCK LEDGER](../C29-ace-wind-shock-ledger/README.md) | Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind | Session C |
+| [C26 · LISA PENDULUM PATHFINDER](../C26-lisa-pendulum-pathfinder/README.md) | Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection | Session C |
+| [C30 · ARTEMIS FIRST HORIZONS](../C30-artemis-first-horizons/README.md) | The Origins of Supermassive Black Holes | Session C |
+| [C25 · ORION BURST SENTINEL](../C25-orion-burst-sentinel/README.md) | Improving the Detection of Core-Collapse Supernova Through Experimentation | Session C |
+| [C24 · APOLLO DUST CLOCK](../C24-apollo-dust-clock/README.md) | The long-period orbit of the dust-producing Wolf-Rayet binary WR 125 | Session C |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

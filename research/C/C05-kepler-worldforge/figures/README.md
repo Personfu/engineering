@@ -16,11 +16,17 @@ The classification path preserves measurement provenance and uncertainty before 
 
 **Proposed contract · observations pending.** Every field, type, unit and meaning comes from the controlled dictionary. [Open SVG](data-map.svg) · [Download dictionary](../data/dictionary.csv)
 
+## Mission profile
+
+![Engineering mission profile](mission-profile.svg)
+
+The scientific question, hypothesis, model boundary and document metadata are drawn from controlled sources. Proposed work remains distinguished from acquired evidence. [Open SVG](mission-profile.svg)
+
 ## Data diagnostic
 
 ![C05 data diagnostic](../../../../data/figures/10_catalog_values_and_coverage.svg)
 
-Real NASA Exoplanet Archive snapshot of the first 200 planet names alphabetically among rows with period and radius. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
+Real NASA Exoplanet Archive 200-row saved, query-ordered extract of rows with period and radius. The recorded request uses TOP 200 and ORDER BY pl_name; global first-200 ranking was not independently verified. Panel A preserves discovery-method categories and logarithmic scales; panel B makes the selected fields and nine missing host-metallicity values visible. This extract is not representative and cannot establish occurrence rates or physical class labels.
 
 [SVG](../../../../data/figures/10_catalog_values_and_coverage.svg) · [PNG](../../../../data/figures/10_catalog_values_and_coverage.png) · [Figure provenance](../../../../data/figures/10_catalog_values_and_coverage.provenance.json)
 

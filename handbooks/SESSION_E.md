@@ -1,10 +1,10 @@
 # SESSION E: ASCEND
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session E](../assets/sessions/E.svg)
 
-8 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+8 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/E/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -29,7 +29,7 @@
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -42,6 +42,80 @@
 [Explore the data blueprint](../research/E/E01-apollo-helioscope/data/README.md) · [Open the figure gallery](../research/E/E01-apollo-helioscope/figures/README.md) · [Download acquisition template](../research/E/E01-apollo-helioscope/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E01-apollo-helioscope/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Phoenix College: Video Streaming and DNA Studies | [Scientific objective](../research/E/E01-apollo-helioscope/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E01-apollo-helioscope/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E01-apollo-helioscope/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E01-apollo-helioscope/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/E/E01-apollo-helioscope/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/E/E01-apollo-helioscope/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit an exposure-response model with dark/handling controls and thermal covariates, while a replayed communication channel measures rate adaptation. Partition flight time into ascent, float if present, and descent; retain sensor lag and clock uncertainty. Trade image usefulness against energy rather than maximizing nominal resolution.
+
+**Operating envelope:** A single flight cannot identify every damage mechanism. Ground-to-balloon and balloon-to-space environmental equivalence is limited; sample integrity and assay floor can dominate.
+
+**Variables and conventions**
+
+- H_UV: UV fluence J/m^2; E_UV: irradiance W/m^2
+- k: damage response m^2/J, fitted independently; N_target: susceptible sites
+- R: bit/s; p_loss dimensionless; E_bat J
+
+#### Artifact wall
+
+![E01 proposed analysis architecture](../research/E/E01-apollo-helioscope/figures/architecture.svg)
+
+The biological and video packages share timing but preserve separate causal and calibration boundaries. Finite-site saturation, energy balance and delivered usefulness are testable without new biological procedures or original flight claims.
+
+**Scientific result to produce:** Linked altitude/UV/temperature profiles, DNA-response intervals and delivered bitrate versus energy; biological points remain prospective until measured.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create synchronized_payload_schema.json and flight_phase_manifest.yaml. |
+| 02 | Planned | Build uv_fluence.py with calibration/lag propagation. |
+| 03 | Planned | Implement finite_site_damage.py and control/censoring likelihood. |
+| 04 | Planned | Create video_channel_replay.py and useful_frame_rubric.json. |
+| 05 | Planned | Build battery_energy.py and adaptive_stream_scheduler.py. |
+| 06 | Planned | Publish exposure_response.ipynb and equal_energy_stream_trade.parquet with original telemetry unavailable flags. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E02 · GEMINI HELIX](../research/E/E02-gemini-helix/README.md) | Project Helix | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [E03 · ARTEMIS STRATODOSE](../research/E/E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E; [NASA RaD-X balloon dosimetry](https://www.nasa.gov/science-research/heliophysics/nasa-studies-cosmic-radiation-to-protect-high-altitude-travelers/) |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [I07 · GATEWAY CATSAT CONSOLE](../research/I/I07-gateway-catsat-console/README.md) | CatSat Groundstation Command and Control | [NASA Open MCT](https://ammos.nasa.gov/openmct/) |
+| [E04 · AURA VERTICAL](../research/E/E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E01-apollo-helioscope/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E01-apollo-helioscope/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E01-apollo-helioscope/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E01-apollo-helioscope/data/README.md) | [Provenance](../research/E/E01-apollo-helioscope/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E01-apollo-helioscope/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E01-apollo-helioscope/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E01-apollo-helioscope/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E01-apollo-helioscope/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E01-apollo-helioscope/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E01-apollo-helioscope/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E01-apollo-helioscope/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -281,7 +355,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -294,6 +368,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E02-gemini-helix/data/README.md) · [Open the figure gallery](../research/E/E02-gemini-helix/figures/README.md) · [Download acquisition template](../research/E/E02-gemini-helix/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E02-gemini-helix/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Project Helix | [Scientific objective](../research/E/E02-gemini-helix/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E02-gemini-helix/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E02-gemini-helix/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E02-gemini-helix/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/E/E02-gemini-helix/figures/README.md) |
+| Resource library | 4 cited primary resources with support statements | [Cited resources](../research/E/E02-gemini-helix/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use an error-state estimator with gyro bias, quaternion normalization and measurement quality flags. Establish acoustic calibration at independently measured temperatures; handle missing echoes as censored observations. The biological package compares supplied approved endpoints against a traceable exposure ledger with handling/thermal controls.
+
+**Operating envelope:** A Geiger count alone cannot distinguish radiation species or biological dose. Commodity inertial sensors without external position cannot reliably reconstruct absolute position.
+
+**Variables and conventions**
+
+- q unit quaternion; omega and b_g rad/s
+- T K; R_specific J/(kg K); c m/s
+- H_rad calibrated absorbed dose Gy; uncalibrated counts cannot supply Gy
+
+#### Artifact wall
+
+![E02 proposed analysis architecture](../research/E/E02-gemini-helix/figures/architecture.svg)
+
+Attitude, acoustics and approved endpoints share timing but retain distinct validity gates. External aiding constrains position, and acoustic/dose outputs remain unavailable when calibration or observation quality is absent.
+
+**Scientific result to produce:** Quaternion orientation trajectory with uncertainty; speed of sound versus temperature and pressure; dose-ledger completeness by altitude.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create frame_clock_manifest.json and IMU_noise.yaml. |
+| 02 | Planned | Build quaternion_nominal.py and error_state_filter.py with reset covariance. |
+| 03 | Planned | Implement aiding_adapter.py and drift fixtures. |
+| 04 | Planned | Create acoustic_timeflight.py with path/delay/quality gates. |
+| 05 | Planned | Build exposure_endpoint_registry.csv with approved supplied data only. |
+| 06 | Planned | Publish covariance_consistency.ipynb and qualified_multichannel_outputs.parquet. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E01 · APOLLO HELIOSCOPE](../research/E/E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [E03 · ARTEMIS STRATODOSE](../research/E/E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E; [NASA NAIRAS 3.0 model and RaD-X resources](https://ccmc.gsfc.nasa.gov/models/NAIRAS~3.0/) |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [I10 · GEMINI POINTLOCK](../research/I/I10-gemini-pointlock/README.md) | Spacecraft Attitude Control Implementation and Development | [NASA Small Spacecraft Guidance Navigation and Control](https://www.nasa.gov/smallsat-institute/sst-soa/guidance-navigation-and-control/) |
+| [E04 · AURA VERTICAL](../research/E/E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E02-gemini-helix/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E02-gemini-helix/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E02-gemini-helix/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E02-gemini-helix/data/README.md) | [Provenance](../research/E/E02-gemini-helix/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E02-gemini-helix/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E02-gemini-helix/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E02-gemini-helix/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E02-gemini-helix/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E02-gemini-helix/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E02-gemini-helix/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E02-gemini-helix/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -532,7 +680,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -545,6 +693,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E03-artemis-stratodose/data/README.md) · [Open the figure gallery](../research/E/E03-artemis-stratodose/figures/README.md) · [Download acquisition template](../research/E/E03-artemis-stratodose/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E03-artemis-stratodose/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | [Scientific objective](../research/E/E03-artemis-stratodose/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E03-artemis-stratodose/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E03-artemis-stratodose/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E03-artemis-stratodose/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/E/E03-artemis-stratodose/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/E/E03-artemis-stratodose/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Fit Poisson observations in pressure/altitude bins, folding NAIRAS predictions through detector response. Compare paired shield configurations with matched geometry and exposure duration, and include overdispersion tests. Avoid extrapolation beyond measured energy sensitivity.
+
+**Operating envelope:** Shielding can generate secondary particles; count suppression does not establish electronics reliability or human dose. Flight conditions do not qualify a CubeSat for orbit.
+
+**Variables and conventions**
+
+- Phi differential particle flux; R detector effective response
+- tau detector dead time s; n count rate 1/s; h altitude m
+- D dose rate Gy/s only for a validated response S
+
+#### Artifact wall
+
+![E03 shared illustrative model](../models/figures/03_balloon_thermal.svg)
+
+Shared illustration with a narrower domain than the project model. [Read its parameters, evidence class and checks](../models/README.md).
+
+**Scientific result to produce:** Altitude-count posterior and response-folded model band; shielding effect forest plot with no assumed benefit.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create detector_calibration_manifest.json and time_basis_schema.json. |
+| 02 | Planned | Implement altitude_bin_adapter.py and response_fold.py. |
+| 03 | Planned | Build count_likelihood.py with background/overdispersion options. |
+| 04 | Planned | Create nonparalyzable_deadtime.py with inverse-domain fixtures. |
+| 05 | Planned | Implement shield_comparison.py and optional qualified_dose.py. |
+| 06 | Planned | Publish count_profile_holdout.ipynb and outputs with null dose when unsupported. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E06 · APOLLO THERMALIS](../research/E/E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | Session E; Included illustration: 03_balloon_thermal |
+| [E02 · GEMINI HELIX](../research/E/E02-gemini-helix/README.md) | Project Helix | Session E; [NASA NAIRAS 3.0 model and RaD-X resources](https://ccmc.gsfc.nasa.gov/models/NAIRAS~3.0/) |
+| [E01 · APOLLO HELIOSCOPE](../research/E/E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | Session E; [NASA RaD-X balloon dosimetry](https://www.nasa.gov/science-research/heliophysics/nasa-studies-cosmic-radiation-to-protect-high-altitude-travelers/) |
+| [I05 · PIONEER AERODRIFT](../research/I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Included illustration: 03_balloon_thermal |
+| [E04 · AURA VERTICAL](../research/E/E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E03-artemis-stratodose/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E03-artemis-stratodose/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E03-artemis-stratodose/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E03-artemis-stratodose/data/README.md) | [Provenance](../research/E/E03-artemis-stratodose/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E03-artemis-stratodose/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E03-artemis-stratodose/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E03-artemis-stratodose/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E03-artemis-stratodose/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E03-artemis-stratodose/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E03-artemis-stratodose/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E03-artemis-stratodose/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -783,7 +1005,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -796,6 +1018,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E04-aura-vertical/data/README.md) · [Open the figure gallery](../research/E/E04-aura-vertical/figures/README.md) · [Download acquisition template](../research/E/E04-aura-vertical/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E04-aura-vertical/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | [Scientific objective](../research/E/E04-aura-vertical/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E04-aura-vertical/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E04-aura-vertical/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E04-aura-vertical/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/E/E04-aura-vertical/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/E/E04-aura-vertical/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Estimate a hierarchical vertical-profile model with flight effects and correlated residuals. Fit instrument lag using independent response characterization; compare dry-air profiles to colocated or regionally relevant NOAA observations. Separate ascent and descent to detect hysteresis and avoid converting pressure decline into a concentration result.
+
+**Operating envelope:** NOAA flights are comparison observations, not contemporaneous ground truth for Arizona. Balloon horizontal drift and diurnal boundary-layer change complicate an altitude-only analysis.
+
+**Variables and conventions**
+
+- p Pa; T K; n_air molecules/m^3
+- x dimensionless mole fraction, reported ppm CO2 or ppb CH4
+- tau s; b mole fraction per m; u_flight flight-specific intercept
+
+#### Artifact wall
+
+![E04 proposed analysis architecture](../research/E/E04-aura-vertical/figures/architecture.svg)
+
+Calibration, humidity basis and response lag precede the altitude model. External profiles provide context; molecular density, horizontal/time confounding and missing analyzer selectivity remain distinct limitations.
+
+**Scientific result to produce:** Raw voltage, corrected wet/dry mole fractions and number density in aligned altitude panels, with systematic uncertainty bands.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create analyzer_calibration_manifest.json and gas_basis_schema.json. |
+| 02 | Planned | Implement humidity_conversion.py and ideal_gas_density.py. |
+| 03 | Planned | Build flight_clock_position.py with phase/path metadata. |
+| 04 | Planned | Create first_order_response.py and latent_vertical_profile.py. |
+| 05 | Planned | Implement noaa_profile_adapter.py preserving calibration scale. |
+| 06 | Planned | Publish withheld_flight.ipynb and dry_profile.parquet with domain/identity/lag flags. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E03 · ARTEMIS STRATODOSE](../research/E/E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+| [E02 · GEMINI HELIX](../research/E/E02-gemini-helix/README.md) | Project Helix | Session E |
+| [E06 · APOLLO THERMALIS](../research/E/E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | Session E |
+| [E01 · APOLLO HELIOSCOPE](../research/E/E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | Session E |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E04-aura-vertical/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E04-aura-vertical/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E04-aura-vertical/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E04-aura-vertical/data/README.md) | [Provenance](../research/E/E04-aura-vertical/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E04-aura-vertical/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E04-aura-vertical/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E04-aura-vertical/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E04-aura-vertical/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E04-aura-vertical/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E04-aura-vertical/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E04-aura-vertical/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1032,7 +1328,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1045,6 +1341,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E05-orion-truss/data/README.md) · [Open the figure gallery](../research/E/E05-orion-truss/figures/README.md) · [Download acquisition template](../research/E/E05-orion-truss/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E05-orion-truss/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: Design and Refinement of 3U CubeSat Structure | [Scientific objective](../research/E/E05-orion-truss/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E05-orion-truss/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E05-orion-truss/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E05-orion-truss/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/E/E05-orion-truss/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/E/E05-orion-truss/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build a coarse beam/plate surrogate followed by independently checked finite-element analysis. Use topology proposals only after keeping rail interfaces, fasteners, harness access and thermal straps as protected regions. Propagate joint-stiffness and manufacturing variability to modal/stress margins.
+
+**Operating envelope:** No launch loads or deployer ICD are supplied; this is a design framework and CAD handoff, not qualified flight hardware.
+
+**Variables and conventions**
+
+- K N/m; u m; F N; M kg; omega rad/s
+- rho kg/m^3; sigma Pa; L m; alpha 1/K
+- FOS safety factor chosen from controlling requirements, not assumed universal
+
+#### Artifact wall
+
+![E05 proposed analysis architecture](../research/E/E05-orion-truss/figures/architecture.svg)
+
+Controlled interfaces and loads feed independent structural branches and an integration checker. The candidate trade retains missing-input gates and cannot be rendered as qualified CubeSat hardware.
+
+**Scientific result to produce:** Pareto plot of mass versus first mode plus load-path/keep-out assembly diagram; all CAD geometry is conceptual until ICD-controlled.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create controlling_inputs.json with ICD/load/allowable pending states. |
+| 02 | Planned | Build parametric_3u CAD and protected_region_map.json. |
+| 03 | Planned | Implement beam_plate_surrogate.py with analytic fixtures. |
+| 04 | Planned | Create FE_model_manifest.json and mesh/contact studies. |
+| 05 | Planned | Build tolerance_and_integration.py and joint_sensitivity.ipynb. |
+| 06 | Planned | Publish candidate_trade.parquet and a drawing/analysis handoff with qualification status pending. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | Session E; [GSFC-STD-7000 GEVS](https://standards.nasa.gov/standard/GSFC/GSFC-STD-7000) |
+| [I03 · SATURN CHANNEL ATLAS](../research/I/I03-saturn-channel-atlas/README.md) | Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine | [NASA Small Spacecraft Structures](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Small Spacecraft Structures](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) |
+| [E04 · AURA VERTICAL](../research/E/E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+| [E06 · APOLLO THERMALIS](../research/E/E06-apollo-thermalis/README.md) | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | Session E |
+| [E03 · ARTEMIS STRATODOSE](../research/E/E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E05-orion-truss/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E05-orion-truss/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E05-orion-truss/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E05-orion-truss/data/README.md) | [Provenance](../research/E/E05-orion-truss/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E05-orion-truss/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E05-orion-truss/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E05-orion-truss/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E05-orion-truss/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E05-orion-truss/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E05-orion-truss/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E05-orion-truss/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1281,7 +1651,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1294,6 +1664,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E06-apollo-thermalis/data/README.md) · [Open the figure gallery](../research/E/E06-apollo-thermalis/figures/README.md) · [Download acquisition template](../research/E/E06-apollo-thermalis/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E06-apollo-thermalis/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload | [Scientific objective](../research/E/E06-apollo-thermalis/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 2 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E06-apollo-thermalis/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E06-apollo-thermalis/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E06-apollo-thermalis/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/E/E06-apollo-thermalis/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/E/E06-apollo-thermalis/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Estimate identifiable network conductances using separate thermal transients, then propagate environmental and material uncertainty through a time-domain solver. Maintain distinct radiation, conduction and convection terms. Use measured orientation and power to explain heating asymmetry.
+
+**Operating envelope:** Small-satellite vacuum context is useful but not identical to a balloon atmosphere. Unknown attitude and view factors can dominate model error.
+
+**Variables and conventions**
+
+- C J/K; G W/K; Q W; temperatures K
+- sigma Stefan-Boltzmann constant W/(m^2 K^4)
+- h_conv and h_eff W/(m^2 K); Bi dimensionless. Use effective transfer or independently validate internal gradients.
+
+#### Artifact wall
+
+![E06 included scientific diagnostic](../data/figures/11_thermal_power_and_response.svg)
+
+Synthetic two-node balloon thermal model. Signed component powers sum to net wall power, with wall-to-payload conduction reversed for the wall balance. The payload has a prescribed 3 W internal source. Temperatures show the model response to imposed boundary histories; they are not balloon-flight measurements or qualification limits.
+
+[Exact inputs, transformations and output hashes](../data/figures/11_thermal_power_and_response.provenance.json)
+
+**Scientific result to produce:** Component temperature trajectories with prediction bands and heat-flow contribution panels; included executable reduced thermal example is synthetic.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create thermal_nodes_edges.yaml with sensor geometry and reciprocal conductance. |
+| 02 | Planned | Build environment_orientation_adapter.py and radiative_view_factors.json. |
+| 03 | Planned | Implement thermal_network.py with analytic two-node fixtures. |
+| 04 | Planned | Create energy_ledger.py and Bi_gradient_checker.py. |
+| 05 | Planned | Build calibration_identifiability.ipynb and optional spatial_node_model.json. |
+| 06 | Planned | Publish hotspot_predictions.parquet and withheld-flight validation with supplied limits pending. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E03 · ARTEMIS STRATODOSE](../research/E/E03-artemis-stratodose/README.md) | UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger | Session E; Included illustration: 03_balloon_thermal |
+| [I05 · PIONEER AERODRIFT](../research/I/I05-pioneer-aerodrift/README.md) | Pico Balloon Platform for Atmospheric Exploration | Included illustration: 03_balloon_thermal |
+| [I02 · APOLLO AQUATHERM](../research/I/I02-apollo-aquatherm/README.md) | Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine | [NASA Small Spacecraft Thermal Control](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/) |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E |
+| [E04 · AURA VERTICAL](../research/E/E04-aura-vertical/README.md) | A Measurement of the Concentration of Greenhouse Gases as Altitude Increases | Session E |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E06-apollo-thermalis/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E06-apollo-thermalis/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E06-apollo-thermalis/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E06-apollo-thermalis/data/README.md) | [Provenance](../research/E/E06-apollo-thermalis/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E06-apollo-thermalis/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E06-apollo-thermalis/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E06-apollo-thermalis/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E06-apollo-thermalis/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E06-apollo-thermalis/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E06-apollo-thermalis/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E06-apollo-thermalis/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1536,7 +1982,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1549,6 +1995,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E07-discovery-trident/data/README.md) · [Open the figure gallery](../research/E/E07-discovery-trident/figures/README.md) · [Download acquisition template](../research/E/E07-discovery-trident/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E07-discovery-trident/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Glendale Community College (GCC) ASCEND Team | [Scientific objective](../research/E/E07-discovery-trident/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E07-discovery-trident/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E07-discovery-trident/data/README.md) |
+| Verification queue | 4 proposed requirements; 3 specified cases; project execution evidence pending | [Case definitions](../research/E/E07-discovery-trident/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/E/E07-discovery-trident/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/E/E07-discovery-trident/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Specify a common telemetry dictionary and hardware boundary for each module. Infer clock offset and sensor bias from shared calibration periods, then test consistency on withheld trajectory segments. Model redundant science return using a fault tree with common causes rather than a simple component count.
+
+**Operating envelope:** Original GCC telemetry is not supplied. Three modules do not guarantee independent measurements if they share power or calibration bias.
+
+**Variables and conventions**
+
+- z sensor observation; x common environmental state
+- delta_t clock offset s; b calibration bias in measurement units
+- A_j: probability that module j supplies an acceptable record over the specified interval; these closed forms require independent module availability. A common-cause fault tree replaces them when dependence is present.
+
+#### Artifact wall
+
+![E07 proposed analysis architecture](../research/E/E07-discovery-trident/figures/architecture.svg)
+
+Science availability is conditioned on record comparability and two surviving acceptable records. A separate dependency branch preserves shared faults; pairwise agreement remains distinct from absolute calibration accuracy.
+
+**Scientific result to produce:** Three-lane timeline showing measured fields, missing data and clock corrections; interface graph shows shared dependencies.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create common_telemetry_schema.json and three native adapters. |
+| 02 | Planned | Build clock_placement_registry.csv and alignment_bias.py. |
+| 03 | Planned | Implement acceptable_record_gate.py with pending science tolerances. |
+| 04 | Planned | Create joint_fault_tree.py and all-survival fixtures. |
+| 05 | Planned | Build withheld_segment_consistency.ipynb using synthetic/available approved records. |
+| 06 | Planned | Publish science_availability.parquet distinguishing two-of-three, one-only and common-fault scenarios. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E08 · GATEWAY POWERBENCH](../research/E/E08-gateway-powerbench/README.md) | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | Session E; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E02 · GEMINI HELIX](../research/E/E02-gemini-helix/README.md) | Project Helix | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [E01 · APOLLO HELIOSCOPE](../research/E/E01-apollo-helioscope/README.md) | Phoenix College: Video Streaming and DNA Studies | Session E; [Arizona Space Grant ASCEND program](https://spacegrant.arizona.edu/research/ascend) |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E07-discovery-trident/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E07-discovery-trident/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E07-discovery-trident/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E07-discovery-trident/data/README.md) | [Provenance](../research/E/E07-discovery-trident/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E07-discovery-trident/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E07-discovery-trident/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E07-discovery-trident/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E07-discovery-trident/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E07-discovery-trident/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E07-discovery-trident/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E07-discovery-trident/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1785,7 +2305,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session E:** ASCEND
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1798,6 +2318,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/E/E08-gateway-powerbench/data/README.md) · [Open the figure gallery](../research/E/E08-gateway-powerbench/figures/README.md) · [Download acquisition template](../research/E/E08-gateway-powerbench/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![E08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/E/E08-gateway-powerbench/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems | [Scientific objective](../research/E/E08-gateway-powerbench/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/E/E08-gateway-powerbench/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/E/E08-gateway-powerbench/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/E/E08-gateway-powerbench/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/E/E08-gateway-powerbench/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/E/E08-gateway-powerbench/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Represent the harness as a state machine with independently observed voltage/current and explicit fixture self-checks. Propagate meter gain, offset, sampling skew and harness resistance into power uncertainty. Compare repeated duty-cycle replays; a fault is diagnosed only with evidence separating DUT, stimulus and measurement paths.
+
+**Operating envelope:** Published EPS architectures do not supply this team’s wiring, limit settings or qualification requirements. State-of-charge models depend on chemistry, temperature and aging.
+
+**Variables and conventions**
+
+- V volts; I A; E J; R ohm
+- Q_Ah ampere-hours; SOC dimensionless
+- r_E J; a calibrated loss/temperature model is required
+
+#### Artifact wall
+
+![E08 proposed analysis architecture](../research/E/E08-gateway-powerbench/figures/architecture.svg)
+
+The isolated state machine gates stimulus on controlled limits and separates wiring, sensing and DUT boundaries. Surrogate replay supports reproducibility without high-energy fault procedures or flight qualification claims.
+
+**Scientific result to produce:** EPS/harness interface schematic and energy balance Sankey using measured data only after acquisition; prospective traceability matrix.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create eps_harness_requirements.json with limit provenance and pending status. |
+| 02 | Planned | Build local_harness_state_machine.py and interlock fixtures. |
+| 03 | Planned | Implement surrogate_source_load.py with benign fault variants. |
+| 04 | Planned | Create independent_meter_adapter.py and timing_calibration.py. |
+| 05 | Planned | Build harness_loss_energy.py and chemistry_labeled_soc.py. |
+| 06 | Planned | Publish repeated_replay.ipynb, fault_hypotheses.parquet and a fixture/DUT evidence matrix. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [E07 · DISCOVERY TRIDENT](../research/E/E07-discovery-trident/README.md) | Glendale Community College (GCC) ASCEND Team | Session E; [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [E05 · ORION TRUSS](../research/E/E05-orion-truss/README.md) | EagleSat Team: Design and Refinement of 3U CubeSat Structure | Session E; [GSFC-STD-7000 GEVS](https://standards.nasa.gov/standard/GSFC/GSFC-STD-7000) |
+| [D07 · ARES DUAL-WORLD SCOUT](../research/D/D07-ares-dual-world-scout/README.md) | Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [G07 · HUBBLE SPECTRAL ANCHOR](../research/G/G07-hubble-spectral-anchor/README.md) | An Introduction to Systems Engineering: Building a Monochromator Mount | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I04 · ORION SENTINEL CORE](../research/I/I04-orion-sentinel-core/README.md) | EagleSat Team: On-board Computer Subsystem | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+| [I06 · SATURN LOADPATH](../research/I/I06-saturn-loadpath/README.md) | Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models | [NASA Systems Engineering Handbook](https://www.nasa.gov/reference/systems-engineering-handbook/) |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/E/E08-gateway-powerbench/README.md#purpose-and-scientific-objective) | [Design boundary](../research/E/E08-gateway-powerbench/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/E/E08-gateway-powerbench/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/E/E08-gateway-powerbench/data/README.md) | [Provenance](../research/E/E08-gateway-powerbench/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/E/E08-gateway-powerbench/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/E/E08-gateway-powerbench/README.md#7-engineering-trade-study) | [Failure modes](../research/E/E08-gateway-powerbench/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/E/E08-gateway-powerbench/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/E/E08-gateway-powerbench/README.md#2-requirements-and-verification-traceability) | [Verification](../research/E/E08-gateway-powerbench/README.md#8-verification-and-validation-cases) → [Implementation](../research/E/E08-gateway-powerbench/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 

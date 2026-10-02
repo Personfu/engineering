@@ -4,7 +4,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -17,6 +17,82 @@
 [Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
 
 ---
+
+## Mission profile
+
+![B13 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Instance Segmentation for Biogeography | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Audit annotation types/licenses, create double-reviewed mask subsets if needed and freeze matching rules. Train a documented instance architecture with simple detection baselines; preserve coordinate systems and stratify evaluation by overlap/size. Calibrate uncertainty, correct abundance using validation-derived detection models and propagate errors into spatial clustering/size distributions. Publish support masks and an abstention rule for unfamiliar habitats rather than presenting every detection as trustworthy.
+
+**Operating envelope:** Visible canopy excludes many understory individuals. Annotation ambiguity limits performance; high image scores can still conceal biased ecological counts.
+
+**Variables and conventions**
+
+- A/B: prediction/reference masks; area: georeferenced m².
+- p_detect: probability conditional on size, overlap and sensor.
+- N: ecological instance abundance; centroid error: m.
+- Class/size definitions retain biological meaning and physical units.
+- Truth probability is calibrated on independent labeled validation objects. Any false-positive correction must use the same inverse-detection weighting as the detections.
+
+### Artifact wall
+
+![B13 proposed analysis architecture](figures/architecture.svg)
+
+The diagram separates annotation types, mask matching and ecological error correction. Its outputs represent supported visible crown instances, with calibration uncertainty and an explicit boundary on transfer to unfamiliar habitats.
+
+**Scientific result to produce:** Overlay reviewed/predicted crowns with uncertainty, then compare corrected counts and size distributions across withheld sites.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish annotation definitions, licenses and linked-tile/site manifests. |
+| 02 | Planned | Construct reviewed mask subsets and label-disagreement artifacts. |
+| 03 | Planned | Train detector and mask alternatives with frozen spatial splits. |
+| 04 | Planned | Implement one-to-one matching and size/overlap score reports. |
+| 05 | Planned | Calibrate truth/detection probabilities and covariance-aware ecological corrections. |
+| 06 | Planned | Release masks, support layers and visible-crown estimand limitations. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](../B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md) | Nevada Offsite Management | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ## Purpose and scientific objective
 

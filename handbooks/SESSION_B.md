@@ -1,10 +1,10 @@
 # SESSION B: EARTH & ENVIRONMENTAL ENGINEERING
 
-## ATLAS engineering handbook · Revision 3
+## ATLAS engineering handbook · Revision 4
 
 ![Session B](../assets/sessions/B.svg)
 
-28 original projects, preserved in their supplied order. Each numbered record has an independently stated design basis, model, data contract and verification plan.
+28 original projects, preserved in their supplied order. Each numbered record opens with a detailed mission profile before its complete design basis, model, data contract and verification plan.
 
 [All engineering documents](../ENGINEERING_DOCUMENTATION.md) · [Session gallery](../research/B/README.md) · [Documentation standard](../engineering/ENGINEERING_STANDARD.md)
 
@@ -49,7 +49,7 @@
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -62,6 +62,81 @@
 [Explore the data blueprint](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/data/README.md) · [Open the figure gallery](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/figures/README.md) · [Download acquisition template](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | [Scientific objective](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use charge-balance and replicate checks before forming chloride-normalized contrasts or isotope mixing estimates. Fit a hierarchical state-space model with feature-specific sensitivities and common deformation state. Limit lag complexity using nested training windows, propagate analytical uncertainty by Monte Carlo, and compare with a hydrology-only model. Treat spring drying, relocation and detection limits as explicit missing-data processes. Freeze the evaluation protocol before accessing the final temporal block.
+
+**Operating envelope:** Geodetic and hydrothermal footprints differ; chemistry changes can arise from boiling, precipitation, recharge or sampling. Even useful prediction cannot uniquely identify magma motion.
+
+**Variables and conventions**
+
+- C: dissolved concentration, mg/L; f: thermal mixing fraction, dimensionless.
+- u: geodetic displacement, mm; z: standardized chemistry contrast.
+- l: predeclared annual lags; w: precipitation, discharge and season covariates.
+- ε: analytical and sampling error; η: unexplained displacement.
+
+#### Artifact wall
+
+![B01 proposed analysis architecture](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/figures/architecture.svg)
+
+The diagram identifies separate chemical, geodetic and hydrologic interfaces and the chronological inference boundary. It establishes forecast provenance, while leaving deformation mechanism and volcanic interpretation unresolved.
+
+**Scientific result to produce:** Linked spring map, chemistry and displacement histories with the held-out period shaded; overlay forecast intervals and hydrology-only residuals.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish site/sample/analyte schemas and a feature-identity crosswalk with unresolved cases. |
+| 02 | Planned | Create checksum manifests for exact chemistry tables and separately retrieved geodetic products. |
+| 03 | Planned | Implement equivalent-unit conversion, charge balance and covariance-aware mixing notebooks. |
+| 04 | Planned | Build chronological folds and hydrology-only forecast artifacts before fitting chemistry terms. |
+| 05 | Planned | Save parameter profiles, held-out predictions and year-block score intervals. |
+| 06 | Planned | Release a deformation-comparison report with excluded records and mechanistic alternatives. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B; [USGS Yellowstone water chemistry and isotope data, version 2.0](https://www.usgs.gov/data/water-chemistry-and-isotope-data-selected-springs-geysers-streams-and-rivers-yellowstone) |
+| [B02 · ARTEMIS LIFE RAFTS — Urban Pollinator Constellation](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md) | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/data/README.md) | [Provenance](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -299,7 +374,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -312,6 +387,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/data/README.md) · [Open the figure gallery](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/figures/README.md) · [Download acquisition template](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B02 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | [Scientific objective](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Begin with paired existing sites and repeat standardized, nonlethal observations. Stratify by neighborhood heat, imperviousness and surrounding vegetation. Fit detection-corrected occupancy and visitation models, construct taxon-specific connectivity graphs, then compare candidate planting portfolios through robust multiobjective optimization. Use before/after control-impact evaluation for any future installation and include neighborhood access and maintenance feasibility as explicit constraints.
+
+**Operating envelope:** Urban areas can support some bees while disadvantaging other insects. A short pilot detects habitat use, not long-term regional population recovery; unmeasured pesticide exposure remains a possible confounder.
+
+**Variables and conventions**
+
+- d: effective movement distance, m; λ: uncertain dispersal scale, m.
+- h_j: calibrated habitat suitability in [0,1], dimensionless; psi: occupancy probability. With lambda>0 and d>=0, p_ij remains in [0,1].
+- c: lifecycle cost, USD; q: irrigation demand, L/year.
+- B and Q: community-agreed budget and water constraints.
+
+#### Artifact wall
+
+![B02 proposed analysis architecture](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/figures/architecture.svg)
+
+The system joins detection-aware habitat use, seasonal resources and taxon-specific connectivity with maintenance constraints. Its portfolio scores describe proposed habitat performance and cannot establish regional population recovery.
+
+**Scientific result to produce:** Show candidate life rafts as nodes sized by resources, connecting uncertain movement pathways; accompany with weekly bloom coverage and costs.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Define taxon groups, patch boundaries and a community-approved objective/constraint register. |
+| 02 | Planned | Create repeat-survey and phenology schemas with explicit effort and missing visits. |
+| 03 | Planned | Implement occupancy fitting and posterior checks before constructing connectivity graphs. |
+| 04 | Planned | Build resistance ensembles and weekly resource matrices with shared weather scenarios. |
+| 05 | Planned | Compare equal-budget baselines and independently verify every optimized portfolio. |
+| 06 | Planned | Publish taxon-specific tradeoffs, maintenance inventories and restricted-data export rules. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B; [USA National Phenology Network observational data](https://nn.usanpn.org/data/observational) |
+| [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md) | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/data/README.md) | [Provenance](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -549,7 +699,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -562,6 +712,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B03-orion-crossings-gila-monster-road-ecology/data/README.md) · [Open the figure gallery](../research/B/B03-orion-crossings-gila-monster-road-ecology/figures/README.md) · [Download acquisition template](../research/B/B03-orion-crossings-gila-monster-road-ecology/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B03 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B03-orion-crossings-gila-monster-road-ecology/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | [Scientific objective](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B03-orion-crossings-gila-monster-road-ecology/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B03-orion-crossings-gila-monster-road-ecology/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Map changes in road network and vegetation, then use integrated step-selection models with matched available steps generated from each animal’s movement distribution. Jointly model detection and censoring where possible; use proximity to roads, traffic seasonality and refuge cover rather than a single urban/rural label. Rank mitigation alternatives through scenario analysis and explicitly display when the available data cannot distinguish attraction, avoidance or increased mortality.
+
+**Operating envelope:** Rare-species samples can have wide confidence intervals. Roads correlate with development and habitat loss, while observed survivors may underrepresent vulnerable animals; predictive association alone cannot establish intervention benefit.
+
+**Variables and conventions**
+
+- X: distance to roads/refuges, m, and traffic covariates, vehicles/day.
+- Z: individual traits, weather and recent crossing exposure.
+- H: mortality hazard, day⁻¹; crossing probabilities are dimensionless.
+- Benefit: expected avoided losses over a stated time horizon.
+
+#### Artifact wall
+
+![B03 proposed analysis architecture](../research/B/B03-orion-crossings-gila-monster-road-ecology/figures/architecture.svg)
+
+The diagram preserves movement, exposure and survival as separate evidence paths and shows where restricted tracks enter the analysis. It does not turn uncertain telemetry intersections into confirmed road crossings.
+
+**Scientific result to produce:** Publish generalized habitat corridors and risk intervals; keep individual paths and refuge coordinates in access-controlled layers.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create a restricted-data manifest and approved public aggregation specification. |
+| 02 | Planned | Implement temporal GIS joins, coordinate checks and location-error propagation. |
+| 03 | Planned | Produce encounter probability layers with observed/plausible/unresolved evidence classes. |
+| 04 | Planned | Build matched-step datasets and individual-level validation splits. |
+| 05 | Planned | Fit survival only after fate and event-count adequacy review. |
+| 06 | Planned | Release scenario benefit distributions, limitations and an independently checked mitigation ledger. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B02 · ARTEMIS LIFE RAFTS — Urban Pollinator Constellation](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md) | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md) | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B03-orion-crossings-gila-monster-road-ecology/data/README.md) | [Provenance](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -799,7 +1024,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -812,6 +1037,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/data/README.md) · [Open the figure gallery](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/figures/README.md) · [Download acquisition template](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B04 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | [Scientific objective](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reconstruct receiver gain history and sidereal baselines using clean intervals; flag narrowband interference and saturation before calculating absorption. Align events with NOAA solar/particle records, then compare observed event peaks, durations and timing with D-RAP. Fit a constrained event model and evaluate latitude/daylight interactions. Forward-model antenna and ray-path weighting for any spacecraft case rather than copying ground-riometer assumptions.
+
+**Operating envelope:** D-RAP is a modeled benchmark and cannot substitute for measured link attenuation. Ground absorption integrates a different path from many spacecraft or aircraft links, and a sparse network cannot guarantee regional transfer.
+
+**Variables and conventions**
+
+- P: calibrated receiver power, W or consistent relative units.
+- n_e: electron density, m⁻³; ν_en: collision frequency, s⁻¹.
+- f: frequency, Hz; s: propagation-path length, m.
+- A: absorption, dB; quiet-day baseline is sidereal-time dependent.
+
+#### Artifact wall
+
+![B04 proposed analysis architecture](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/figures/architecture.svg)
+
+The architecture makes instrument power, platform geometry and modeled event comparisons explicit. The spacecraft branch is conditional on verified metadata, and no ground measurement is automatically interpreted as spacecraft-link attenuation.
+
+**Scientific result to produce:** Display raw/clean receiver power, quiet-day baseline, absorption and D-RAP event comparisons; annotate instrument location and path geometry.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create a platform/frequency/antenna/gain inventory with unresolved metadata entries. |
+| 02 | Planned | Implement UTC-to-sidereal conversion and receiver calibration checks. |
+| 03 | Planned | Construct clean-day ensembles and save baseline covariance artifacts. |
+| 04 | Planned | Compute flagged power-ratio absorption before joining event comparators. |
+| 05 | Planned | Implement conditional path/frequency sensitivity notebooks with explicit validity masks. |
+| 06 | Planned | Publish instrument-level events and a geometry-limited interpretation report. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B; [2021 Arizona NASA Space Grant symposium booklet](https://spacegrant.arizona.edu/sites/spacegrant.arizona.edu/files/AZSGC%20Symposium%20Booklet%202021_website.pdf) |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B |
+| [B02 · ARTEMIS LIFE RAFTS — Urban Pollinator Constellation](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md) | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+| [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md) | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/data/README.md) | [Provenance](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1050,7 +1350,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1063,6 +1363,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/data/README.md) · [Open the figure gallery](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/figures/README.md) · [Download acquisition template](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B05 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Phenology Data to Aid Pollinator Restoration | [Scientific objective](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Model interval-censored onset and duration from repeated phenophase observations. Add weather, elevation and water availability through hierarchical models; compare growing-degree-day and flexible calendar baselines. Use posterior bloom probabilities in a constrained planting optimization with local suitability, water, cost and establishment limits. Treat demand curves as measured or scenario assumptions; evaluate resource-gap robustness rather than presenting flowering overlap as demonstrated reproductive success.
+
+**Operating envelope:** National datasets may omit desert species or have short local records. Flower presence does not directly measure nectar, pollen quality or successful pollination, and restoration establishment changes realized resources.
+
+**Variables and conventions**
+
+- x: planting area or abundance by species, m² or individuals.
+- r: floral-resource proxy, resources per area per day, locally calibrated.
+- D: demand proxy in the same resource units; not inferred directly from bloom counts.
+- T_base: species-specific thermal threshold, °C; moisture includes precipitation/soil-water proxies.
+
+#### Artifact wall
+
+![B05 proposed analysis architecture](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/figures/architecture.svg)
+
+The diagram connects observation intervals to weekly restoration resources and makes establishment and demand assumptions visible. It establishes timing support, while leaving pollinator demographic benefit to independent evidence.
+
+**Scientific result to produce:** Show weekly flowering probabilities by species, aggregate mixture coverage and uncertain gap days; label observed versus projected years.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish phenophase, weather and species-suitability schemas with observation-state definitions. |
+| 02 | Planned | Construct interval-censored onset/duration tables and weather coverage reports. |
+| 03 | Planned | Implement calendar and thermal/moisture baselines with frozen yearly folds. |
+| 04 | Planned | Build joint weekly bloom ensembles and resource conversion assumptions. |
+| 05 | Planned | Optimize constrained mixtures and independently calculate shortfall distributions. |
+| 06 | Planned | Release species timing cards, extrapolation flags and locally reviewable restoration scenarios. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B02 · ARTEMIS LIFE RAFTS — Urban Pollinator Constellation](../research/B/B02-artemis-life-rafts-urban-pollinator-constellation/README.md) | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | Session B; [USA National Phenology Network observational data](https://nn.usanpn.org/data/observational) |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B; [USGS managing to survive despite the weather: seeding decisions](https://www.usgs.gov/publications/managing-survive-despite-weather-seeding-decisions-affecting-simulated-dryland) |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/data/README.md) | [Provenance](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1300,7 +1675,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1313,6 +1688,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/data/README.md) · [Open the figure gallery](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/figures/README.md) · [Download acquisition template](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B06 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | [Scientific objective](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Harmonize AQS ozone and precursor records with meteorology, land cover and documented emissions inventories. Fit generalized additive meteorology normalization, then use a reduced chemical box model or established regional-model sensitivity runs to perturb vegetation and anthropogenic sources separately. Bootstrap by season/year, preserve negative-control periods and compare intervention scenarios under identical meteorology. Evaluate effects on maximum daily 8-hour ozone and spatial gradients without claiming full source attribution from correlations.
+
+**Operating envelope:** Box models cannot fully resolve basin circulation or regional transport. Sparse speciated VOC observations can make plant attribution weak; green-space policy needs heat, water and biodiversity tradeoffs as well as ozone.
+
+**Variables and conventions**
+
+- O3 and precursors: ppb or mol/m³ with explicit conversion.
+- E: emission flux, mg/m²/hour; LAI: leaf area index, dimensionless.
+- v_d: deposition velocity, m/s; h: mixing height, m.
+- γ: environmental response factors; transport is not assumed zero.
+
+#### Artifact wall
+
+![B06 proposed analysis architecture](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/figures/architecture.svg)
+
+The architecture distinguishes observed ozone normalization from conditional chemistry scenarios and shows transport as an explicit interface. It supports bounded source sensitivities without equating vegetation correlations with causal ozone production.
+
+**Scientific result to produce:** Plot ozone response surfaces for NOx and BVOC changes by season, alongside measured monitor histories and intervention uncertainty.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create an AQS/weather/vegetation manifest with averaging and timezone definitions. |
+| 02 | Planned | Implement concentration conversions and data-completeness-aware MDA8 aggregation. |
+| 03 | Planned | Fit meteorology-normalized baselines using chronological episode folds. |
+| 04 | Planned | Develop a chemistry/deposition/exchange model with an explicit dimensional ledger. |
+| 05 | Planned | Run factorial source scenarios and uncertainty profiles under matched weather. |
+| 06 | Planned | Publish ozone, heat, water and ecological tradeoffs with source-attribution limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/data/README.md) | [Provenance](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1550,7 +2000,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1563,6 +2013,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/data/README.md) · [Open the figure gallery](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/figures/README.md) · [Download acquisition template](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B07 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Bioremediation of Insensitive Munitions Compounds | [Scientific objective](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Extract concentration-time records, reporting limits, redox and matrix descriptors from primary remediation studies. Fit coupled stoichiometric parent/product molar-balance models with censored observations, compare biological and abiotic interpretations, and propagate kinetic/transport uncertainty into retrospective exposure estimates. Use literature-based scenario analysis for authorized remediation planning. Require independent product identification and carbon/nitrogen accounting before describing mineralization; do not infer complete cleanup from parent removal.
+
+**Operating envelope:** Sparse product coverage and inconsistent extraction recoveries may prevent mass closure. Published controlled-system results may not transfer to heterogeneous field sites, and mixture toxicity can violate additive risk assumptions.
+
+**Variables and conventions**
+
+- C_i: measured dissolved mass concentration mg/L; S_i: sorbed mass mg/kg; c_i: molar dissolved concentration mol/L after mass-unit conversion.
+- MW_i: molar mass g/mol; N_C,i: carbon atoms per molecule; nu_ir: dimensionless signed molar stoichiometric coefficient; r_r: reaction rate mol/(L day).
+- D_i: dispersion m^2/day; v: pore-water velocity m/day; k_loss,i: independently characterized loss day^-1.
+- V: water volume L; m_soil: dry soil mass kg; n_C: mol of carbon atoms. Convert mg to g before division by MW; inventory gas, biomass and unmeasured pools separately.
+
+#### Artifact wall
+
+![B07 proposed analysis architecture](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/figures/architecture.svg)
+
+The diagram establishes molar, element-specific accounting and separates analytical loss, transformation and transport. Its hazard ledger carries unmeasured-product uncertainty, so parent disappearance cannot become a claim of complete remediation.
+
+**Scientific result to produce:** Show monitored parent-to-product pathways with uncertainty bands and separate dissolved, sorbed, unresolved and verified mineralized fractions.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create analyte/formula, assay and matrix schemas with reporting-limit fields. |
+| 02 | Planned | Extract published concentration-time records with digitization and recovery uncertainty. |
+| 03 | Planned | Implement balanced molar compartment networks and censored observation likelihoods. |
+| 04 | Planned | Compare abiotic/nonreactive alternatives before fitting complex pathways. |
+| 05 | Planned | Generate inventory closure, rate identifiability and held-out prediction artifacts. |
+| 06 | Planned | Release environmental fate and residual-hazard reports with unresolved product coverage. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/data/README.md) | [Provenance](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -1802,7 +2327,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -1815,6 +2340,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B08-terraform-terraces-dryland-conservation-observatory/data/README.md) · [Open the figure gallery](../research/B/B08-terraform-terraces-dryland-conservation-observatory/figures/README.md) · [Download acquisition template](../research/B/B08-terraform-terraces-dryland-conservation-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B08 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B08-terraform-terraces-dryland-conservation-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | The Influence of Conservation Structures on Rangeland Vegetation Patterns | [Scientific objective](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B08-terraform-terraces-dryland-conservation-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B08-terraform-terraces-dryland-conservation-observatory/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Construct dated structure inventories and matched untreated channel segments. Map functional-group cover from field transects and remote sensing; fit spatial event-study models with rainfall interactions and distance effects. Test parallel pretreatment trends and sensitivity to catchment mismatches. Use water balances to evaluate mechanisms, and report incremental changes relative to controls. Propagate imagery, installation-date and spatial-correlation uncertainty through block bootstrapping.
+
+**Operating envelope:** Small structures can fall below pixel size. Nearby controls may experience spillovers; observed cover changes cannot directly establish species-diversity or soil-fertility improvement.
+
+**Variables and conventions**
+
+- Y: herb/shrub/bare cover, percent; β: percentage-point change.
+- S: stored water, mm; fluxes: mm/day.
+- d: signed channel distance, m; ℓ: influence length, m.
+- Structure condition, slope, contributing area and rainfall are covariates.
+
+#### Artifact wall
+
+![B08 proposed analysis architecture](../research/B/B08-terraform-terraces-dryland-conservation-observatory/figures/architecture.svg)
+
+The architecture links vegetation effects to dated interventions and comparable reaches, with a separate water ledger. It exposes pixel support, maintenance and downstream redistribution limits rather than equating greenness with ecosystem improvement.
+
+**Scientific result to produce:** Map structures, controls and cover-change intervals; display upstream/downstream effects with rainfall-adjusted uncertainty bands.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish reach, structure-condition and installation-date inventories with source lineage. |
+| 02 | Planned | Define consistent functional-cover labels and field/image support areas. |
+| 03 | Planned | Create matched controls and pretrend diagnostics before fitting treatment effects. |
+| 04 | Planned | Implement event-time and distance alternatives with catchment-block covariance. |
+| 05 | Planned | Build inlet/storage/outlet water scenarios and explicit downstream tradeoff artifacts. |
+| 06 | Planned | Release cover-effect maps with resolution limits, spillover analyses and maintenance states. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B08-terraform-terraces-dryland-conservation-observatory/data/README.md) | [Provenance](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2063,7 +2663,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2076,6 +2676,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/data/README.md) · [Open the figure gallery](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/figures/README.md) · [Download acquisition template](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B09 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Mapping Hot Spring Geochemistry in Yellowstone | [Scientific objective](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Separate sites, samples, methods and analytes in a relational archive. Retain censored values and qualifiers rather than substituting zero. Classify major-ion compositions with uncertainty-aware compositional methods, then compare basin-specific Gaussian processes, nearest neighbors and sample-only baselines. Evaluate time-window dependence, retain unmodeled features and select prospective samples by expected variance reduction under access constraints. Keep chemistry measurements separate from optional speciation calculations.
+
+**Operating envelope:** Maps represent sampled periods rather than permanent spring compositions. Sharp boundaries challenge smooth models; complete speciation requires additional temperature, redox and equilibrium assumptions.
+
+**Variables and conventions**
+
+- s: projected location, m; t: sample date.
+- Concentrations: mg/L and meq/L; pH remains logarithmic.
+- g: setting-constrained spatial process; h: temporal process.
+- Facies probabilities: dimensionless; uncertainty layers retain physical units.
+
+#### Artifact wall
+
+![B09 proposed analysis architecture](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/figures/architecture.svg)
+
+The diagram defines a versioned sample-to-map lineage and basin/time support boundary. Measured concentration, inferred facies and optional equilibrium interpretation remain separate products with explicit sparse-data limits.
+
+**Scientific result to produce:** Basin map with measured points, assay/date filters, facies probabilities and an explicit unsupported-prediction mask.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create feature/sample/analyte/method schemas and alias-review artifacts. |
+| 02 | Planned | Freeze exact USGS table versions with checksums and date windows. |
+| 03 | Planned | Implement valence-aware equivalent conversion and qualified charge balance. |
+| 04 | Planned | Build sample-only, nearest-neighbor and basin-process baselines with feature folds. |
+| 05 | Planned | Publish concentration/facies distributions and support-distance layers. |
+| 06 | Planned | Produce access-constrained sampling priorities and separate optional-speciation assumptions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](../research/B/B01-caldera-sentinel-yellowstone-hydrothermal-observatory/README.md) | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | Session B; [USGS Yellowstone water chemistry and isotope data, version 2.0](https://www.usgs.gov/data/water-chemistry-and-isotope-data-selected-springs-geysers-streams-and-rivers-yellowstone) |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](../research/B/B07-regenesis-cleanflow-environmental-fate-and-remediation-model/README.md) | Bioremediation of Insensitive Munitions Compounds | Session B |
+| [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md) | Nevada Offsite Management | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../research/B/B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/data/README.md) | [Provenance](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2313,7 +2988,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2326,6 +3001,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B10-landsat-equity-community-canopy-mission/data/README.md) · [Open the figure gallery](../research/B/B10-landsat-equity-community-canopy-mission/figures/README.md) · [Download acquisition template](../research/B/B10-landsat-equity-community-canopy-mission/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B10 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B10-landsat-equity-community-canopy-mission/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | [Scientific objective](../research/B/B10-landsat-equity-community-canopy-mission/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B10-landsat-equity-community-canopy-mission/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B10-landsat-equity-community-canopy-mission/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B10-landsat-equity-community-canopy-mission/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B10-landsat-equity-community-canopy-mission/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B10-landsat-equity-community-canopy-mission/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Build cloud- and season-controlled reflectance composites, persistent vegetation/canopy trends and change points. Combine documented thermal imagery with air-temperature transects and socioeconomic records on consistent spatial units. Compare matched redevelopment/control areas or panel models with pretrend checks. Weight outputs by exposure and green-space access; evaluate restoration scenarios with water demand, establishment survival and maintenance. Propagate classification and demographic uncertainty rather than ranking neighborhoods by unqualified point estimates.
+
+**Operating envelope:** Mixed pixels can miss street trees. Associations do not establish causal health effects; unobserved irrigation and neighborhood change can bias estimates.
+
+**Variables and conventions**
+
+- ρ: unitless reflectance; canopy: validated percent cover.
+- T: surface-temperature anomaly, K; air temperature needs separate calibration.
+- g: neighborhood; p: spatial cell.
+- Exposure: ecological aggregate, not an individual heat dose.
+
+#### Artifact wall
+
+![B10 proposed analysis architecture](../research/B/B10-landsat-equity-community-canopy-mission/figures/architecture.svg)
+
+The diagram distinguishes canopy, surface heat, air-temperature calibration and usable access before neighborhood aggregation. The release boundary preserves community authority and prevents environmental exposure estimates from becoming unsupported health claims.
+
+**Scientific result to produce:** Pair canopy-change maps with measured thermal anomalies, population-weighted exposure and uncertain restoration benefits/water demand.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create a community-reviewed estimand, data-authority and public-release register. |
+| 02 | Planned | Freeze imagery, population and boundary versions with scene-quality manifests. |
+| 03 | Planned | Implement seasonal composites and canopy validation with spatial/year folds. |
+| 04 | Planned | Build separate thermal retrieval and air-temperature calibration artifacts. |
+| 05 | Planned | Calculate population exposure and network access with full covariance sensitivity. |
+| 06 | Planned | Release reviewable restoration scenarios with water/maintenance and overlapping-rank uncertainty. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B; [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B10-landsat-equity-community-canopy-mission/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B10-landsat-equity-community-canopy-mission/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B10-landsat-equity-community-canopy-mission/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B10-landsat-equity-community-canopy-mission/data/README.md) | [Provenance](../research/B/B10-landsat-equity-community-canopy-mission/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B10-landsat-equity-community-canopy-mission/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B10-landsat-equity-community-canopy-mission/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B10-landsat-equity-community-canopy-mission/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B10-landsat-equity-community-canopy-mission/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B10-landsat-equity-community-canopy-mission/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B10-landsat-equity-community-canopy-mission/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B10-landsat-equity-community-canopy-mission/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2564,7 +3314,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2577,6 +3327,80 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/data/README.md) · [Open the figure gallery](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/figures/README.md) · [Download acquisition template](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B11 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Nevada Offsite Management | [Scientific objective](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Normalize site names and versions, then extract candidate decisions/requirements with exact document/page provenance. Require reviewer confirmation of authority, effective dates, owners and status; maintain append-only revisions. Link monitoring summaries to source reports, keeping nondetection distinct from absence. Evaluate retrieval with reviewer-authored tasks and route low-confidence extraction to human review. Record explicit unavailable-document and unresolved-conflict states rather than filling gaps through inference.
+
+**Operating envelope:** Ledger completeness cannot establish subsurface safety or remedy effectiveness. Site agreements and restricted records may prevent a complete public product, while consequence rankings require expert judgment.
+
+**Variables and conventions**
+
+- Dates: ISO 8601; evidence age: days; priority: administrative score.
+- Monitoring retains analyte units, reporting limits, laboratory and location metadata.
+- Coverage denominator is a reviewed corpus, not all possible legal obligations.
+
+#### Artifact wall
+
+![B11 proposed analysis architecture](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/figures/architecture.svg)
+
+The diagram establishes authority review, immutable evidence and revision-aware stewardship views for Nevada Offsites. Corpus-relative coverage and administrative deadlines cannot certify regulatory compliance or environmental safety.
+
+**Scientific result to produce:** Display obligations, dates and source lineage; distinguish verified, superseded, disputed and unavailable evidence.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish the dated offsite roster and controlling-document gap register. |
+| 02 | Planned | Create immutable file/page manifests and site alias crosswalks. |
+| 03 | Planned | Implement candidate extraction with exact spans and reviewer state transitions. |
+| 04 | Planned | Build append-only obligation and monitoring schemas with conflict/supersedes checks. |
+| 05 | Planned | Construct corpus-relative coverage and reviewer-authored retrieval benchmarks. |
+| 06 | Planned | Release a provenance-complete public ledger with unavailable evidence and administrative limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/data/README.md) | [Provenance](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -2814,7 +3638,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -2827,6 +3651,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/data/README.md) · [Open the figure gallery](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/figures/README.md) · [Download acquisition template](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B12 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | [Scientific objective](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Digitize authoritative contacts and derive morphometrics from a documented DEM. Add permitted field fabric, jointing and contact observations. Start with analytic volume/runout checks and reduced rheology; add thermal/3D complexity only if observations support it. Fit ensembles, score alternatives against reserved contacts/transects and publish parameter combinations the data cannot distinguish. Propagate DEM, contact-position and erosional uncertainty through reconstruction intervals.
+
+**Operating envelope:** Yield stress, viscosity and extrusion rate trade off. Surface exposure may conceal buried architecture; map/DEM resolution limits uniqueness and precise chronology.
+
+**Variables and conventions**
+
+- ρ: kg/m³; u: m/s; p/τ/yield stress: Pa.
+- K: Pa·s^n; n: dimensionless flow index.
+- θ: extrusion rate, vent geometry, duration and rheology.
+- m: volume, thickness, slope or fabric metrics with stated units.
+
+#### Artifact wall
+
+![B12 proposed analysis architecture](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/figures/architecture.svg)
+
+The diagram separates modern terrain, inferred basal geometry, extrusion physics and post-emplacement alteration. It supports competing emplacement families while exposing the absence of unique rheology, discharge history or absolute chronology.
+
+**Scientific result to produce:** Compare observed profiles/contacts with credible single/multipulse histories and highlight observationally indistinguishable regions.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze map/DEM provenance and a regional stratigraphic crosswalk. |
+| 02 | Planned | Implement basal-surface, contact and morphology extraction notebooks. |
+| 03 | Planned | Build unit-checked constitutive and volume-conservation benchmarks. |
+| 04 | Planned | Generate extrusion/rheology ensembles with erosion operators and invalid-run logs. |
+| 05 | Planned | Profile nonunique parameter combinations and evaluate reserved transects. |
+| 06 | Planned | Publish compatible emplacement families with fidelity and chronology limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md) | Nevada Offsite Management | Session B |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../research/B/B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/data/README.md) | [Provenance](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3064,7 +3963,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3077,6 +3976,82 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/data/README.md) · [Open the figure gallery](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/figures/README.md) · [Download acquisition template](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B13 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Instance Segmentation for Biogeography | [Scientific objective](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Audit annotation types/licenses, create double-reviewed mask subsets if needed and freeze matching rules. Train a documented instance architecture with simple detection baselines; preserve coordinate systems and stratify evaluation by overlap/size. Calibrate uncertainty, correct abundance using validation-derived detection models and propagate errors into spatial clustering/size distributions. Publish support masks and an abstention rule for unfamiliar habitats rather than presenting every detection as trustworthy.
+
+**Operating envelope:** Visible canopy excludes many understory individuals. Annotation ambiguity limits performance; high image scores can still conceal biased ecological counts.
+
+**Variables and conventions**
+
+- A/B: prediction/reference masks; area: georeferenced m².
+- p_detect: probability conditional on size, overlap and sensor.
+- N: ecological instance abundance; centroid error: m.
+- Class/size definitions retain biological meaning and physical units.
+- Truth probability is calibrated on independent labeled validation objects. Any false-positive correction must use the same inverse-detection weighting as the detections.
+
+#### Artifact wall
+
+![B13 proposed analysis architecture](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/figures/architecture.svg)
+
+The diagram separates annotation types, mask matching and ecological error correction. Its outputs represent supported visible crown instances, with calibration uncertainty and an explicit boundary on transfer to unfamiliar habitats.
+
+**Scientific result to produce:** Overlay reviewed/predicted crowns with uncertainty, then compare corrected counts and size distributions across withheld sites.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish annotation definitions, licenses and linked-tile/site manifests. |
+| 02 | Planned | Construct reviewed mask subsets and label-disagreement artifacts. |
+| 03 | Planned | Train detector and mask alternatives with frozen spatial splits. |
+| 04 | Planned | Implement one-to-one matching and size/overlap score reports. |
+| 05 | Planned | Calibrate truth/detection probabilities and covariance-aware ecological corrections. |
+| 06 | Planned | Release masks, support layers and visible-crown estimand limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](../research/B/B11-apollo-legacy-ledger-environmental-stewardship-knowledge-system/README.md) | Nevada Offsite Management | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/data/README.md) | [Provenance](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3316,7 +4291,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3329,6 +4304,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/data/README.md) · [Open the figure gallery](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/figures/README.md) · [Download acquisition template](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B14 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | [Scientific objective](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Recover authorized raw readings with dates, tensions, plot identities, litter, texture, moisture and carbon. Fit hierarchical hydraulic distributions and censored repellency responses where appropriate. Compare burn-only and covariate/mediation models without claiming carbon pathways from association alone. Drive runoff ensembles using observed rainfall and spatially variable parameters; compare arithmetic, geometric and effective summaries. Keep measurement, parameter-fitting and watershed-scaling uncertainty separate in the report.
+
+**Operating envelope:** Original raw data may be unavailable. Cross-sectional comparisons cannot uniquely reconstruct recovery or prefire conditions, and hydraulic nonuniqueness limits mechanistic conclusions.
+
+**Variables and conventions**
+
+- f/K_s: mm/hour; F: cumulative infiltration, mm.
+- ψ_f: mm; θ: volumetric moisture, m³/m³.
+- S: mm/hour^0.5; A: mm/hour.
+- Litter: mm; carbon: mass fraction; repellency: documented time/score.
+
+#### Artifact wall
+
+![B14 shared illustrative model](../models/figures/05_hydrologic_reservoir.svg)
+
+Shared illustration with a narrower domain than the project model. [Read its parameters, evidence class and checks](../models/README.md).
+
+**Scientific result to produce:** Compare burn strata across litter/carbon distributions and show observed/predicted storm hydrographs with propagated uncertainty.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Recover authorized raw curves and document unavailable measurements explicitly. |
+| 02 | Planned | Create device geometry/tension and plot/covariate schemas with unit conversions. |
+| 03 | Planned | Implement cumulative-curve fitting and contact/window diagnostics. |
+| 04 | Planned | Fit plot-level hydraulic distributions and profile covariate-supported burn contrasts. |
+| 05 | Planned | Build rainfall/runoff screening artifacts with explicit parameter-upscaling alternatives. |
+| 06 | Planned | Publish historical context, raw-data-dependent estimates and scale limitations together. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B; Included illustration: 05_hydrologic_reservoir |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../research/B/B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B; [2021 Arizona NASA Space Grant symposium booklet](https://spacegrant.arizona.edu/sites/spacegrant.arizona.edu/files/AZSGC%20Symposium%20Booklet%202021_website.pdf) |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/data/README.md) | [Provenance](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3573,7 +4623,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3586,6 +4636,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B15-tecton-orion-farallon-slab-reconstruction/data/README.md) · [Open the figure gallery](../research/B/B15-tecton-orion-farallon-slab-reconstruction/figures/README.md) · [Download acquisition template](../research/B/B15-tecton-orion-farallon-slab-reconstruction/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B15 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B15-tecton-orion-farallon-slab-reconstruction/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Numerical simulation of Laramide flat-slab subduction | [Scientific objective](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B15-tecton-orion-farallon-slab-reconstruction/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B15-tecton-orion-farallon-slab-reconstruction/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Reproduce a published benchmark, then vary physically justified input ranges through designed ensembles. Compare buoyant-slab, convergence and continental-root scenarios using thermal structure, slab geometry and upper-plate stresses. Build a fast surrogate only after verifying numerical solutions; propagate prior/observation uncertainty and identify parameter tradeoffs. Add 3D cases selectively when along-strike effects could change the inference. Keep all failed or unstable model runs in the audit trail.
+
+**Operating envelope:** Nonlinear rheology and poorly known ancient boundary conditions limit unique reconstruction. Matching one observation does not establish a mechanism, and surrogate accuracy may degrade near regime boundaries.
+
+**Variables and conventions**
+
+- u: m/s; p: Pa; η: Pa·s; ρ: kg/m³.
+- T: K; k: W/m/K; H: W/m³; c_p: J/kg/K.
+- θ: buoyancy, convergence, viscosity and lithospheric-thickness parameters.
+- Slab dip: degrees; deformation/arc position: km; geologic time: Ma.
+
+#### Artifact wall
+
+![B15 proposed analysis architecture](../research/B/B15-tecton-orion-farallon-slab-reconstruction/figures/architecture.svg)
+
+The model diagram couples mechanical and thermal physics while gating inference on numerical verification and independent geological groups. It exposes ancient-boundary and dimensionality uncertainty rather than claiming one recovered tectonic history.
+
+**Scientific result to produce:** Animate temperature/slab sections and compare geological constraints; show credible mechanism regions rather than one preferred image.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze boundary-history, rheology and geological constraint manifests. |
+| 02 | Planned | Implement Stokes/thermal benchmark and independent residual/energy ledgers. |
+| 03 | Planned | Generate designed 2D ensembles and retain all failure configurations. |
+| 04 | Planned | Extract geometry, thermal and upper-plate metrics with covariance. |
+| 05 | Planned | Train supported surrogates and verify withheld direct solutions. |
+| 06 | Planned | Run targeted 3D sensitivity cases and publish compatible mechanism families. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](../research/B/B12-vulcan-domescan-o-leary-emplacement-reconstruction/README.md) | Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B15-tecton-orion-farallon-slab-reconstruction/data/README.md) | [Provenance](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -3824,7 +4949,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -3837,6 +4962,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/data/README.md) · [Open the figure gallery](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/figures/README.md) · [Download acquisition template](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B16 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | [Scientific objective](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Audit archived experiment metadata, control matching and biological-replicate counts before analysis. Apply a documented omics pipeline with batch/platform covariates, false-discovery control and sensitivity to oxygen/strain confounding. Connect findings only to directly reported phenotype evidence using an evidence matrix; where phenotypes are absent, retain the claim as unresolved. Cross-study meta-analysis emphasizes broad health-risk evidence and replication rather than ranking actionable resistance targets.
+
+**Operating envelope:** Small experiments and incomplete metadata limit confounder adjustment. Published susceptibility assays may be incomparable, while gene expression is not a clinical outcome or proof of multidrug resistance.
+
+**Variables and conventions**
+
+- Counts: reads per gene/sample; offsets: library normalization.
+- β: log-expression contrast; φ: dispersion; uncertainty retained.
+- Exposure: documented flight/analogue/control category, not assumed equivalent.
+- Phenotypes: author-reported susceptibility measures with units and test standards.
+
+#### Artifact wall
+
+![B16 proposed analysis architecture](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/figures/architecture.svg)
+
+The diagram confines the project to archived retrospective analysis and separates expression from directly reported phenotype evidence. Confounding and absent endpoints remain explicit limits, with no organism manipulation or treatment interpretation.
+
+**Scientific result to produce:** Display studies by platform and endpoint, separating measured susceptibility from expression associations, with confidence intervals and metadata gaps.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create an accession/availability manifest and a nonoperational scope statement. |
+| 02 | Planned | Audit control matching, replicate identity and design-matrix rank. |
+| 03 | Planned | Implement compatible retrospective measurement branches with versioned normalization. |
+| 04 | Planned | Save aggregate effects, multiplicity control and confounder sensitivity artifacts. |
+| 05 | Planned | Build a separate phenotype evidence matrix and study-heterogeneity report. |
+| 06 | Planned | Release reproducible analytical provenance and unresolved health-evidence conclusions. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+| [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](../research/B/B13-gaia-pixelscout-ecological-instance-mapping/README.md) | Instance Segmentation for Biogeography | Session B |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/data/README.md) | [Provenance](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4075,7 +5275,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4088,6 +5288,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/data/README.md) · [Open the figure gallery](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/figures/README.md) · [Download acquisition template](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B17 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | [Scientific objective](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Combine consented catch/effort histories, hydrology, fish ecological tolerances and participatory household dependence assessments. Fit a state-space harvest/biomass model or simpler exposure-response model where data are limited. Separate ecological, access and livelihood pathways; propagate alternative climate/hydrologic scenarios and missing harvest into downside-risk estimates. Compare locally feasible adaptations using distributions of benefits, costs and access consequences, without presenting assumed capacity as measured resilience.
+
+**Operating envelope:** Species composition and informal catch may be poorly observed. Scenario uncertainty and nonclimate stresses such as dams or access restrictions can dominate; composite weights reflect values as well as evidence.
+
+**Variables and conventions**
+
+- Harvest/biomass: kg; effort: fisher-days or documented gear effort.
+- Water temperature: °C; discharge: m³/s; flood duration: days.
+- Dependence: dietary/income fractions; adaptation costs: local currency.
+- V: transparent scenario index, not a clinical or universal causal metric.
+
+#### Artifact wall
+
+![B17 proposed analysis architecture](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/figures/architecture.svg)
+
+The architecture preserves community authority and separates ecological, access and livelihood pathways. It supports basin-specific adaptation comparison while exposing missing harvest, uncertain catchability and the value choices behind any score.
+
+**Scientific result to produce:** Show habitat/flow scenarios alongside community-defined dependence and access indicators; compare adaptation outcomes with uncertainty and agreed aggregation.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Establish basin partnership, data authority and locally defined decision endpoints. |
+| 02 | Planned | Create catch/effort, hydrology and restricted knowledge schemas with permitted uses. |
+| 03 | Planned | Audit missing harvest and identifiability before choosing ecological model fidelity. |
+| 04 | Planned | Build joint climate/access/nonclimate scenario ensembles and household dependence intervals. |
+| 05 | Planned | Compare locally feasible adaptations with independent loss/weight sensitivity calculations. |
+| 06 | Planned | Release approved aggregated products, unresolved evidence and community review records. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B; [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [H05 · TERRA SEVEN GENERATIONS](../research/H/H05-terra-seven-generations/README.md) | Supporting the Climate Change Department | [Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance](https://www.gida-global.org/careprinciples) |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/data/README.md) | [Provenance](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4327,7 +5602,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4340,6 +5615,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/data/README.md) · [Open the figure gallery](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/figures/README.md) · [Download acquisition template](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B18 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | [Scientific objective](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use quality-controlled float/ship carbon observations and matched winds to build regional seasonal budgets. Decompose transfer and surface-chemistry effects with counterfactual terms, evaluate storm composites against matched nonstorm conditions and examine lagged mixing/biological responses. Bootstrap whole floats/events, propagate carbonate-system uncertainty and compare alternate gas-transfer formulations. Integrate regional flux only over supported space/time before presenting gap-filled estimates with their extrapolation variance.
+
+**Operating envelope:** Air–sea flux does not measure the full carbon inventory or permanent sequestration. Sparse winter/under-ice coverage and wind-product errors can substantially affect basinwide estimates.
+
+**Variables and conventions**
+
+- F: mol C/m²/s; k: m/s; K0: mol/m³/atm.
+- pCO2: atm after conversion from μatm; U: m/s.
+- C: dissolved inorganic carbon, mol/m³; h: mixed-layer depth, m.
+- Sc: dimensionless Schmidt number; sign convention retained in every product.
+
+#### Artifact wall
+
+![B18 proposed analysis architecture](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/figures/architecture.svg)
+
+The diagram separates transfer, carbon chemistry and mixed-layer accounting with a fixed ocean-to-air sign. Supported integration and labeled gap filling remain distinct, and neither flux product alone establishes permanent carbon sequestration.
+
+**Scientific result to produce:** Map regional flux and data support; show event timelines and transfer/mixing/biology terms with sign conventions and uncertainty.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze ship/float, wind and ice product manifests with calibration levels. |
+| 02 | Planned | Implement carbonate-input covariance and pressure/sign unit adapters. |
+| 03 | Planned | Build gas-transfer alternatives and a mixed-layer inventory ledger. |
+| 04 | Planned | Define storm/matched-background intervals and whole-event/float folds. |
+| 05 | Planned | Compute exact transfer/chemistry decomposition and supported regional integrals. |
+| 06 | Planned | Publish gap-filled budgets separately with covariance, seasonal coverage and sequestration limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+| [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md) | Rare Earth Metal Recovery from Waste Stream Using Algae | Session B |
+| [B15 · TECTON ORION — Farallon Slab Reconstruction](../research/B/B15-tecton-orion-farallon-slab-reconstruction/README.md) | Numerical simulation of Laramide flat-slab subduction | Session B |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/data/README.md) | [Provenance](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4589,7 +5939,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4602,6 +5952,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/data/README.md) · [Open the figure gallery](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/figures/README.md) · [Download acquisition template](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B19 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | [Scientific objective](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Audit Level-3 metadata and flags before fitting accessible spectra or using released density/temperature products. Compare Maxwellian and supported non-Maxwellian fits, estimate uncertainties and reject poorly constrained cases. Match structures to nearby background intervals within encounters and radial ranges; reserve independent encounters for validation. Include magnetic/velocity context from authorized public mission products, while recording cadence mismatches and structure-definition sensitivity.
+
+**Operating envelope:** Unresolved distribution tails and shot noise can bias temperature. Independent structure lists and magnetic/plasma products require their own calibration audit; statistical association does not prove structure formation physics.
+
+**Variables and conventions**
+
+- f: Hz; n_e: m⁻³ in SI formula or cm⁻³ in calibrated approximation.
+- T: K or eV with explicit Boltzmann conversion.
+- S_V: V²/Hz; r: normalized heliocentric distance.
+- Structure boundaries: UTC intervals with independent magnetic/plasma definitions.
+
+#### Artifact wall
+
+![B19 proposed analysis architecture](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/figures/architecture.svg)
+
+The diagram distinguishes released QTN products from conditional spectral refitting and independent structure selection. Radial matching and covariance gates support association estimates without implying unique electron distributions or three-dimensional structure reconstruction.
+
+**Scientific result to produce:** Show QTN spectra/fits, electron intervals and independently defined boundaries; compare radial-adjusted event stacks with shifted controls.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create QTN product-level and instrument-state manifests from official metadata. |
+| 02 | Planned | Implement density/temperature/PSD unit and cadence adapters. |
+| 03 | Planned | Audit independent structure definitions and ephemeris alignment. |
+| 04 | Planned | Fit only supported spectral branches with covariance and identifiability artifacts. |
+| 05 | Planned | Build matched background intervals and encounter-level folds. |
+| 06 | Planned | Release conditional association plots with distribution and sampling limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+| [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md) | Rare Earth Metal Recovery from Waste Stream Using Algae | Session B |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+| [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](../research/B/B16-iss-bioguard-retrospective-microgravity-health-evidence/README.md) | Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/data/README.md) | [Provenance](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -4840,7 +6265,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -4853,6 +6278,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/data/README.md) · [Open the figure gallery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/figures/README.md) · [Download acquisition template](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B20 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Rare Earth Metal Recovery from Waste Stream Using Algae | [Scientific objective](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Start with published target-element datasets and documented wastewater compositions. Fit competitive isotherms and kinetic models with analytical recovery/error, then compare algal media with conventional sorbent benchmarks. Model repeated adsorption–recovery cycles from actual published product measurements, recording reagents, energy and secondary waste at inventory level. For future authorized validation, specify measurement endpoints and certified reference checks without claiming an optimized process from surrogate metals.
+
+**Operating envelope:** Equilibrium fits may fail for complex speciation or solids. Product purity and regeneration data are often sparse; apparent removal can produce contaminated biomass rather than usable recovered material.
+
+**Variables and conventions**
+
+- C: element-specific dissolved concentration, mg/L; V: L; m: g dry sorbent.
+- q: sorbed mass, mg/g; b: L/mg.
+- Recovery/selectivity: dimensionless; product purity: mass fraction.
+- Lifecycle cost: USD/kg recovered target; residual-waste mass: kg/kg target.
+
+#### Artifact wall
+
+![B20 proposed analysis architecture](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/figures/architecture.svg)
+
+The architecture makes actual target-element assays and recovered-product evidence mandatory for rare-earth claims. Aluminum surrogate records remain separate, and removal, sorption, recovery and purity retain distinct uncertainty.
+
+**Scientific result to produce:** Display feed-to-product element flows, selectivity across competing ions and capacity/purity decay across documented cycles.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Build element, assay, biomass and wastewater matrix schemas with surrogate labels. |
+| 02 | Planned | Extract verified target concentration and product/cycle data from primary records. |
+| 03 | Planned | Implement dry-mass capacity and target-element inventory calculators. |
+| 04 | Planned | Fit supported equilibrium/competitive alternatives with censored covariance. |
+| 05 | Planned | Evaluate holdout matrices and cycle/product lifecycle scenarios. |
+| 06 | Planned | Release target-specific recovery, purity and waste conclusions with unresolved evidence. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+| [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](../research/B/B17-aquarius-lifeline-inland-fisheries-resilience/README.md) | Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/data/README.md) | [Provenance](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5091,7 +6591,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5104,6 +6604,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/data/README.md) · [Open the figure gallery](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/figures/README.md) · [Download acquisition template](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B21 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | More Effectively Selective Species Have Greater Protein Structural Disorder | [Scientific objective](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Freeze proteome/domain versions, reproduce CAIS and control GC/amino-acid effects according to the primary study. Compare multiple disorder predictors and homologous-domain matched effects using phylogenetic mixed models. Partition within-domain versus changing-domain-composition explanations, propagate alignment/predictor uncertainty and reserve clades for out-of-sample testing. Include negative-control sequence shuffles preserving composition and assess whether an association reflects biology or predictor construction.
+
+**Operating envelope:** Predictions cannot establish experimental disorder or adaptive mechanism. Clade sampling and annotation quality vary; selection-efficiency proxies require explicit calibration and cannot infer fitness advantages alone.
+
+**Variables and conventions**
+
+- Efficacy: published corrected codon-bias index, dimensionless; not census size.
+- L: homologous-domain residues; disorder fraction: 0–1.
+- GC/composition: fractions; phylogeny: branch lengths with documented units.
+- β: conditional comparative association, not a causal fitness coefficient.
+
+#### Artifact wall
+
+![B21 proposed analysis architecture](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/figures/architecture.svg)
+
+The diagram establishes sequence lineage, faithful efficacy-index calculation and homologous-domain comparison with phylogenetic covariance. Its endpoint is predicted disorder association, not measured structure or causal evolutionary advantage.
+
+**Scientific result to produce:** Show domain-matched disorder contrasts on a phylogeny and effect intervals across predictors, clades and negative controls.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze sequence/domain/tree manifests and taxon/translation crosswalks. |
+| 02 | Planned | Implement the exact published CAIS workflow with benchmark intermediates. |
+| 03 | Planned | Run supported disorder predictors with original-coordinate masks. |
+| 04 | Planned | Build matched-domain counts and composition/length covariates. |
+| 05 | Planned | Fit phylogenetic/overdispersed models and clade/predictor sensitivity artifacts. |
+| 06 | Planned | Release association evidence with annotation, prediction and causal limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md) | Rare Earth Metal Recovery from Waste Stream Using Algae | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](../research/B/B18-poseidon-windcarbon-southern-ocean-carbon-mission/README.md) | Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/data/README.md) | [Provenance](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5342,7 +6917,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5355,6 +6930,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/data/README.md) · [Open the figure gallery](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/figures/README.md) · [Download acquisition template](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B22 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | [Scientific objective](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Audit reference genomes and published expression metadata, define orthologs and compare alternative phylogenies with recombination/duplication sensitivity. Integrate regulatory expression contrasts with genome-scale or reduced stoichiometric models to test metal/energy scenarios. Infer candidate ancestral sequence distributions computationally, without treating point reconstructions as actual ancient sequences. Compare predictions with existing published phenotypes only, and release uncertainty rather than operational genetic designs.
+
+**Operating envelope:** Horizontal transfer, incomplete genomes and deep-time saturation complicate ancestry. Constraint-based fluxes are feasible states rather than measured rates; inferred sequences cannot prove ancestral activity.
+
+**Variables and conventions**
+
+- S: stoichiometric matrix; v: flux, mmol/g dry weight/hour.
+- Evolutionary branches: substitutions/site; support: bootstrap/posterior probability.
+- Expression: normalized counts with sample/batch metadata.
+- ATP/electron costs: reaction-level accounting, not direct organismal fitness.
+
+#### Artifact wall
+
+![B22 proposed analysis architecture](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/figures/architecture.svg)
+
+The architecture separates comparative ancestry from constrained energetic feasibility and existing phenotype evidence. All ancestry and flux results are computational hypotheses, with no organism construction or experimentally evolved system implied.
+
+**Scientific result to produce:** Compare supported nitrogenase phylogenies with ATP/electron feasibility across literature-bounded scenarios, keeping inferred and observed quantities distinct.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create accession, orthology and published-expression metadata manifests. |
+| 02 | Planned | Review alignments and alternative transfer/duplication-aware phylogenies. |
+| 03 | Planned | Implement balanced reduced nitrogen/ATP/electron reaction accounting. |
+| 04 | Planned | Curate supported flux bounds and run variability/loop diagnostics. |
+| 05 | Planned | Compare computational scenarios with held-out existing phenotype records. |
+| 06 | Planned | Release evolutionary/energetic uncertainty artifacts within the retrospective scope. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md) | Rare Earth Metal Recovery from Waste Stream Using Algae | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](../research/B/B19-parker-plasma-whisper-electron-structure-observatory/README.md) | Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN) | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/data/README.md) | [Provenance](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5593,7 +7243,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5606,6 +7256,83 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/data/README.md) · [Open the figure gallery](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/figures/README.md) · [Download acquisition template](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B23 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | [Scientific objective](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description; included shared illustration | [Open full gallery](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Join quality-controlled gauge data, precipitation, evapotranspiration and watershed characteristics. Compare persistence, rainfall-runoff and ensemble alternatives using chronological training windows. Translate forecasts into explicit policies through stakeholder-defined loss functions and stress-test under historical extremes and labeled climate scenarios. Track data latency and missing gauges. Record uncertainty from forcing, parameters, structure and observations separately, then evaluate whether additional complexity changes decisions meaningfully.
+
+**Operating envelope:** Ungauged transfer and changing land cover can invalidate calibration. Historical skill is not guaranteed under new extremes; decision weights and future forcing remain uncertain.
+
+**Variables and conventions**
+
+- P/ET/storage: mm or mm/day; Q: m³/s after catchment-area conversion.
+- a: withdrawal/alert/operation decision with stated units.
+- L: stakeholder-defined monetary or service/ecological loss.
+- Probabilities and intervals: calibrated against withheld events.
+
+#### Artifact wall
+
+![B23 included scientific diagnostic](../data/figures/12_hydrologic_water_ledger.svg)
+
+Synthetic reservoir fluxes and cumulative water accounting. Recharge means effective water entering storage, rather than rainfall. Panel B decomposes all accounted water into cumulative release and remaining storage, bounded by initial storage plus accumulated recharge. The tiny arithmetic residual verifies this implementation's conservation, not watershed predictive accuracy.
+
+[Exact inputs, transformations and output hashes](../data/figures/12_hydrologic_water_ledger.provenance.json)
+
+**Scientific result to produce:** Display observed/forecast flows and intervals, policy actions and accumulated loss for withheld events; allow transparent scenario/weight comparisons.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Define the real basin/action/loss/deadline contract with authorized stakeholders. |
+| 02 | Planned | Create gauge/forcing manifests with rating and availability metadata. |
+| 03 | Planned | Implement depth-volume storage and conservation calculators. |
+| 04 | Planned | Build persistence and rainfall-runoff ensemble artifacts on chronological folds. |
+| 05 | Planned | Replay explicit policies with latency, calibration and regret scoring. |
+| 06 | Planned | Release decision tradeoffs, baseline fallback and extreme-scenario limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](../research/B/B14-phoenix-infiltration-postfire-soil-recovery-observatory/README.md) | Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona | Session B; Included illustration: 05_hydrologic_reservoir |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](../research/B/B21-proteus-driftscape-evolutionary-protein-disorder/README.md) | More Effectively Selective Species Have Greater Protein Structural Disorder | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](../research/B/B20-lunar-reclaimer-algal-rare-earth-recovery/README.md) | Rare Earth Metal Recovery from Waste Stream Using Algae | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/data/README.md) | [Provenance](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -5858,7 +7585,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -5871,6 +7598,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/data/README.md) · [Open the figure gallery](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/figures/README.md) · [Download acquisition template](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B24 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | [Scientific objective](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Use authorized telemetry and independently dated GIS cover histories, propagating location error and fix gaps. Generate matched available steps from individual movement distributions; fit integrated step-selection and hierarchical movement models. Evaluate cover transitions and connectivity at multiple defensible scales, comparing road/development-only and refuge-aware explanations. Keep core-use and range-area estimates separate. Apply spatial aggregation and suppression before sharing maps outside the research team.
+
+**Operating envelope:** Rare-species samples and urban development selection can limit causality. Home-range estimators depend on fix cadence; a correlated cover change does not demonstrate a demographic or mitigation benefit.
+
+**Variables and conventions**
+
+- Step lengths/road distances: m; fix interval: hours or days.
+- Land cover: dated fractions/classes at stated pixel resolution.
+- Home range: km² under documented estimator/settings.
+- Resistance: relative cost, not a measured physical energy without calibration.
+
+#### Artifact wall
+
+![B24 proposed analysis architecture](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/figures/architecture.svg)
+
+The architecture separates dated cover exposure, conditional movement choice and utilization-area endpoints. Restricted refuges and sparse-cadence limits remain visible, and observed associations do not establish demographic or mitigation effects.
+
+**Scientific result to produce:** Show aggregated habitat transitions and corridor uncertainty publicly; reserve individual tracks/refuges for approved access.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Confirm investigator data access and a restricted/public layer policy. |
+| 02 | Planned | Freeze telemetry and dated GIS manifests with CRS/resolution metadata. |
+| 03 | Planned | Implement cadence, location-error and multi-scale exposure adapters. |
+| 04 | Planned | Build individual-blocked matched-step models with availability diagnostics. |
+| 05 | Planned | Compute separate core/range products and cadence-subsampling sensitivity. |
+| 06 | Planned | Release governed movement evidence with causal and habitat-resolution limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B10 · LANDSAT EQUITY — Community Canopy Mission](../research/B/B10-landsat-equity-community-canopy-mission/README.md) | Using Remote Sensing to Determine Vegetation Change and Impacts to Communities | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](../research/B/B08-terraform-terraces-dryland-conservation-observatory/README.md) | The Influence of Conservation Structures on Rangeland Vegetation Patterns | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../research/B/B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B; [NASA Harmonized Landsat Sentinel-2 data](https://hls.gsfc.nasa.gov/hls-data/) |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/data/README.md) | [Provenance](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6120,7 +7922,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6133,6 +7935,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/data/README.md) · [Open the figure gallery](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/figures/README.md) · [Download acquisition template](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B25 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | [Scientific objective](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Assemble published and authorized seed/pellet observations with lot identity, viability, trait measurements, moisture and timing. Use multistage hierarchical or time-to-event models with species/lot effects, censored follow-up and trait interactions. Compare seed-only and pellet baselines, quantify uncertainty in low-observation species and evaluate climate/weather-window scenarios. Avoid treating nongerminated seeds as dead without viability evidence; retain delayed germination and later establishment separately.
+
+**Operating envelope:** Trait databases may omit relevant seed-lot variation. Controlled moisture response may not transfer to field crusting, herbivory or rainfall extremes; short follow-up cannot establish durable restoration.
+
+**Variables and conventions**
+
+- Traits: seed mass, mg; coat/thickness metrics and dormancy class.
+- ψ: water potential, MPa; hydrotime: MPa·day.
+- Success: separately defined proportions at each stage.
+- Cost: USD/established plant; soil moisture and temperature: documented units.
+
+#### Artifact wall
+
+![B25 proposed analysis architecture](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/figures/architecture.svg)
+
+The diagram preserves viability, germination, emergence and survival as separate transitions and exposes moisture/sign conventions. Its final establishment and cost predictions carry lot, field-transfer and unfinished-follow-up uncertainty.
+
+**Scientific result to produce:** Show viable-to-established transitions by species/traits, with uncertainty and pellet versus control outcomes across moisture scenarios.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create seed-lot, trait, pellet and stage-event schemas with censoring rules. |
+| 02 | Planned | Extract primary records and audit viability/follow-up completeness. |
+| 03 | Planned | Implement conditional-stage and hydrotime calculators with sign/unit fixtures. |
+| 04 | Planned | Fit species/lot models using frozen species-level validation folds. |
+| 05 | Planned | Build establishment-cost and field-discrepancy scenario artifacts. |
+| 06 | Planned | Release stage-specific predictions, transfer support and zero-success limitations. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../research/B/B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B; [USGS managing to survive despite the weather: seeding decisions](https://www.usgs.gov/publications/managing-survive-despite-weather-seeding-decisions-affecting-simulated-dryland) |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B26 · HELIOS POWERLOOP — Solar Electrolysis Dispatch](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md) | Electrolytic Application of Load-Managing Photovoltaic System | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B27 · TRITON WATERWATCH — Autonomous Aquatic Observatory](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md) | Aquatic Data Analysis from Deployable, Autonomous Boat | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/data/README.md) | [Provenance](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6371,7 +8248,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6384,6 +8261,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/data/README.md) · [Open the figure gallery](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/figures/README.md) · [Download acquisition template](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B26 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Electrolytic Application of Load-Managing Photovoltaic System | [Scientific objective](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 4 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Generate PV scenarios from documented irradiance/weather and a validated PV model. Use published or vendor-characterized electrolyzer power/efficiency maps and explicit startup/degradation penalties. Compare fixed, surplus-only and model-predictive dispatch; evaluate storage sizing under forecast error rather than perfect hindsight. Separate levelized-cost, carbon, water and load-reliability objectives, producing a Pareto frontier with equipment-bound and price uncertainty.
+
+**Operating envelope:** Generic wear models may not transfer to a particular stack. Tariff/market access and water availability can dominate economics; simulations cannot establish hardware readiness or safe operating limits.
+
+**Variables and conventions**
+
+- P: kW; E_batt: stored battery energy, kWh; Δt: hours.
+- I: A; F: C/mol; mH2_dot: kg/s after conversion.
+- η_F: Faradaic efficiency; water demand: L/kg hydrogen.
+- Costs: USD; lifetime terms require literature/vendor uncertainty.
+
+#### Artifact wall
+
+![B26 proposed analysis architecture](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/figures/architecture.svg)
+
+The diagram establishes a constrained simulation boundary with independent energy checks and explicit stack geometry. Dispatch results compare forecast-aware policies and resource tradeoffs without implying a connected controller or verified hardware envelope.
+
+**Scientific result to produce:** Plot power allocation, storage and starts over withheld days, with hydrogen/cost/carbon/water Pareto comparisons and constraint violations.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Freeze location/resource, load and tariff manifests with time/cadence conventions. |
+| 02 | Planned | Implement PV and Faradaic conversion calculators with equipment-map metadata. |
+| 03 | Planned | Create power/battery/state feasibility checkers independent of optimization. |
+| 04 | Planned | Build simple, hindsight and rolling dispatch policy artifacts. |
+| 05 | Planned | Replay holdout weather/load scenarios with forecast and wear uncertainty. |
+| 06 | Planned | Publish reliability, hydrogen, cost, water and carbon frontiers with applicability limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B27 · TRITON WATERWATCH — Autonomous Aquatic Observatory](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md) | Aquatic Data Analysis from Deployable, Autonomous Boat | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B28 · ASTRA BIOCYCLE — Microalgal Methane and Net Energy](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md) | Biogas Production from Microalgae following Freeze-Heat Pretreatment | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/data/README.md) | [Provenance](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6626,7 +8578,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6639,6 +8591,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/data/README.md) · [Open the figure gallery](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/figures/README.md) · [Download acquisition template](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B27 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Aquatic Data Analysis from Deployable, Autonomous Boat | [Scientific objective](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/figures/README.md) |
+| Resource library | 3 cited primary resources with support statements | [Cited resources](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Audit boat logs, GPS timestamps, calibration and response times, then align sensor streams and reject unsupported corrections. Design baseline stratified transects and an adaptive alternative using a Gaussian process or robust spatial interpolator. Pair measurements with independent reference samples and depth profiles where permitted. Propagate sensor, position, drift and interpolation errors into maps; retain blank/flagged areas instead of silently filling all water surfaces.
+
+**Operating envelope:** Spatial covariance may change rapidly with inflows, mixing or blooms. Optical/conductivity proxies cannot establish specific contaminants without validated chemistry; repeated trajectories do not supply independent reference truth.
+
+**Variables and conventions**
+
+- Temperature: °C; conductivity: μS/cm with reference temperature stated.
+- DO: mg/L and saturation percent using documented compensation.
+- Position: projected m; dead-time t_dead and response tau_response: s; depth: m.
+- Energy: Wh; uncertainty: parameter-specific physical units.
+
+#### Artifact wall
+
+![B27 proposed analysis architecture](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/figures/architecture.svg)
+
+The diagram makes time, sensor response and depth part of the observation operator and compares routes within simulator constraints. Its maps remain near-surface and time-supported unless independent profiles and chemistry extend the evidence.
+
+**Scientific result to produce:** Display measured tracks/depths, parameter maps and uncertainty; compare adaptive/uniform coverage with independent reference residuals.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create platform/sensor/clock/depth calibration manifests and permitted survey constraints. |
+| 02 | Planned | Implement time-position alignment with offset and GPS covariance. |
+| 03 | Planned | Build first-order/dead-time response diagnostics and qualified correction artifacts. |
+| 04 | Planned | Generate fixed/adaptive equal-budget survey simulations. |
+| 05 | Planned | Fit supported spatial models and independent transect/reference holdout reports. |
+| 06 | Planned | Release depth/time support masks, uncertainty maps and contaminant-interpretation limits. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B26 · HELIOS POWERLOOP — Solar Electrolysis Dispatch](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md) | Electrolytic Application of Load-Managing Photovoltaic System | Session B |
+| [B28 · ASTRA BIOCYCLE — Microalgal Methane and Net Energy](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md) | Biogas Production from Microalgae following Freeze-Heat Pretreatment | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/data/README.md) | [Provenance](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
@@ -6888,7 +8915,7 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 
 **Session B:** Earth & Environmental Engineering
 
-**Document class:** engineering research design and analysis record · **Revision:** 3 · **Date:** 2026-10-02
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
 
 **Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
 
@@ -6901,6 +8928,81 @@ Framework and evidence rules: [engineering documentation standard](../engineerin
 [Explore the data blueprint](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/data/README.md) · [Open the figure gallery](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/figures/README.md) · [Download acquisition template](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/data/acquisition.csv) · [Browse the data atlas](../data/README.md)
 
 ---
+
+### Mission profile
+
+![B28 engineering mission profile: scientific question, hypothesis, model scope and evidence status](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Biogas Production from Microalgae following Freeze-Heat Pretreatment | [Scientific objective](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#4-mathematical-model-and-derivation) |
+| Data blueprint | 8 proposed fields with types, units and quality rules | [Field map & downloads](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#12-cited-technical-and-scientific-resources) |
+
+#### Model cockpit
+
+**Analysis method:** Extract methane time series, solids, biomass composition and reported pretreatment energy from primary studies. Fit several kinetic candidates and censored/replicate errors; avoid extrapolating ultimate yield from short runs without adequate evidence. Build mass/energy inventories with heat recovery, refrigeration, concentration and digestate handling. Compare untreated and separate-treatment baselines with combined scenarios, propagating uncertain synergy instead of assuming multiplicative benefits.
+
+**Operating envelope:** Published biomass composition and digestion systems may differ. Kinetic acceleration does not guarantee higher ultimate yield or positive energy balance; emissions and digestate quality need independent measurements.
+
+**Variables and conventions**
+
+- M/V: methane volume normalized to stated temperature/pressure, L or Nm³.
+- Yield: L CH4/kg volatile solids added; Rmax: L/day.
+- λ: lag, day; m: kg; c_p: kJ/kg/K; energy: kWh after conversion.
+- η_use/recovery: fractions; water/solids and emission inventories retain units.
+
+#### Artifact wall
+
+![B28 proposed analysis architecture](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/figures/architecture.svg)
+
+The diagram connects normalized methane and kinetic uncertainty to a complete energy ledger, with a separate combined-treatment evidence gate. It cannot establish freeze-heat synergy or positive net energy from larger gas volume alone.
+
+**Scientific result to produce:** Plot solids concentration versus heat/refrigeration recovery with net energy intervals; compare observed separate treatments with labeled combined scenarios.
+
+#### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Create study/treatment/biomass/solids schemas and separate combined-evidence flags. |
+| 02 | Planned | Extract replicate and blank gas records with condition/measurement uncertainty. |
+| 03 | Planned | Implement normalized methane and volatile-solids yield calculators. |
+| 04 | Planned | Fit kinetic alternatives with covariance and late-time identifiability artifacts. |
+| 05 | Planned | Build cooling/heating/auxiliary energy inventories and break-even scenarios. |
+| 06 | Planned | Release treatment-specific yield, rate and net-energy conclusions with unresolved synergy. |
+
+#### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B27 · TRITON WATERWATCH — Autonomous Aquatic Observatory](../research/B/B27-triton-waterwatch-autonomous-aquatic-observatory/README.md) | Aquatic Data Analysis from Deployable, Autonomous Boat | Session B |
+| [B26 · HELIOS POWERLOOP — Solar Electrolysis Dispatch](../research/B/B26-helios-powerloop-solar-electrolysis-dispatch/README.md) | Electrolytic Application of Load-Managing Photovoltaic System | Session B |
+| [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](../research/B/B25-seedstar-genesis-dryland-establishment-forecasting/README.md) | Can We Predict Germination Success in Seed Pellets Using Seed Traits? | Session B |
+| [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](../research/B/B24-viper-voyager-urban-movement-and-habitat-connectivity/README.md) | Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment | Session B |
+| [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](../research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md) | Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support | Session B |
+| [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](../research/B/B22-nif-odyssey-comparative-nitrogen-fixation-evolution/README.md) | Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation | Session B |
+
+[Machine-readable connection register and ranking rule](../registry/mission_connections.json)
+
+#### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#purpose-and-scientific-objective) | [Design boundary](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#1-design-basis-and-analysis-boundary) → [Mathematics](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/data/README.md) | [Provenance](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#5-data-specifications-and-provenance) → [Uncertainty](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#7-engineering-trade-study) | [Failure modes](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#10-failure-modes-and-interpretation-controls) → [Required outputs](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#2-requirements-and-verification-traceability) | [Verification](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#8-verification-and-validation-cases) → [Implementation](../research/B/B28-astra-biocycle-microalgal-methane-and-net-energy/README.md#9-implementation-and-reproducible-work-packages) |
+
+### Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
 
 ### Purpose and scientific objective
 
