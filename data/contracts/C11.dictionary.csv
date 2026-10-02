@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+simulation_id,string,1,Unique physical model/progenitor identifier.,Independent of injection seed; required split key.
+polarizations,"float64[n,2]",strain,Reference-distance waveform.,Reference distance and extraction convention required.
+network_epoch,int64,GPS second,Injection/noise origin.,Time conversions pinned; gaps masked.
+noise_psd,"float64[nf,k]",strain^2 Hz^-1,Local one-sided detector PSD.,"Positive, frequency support recorded."
+physics_metadata,struct,mixed declared,"Transport, EOS, resolution, progenitor.",Unknown fields explicit; never inferred from file name.
+track_parameters,posterior<struct>,"Hz, Hz s^-1, s",Observable chirplet/frequency-track quantities.,Covariance and multimodality retained.
+physical_target,posterior<struct>|null,declared,Simulation-conditioned stellar/remnant quantity.,Null under unsupported-domain flag.

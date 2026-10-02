@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+patch_id,string,none,Candidate or surveyed habitat patch.,Persistent boundary version required.
+visit_effort,float,min,Standardized observation duration.,Zero effort invalid for absence inference.
+detection_history,bool[],none,Taxon observations across repeat visits.,Missing visits stored as null.
+effective_distance,float,m,Taxon-specific least-cost graph separation.,Nonnegative; resistance version required.
+weekly_bloom,float[],probability,Species flowering ensemble.,Preserve species/site covariance.
+annual_water,float,L/year,Maintenance scenario demand.,Identify measured versus assumed demand.
+portfolio_score,float[],none,Occupancy/resource ensemble by taxon.,Publish distribution with constraint failures.

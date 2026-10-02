@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+data_authority,policy record,none,Tribal ownership/access/interpretation rules.,Local standards and revocation retained.
+action_key,string,none,Approved planning option/source.,Feasibility and review status required.
+daily_air_temperature,nullable float,°C,Observed or scenario Tmax.,Measurement type/calendar explicit.
+heat_threshold,float,°C,Locally selected planning threshold.,Approval/rationale and version saved.
+heat_indicators,record,days/year,Exceedance/run-length ensemble.,Missing-day and native-calendar support retained.
+hazard_layer,nullable geometry,declared,Burn/vegetation/exposure support.,Scale and sensitive-site restrictions saved.
+implementation_scenario,record,none,Staffing/power/funding conditions.,Assumptions not labeled measured.
+regret_distribution,float[]/ordinal,declared loss units,Action tradeoffs across scenarios.,Weights/consequence uncertainty and approval explicit.

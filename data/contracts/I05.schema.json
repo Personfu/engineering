@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I05 PIONEER AERODRIFT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "source_receive_time": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Measurement and reception timestamps.",
+      "x-unit": "s, declared scale",
+      "x-source-type": "float64[2]",
+      "x-quality-rule": "Delay/order never overwrites source time."
+    },
+    "geodetic_state": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Latitude/longitude/height.",
+      "x-unit": "degree, degree, m",
+      "x-source-type": "measurement<float64[3]>",
+      "x-quality-rule": "Ellipsoid/altitude datum and covariance."
+    },
+    "pressure_temperature": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Atmospheric sensor readings.",
+      "x-unit": "Pa, K",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Lag/bias calibration version and missing flags."
+    },
+    "illumination_board": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Solar/environment and housing proxy.",
+      "x-unit": "W m^-2, K",
+      "x-source-type": "float64[]",
+      "x-quality-rule": "Sensor-specific bias model documented."
+    },
+    "trajectory_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Position/velocity/wind ensemble uncertainty.",
+      "x-unit": "mixed declared",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Shared navigation and wind errors retained."
+    },
+    "power_energy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Harvest/loads and stored energy.",
+      "x-unit": "W, J",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Capacity and cumulative consumption distinguished."
+    },
+    "packet_quality": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Sequence/checksum/loss/restart state.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Missing samples absent, not repeated last value."
+    },
+    "comparison_profile": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Collocated quality-screened IGRA data.",
+      "x-unit": "Pa, K, m s^-1",
+      "x-source-type": "table|null",
+      "x-quality-rule": "Station history and space/time support recorded."
+    }
+  },
+  "required": [
+    "source_receive_time",
+    "geodetic_state",
+    "pressure_temperature",
+    "illumination_board",
+    "trajectory_cov",
+    "power_energy",
+    "packet_quality",
+    "comparison_profile"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

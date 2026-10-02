@@ -1,8 +1,11 @@
-flowchart LR
-  M["Metabolic load + mediator hypotheses"] --> S["Quiescent / primed / replicating states"]
-  S --> N["Cell number + hypertrophy + tissue mechanics"]
-  N --> V["Measured volume"]
-  N --> F["Independent functional observations"]
-  V --> I["Identifiability / held-out inference"]
-  F --> I
-  I --> E["Mechanism constraints / observational priorities"]
+flowchart TB
+ D[Published deidentified time series] --> P[Species and subject registry]
+ C[Measured or latent C GF signals] --> Q[Positive Q P R state ODE]
+ R[Rate and loss hypotheses] --> Q
+ Q --> N[Cell number ledger]
+ N --> V[Volume observation model]
+ H[Cell size vascular nonparenchymal terms] --> V
+ P --> L[Hierarchical observation likelihood]
+ V --> L
+ L --> I[Parameter ridge and sensitivity]
+ I --> O[Withheld subject time predictions]

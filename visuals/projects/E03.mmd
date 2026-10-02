@@ -1,0 +1,13 @@
+flowchart TB
+ F[Flight counts time altitude] --> A[Exposure bin alignment]
+ C[Detector geometry calibration] --> R[Energy angular response]
+ N[NAIRAS spectral environment] --> P[Response folded expected counts]
+ R --> P
+ A --> L[Dead time background likelihood]
+ P --> L
+ S[Matched shield configurations] --> R
+ L --> O[Native count profile residuals]
+ D[Validated dose sensitivity] --> G[Optional dose reconstruction]
+ N --> G
+ O --> V[Held out altitude comparison]
+ G --> V

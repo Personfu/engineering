@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+package_id,enum,1,D03a or D03b origin.,Never merge datasets without transfer record.
+atmosphere,record,"kg/m^3,Pa s,m/s^2","Density, viscosity and gravity.",Uncertainty and scenario provenance required.
+rotor_geometry,"array<radius,chord>",m,Blade discretization.,Positive dimensions and deployment state.
+aero_coefficients,"float64[state,2]",1,"Coefficient rows align to a versioned local-flow-state index; columns are exactly [C_L,C_D].","State index declares alpha/Re/Mach, row correspondence and interpolation domain; coefficient covariance required."
+descent_state,pair<float64>,"m/s,rad/s",Downward V and Omega.,Directions fixed; failed state null.
+bubble_length,nullable<float64>,m,Stationary separation-to-reattachment distance.,Method/uncertainty required.
+pressure_velocity_trace,nullable<record>,"Pa,m/s",Synchronized D03b observations.,Sampling/duration/masks required.
+transfer_envelope,nullable<record>,"N,N m",Compatible force/torque perturbation model.,Review ID required; null if unvalidated.

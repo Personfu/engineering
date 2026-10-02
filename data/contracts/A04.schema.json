@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A04 APOLLO SWARM SENTINEL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "particle_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Stable simulated node.",
+      "x-unit": "1",
+      "x-source-type": "uint32",
+      "x-quality-rule": "Generation ID prevents identity reuse."
+    },
+    "axial_position": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Hex coordinates.",
+      "x-unit": "lattice step",
+      "x-source-type": "pair<int32>",
+      "x-quality-rule": "Neighbor ports match offsets."
+    },
+    "activation_index": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Scheduler sequence.",
+      "x-unit": "event",
+      "x-source-type": "uint64",
+      "x-quality-rule": "Increasing; fairness metadata required."
+    },
+    "sensor_symbol": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Bounded sensor alphabet.",
+      "x-unit": "1",
+      "x-source-type": "nullable<enum>",
+      "x-quality-rule": "Missing distinct from target absent."
+    },
+    "message_state": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Finite transition message.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Alphabet version and direction required."
+    },
+    "provenance_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Offline observation origin.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Deduplicate before oracle accumulation."
+    },
+    "declaration": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Node, event and decision.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Confidence null if uncalibrated."
+    }
+  },
+  "required": [
+    "particle_id",
+    "axial_position",
+    "activation_index",
+    "sensor_symbol",
+    "message_state",
+    "provenance_id",
+    "declaration"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

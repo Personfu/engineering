@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B22 NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "accession": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference genome/protein/expression identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Release and source checksum retained."
+    },
+    "ortholog_group": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reviewed homolog family.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Paralog/transfer ambiguity flagged."
+    },
+    "alignment_mask": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "boolean"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Eligible comparative positions.",
+      "x-unit": "sites",
+      "x-source-type": "bool[]",
+      "x-quality-rule": "Gap/coverage exclusions recorded."
+    },
+    "branch_support": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Tree uncertainty measures.",
+      "x-unit": "0–1",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Support type and resampling method explicit."
+    },
+    "expression_contrast": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Published retrospective regulatory comparison.",
+      "x-unit": "declared normalized units",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Batch/replicate metadata retained."
+    },
+    "stoichiometry": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Reaction network coefficients.",
+      "x-unit": "mol/mol",
+      "x-source-type": "sparse matrix",
+      "x-quality-rule": "Atom/charge and cofactor checks required."
+    },
+    "flux_bounds": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "variable length; ICD-defined"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Literature/scenario constraints.",
+      "x-unit": "mmol/gDW/hour",
+      "x-source-type": "float[2][]",
+      "x-quality-rule": "Measured versus assumed bounds labeled."
+    },
+    "flux_interval": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "variable length; ICD-defined"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Feasible reaction ranges.",
+      "x-unit": "mmol/gDW/hour",
+      "x-source-type": "float[2][]",
+      "x-quality-rule": "Solver status and unbounded flags saved."
+    }
+  },
+  "required": [
+    "accession",
+    "ortholog_group",
+    "alignment_mask",
+    "branch_support",
+    "expression_contrast",
+    "stoichiometry",
+    "flux_bounds",
+    "flux_interval"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B22",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

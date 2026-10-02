@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+time_grid,vector<float64>,s,Retarded time samples.,"Uniform spacing, window and origin recorded."
+input_field,vector<complex128>,sqrt(W),Retrieved complex envelope.,"Phase reference, covariance and retrieval method required."
+pass_geometry,array<record>,m,Path lengths and beam radii.,No missing radius silently replaced.
+nonlinear_index,float64,m^2/W,Material n2 at declared conditions.,Source and uncertainty required.
+dispersion,array<float64>,s^2/m,Per-medium beta2.,Higher-order terms separately labeled.
+optic_phase,nullable<vector<float64>>,rad,Mirror/compressor spectral phase.,Unknown null; interpolation domain checked.
+energy_metrics,record,"J,1","Output, main-window energy and throughput.",Window rule immutable across comparisons.

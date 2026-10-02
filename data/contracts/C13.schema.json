@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C13 HORIZON RING ATLAS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "baseline_uv": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "x-dimension": "n",
+      "description": "Sampled Fourier coordinates.",
+      "x-unit": "wavelength",
+      "x-source-type": "float64[n,2]",
+      "x-quality-rule": "Frequency and station pair attached."
+    },
+    "visibility": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "real": {
+            "type": "number"
+          },
+          "imag": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "real",
+          "imag"
+        ],
+        "additionalProperties": false,
+        "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+      },
+      "x-dimension": "n",
+      "description": "Calibrated complex measurements.",
+      "x-unit": "Jy",
+      "x-source-type": "complex128[n]",
+      "x-quality-rule": "Flags retained; missing baselines are absent, never zero."
+    },
+    "visibility_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Thermal and calibration covariance.",
+      "x-unit": "Jy^2",
+      "x-source-type": "covariance",
+      "x-quality-rule": "Separate real/imaginary or complex convention declared."
+    },
+    "closure_phase": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Triangle phase sum.",
+      "x-unit": "radian",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Circular likelihood and covariance with related triangles required."
+    },
+    "gain_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "real": {
+                  "type": "number"
+                },
+                "imag": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "real",
+                "imag"
+              ],
+              "additionalProperties": false,
+              "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+            },
+            "x-dimension": "variable length; ICD-defined"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Station gain nuisance terms.",
+      "x-unit": "1",
+      "x-source-type": "posterior<complex[]>",
+      "x-quality-rule": "Epoch/group association recorded."
+    },
+    "ring_metrics": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Diameter, width, asymmetry and depression.",
+      "x-unit": "microarcsec, 1",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "Metric definition and reconstruction family attached."
+    },
+    "source_context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Variability/scattering assumptions.",
+      "x-unit": "s, microarcsec",
+      "x-source-type": "struct",
+      "x-quality-rule": "Different target contexts cannot be silently merged."
+    }
+  },
+  "required": [
+    "baseline_uv",
+    "visibility",
+    "visibility_cov",
+    "closure_phase",
+    "gain_parameters",
+    "ring_metrics",
+    "source_context"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C13",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

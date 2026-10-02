@@ -1,0 +1,11 @@
+flowchart TB
+A["External/known electrical heat load"] --> B["Wall capacitance/conductance graph"]
+C["Verified flow and fluid properties"] --> D["Single-phase advection/enthalpy network"]
+B --> D
+E["Ambient-loss calibration"] --> B
+F["Sensor offset and lag models"] --> G["Measured temperature likelihood"]
+B --> G
+D --> G
+G --> H["Identifiable parameter posterior"]
+H --> I["Storage/uptake/loss energy ledger"]
+I --> J["Hotspot and transient holdout"]

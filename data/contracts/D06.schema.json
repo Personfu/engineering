@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D06 LANGLEY MACH ATLAS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "configuration_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Nozzle/gas/instrument condition.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Changed repair or wall state gets new ID."
+    },
+    "reservoir_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Absolute p0 and T0.",
+      "x-unit": "Pa,K",
+      "x-source-type": "record",
+      "x-quality-rule": "Timestamp/calibration covariance required."
+    },
+    "probe_position": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Nozzle-frame coordinate.",
+      "x-unit": "m",
+      "x-source-type": "vector<float64>[3]",
+      "x-quality-rule": "Origin, axes and encoder error recorded."
+    },
+    "pitot_pressure": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Shock-downstream stagnation reading.",
+      "x-unit": "Pa",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Absolute pressure; missing null."
+    },
+    "probe_orientation": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Alignment relative to local flow.",
+      "x-unit": "rad",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Uncertainty and disturbance model retained."
+    },
+    "inferred_mach": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Gas-model-specific local Mach.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Branch/domain flags required."
+    },
+    "core_membership": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Tolerance/confidence mask classification.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Uncertain/extrapolated distinct from failed core."
+    }
+  },
+  "required": [
+    "configuration_id",
+    "reservoir_state",
+    "probe_position",
+    "pitot_pressure",
+    "probe_orientation",
+    "inferred_mach",
+    "core_membership"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "D06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

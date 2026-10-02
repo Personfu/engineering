@@ -1,0 +1,12 @@
+flowchart TB
+ A[Ancient boundary histories] --> B[Scenario and units registry]
+ C[Density rheology thermal laws] --> B
+ B --> D[Stokes velocity pressure solver]
+ D --> E[Advective diffusive heat solver]
+ E --> D
+ D --> F[Slab and upper-plate metrics]
+ G[Mesh residual energy checks] --> H[Converged ensemble gate]
+ F --> H
+ I[Geological groups with covariance] --> J[Mechanism inverse comparison]
+ H --> J
+ J --> K[Targeted 3D and supported surrogate tests]

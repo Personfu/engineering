@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B07 REGENESIS CLEANFLOW — Environmental Fate and Remediation Model engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "analyte_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Verified parent/product identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Formula and assay identity required."
+    },
+    "dissolved_concentration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measured aqueous concentration.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Limit, recovery and qualifier retained."
+    },
+    "sorbed_concentration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Solid-associated analyte.",
+      "x-unit": "mg/kg dry",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Extraction basis and dry mass required."
+    },
+    "element_count": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "integer"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "C/N counts for molar accounting.",
+      "x-unit": "atoms/molecule",
+      "x-source-type": "integer vector",
+      "x-quality-rule": "Check formula consistency."
+    },
+    "reaction_rate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Fitted pathway-rate ensemble.",
+      "x-unit": "mol/L/day",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Source matrix/redox domain recorded."
+    },
+    "inventory_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint compartment uncertainty.",
+      "x-unit": "mol²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Include shared recovery/background bias."
+    },
+    "benchmark": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Applicable environmental comparison value.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Null remains unresolved, never zero risk."
+    }
+  },
+  "required": [
+    "analyte_id",
+    "dissolved_concentration",
+    "sorbed_concentration",
+    "element_count",
+    "reaction_rate",
+    "inventory_covariance",
+    "benchmark"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

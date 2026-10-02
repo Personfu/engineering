@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+case_id,string,1,Boundary/geometry/regime configuration.,Hash and solver version required.
+regime,record,1,"Re, Mach and closure choice.",Continuum/slip status explicit.
+mesh_scale,float64,m,Systematic characteristic h.,Refinement ratio and wall measures retained.
+time_step,nullable<float64>,s,Unsteady integration step.,Steady case null; not zero.
+drag_components,pair<float64>,N,Pressure and viscous body loads.,Normals/quadrature and sign specified.
+mass_flux_residual,float64,kg/s,Net boundary/control-volume flux.,Normalization denominator recorded.
+validation_reference,record,1,Matched experimental/correlation context.,Uncertainty and validity range required.

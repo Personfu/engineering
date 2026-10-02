@@ -1,0 +1,11 @@
+flowchart TB
+A["Verified geometry and material loss"] --> B["Multi-axis mechanical model"]
+C["Calibrated drive force"] --> D["Bench suspension and readout"]
+E["Ground/tilt and temperature"] --> D
+D --> F["Ringdown/transfer identification"]
+B --> F
+F --> G["Passive thermal-noise prediction"]
+F --> H["Active controller and delays"]
+I["Readout/actuator noise paths"] --> H
+G --> J["Band noise and isolation budget"]
+H --> J

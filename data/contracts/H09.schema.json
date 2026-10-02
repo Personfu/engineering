@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H09 PERSEVERANCE LAKE ARCHIVE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "crism_product": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Actual target/level/version identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Terby/basin coverage and masks verified."
+    },
+    "reflectance_spectrum": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Corrected native spectral observations.",
+      "x-unit": "dimensionless",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Wavelength/geometry and covariance retained."
+    },
+    "band_depth": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Declared continuum feature metric.",
+      "x-unit": "dimensionless",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Continuum alternatives and artifact flags saved."
+    },
+    "mineral_fraction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "variable length; ICD-defined"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Posterior compatible compositions.",
+      "x-unit": "declared fraction basis",
+      "x-source-type": "float[][]",
+      "x-quality-rule": "Nonnegative/simplex and library support checked."
+    },
+    "optical_size": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Effective radiative-transfer particle size.",
+      "x-unit": "micrometre",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Distinct from geological sieve distribution."
+    },
+    "thermal_constraint": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Supported temperature/thermophysical evidence.",
+      "x-unit": "K and inertia units",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Time, rocks/porosity/layering retained."
+    },
+    "model_prior": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "p(M) for mixing/transport/alteration families.",
+      "x-unit": "0–1",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Normalized and sensitivity documented."
+    },
+    "joint_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Spectral/thermal/registration uncertainty.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Correlated errors and native support included."
+    }
+  },
+  "required": [
+    "crism_product",
+    "reflectance_spectrum",
+    "band_depth",
+    "mineral_fraction",
+    "optical_size",
+    "thermal_constraint",
+    "model_prior",
+    "joint_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H09",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

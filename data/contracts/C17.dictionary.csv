@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+cube,"float64[nlambda,h,w]",declared flux,Pre-subtraction science data.,Keep spectral/spatial masks; missing pixels are not zero background.
+parallactic_angle,float64[nexp],degree,Sky rotation for each exposure.,Time and angle convention attached.
+stellar_flux,measurement<float64[nlambda]>,Jy,Flux/contrast normalization.,Shared covariance across wavelengths retained.
+injection_truth,table,"arcsec, degree, Jy","Companion position, spectrum and flux.","Record stage, seed and sparse-batch identity."
+detection_statistic,float64,declared normalized,Frozen search score at candidate position.,Threshold version and searched trials attached.
+completeness,"struct<float64,interval>",1,Recovery map by scenario.,Report n/k; empty cells remain missing.
+throughput,measurement<float64>,1,Recovered/injected flux ratio.,Calibration and recovery covariance propagated.
+mass_orbit_constraint,distribution|null,"Jupiter mass, au",Conditional translation of completeness.,Age/evolution/orbit versions mandatory.

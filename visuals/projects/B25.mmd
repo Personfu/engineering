@@ -1,0 +1,11 @@
+flowchart TB
+ A[Seed lots traits viability] --> B[Lot and species registry]
+ C[Stage dates and censor codes] --> D[Conditional transition histories]
+ E[Moisture temperature microsites] --> F[Hydrotime and exposure adapter]
+ G[Documented pellet identity] --> H[Hierarchical stage model]
+ B --> H
+ D --> H
+ F --> H
+ H --> I[Joint establishment probability]
+ J[Costs and field hazards] --> K[Establishment cost and transfer report]
+ I --> K

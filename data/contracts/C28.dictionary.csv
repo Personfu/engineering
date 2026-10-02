@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+equipment_id,struct,"m^2, detector units",Verified telescope/camera/filter configuration.,Unknown geometry/curve remains TBD.
+standard_spectrum,array+reference,W m^-2 m^-1,Traceable flux versus wavelength.,Exact source file/version and uncertainty retained.
+system_throughput,float64[nlambda],1,Optics/filter/QE excluding atmosphere.,Component ledger checks no atmospheric factor.
+airmass_atmosphere,struct,1,X and extinction/optical-depth model.,Time/weather state and applicability recorded.
+net_electrons,measurement<float64>,electron,Bias/dark/sky/flat-corrected aperture counts.,Saturated/nonlinear states masked; negative noise retained.
+calibration_coefficients,posterior<float64[]>,"mag, mag airmass^-1",Nightly ZP/extinction/color terms.,Full covariance and color convention.
+aperture_response,measurement<float64>,1,Seeing/position-dependent encircled-energy correction.,Standard/science applicability checked.
+line_flux,measurement<float64>|null,erg s^-1 cm^-2,Response-corrected integrated emission line.,Null if continuum or passband correction unavailable.

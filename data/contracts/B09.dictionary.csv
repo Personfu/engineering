@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+feature_key,string,none,Persistent thermal-feature identity.,Reviewed alias/coordinate lineage.
+sample_date,nullable date,calendar day,Collection date and precision.,No invented timestamp.
+analyte_value,nullable float,mg/L,Original measured concentration.,Qualifier/limit retained.
+charge,integer,elementary charges,Ionic valence for balance.,Neutral species excluded.
+equivalent_value,nullable float,meq/L,Converted major-ion concentration.,Molar mass/valence version required.
+basin_support,polygon key,none,Permitted interpolation domain.,Unmapped boundaries marked uncertain.
+prediction_covariance,matrix,log-concentration²,Joint map uncertainty.,Include method and temporal covariance.

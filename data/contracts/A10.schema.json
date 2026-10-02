@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A10 HUBBLE CARINA CLOCK engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "spectrum_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Instrument/cycle observation key.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Aperture and archive provenance required."
+    },
+    "epoch_barycentric": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Declared barycentric time coordinate.",
+      "x-unit": "day",
+      "x-source-type": "float64",
+      "x-quality-rule": "Time scale explicit; missing epoch rejected."
+    },
+    "wavelength_grid": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Calibrated spectral coordinate.",
+      "x-unit": "nm",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Air/vacuum convention and rest lambda required."
+    },
+    "normalized_flux": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Continuum-normalized line profile.",
+      "x-unit": "1",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Masks and normalization uncertainty retained."
+    },
+    "bisector_depth": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fixed relative profile level.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Definition identical across cycles."
+    },
+    "velocity_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Estimator and calibration covariance.",
+      "x-unit": "(km/s)^2",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Shared instrument errors included."
+    },
+    "delay_kernel": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "time,weight"
+      },
+      "description": "Causal wind response model.",
+      "x-unit": "day,day^-1",
+      "x-source-type": "array<time,weight>",
+      "x-quality-rule": "Nonnegative normalized; unknown parameters TBD."
+    }
+  },
+  "required": [
+    "spectrum_id",
+    "epoch_barycentric",
+    "wavelength_grid",
+    "normalized_flux",
+    "bisector_depth",
+    "velocity_covariance",
+    "delay_kernel"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A10",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

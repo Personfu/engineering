@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+alma_product,string,none,Project/cube/measurement-set identity.,Selection and calibration versions retained.
+intensity_cube,nullable array,Jy/beam,Continuum-subtracted channel image.,Beam/primary-beam flags required.
+velocity_axis,float[],km/s,Declared spectral frame/convention.,Rest frequency and channel width saved.
+beam_solid_angle,float,sr,Synthesized Gaussian support.,Major/minor axes and position angle retained.
+disk_geometry,record,kg m rad km/s,Stellar/disk alignment parameters.,Independent source and covariance required.
+noise_covariance,matrix,(Jy/beam)²,Spatial/spectral noise model.,Line-free selection and PSD check saved.
+search_trial,record,none,Radius/geometry/velocity/isotopologue attempt.,All attempts enter global null.
+line_flux,nullable float[],Jy km/s,Aperture integrated flux/limit.,Distinct from normalized stack and gas mass.

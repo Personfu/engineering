@@ -1,0 +1,11 @@
+flowchart TB
+A["EHT complex visibilities and uv samples"] --> B["Station-gain likelihood"]
+C["Geometric ring/crescent/nonring models"] --> D["Fourier sampling operator"]
+D --> B
+B --> E["Direct geometric posterior"]
+A --> F["Imaging hyperparameter ensemble"]
+G["Variability/scattering context"] --> F
+E --> H["Ring metric distributions"]
+F --> H
+I["Blind source and coverage tests"] --> H
+H --> J["Conditional shadow comparison"]

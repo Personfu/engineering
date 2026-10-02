@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+spectrum_id,string,1,Instrument/cycle observation key.,Aperture and archive provenance required.
+epoch_barycentric,float64,day,Declared barycentric time coordinate.,Time scale explicit; missing epoch rejected.
+wavelength_grid,vector<float64>,nm,Calibrated spectral coordinate.,Air/vacuum convention and rest lambda required.
+normalized_flux,vector<float64>,1,Continuum-normalized line profile.,Masks and normalization uncertainty retained.
+bisector_depth,float64,1,Fixed relative profile level.,Definition identical across cycles.
+velocity_covariance,matrix<float64>,(km/s)^2,Estimator and calibration covariance.,Shared instrument errors included.
+delay_kernel,"array<time,weight>","day,day^-1",Causal wind response model.,Nonnegative normalized; unknown parameters TBD.

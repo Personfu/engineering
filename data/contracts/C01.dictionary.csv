@@ -1,0 +1,7 @@
+field,type,unit,meaning,quality_rule
+epoch,float64,BJD,Barycentric exposure midpoint.,Null until time scale and correction are documented.
+exposure,float64[2],day,Start and end in the common time system.,End must exceed start.
+velocity,float64[n],km s^-1,Line-relative gas velocity grid.,Rest wavelength and air/vacuum convention required.
+profile,float64[n],1,Continuum-normalized line flux.,Masked pixels stay missing; no zero filling.
+profile_cov,"float64[n,n]",1,Pixel and continuum covariance.,Symmetric positive semidefinite; preserve shared continuum terms.
+line_delay,posterior<float64>,day,Conditional response delay relative to a named reference line.,Report multimodality and reference-line identity.

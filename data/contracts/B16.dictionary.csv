@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+accession,string,none,Archived experiment/file identity.,Actual availability and checksums recorded.
+exposure_class,enum,none,"flight, analogue or matched control.",Categories never assumed equivalent.
+replicate_key,string,none,Independent biological sample unit.,"Technical replicates linked, not independent."
+measurement_type,enum,none,"counts, array intensity or phenotype.",Select compatible analysis branch.
+confounder_metadata,nullable record,declared,Platform/strain/batch/oxygen descriptors.,Unknown remains null.
+effect_interval,float[3],log contrast,Estimate and uncertainty bounds.,Design rank and family recorded.
+phenotype_evidence,nullable record,author-reported units,Direct published susceptibility endpoint.,No inference from expression alone.
+evidence_grade,enum,none,"Replicated, limited or unresolved support.",Reasons and source links retained.

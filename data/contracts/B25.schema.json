@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B25 SEEDSTAR GENESIS — Dryland Establishment Forecasting engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "seed_lot": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Species-linked batch identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Viability and storage provenance required."
+    },
+    "seed_mass": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measured lot/species trait.",
+      "x-unit": "mg",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Method and lot variance retained."
+    },
+    "viability_fraction": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Independent viable-seed estimate.",
+      "x-unit": "0–1",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Assay/follow-up uncertainty saved."
+    },
+    "stage_time": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Germination/emergence/survival event bounds.",
+      "x-unit": "days",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Stage-specific censoring required."
+    },
+    "water_potential": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Microsite moisture history.",
+      "x-unit": "MPa",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Negative-pressure convention explicit."
+    },
+    "pellet_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Documented material/process identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "No unmeasured mechanism inferred."
+    },
+    "transition_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint stage uncertainty.",
+      "x-unit": "probability²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Shared lot/weather correlations retained."
+    },
+    "establishment_cost": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Cost distribution at stated horizon.",
+      "x-unit": "USD/plant",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Zero-success and price year explicit."
+    }
+  },
+  "required": [
+    "seed_lot",
+    "seed_mass",
+    "viability_fraction",
+    "stage_time",
+    "water_potential",
+    "pellet_key",
+    "transition_covariance",
+    "establishment_cost"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B25",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

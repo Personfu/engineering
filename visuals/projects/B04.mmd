@@ -1,0 +1,11 @@
+flowchart TB
+ A[Receiver power and UTC] --> B[Gain RFI saturation QC]
+ C[Verified platform and antenna] --> D[Ground or spacecraft geometry gate]
+ B --> E[Sidereal quiet-day estimator]
+ E --> F[Power ratio absorption dB]
+ D --> G[Geometry-aware path kernel]
+ H[Density and collision profiles] --> G
+ G --> I[Conditional frequency sensitivity]
+ J[NOAA D-RAP model events] --> K[Event comparator report]
+ F --> K
+ I --> K

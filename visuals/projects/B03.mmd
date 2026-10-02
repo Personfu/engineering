@@ -1,0 +1,12 @@
+flowchart TB
+ A[Restricted telemetry UTC xy covariance] --> B[Cadence and transmitter QC]
+ C[Dated road segments and traffic] --> D[Temporal GIS exposure join]
+ B --> D
+ D --> E[Road encounter probability]
+ B --> F[Matched available-step generator]
+ F --> G[Conditional movement likelihood]
+ H[Fate intervals and censor codes] --> I[Survival exposure model]
+ E --> I
+ G --> J[Mitigation scenario ledger]
+ I --> J
+ J --> K[Governed aggregated release]

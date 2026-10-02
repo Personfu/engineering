@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B08 TERRAFORM TERRACES — Dryland Conservation Observatory engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "structure_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Dated conservation intervention.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Condition and maintenance history required."
+    },
+    "install_bounds": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "format": "date"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Installation interval.",
+      "x-unit": "calendar day",
+      "x-source-type": "date[2]",
+      "x-quality-rule": "Uncertain dates propagate to event bins."
+    },
+    "cover_vector": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Herb, shrub and bare fraction.",
+      "x-unit": "percent",
+      "x-source-type": "float[3]",
+      "x-quality-rule": "Sum and classification covariance checked."
+    },
+    "channel_distance": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Signed distance from structure.",
+      "x-unit": "m",
+      "x-source-type": "float",
+      "x-quality-rule": "Positive downstream; CRS recorded."
+    },
+    "reach_area": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Water-ledger support area.",
+      "x-unit": "m²",
+      "x-source-type": "float",
+      "x-quality-rule": "Positive and fixed per comparison."
+    },
+    "rainfall": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Reach forcing.",
+      "x-unit": "mm/day",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Coverage and gauge uncertainty retained."
+    },
+    "effect_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Treatment-effect uncertainty.",
+      "x-unit": "percentage-point²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Spatial and temporal covariance included."
+    }
+  },
+  "required": [
+    "structure_id",
+    "install_bounds",
+    "cover_vector",
+    "channel_distance",
+    "reach_area",
+    "rainfall",
+    "effect_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B08",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

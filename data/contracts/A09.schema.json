@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A09 SPITZER RADIO ORIGINS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "source_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Native radio source key.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Stable catalog version and deblend flags."
+    },
+    "flux_density": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Observed radio flux.",
+      "x-unit": "Jy",
+      "x-source-type": "float64",
+      "x-quality-rule": "Frequency, integrated/peak basis and error required."
+    },
+    "redshift_pdf": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Spectroscopic/photo-z uncertainty.",
+      "x-unit": "1",
+      "x-source-type": "nullable<distribution>",
+      "x-quality-rule": "No-redshift sources retained as missing likelihood."
+    },
+    "spectral_index": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Exponent in S proportional nu^alpha.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Convention required; assumed values flagged."
+    },
+    "infrared_luminosity": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "TIR or SF-only estimate/limit.",
+      "x-unit": "W",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Definition and upper-limit flag required."
+    },
+    "completeness": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Detection probability at true properties.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Between zero and one; covariance/version retained."
+    },
+    "sf_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Primary radio-power label probability.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Definition fixed; unclassified is null, not zero."
+    }
+  },
+  "required": [
+    "source_id",
+    "flux_density",
+    "redshift_pdf",
+    "spectral_index",
+    "infrared_luminosity",
+    "completeness",
+    "sf_probability"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A09",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

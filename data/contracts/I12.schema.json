@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I12 PIONEER PHOBOS PATHFINDER engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "system_constants": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Mars/Phobos a,n,GM,mu.",
+      "x-unit": "m, s^-1, m^3 s^-2",
+      "x-source-type": "struct",
+      "x-quality-rule": "Source/query and circular approximation."
+    },
+    "frame_time": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Rotating/inertial center/epoch conventions.",
+      "x-unit": "TDB s, 1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Transforms include velocity derivative."
+    },
+    "departure_orbit": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Defined low-Mars boundary and phase.",
+      "x-unit": "m, m s^-1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Collision/atmosphere/clearance assumptions explicit."
+    },
+    "target_dro": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Family, period, phase and acceptance.",
+      "x-unit": "dimensionless",
+      "x-source-type": "periodic state table",
+      "x-quality-rule": "Return residual and continuation provenance."
+    },
+    "candidate_nodes": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 6,
+        "maxItems": 6
+      },
+      "x-dimension": "n",
+      "description": "Common shooting/collocation trajectory.",
+      "x-unit": "dimensionless state",
+      "x-source-type": "float64[n,6]",
+      "x-quality-rule": "Continuity/coast/impulse types attached."
+    },
+    "cost_feasibility": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Delta-v, time and arrival/clearance residuals.",
+      "x-unit": "m s^-1, s, m",
+      "x-source-type": "struct",
+      "x-quality-rule": "Independent checker; failed candidates retained."
+    },
+    "optimizer_run": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Strategy and complete compute budget.",
+      "x-unit": "seed, evaluation count",
+      "x-source-type": "struct",
+      "x-quality-rule": "Local refinement counts included."
+    },
+    "promotion_error": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Higher-fidelity arrival/correction discrepancy.",
+      "x-unit": "m, m s^-1",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Force model, constants and numerical covariance."
+    }
+  },
+  "required": [
+    "system_constants",
+    "frame_time",
+    "departure_orbit",
+    "target_dro",
+    "candidate_nodes",
+    "cost_feasibility",
+    "optimizer_run",
+    "promotion_error"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I12",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

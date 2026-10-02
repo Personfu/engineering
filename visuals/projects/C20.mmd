@@ -1,0 +1,11 @@
+flowchart TB
+A["TRINITY population posterior"] --> B["Mass/accretion/host draws"]
+C["External light-curve calibration"] --> D["Proposed OU/alternative conditioner"]
+B --> D
+D --> E["Rest-frame stochastic flux"]
+F["Redshift and host dilution"] --> G["Survey cadence/exposure operator"]
+E --> G
+H["Noise and flux selection"] --> G
+G --> I["Irregular-time covariance likelihood"]
+I --> J["Selected ensemble autocorrelation"]
+K["Second-survey holdout"] --> J

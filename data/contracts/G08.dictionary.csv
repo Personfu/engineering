@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+study_subject,string,1,De-identified subject/species context.,Group and source provenance required.
+observation_time,vector<float64>,day,Time from documented reference event.,No inferred clinical procedure details.
+volume_observed,nullable<float64>,m^3,Imaging volume estimate.,Segmentation covariance and reference required.
+cell_states,vector<float64>[3],cell,"Q, P and R model populations.",Nonnegative; modeled versus measured labeled.
+mediator_signals,nullable<record>,declared,C/GF normalized or native signals.,Measured/latent status and unit mapping mandatory.
+cell_volume,nullable<float64>,m^3/cell,Mean size contribution.,Unknown not fixed silently.
+subject_covariance,matrix<float64>,mixed,Repeated observation/parameter uncertainty.,Positive semidefinite with ordered units.

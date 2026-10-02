@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+galaxy_id,string,1,IFU target and survey selection identity.,Duplicate observations grouped.
+spectral_cube,"float64[l,h,w]",documented flux,Observed spatial spectra.,Masks/LSF/PSF attached; missing spaxels not interpolated as data.
+cube_cov,covariance,flux^2,Spectral and resampling uncertainty.,Shared continuum and spatial covariance retained.
+environment,measurement<float64>,neighbor Mpc^-2,Declared density or group estimator.,Edge/redshift completeness flags required.
+host_covariates,measurement<struct>,"solar mass, solar mass yr^-1, degree",Mass/SFR/inclination/activity.,Joint covariance and source method retained.
+wind_probability,float64,1,Component evidence after competing models.,Bounded zero to one; not a secure physical label.
+velocity_proxy,measurement<float64>,km s^-1,Declared projected outflow diagnostic.,Unresolved/censored states retained.
+mass_loading,posterior<float64>|null,1,Conditional ionized-rate/SFR ratio.,Null when necessary geometry/density inputs unavailable.

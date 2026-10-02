@@ -1,6 +1,13 @@
-flowchart LR
-  A["Antenna / installation / band requirements"] --> R["Far-field or phase-consistent near-field method"]
-  R --> C["Reference calibration + environmental checks"]
-  C --> S["Angular / amplitude / phase / polarization data"]
-  S --> B["3D pattern + uncertainty"]
-  B --> L["Pointing loss / link margin / G over T context"]
+flowchart TB
+ C[Configuration and polarization frame] --> A[Angular coordinate adapter]
+ R[Reference antenna and chain ledger] --> K[Amplitude phase calibration]
+ F[Far field power and range] --> K
+ N[Complex near field scan] --> K
+ K --> T[Probe corrected angular transform]
+ A --> T
+ K --> P[Far field reflection assessment]
+ T --> M[Beam gain sidelobe extraction]
+ P --> M
+ S[Qualified system temperature] --> G[GT calculation]
+ M --> G
+ M --> O[Pattern covariance and coverage]

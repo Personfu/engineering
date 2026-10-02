@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+ozone_ppb,nullable float,ppb,Qualified surface concentration.,"Duration, method and flags retained."
+timestamp_pair,datetime[2],UTC local,Measurement and local-day conventions.,DST/site timezone explicit.
+mixing_height,nullable float,m,Box-model dilution depth.,Positive; source support flagged.
+bvoc_factor,float[],mg/m² leaf/hour,Species emission-factor scenarios.,No NDVI substitution; covariance retained.
+leaf_area_index,float,m²/m²,Leaf-to-ground area ratio.,Sensor/date provenance required.
+background_ozone,float[],mol/m³,Boundary-air concentration scenarios.,Distinct from local monitor truth.
+scenario_mda8,float[],ppb,Eight-hour daily metric ensemble.,Report completeness and model discrepancy.

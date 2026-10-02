@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+platform_key,string,none,Ship/float/profile identity.,Calibration and data-level provenance required.
+pco2_water,nullable float,microatm,Measured/derived surface pCO2.,Input covariance and method retained.
+wind_speed,nullable float,m/s,Declared transfer-law wind average.,Vector averaging/cadence explicit.
+solubility,float,mol/m³/atm,Temperature/salinity-dependent K0.,Formula/version and covariance saved.
+transfer_velocity,float[],m/s,Gas-transfer formulation ensemble.,Validity domain and wind source retained.
+mixed_layer_depth,nullable float,m,Inventory support depth.,Definition and profile uncertainty required.
+air_sea_flux,nullable float,mol C/m²/s,Signed ocean-to-air exchange.,No sign inversion during integration.
+coverage_covariance,record,mixed,Area-time support and joint flux error.,Gap-fill covariance separate from observations.

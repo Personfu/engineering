@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C06 PULSAR GEMINI WATCH engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "arrival_epoch": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Barycentric event times.",
+      "x-unit": "TDB seconds or MJD",
+      "x-source-type": "float64[]",
+      "x-quality-rule": "Original clock and correction files required."
+    },
+    "orbital_phase": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Phase from a versioned ephemeris.",
+      "x-unit": "cycle",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Wrap consistently; preserve phase covariance."
+    },
+    "spin_period": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Observed/corrected period with detection context.",
+      "x-unit": "s",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Nondetection has no artificial zero period."
+    },
+    "period_derivative": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Derivative with explicit intrinsic/observed type.",
+      "x-unit": "s s^-1",
+      "x-source-type": "measurement<float64>|null",
+      "x-quality-rule": "Do not assign intrinsic type without torque/acceleration treatment."
+    },
+    "count_spectrum": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Energy-resolved source/background counts.",
+      "x-unit": "count",
+      "x-source-type": "struct<count,response>",
+      "x-quality-rule": "Poisson likelihood; response and exposure mandatory."
+    },
+    "burst_localization": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Spatial source likelihood.",
+      "x-unit": "degree ICRS",
+      "x-source-type": "distribution<sky>",
+      "x-quality-rule": "Normalize and include instrumental systematic uncertainty."
+    },
+    "radius_ordering": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "State probability from lc/co/m radii.",
+      "x-unit": "1",
+      "x-source-type": "posterior<enum>",
+      "x-quality-rule": "Report multimodal state probabilities."
+    }
+  },
+  "required": [
+    "arrival_epoch",
+    "orbital_phase",
+    "spin_period",
+    "period_derivative",
+    "count_spectrum",
+    "burst_localization",
+    "radius_ordering"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

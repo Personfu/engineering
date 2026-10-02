@@ -1,0 +1,12 @@
+flowchart TB
+ A[AQS ozone and precursors] --> B[Unit duration timezone QC]
+ C[Weather and mixing height] --> D[Meteorology normalization]
+ B --> D
+ E[Species LAI and BVOC factors] --> F[Emission ensemble mg/m2/hour]
+ F --> G[Chemistry deposition exchange box]
+ C --> G
+ H[Background air scenarios] --> G
+ D --> I[Episode holdout metrics]
+ G --> J[Matched source perturbations]
+ J --> I
+ I --> K[Ozone and greening tradeoff report]

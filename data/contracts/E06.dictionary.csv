@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+node_id,string,1,Component/node and sensor mapping.,Location and lumped/spatial status required.
+heat_capacity,float64,J/K,Node thermal storage coefficient.,Positive; temperature dependence/source retained.
+conductance_edges,array<record>,W/K,Reciprocal component connections.,Nonnegative; symmetry and uncertainty checked.
+power_history,nullable<array<float64>>,W,Subsystem dissipated heat.,Clock/source required; missing not zero.
+environment,record,"K,Pa,W/m^2","Air/radiative temperatures, pressure and solar.",Orientation/view-factor context retained.
+surface_properties,record,"1,m^2",Absorptivity/emissivity/area.,Spectral distinction and covariance required.
+temperature_observed,nullable<float64>,K,Sensor/node temperature.,"Sensor lag, bias and position uncertainty."

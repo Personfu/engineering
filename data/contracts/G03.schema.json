@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G03 DEEP SPACE BEAM CARTOGRAPHER engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "configuration_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Installed/antenna-alone state.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Mount, cabling and surroundings version required."
+    },
+    "frequency": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measurement frequency.",
+      "x-unit": "Hz",
+      "x-source-type": "float64",
+      "x-quality-rule": "Positive; bandwidth and wavelength convention."
+    },
+    "angular_coordinate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Azimuth/elevation in station frame.",
+      "x-unit": "rad",
+      "x-source-type": "pair<float64>",
+      "x-quality-rule": "Axes/signs and encoder covariance."
+    },
+    "polarization_basis": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Co/cross or declared linear/circular basis.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Basis transform version required."
+    },
+    "complex_field": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "real": {
+          "type": "number"
+        },
+        "imag": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "real",
+        "imag"
+      ],
+      "additionalProperties": false,
+      "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar.",
+      "description": "Near-field phase/amplitude sample.",
+      "x-unit": "native",
+      "x-source-type": "nullable<complex128>",
+      "x-quality-rule": "Phase reference required; power-only flagged."
+    },
+    "calibration_ledger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Gain/loss/phase corrections.",
+      "x-unit": "dB,rad",
+      "x-source-type": "record",
+      "x-quality-rule": "Shared error terms and drift retained."
+    },
+    "system_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Receive-system noise temperature.",
+      "x-unit": "K",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Measurement boundary required; absent means no G/T."
+    }
+  },
+  "required": [
+    "configuration_id",
+    "frequency",
+    "angular_coordinate",
+    "polarization_basis",
+    "complex_field",
+    "calibration_ledger",
+    "system_temperature"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

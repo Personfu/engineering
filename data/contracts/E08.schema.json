@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E08 GATEWAY POWERBENCH engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "harness_state": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Local verification/simulation state.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Transition/interlock reason logged."
+    },
+    "approved_limits": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Controlling DUT/fixture envelope.",
+      "x-unit": "V,A,K",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Missing blocks stimulus-enabled acceptance."
+    },
+    "source_dut_voltage": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Independent source/terminal observations.",
+      "x-unit": "V",
+      "x-source-type": "pair<float64>",
+      "x-quality-rule": "Calibration and sense location required."
+    },
+    "current": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Signed delivered/discharge current.",
+      "x-unit": "A",
+      "x-source-type": "float64",
+      "x-quality-rule": "Direction and path defined."
+    },
+    "sample_clock": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "V/I acquisition timing and skew.",
+      "x-unit": "s",
+      "x-source-type": "record",
+      "x-quality-rule": "Common clock or offset covariance."
+    },
+    "harness_resistance": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Wiring/contact resistance.",
+      "x-unit": "ohm",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Temperature/source and covariance retained."
+    },
+    "energy_soc_output": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Ledger and optional SOC estimate.",
+      "x-unit": "J,1",
+      "x-source-type": "record",
+      "x-quality-rule": "Chemistry/capacity status; unsupported SOC null."
+    }
+  },
+  "required": [
+    "harness_state",
+    "approved_limits",
+    "source_dut_voltage",
+    "current",
+    "sample_clock",
+    "harness_resistance",
+    "energy_soc_output"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E08",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

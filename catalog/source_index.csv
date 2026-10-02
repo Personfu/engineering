@@ -1,4 +1,4 @@
-﻿title,url,project_ids
+title,url,project_ids
 "K. I. Martin, Perturbation techniques applied to the Mandelbrot set",https://mathr.co.uk/mandelbrot/perturbation.pdf,A01
 "Tan Lei, Similarity between the Mandelbrot set and Julia sets",https://math.univ-angers.fr/~tanlei/papers/similarityMJ.pdf,A01
 "Tan and Kargel, Solid-phase equilibria on Pluto's surface",https://academic.oup.com/mnras/article/474/3/4254/4657184,A02
@@ -45,6 +45,7 @@ USDA ARS research on porous rock check dams,https://www.ars.usda.gov/research/pu
 Dryland rock detention structures increase herbaceous vegetation cover and stabilize shrub cover over 10 years,https://pubmed.ncbi.nlm.nih.gov/38280600/,B08
 "USGS chemical analyses of Yellowstone thermal features, 1980–1993",https://www.usgs.gov/publications/chemical-analyses-hot-springs-pools-and-geysers-yellowstone-national-park-wyoming-and,B09
 NASA Landsat: urban heat and social vulnerability,https://science.nasa.gov/missions/landsat/how-urban-heat-affects-the-socially-vulnerable-in-sun-belt-cities/,B10
+"Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance",https://www.gida-global.org/careprinciples,B10 B17 H05
 "DOE Nevada Offsites Program Fact Sheet, March 2023",https://www.energy.gov/lm/articles/nevada-offsites-fact-sheet,B11
 DOE Annual Site Environmental Reports,https://www.energy.gov/ehss/doe-annual-site-environmental-reports-aser,B11
 USGS geologic map of the east San Francisco Volcanic Field,https://pubs.usgs.gov/mf/1960/report.pdf,B12
@@ -129,11 +130,12 @@ GPI first-light paper,https://pmc.ncbi.nlm.nih.gov/articles/PMC4156769/,C17
 SpeX Prism Library paper,https://arxiv.org/abs/1406.4887,C19
 SPLAT atmospheric modeling guide,https://splat.physics.ucsd.edu/splat/splat_model.html,C19
 "Zhang et al., TRINITY I",https://arxiv.org/abs/2105.10474,C20
-TRINITY source repository,https://github.com/HaowenZhang/TRINITY,C20
+TRINITY source repository,https://github.com/HaowenZhang/TRINITY,C20 C30
 "MacLeod et al. (2010), quasar damped random walks",https://arxiv.org/abs/1004.0276,C20
 "Shi et al. (2022), switchback patches",https://arxiv.org/abs/2206.03807,C21
 "Bale et al. (2021), possible solar sources",https://arxiv.org/abs/2109.01069,C21
 NASA CDAWeb,https://cdaweb.gsfc.nasa.gov/,C21 C29
+PSP/FIELDS team archive,https://fields.ssl.berkeley.edu/,C21
 SDSS current data-access guide,https://www.sdss.org/dr20/data_access/get_data/,C22
 "Veilleux, galactic-wind physics",https://arxiv.org/abs/astro-ph/0309119,C22
 SDSS release publications,https://sdss.org/science/publications/data-release-publications/,C22
@@ -170,13 +172,16 @@ Aviation ISAC,https://www.a-isac.com/,D05
 The NIST Cybersecurity Framework 2.0,https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20,D05
 Hypersonic Wind Tunnel Calibration Using the Modern Design of Experiments,https://ntrs.nasa.gov/citations/20050192473,D06
 "NASA/TM-101597, Space directorate research and technology accomplishments for FY 1988",https://ntrs.nasa.gov/api/citations/19890016576/downloads/19890016576.pdf,D06
+"NASA Glenn, Normal Shock Wave Equations",https://www.grc.nasa.gov/www/k-12/airplane/normal.html,D06
 Design of a Mars Airplane Propulsion System for the ARES Mission Concept,https://ntrs.nasa.gov/citations/20080030375,D07
 NASA Systems Engineering Handbook,https://www.nasa.gov/reference/systems-engineering-handbook/,D07 E07 E08 G07 I04 I06 I10
 Arizona Space Grant ASCEND program,https://spacegrant.arizona.edu/research/ascend,E01 E02 E07
 NASA RaD-X balloon dosimetry,https://www.nasa.gov/science-research/heliophysics/nasa-studies-cosmic-radiation-to-protect-high-altitude-travelers/,E01 E03
 NASA Open MCT,https://ammos.nasa.gov/openmct/,E01 I07
+Detecting Ultraviolet Damage in Single DNA Molecules by Atomic Force Microscopy,https://pmc.ncbi.nlm.nih.gov/articles/PMC1948057/,E01
 NASA NAIRAS 3.0 model and RaD-X resources,https://ccmc.gsfc.nasa.gov/models/NAIRAS~3.0/,E02 E03
 NASA Small Spacecraft Guidance Navigation and Control,https://www.nasa.gov/smallsat-institute/sst-soa/guidance-navigation-and-control/,E02 I10
+"Joan Solà, Quaternion kinematics for the error-state Kalman filter",https://arxiv.org/abs/1711.02508,E02
 NOAA greenhouse-gas data,https://gml.noaa.gov/ccgg/data/getdata.php?gas=co2,E04
 NOAA aircraft CO2 data dictionary,https://erddap.gml.noaa.gov/erddap/info/greenhouse_gases_co2_aircraft_insitu_10_second_values/index.html,E04
 NASA Small Spacecraft Structures,https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/,E05 I03 I06
@@ -186,7 +191,9 @@ NASA Small Spacecraft Thermal Control,https://www.nasa.gov/smallsat-institute/ss
 NASA Small Spacecraft Power,https://www.nasa.gov/smallsat-institute/sst-soa/power-subsystems/,E08
 NASA delayed team communication research,https://techport.nasa.gov/projects/23197,F01
 NASA educational outreach evaluation framework,https://ntrs.nasa.gov/citations/20000033841,F01 F02
+Examination of Communication Delays on Team Performance: Utilizing the ISS as a Test Bed for Analog Research,https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110023266.pdf,F01
 NASA Science Activation,https://science.nasa.gov/learn/about-science-activation/,F02
+"van der Bles et al., The effects of communicating uncertainty on public trust in facts and numbers",https://pmc.ncbi.nlm.nih.gov/articles/PMC7149229/,F02
 Application of Fibre Bragg Grating Sensors in Strain Monitoring and Fracture Recovery of Human Femur Bone,https://pmc.ncbi.nlm.nih.gov/articles/PMC7552668/,G01
 Interfacial Load Monitoring and Failure Detection in Total Joint Replacements,https://arxiv.org/abs/1912.04723,G01
 "Widrow et al., Adaptive Noise Cancelling: Principles and Applications",https://www-isl.stanford.edu/~widrow/papers/j1975adaptivenoise.pdf,G02
@@ -206,6 +213,7 @@ Mathematical Model of Liver Regeneration in Human Live Donors,https://pmc.ncbi.n
 NASA Photojournal,https://science.nasa.gov/photojournal/,H01
 USGS Astrogeology Science Center,https://www.usgs.gov/centers/astrogeology-science-center,H01
 NASA Museum and Informal Education Alliance,https://science.nasa.gov/sciact-team/museum-alliance/,H01
+W3C Web Content Accessibility Guidelines 2.2,https://www.w3.org/TR/WCAG22/,H01
 "Golish et al. (2020), Ground and In-Flight Calibration of the OSIRIS-REx Camera Suite",https://pmc.ncbi.nlm.nih.gov/articles/PMC6979463/,H02
 PDS OCAMS bundle,https://arcnav.psi.edu/urn%3Anasa%3Apds%3Aorex.ocams,H02
 JAXA Kaguya DARTS mission archive,https://darts.isas.jaxa.jp/en/missions/kaguya,H03
@@ -229,6 +237,8 @@ GoFish documented spectral extraction tools,https://fishing.readthedocs.io/en/st
 "Harris et al. (2018), Hapke mixture modeling of mafic minerals and shergottites",https://onlinelibrary.wiley.com/doi/full/10.1111/maps.13065,H09
 NASA CEA technical reference,https://ntrs.nasa.gov/api/citations/19950013764/downloads/19950013764.pdf,I01
 "NASA cooling technical reference, NTRS 19810012596",https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf,I01 I02 I03
+CEA Part 1: analysis,https://ntrs.nasa.gov/citations/19950013764,I01
+Low-thrust chemical rocket engine study,https://ntrs.nasa.gov/citations/19810012596,I01 I02 I03
 NASA Small Spacecraft Avionics,https://www.nasa.gov/smallsat-institute/sst-soa/small-spacecraft-avionics/,I04
 NOAA Integrated Global Radiosonde Archive,https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive,I05
 NASA Scientific Balloons Overview,https://www.nasa.gov/scientificballoons/overview/,I05

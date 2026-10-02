@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A05 VOYAGER CILIA ARRAY engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "cilium_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Length, section and channel spacing.",
+      "x-unit": "m",
+      "x-source-type": "record",
+      "x-quality-rule": "Positive dimensions; manufacturing uncertainty retained."
+    },
+    "bending_stiffness": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Independently calibrated EI.",
+      "x-unit": "N m^2",
+      "x-source-type": "float64",
+      "x-quality-rule": "Covariance with geometry recorded."
+    },
+    "drive_frequency": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Angular actuation frequency.",
+      "x-unit": "rad s^-1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Hz conversion explicit; zero permitted."
+    },
+    "readout": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Synchronized array signals.",
+      "x-unit": "V",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Missing channels null with mask."
+    },
+    "temperature_change": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Readout reference temperature difference.",
+      "x-unit": "K",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Reference and sensor error required."
+    },
+    "response_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Joint channel/noise covariance.",
+      "x-unit": "V^2",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Positive semidefinite; cross-cilia terms retained."
+    },
+    "fluid_estimate": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Velocity, viscosity and joint uncertainty.",
+      "x-unit": "m/s,Pa s",
+      "x-source-type": "record",
+      "x-quality-rule": "Unidentifiable parameter null plus flag."
+    }
+  },
+  "required": [
+    "cilium_geometry",
+    "bending_stiffness",
+    "drive_frequency",
+    "readout",
+    "temperature_change",
+    "response_covariance",
+    "fluid_estimate"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

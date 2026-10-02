@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+harness_state,enum,1,Local verification/simulation state.,Transition/interlock reason logged.
+approved_limits,nullable<record>,"V,A,K",Controlling DUT/fixture envelope.,Missing blocks stimulus-enabled acceptance.
+source_dut_voltage,pair<float64>,V,Independent source/terminal observations.,Calibration and sense location required.
+current,float64,A,Signed delivered/discharge current.,Direction and path defined.
+sample_clock,record,s,V/I acquisition timing and skew.,Common clock or offset covariance.
+harness_resistance,nullable<float64>,ohm,Wiring/contact resistance.,Temperature/source and covariance retained.
+energy_soc_output,record,"J,1",Ledger and optional SOC estimate.,Chemistry/capacity status; unsupported SOC null.

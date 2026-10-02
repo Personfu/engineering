@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+particle_id,uint32,1,Stable simulated node.,Generation ID prevents identity reuse.
+axial_position,pair<int32>,lattice step,Hex coordinates.,Neighbor ports match offsets.
+activation_index,uint64,event,Scheduler sequence.,Increasing; fairness metadata required.
+sensor_symbol,nullable<enum>,1,Bounded sensor alphabet.,Missing distinct from target absent.
+message_state,enum,1,Finite transition message.,Alphabet version and direction required.
+provenance_id,string,1,Offline observation origin.,Deduplicate before oracle accumulation.
+declaration,record,1,"Node, event and decision.",Confidence null if uncalibrated.

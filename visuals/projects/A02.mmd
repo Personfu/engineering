@@ -1,7 +1,11 @@
-flowchart LR
-  P["Temperature, pressure, composition"] --> G["Constrained Gibbs minimization"]
-  G --> A["Solid / vapor phase assemblage"]
-  A --> S["Synthetic spectra + grain-size uncertainty"]
-  D["New Horizons LEISA products"] --> C["Observed vs predicted compatibility"]
-  S --> C
-  C --> M["Measurements that discriminate phase models"]
+flowchart TB
+ B[Species inventory mol] --> G[Global Gibbs solver]
+ P[Phase energies J per mol] --> G
+ H[Seasonal energy ledger] -->|T K and P Pa| G
+ G --> A[Assemblages and potentials]
+ A --> L[Signed latent exchange]
+ L --> H
+ A --> R[Grain optical model]
+ R --> I[LEISA response convolution]
+ O[PDS reflectance and geometry] --> V[Spectral likelihood]
+ I --> V

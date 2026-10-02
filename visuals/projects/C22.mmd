@@ -1,0 +1,11 @@
+flowchart TB
+A["MaNGA cubes, PSF and LSF"] --> B["Continuum and emission fit"]
+C["Rotating-disk beam-smear model"] --> B
+B --> D["Probabilistic wind/velocity evidence"]
+E["Synthetic outflow recovery grid"] --> F["Detectability surface"]
+G["Host covariance and environment catalog"] --> H["Joint incidence/strength hierarchy"]
+D --> H
+F --> H
+I["Density/column and geometry constraints"] --> J["Conditional ionized mass loading"]
+D --> J
+H --> K["Overlap and environment holdout"]

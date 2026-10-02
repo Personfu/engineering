@@ -1,7 +1,13 @@
-flowchart LR
-  O["Benign target + noisy local sensing"] --> E["Finite-memory evidence rules"]
-  E --> C["Neighbor coordination / connectivity"]
-  C --> D["Collective detection + boundary estimate"]
-  D --> V["Proof conditions + Monte Carlo robustness"]
-  V --> R["False-alarm / delay / energy trade"]
-  R --> E
+flowchart TB
+ H[Hex graph and target] --> N[Neighbor port model]
+ S[Activation scheduler] --> P[Finite state particles]
+ N --> P
+ Y[Correlated sensor symbols] --> P
+ P --> M[Bounded message channels]
+ M --> P
+ P --> D[Declaration records]
+ N --> G[Connectivity monitor]
+ P --> O[Full provenance oracle]
+ O --> C[Detection audit]
+ D --> C
+ G --> C

@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+crism_product,string,none,Actual target/level/version identity.,Terby/basin coverage and masks verified.
+reflectance_spectrum,nullable float[],dimensionless,Corrected native spectral observations.,Wavelength/geometry and covariance retained.
+band_depth,nullable float[],dimensionless,Declared continuum feature metric.,Continuum alternatives and artifact flags saved.
+mineral_fraction,float[][],declared fraction basis,Posterior compatible compositions.,Nonnegative/simplex and library support checked.
+optical_size,float[],micrometre,Effective radiative-transfer particle size.,Distinct from geological sieve distribution.
+thermal_constraint,nullable record,K and inertia units,Supported temperature/thermophysical evidence.,"Time, rocks/porosity/layering retained."
+model_prior,float vector,0–1,p(M) for mixing/transport/alteration families.,Normalized and sensitivity documented.
+joint_covariance,matrix,mixed,Spectral/thermal/registration uncertainty.,Correlated errors and native support included.

@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I01 SATURN TRANSIENT SHIELD engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "scenario_label": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "External phi/chemistry comparator identity.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "No encoded firing/flow schedule."
+    },
+    "heat_flux_history": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "npatch"
+      },
+      "x-dimension": "n",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Externally provided boundary heat load.",
+      "x-unit": "W m^-2",
+      "x-source-type": "measurement<float64[n,npatch]>",
+      "x-quality-rule": "Source/covariance and spatial interpolation required."
+    },
+    "coupon_properties": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Verified inert geometry and material.",
+      "x-unit": "m, kg m^-3, J kg^-1 K^-1, W m^-1 K^-1",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Temperature validity range recorded."
+    },
+    "contact_boundary": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Contact/environment thermal conditions.",
+      "x-unit": "W m^-2 K^-1, K",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "Independent calibration or prior-dominance flag."
+    },
+    "temperature_observation": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "nsensor"
+      },
+      "x-dimension": "n",
+      "description": "Sensor measurements/predictions.",
+      "x-unit": "K",
+      "x-source-type": "float64[n,nsensor]",
+      "x-quality-rule": "Missing samples masked; lag response retained."
+    },
+    "thermal_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Sensor/input/model covariance.",
+      "x-unit": "K^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Common heat/load and calibration terms preserved."
+    },
+    "stress_strain": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Conditional restrained mechanical response.",
+      "x-unit": "Pa, 1",
+      "x-source-type": "distribution<struct>",
+      "x-quality-rule": "Constraint/inelastic model version explicit."
+    },
+    "damage_proxy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Screening cycle accumulation.",
+      "x-unit": "1",
+      "x-source-type": "posterior<float64>|null",
+      "x-quality-rule": "Null without applicable material-cycle evidence."
+    }
+  },
+  "required": [
+    "scenario_label",
+    "heat_flux_history",
+    "coupon_properties",
+    "contact_boundary",
+    "temperature_observation",
+    "thermal_cov",
+    "stress_strain",
+    "damage_proxy"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

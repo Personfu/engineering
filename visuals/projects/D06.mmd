@@ -1,7 +1,11 @@
-flowchart LR
-  R["Reservoir conditions + nozzle configuration"] --> D["Designed calibration matrix"]
-  D --> P["Pitot / temperature / spatial measurements"]
-  P --> G["Shock-aware gas-property inference"]
-  G --> S["Response surface + uncertainty"]
-  S --> V["Random held-out calibration points"]
-  V --> C["Qualified uniform-core envelope"]
+flowchart TB
+ C[Nozzle configuration and gas] --> G[Gas validity branch]
+ R[Reservoir p0 T0 covariance] --> I[Shock aware pitot inversion]
+ P[Traverse pitot static readings] --> I
+ G --> I
+ X[Position orientation and clocks] --> A[Spatial drift alignment]
+ I --> A
+ A --> S[Blocked response surface]
+ S --> H[Held out traverse check]
+ H --> M[Confidence core mask]
+ D[Declared Mach pressure tolerances] --> M

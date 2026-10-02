@@ -1,7 +1,11 @@
-flowchart LR
-  Y["Supernova isotope-number yield grids"] --> M["Physical mixing + condensation"]
-  M --> D["Grain-size / beam-dilution model"]
-  D --> P["Predicted Ti-Cr isotope observations"]
-  O["Measured grain ratios + covariance"] --> C["Source-family comparison"]
-  P --> C
-  C --> U["Discriminating measurements / nonunique origins"]
+flowchart TB
+ Y[Supernova yield grids] --> N[Common isotope number basis]
+ C[Element condensation factors] --> N
+ N --> M[Source count mixture]
+ B[Background and beam response] --> D[Grain dilution counts]
+ M --> D
+ D --> R[Ratio and epsilon conversion]
+ O[Grain measurements and correction covariance] --> L[Hierarchical likelihood]
+ R --> L
+ L --> P[Source and dilution profiles]
+ P --> V[Predictive isotope patterns]

@@ -1,0 +1,10 @@
+flowchart TB
+A["Milky Way astrometry and distances"] --> C["Frame/covariance transformation"]
+B["M31 projected tracer velocities"] --> D["Selection and membership likelihood"]
+C --> D
+E["Stellar density and beta_star"] --> F["Stellar Jeans/projection solver"]
+G["Halo plus baryonic potential"] --> F
+F --> D
+D --> H["Potential posterior"]
+H --> I["Separate rho_DM/beta_DM solver"]
+I --> J["Conditional particle-dispersion profile"]

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A01 ARTEMIS FRACTAL NAVIGATOR engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "scene_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Map and coordinate manifest hash.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Required; alternative maps use new IDs."
+    },
+    "center_decimal": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Real and imaginary center.",
+      "x-unit": "1",
+      "x-source-type": "pair<string>",
+      "x-quality-rule": "Never cast first to float."
+    },
+    "footprint_width": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Complex-plane pixel width.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Positive; height supplied if anisotropic."
+    },
+    "precision_bits": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Reference and working precisions.",
+      "x-unit": "bit",
+      "x-source-type": "uint32",
+      "x-quality-rule": "Both recorded with library version."
+    },
+    "escape_iteration": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "First validated radius crossing.",
+      "x-unit": "iteration",
+      "x-source-type": "nullable<uint64>",
+      "x-quality-rule": "Null for nonescape; zero is valid."
+    },
+    "classification": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Evidence-qualified pixel status.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Certificates require bound metadata."
+    },
+    "error_bound": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Absolute coordinate/iteration uncertainty.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Bound versus heuristic flagged; unknown null."
+    }
+  },
+  "required": [
+    "scene_id",
+    "center_decimal",
+    "footprint_width",
+    "precision_bits",
+    "escape_iteration",
+    "classification",
+    "error_bound"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

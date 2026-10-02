@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+sorbent_id,string,1,Composition/structure and source version.,No cross-material parameter borrowing without flag.
+climate_state,record,"K,1,Pa","T, water activity and CO2 partial pressure.",Time zone/step and uncertainty required.
+loading_data,nullable<record>,mol/kg,CO2 equilibrium/dynamic loading.,"Water state, detection and covariance retained."
+kinetic_rate,nullable<float64>,s^-1,Effective LDF coefficient.,Positive; domain and uncertainty required.
+airflow_pressure,record,"m^3/s,Pa",Contactor flow and pressure drop.,Scale geometry and fan efficiency explicit.
+water_ledger,record,kg,"Intake, retained, recovered and lost water.",Cycle-state reference and closure check.
+carbon_fate,nullable<record>,kg CO2,"Storage, leakage and permanence evidence.",Unknown prohibits durable-removal label.

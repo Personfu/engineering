@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E07 DISCOVERY TRIDENT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "module_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "One of three independent record sources.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Hardware/firmware/calibration version required."
+    },
+    "native_observation": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Raw sensor values and response status.",
+      "x-unit": "native",
+      "x-source-type": "record",
+      "x-quality-rule": "No conversion discards original units."
+    },
+    "common_timestamp": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Aligned time coordinate.",
+      "x-unit": "s",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Offset/skew covariance retained."
+    },
+    "placement_response": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Sensor position and lag correction.",
+      "x-unit": "m,s",
+      "x-source-type": "record",
+      "x-quality-rule": "Comparable-field domain required."
+    },
+    "bias_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Cross-module calibration uncertainty.",
+      "x-unit": "native^2",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Common reference terms included."
+    },
+    "acceptable_record": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Science-gate event over interval.",
+      "x-unit": "1",
+      "x-source-type": "bool/unknown",
+      "x-quality-rule": "Unknown distinct from failure/pass."
+    },
+    "fault_dependency": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Shared/conditional event structure.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Probability provenance or TBD status."
+    }
+  },
+  "required": [
+    "module_id",
+    "native_observation",
+    "common_timestamp",
+    "placement_response",
+    "bias_covariance",
+    "acceptable_record",
+    "fault_dependency"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

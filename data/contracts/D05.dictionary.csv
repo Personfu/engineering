@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+exercise_id,string,1,Isolated replay configuration.,Synthetic-only flag and fixture hash required.
+report_id,string,1,Unique information record.,Append-only; edits create revisions.
+confidence,enum,1,Declared provenance confidence.,Unknown explicit; never inferred from urgency.
+audience_policy,set<role>,1,Permitted synthetic sharing roles.,Empty or missing blocks onward sharing.
+owner_role,nullable<string>,1,Responsible triage/escalation role.,Unassigned remains null and flagged.
+stage_timestamps,record,s,Exercise intake/decision/recovery times.,Clock/version and censoring required.
+ground_truth_labels,record,1,Fixture routing/safety labels.,Locked before exercise; scorer separated.

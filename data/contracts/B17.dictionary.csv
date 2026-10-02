@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+basin_key,restricted string,none,Consented geographic study identity.,Partner authority and scope required.
+harvest_mass,nullable float,kg/interval,Reported species-group catch.,Coverage and informal-catch uncertainty retained.
+effort,nullable float,fisher-days,Declared fishing effort.,Gear and access changes documented.
+aquatic_exposure,nullable record,°C m³/s days,Hydrologic ecological drivers.,Covariance and seasonal support saved.
+dependence_fraction,nullable float,0–1,Approved dietary or income dependence.,Basis/time period explicit.
+adaptation_cost,float[],local currency/year,Locally feasible scenario cost.,Price year and distribution retained.
+release_permission,structured policy,none,"Allowed purpose, linkage and aggregation.",Revocation and local standards honored.
+loss_distribution,float[],declared,Scenario adaptation outcome ensemble.,Weights and unavailable pathways disclosed.

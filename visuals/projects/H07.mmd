@@ -1,6 +1,13 @@
-flowchart LR
- A[Frozen ALMA disk sample] --> B[Documented imaging and covariance]
- B --> C[Keplerian spectral alignment]
- C --> D[Search-aware detection test]
- D --> E[Injection recovery and confirmation]
- E --> F[CO catalog and completeness]
+flowchart TB
+ A[ALMA eligible products and nondetections] --> B[CASA imaging continuum manifest]
+ B --> C[Cube frame beam primary-beam adapter]
+ D[Independent disk geometry covariance] --> E[Keplerian shift ensemble]
+ C --> E
+ E --> F[Annular normalized stacks]
+ G[Line-free correlated noise] --> H[Matched filters and null replay]
+ F --> H
+ I[Complete search-trial ledger] --> H
+ C --> J[Separate aperture-flux integrator]
+ K[Synthetic disk injections] --> L[Completeness significance and flux report]
+ H --> L
+ J --> L

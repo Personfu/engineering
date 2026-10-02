@@ -1,0 +1,11 @@
+flowchart TB
+A["Verified optics/filter/QE: T_sys"] --> C["Synthetic standard count integral"]
+B["Separate atmosphere and airmass"] --> C
+D["Reference spectral flux files"] --> C
+E["Raw standard frames"] --> F["Detector/flat/aperture correction"]
+F --> G["Nightly ZP/extinction covariance"]
+C --> G
+H["Science on/off-band counts"] --> I["Continuum and line-response fit"]
+G --> I
+A --> I
+I --> J["Absolute/relative flux budget"]

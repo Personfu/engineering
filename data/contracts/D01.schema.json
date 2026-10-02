@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D01 X-59 VORTEX COMMAND engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "test_block": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Randomized run block and condition.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Baseline repeats and sequence retained."
+    },
+    "freestream_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Density, speed and viscosity.",
+      "x-unit": "kg/m^3,m/s,Pa s",
+      "x-source-type": "record",
+      "x-quality-rule": "Calibration covariance and timestamps required."
+    },
+    "force_vector": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Tared wind-axis loads.",
+      "x-unit": "N",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "Axis convention and reference area required."
+    },
+    "jet_histories": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "time,flow,speed"
+      },
+      "description": "Pulse-resolved momentum inputs.",
+      "x-unit": "s,kg/s,m/s",
+      "x-source-type": "array<time,flow,speed>",
+      "x-quality-rule": "Synchronized; missing pulse sample flagged."
+    },
+    "actuation_power": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Electrical/pneumatic equivalent input.",
+      "x-unit": "W",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Boundary and conversion efficiency declared."
+    },
+    "separation_length": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Diagnostic bubble/separation extent.",
+      "x-unit": "m",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Observable definition and error required."
+    },
+    "coefficient_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Joint lift/drag uncertainty.",
+      "x-unit": "1",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Shared tare/inflow terms retained."
+    }
+  },
+  "required": [
+    "test_block",
+    "freestream_state",
+    "force_vector",
+    "jet_histories",
+    "actuation_power",
+    "separation_length",
+    "coefficient_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "D01",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

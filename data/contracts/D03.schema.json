@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D03 INGENUITY DESCENT & BUBBLE LAB engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "package_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "D03a or D03b origin.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Never merge datasets without transfer record."
+    },
+    "atmosphere": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Density, viscosity and gravity.",
+      "x-unit": "kg/m^3,Pa s,m/s^2",
+      "x-source-type": "record",
+      "x-quality-rule": "Uncertainty and scenario provenance required."
+    },
+    "rotor_geometry": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "radius,chord"
+      },
+      "description": "Blade discretization.",
+      "x-unit": "m",
+      "x-source-type": "array<radius,chord>",
+      "x-quality-rule": "Positive dimensions and deployment state."
+    },
+    "aero_coefficients": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "x-dimension": "state",
+      "description": "Coefficient rows align to a versioned local-flow-state index; columns are exactly [C_L,C_D].",
+      "x-unit": "1",
+      "x-source-type": "float64[state,2]",
+      "x-quality-rule": "State index declares alpha/Re/Mach, row correspondence and interpolation domain; coefficient covariance required."
+    },
+    "descent_state": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Downward V and Omega.",
+      "x-unit": "m/s,rad/s",
+      "x-source-type": "pair<float64>",
+      "x-quality-rule": "Directions fixed; failed state null."
+    },
+    "bubble_length": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Stationary separation-to-reattachment distance.",
+      "x-unit": "m",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Method/uncertainty required."
+    },
+    "pressure_velocity_trace": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Synchronized D03b observations.",
+      "x-unit": "Pa,m/s",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Sampling/duration/masks required."
+    },
+    "transfer_envelope": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Compatible force/torque perturbation model.",
+      "x-unit": "N,N m",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Review ID required; null if unvalidated."
+    }
+  },
+  "required": [
+    "package_id",
+    "atmosphere",
+    "rotor_geometry",
+    "aero_coefficients",
+    "descent_state",
+    "bubble_length",
+    "pressure_velocity_trace",
+    "transfer_envelope"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "D03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

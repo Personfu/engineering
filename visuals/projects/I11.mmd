@@ -1,0 +1,12 @@
+flowchart TB
+A["Frozen HST exposure manifest"] --> B["Common raw pixels and quality"]
+B --> C["Calibration variant k and sky ledger"]
+B --> D["Calibration variant l and sky ledger"]
+E["Identical object mask/statistic"] --> F["Paired foreground estimator"]
+C --> F
+D --> F
+F --> G["Shared-exposure covariance/difference"]
+H["Filter/position/epoch/geometry"] --> I["Context mixed-effects audit"]
+G --> I
+J["Separate mask-growth branch"] --> K["Labeled sensitivity and holdouts"]
+I --> K

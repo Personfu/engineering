@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+exposure_id,string,1,MAST program/product identity.,Pin product checksum and processing level.
+source_sed,float64[nlambda],W m^-2 m^-1,Flux spectrum at telescope.,Reference and uncertainty; wavelength in meters internally.
+collecting_area,measurement<float64>,m^2,Area consistent with throughput convention.,Do not double-count obscuration in both area and T.
+throughput_pixel,"float64[nlambda,npix]",1,Registered photon/pixel probability.,Sum cannot exceed declared total registration probability.
+wavefront_opd,"float64[h,w]",m,Matched optical-path map.,Epoch and pupil coordinate registration required.
+ramp,"float64[nread,h,w]",electron,Simulated/observed accumulated charge.,Read times and saturation masks retained.
+metric_cov,"float64[nmetric,nmetric]",mixed declared,Covariance of PSF/ramp/astrometric metrics.,MC and observation terms separately stored.
+discrepancy_label,enum,1,"Optical, detector, calibration or resampling category.",Unknown attribution retained explicitly.

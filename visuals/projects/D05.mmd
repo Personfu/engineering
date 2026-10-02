@@ -1,7 +1,12 @@
-flowchart LR
-  R["Synthetic defensive advisory"] --> P["Confidence / provenance / sharing rules"]
-  P --> T["Human triage + accountable owner"]
-  T --> E["Safety-aware escalation / decision"]
-  E --> C["Continuity / recovery tabletop"]
-  C --> V["Timing + quality evaluation"]
-  V --> G["Current / target governance profile"]
+flowchart TB
+ F[Locked synthetic scenario fixtures] --> I[Typed intake queue]
+ I --> P[Audience and provenance gate]
+ P --> O[Owner role assignment]
+ O --> T[Triage decision record]
+ T --> S[Safety escalation roles]
+ T --> R[Simulated recovery decision]
+ S --> E[Append only exercise clock log]
+ R --> E
+ G[Preregistered routing truth] --> C[Quality timing scorer]
+ E --> C
+ C --> V[CSF mapped workflow review]

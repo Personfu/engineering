@@ -1,0 +1,11 @@
+flowchart TB
+A["GPI cubes, wavelengths and rotation"] --> B["Disk plus sparse companion injection"]
+C["PSF and stellar-flux covariance"] --> B
+B --> D["Frozen PSF subtraction"]
+D --> E["Matched-filter detection"]
+F["Independent zero-flux controls"] --> E
+E --> G["Azimuth/spectrum completeness map"]
+B --> H["Truth and throughput ledger"]
+H --> G
+G --> I["Age/orbit/evolution marginalization"]
+I --> J["Conditional nondetection constraints"]

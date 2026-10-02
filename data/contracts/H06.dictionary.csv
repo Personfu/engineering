@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+terrain_product,string,none,DTM/MOLA product identity.,Resolution/datum/coverage retained.
+centerline_s,float[],m,Along-strike ridge coordinate.,Local tangent and segment IDs saved.
+profile_xz,float[][2],m,Cross-ridge distance/elevation.,Normal orientation and spacing recorded.
+background_surface,float[],m,Regional detrending ensemble.,Not treated as exact terrain.
+morphometrics,float vector,m and dimensionless,Height/width/asymmetry/crest separation.,Joint measurement covariance retained.
+fault_parameters,record,degrees m,Family-specific dip/depth/slip scenarios.,Units/bounds and source rationale required.
+profile_covariance,matrix,m²,Correlated terrain/background error.,Along-strike/shared datum terms included.
+family_probability,float vector,0–1,Model posterior weights.,p(M) and prior sensitivity saved.

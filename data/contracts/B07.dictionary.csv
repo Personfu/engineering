@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+analyte_id,string,none,Verified parent/product identity.,Formula and assay identity required.
+dissolved_concentration,nullable float,mg/L,Measured aqueous concentration.,"Limit, recovery and qualifier retained."
+sorbed_concentration,nullable float,mg/kg dry,Solid-associated analyte.,Extraction basis and dry mass required.
+element_count,integer vector,atoms/molecule,C/N counts for molar accounting.,Check formula consistency.
+reaction_rate,float[],mol/L/day,Fitted pathway-rate ensemble.,Source matrix/redox domain recorded.
+inventory_covariance,matrix,mol²,Joint compartment uncertainty.,Include shared recovery/background bias.
+benchmark,nullable float,mg/L,Applicable environmental comparison value.,"Null remains unresolved, never zero risk."

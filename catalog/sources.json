@@ -329,6 +329,15 @@
     ]
   },
   {
+    "title": "Global Indigenous Data Alliance, CARE Principles for Indigenous Data Governance",
+    "url": "https://www.gida-global.org/careprinciples",
+    "projects": [
+      "B10",
+      "B17",
+      "H05"
+    ]
+  },
+  {
     "title": "DOE Nevada Offsites Program Fact Sheet, March 2023",
     "url": "https://www.energy.gov/lm/articles/nevada-offsites-fact-sheet",
     "projects": [
@@ -927,7 +936,8 @@
     "title": "TRINITY source repository",
     "url": "https://github.com/HaowenZhang/TRINITY",
     "projects": [
-      "C20"
+      "C20",
+      "C30"
     ]
   },
   {
@@ -957,6 +967,13 @@
     "projects": [
       "C21",
       "C29"
+    ]
+  },
+  {
+    "title": "PSP/FIELDS team archive",
+    "url": "https://fields.ssl.berkeley.edu/",
+    "projects": [
+      "C21"
     ]
   },
   {
@@ -1212,6 +1229,13 @@
     ]
   },
   {
+    "title": "NASA Glenn, Normal Shock Wave Equations",
+    "url": "https://www.grc.nasa.gov/www/k-12/airplane/normal.html",
+    "projects": [
+      "D06"
+    ]
+  },
+  {
     "title": "Design of a Mars Airplane Propulsion System for the ARES Mission Concept",
     "url": "https://ntrs.nasa.gov/citations/20080030375",
     "projects": [
@@ -1257,6 +1281,13 @@
     ]
   },
   {
+    "title": "Detecting Ultraviolet Damage in Single DNA Molecules by Atomic Force Microscopy",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1948057/",
+    "projects": [
+      "E01"
+    ]
+  },
+  {
     "title": "NASA NAIRAS 3.0 model and RaD-X resources",
     "url": "https://ccmc.gsfc.nasa.gov/models/NAIRAS~3.0/",
     "projects": [
@@ -1270,6 +1301,13 @@
     "projects": [
       "E02",
       "I10"
+    ]
+  },
+  {
+    "title": "Joan Solà, Quaternion kinematics for the error-state Kalman filter",
+    "url": "https://arxiv.org/abs/1711.02508",
+    "projects": [
+      "E02"
     ]
   },
   {
@@ -1341,8 +1379,22 @@
     ]
   },
   {
+    "title": "Examination of Communication Delays on Team Performance: Utilizing the ISS as a Test Bed for Analog Research",
+    "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110023266.pdf",
+    "projects": [
+      "F01"
+    ]
+  },
+  {
     "title": "NASA Science Activation",
     "url": "https://science.nasa.gov/learn/about-science-activation/",
+    "projects": [
+      "F02"
+    ]
+  },
+  {
+    "title": "van der Bles et al., The effects of communicating uncertainty on public trust in facts and numbers",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7149229/",
     "projects": [
       "F02"
     ]
@@ -1476,6 +1528,13 @@
   {
     "title": "NASA Museum and Informal Education Alliance",
     "url": "https://science.nasa.gov/sciact-team/museum-alliance/",
+    "projects": [
+      "H01"
+    ]
+  },
+  {
+    "title": "W3C Web Content Accessibility Guidelines 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
     "projects": [
       "H01"
     ]
@@ -1638,6 +1697,22 @@
   {
     "title": "NASA cooling technical reference, NTRS 19810012596",
     "url": "https://ntrs.nasa.gov/api/citations/19810012596/downloads/19810012596.pdf",
+    "projects": [
+      "I01",
+      "I02",
+      "I03"
+    ]
+  },
+  {
+    "title": "CEA Part 1: analysis",
+    "url": "https://ntrs.nasa.gov/citations/19950013764",
+    "projects": [
+      "I01"
+    ]
+  },
+  {
+    "title": "Low-thrust chemical rocket engine study",
+    "url": "https://ntrs.nasa.gov/citations/19810012596",
     "projects": [
       "I01",
       "I02",

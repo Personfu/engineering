@@ -1,0 +1,11 @@
+flowchart TB
+ A[USGS gauges and rating metadata] --> B[Observation availability adapter]
+ C[Rain ET forcing and area] --> D[Depth-volume water ledger]
+ B --> E[Persistence and runoff forecasts]
+ D --> E
+ E --> F[Timed ensemble distribution]
+ G[Stakeholder action loss deadline] --> H[Expected-loss policy]
+ F --> H
+ H --> I[Past-only event replay]
+ I --> J[Coverage latency and regret scores]
+ J --> K[Reviewable basin decision report]

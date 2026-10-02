@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C04 HORIZON TIDAL ECHO engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "epoch_obs": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Exposure time or interval.",
+      "x-unit": "MJD with scale",
+      "x-source-type": "float64",
+      "x-quality-rule": "Time scale required before rest-frame conversion."
+    },
+    "redshift": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Host or transient redshift.",
+      "x-unit": "1",
+      "x-source-type": "struct<float64,error>",
+      "x-quality-rule": "Reference and uncertainty mandatory."
+    },
+    "flux_obs": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Measured spectral flux with band identity.",
+      "x-unit": "erg s^-1 cm^-2 Hz^-1",
+      "x-source-type": "float64|null",
+      "x-quality-rule": "A limit is a separate censoring record, never zero flux."
+    },
+    "response": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Filter throughput or count response.",
+      "x-unit": "documented",
+      "x-source-type": "versioned array",
+      "x-quality-rule": "Normalize with the declared count/flux convention."
+    },
+    "host_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Shared host-subtraction covariance.",
+      "x-unit": "flux^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Keep cross-epoch covariance."
+    },
+    "temperature": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Thermal-model temperature.",
+      "x-unit": "K",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Flag Rayleigh-Jeans-only unidentifiability."
+    },
+    "mass_bh": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Model-conditioned black-hole mass.",
+      "x-unit": "solar mass",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Record stellar and efficiency prior versions."
+    }
+  },
+  "required": [
+    "epoch_obs",
+    "redshift",
+    "flux_obs",
+    "response",
+    "host_cov",
+    "temperature",
+    "mass_bh"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

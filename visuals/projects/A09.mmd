@@ -1,7 +1,11 @@
-flowchart LR
-  R["Radio flux + survey selection"] --> C["Completeness / flux-scatter model"]
-  M["IR / X-ray / optical evidence"] --> P["Probabilistic radio-power labels"]
-  C --> F["Weighted SF-powered fractions"]
-  P --> F
-  F --> V["Flux / redshift / field sensitivity"]
-  V --> E["Observed majority claim with uncertainty"]
+flowchart TB
+ R[Radio flux size catalog] --> S[Selection and scatter model]
+ M[Counterparts and upper limits] --> Z[Redshift and IR likelihood]
+ Z --> L[Cosmology and K correction]
+ R --> L
+ L --> C[Radio power class probabilities]
+ S --> H[Population hierarchy]
+ C --> H
+ F[Sky region effects] --> H
+ H --> B[Flux bin fractions and covariance]
+ B --> V[Majority criterion and holdout]

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H05 TERRA SEVEN GENERATIONS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "data_authority": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Tribal ownership/access/interpretation rules.",
+      "x-unit": "none",
+      "x-source-type": "policy record",
+      "x-quality-rule": "Local standards and revocation retained."
+    },
+    "action_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Approved planning option/source.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Feasibility and review status required."
+    },
+    "daily_air_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Observed or scenario Tmax.",
+      "x-unit": "°C",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Measurement type/calendar explicit."
+    },
+    "heat_threshold": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Locally selected planning threshold.",
+      "x-unit": "°C",
+      "x-source-type": "float",
+      "x-quality-rule": "Approval/rationale and version saved."
+    },
+    "heat_indicators": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Exceedance/run-length ensemble.",
+      "x-unit": "days/year",
+      "x-source-type": "record",
+      "x-quality-rule": "Missing-day and native-calendar support retained."
+    },
+    "hazard_layer": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Burn/vegetation/exposure support.",
+      "x-unit": "declared",
+      "x-source-type": "nullable geometry",
+      "x-quality-rule": "Scale and sensitive-site restrictions saved."
+    },
+    "implementation_scenario": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Staffing/power/funding conditions.",
+      "x-unit": "none",
+      "x-source-type": "record",
+      "x-quality-rule": "Assumptions not labeled measured."
+    },
+    "regret_distribution": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Action tradeoffs across scenarios.",
+      "x-unit": "declared loss units",
+      "x-source-type": "float[]/ordinal",
+      "x-quality-rule": "Weights/consequence uncertainty and approval explicit."
+    }
+  },
+  "required": [
+    "data_authority",
+    "action_key",
+    "daily_air_temperature",
+    "heat_threshold",
+    "heat_indicators",
+    "hazard_layer",
+    "implementation_scenario",
+    "regret_distribution"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

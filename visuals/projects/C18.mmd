@@ -1,0 +1,11 @@
+flowchart TB
+A["Optical spectra and line response"] --> B["Continuum/oxygen/Balmer fit"]
+B --> C["O32, dust and weak-line covariance"]
+D["UV source/background counts"] --> E["Rest-LyC response likelihood"]
+F["Counterpart contamination model"] --> E
+G["Intrinsic stellar SED"] --> H["Absolute escape/transmission model"]
+I["IGM and Milky Way transmission"] --> H
+E --> H
+C --> J["Multi-diagnostic predictor"]
+H --> J
+K["Sample inclusion/domain model"] --> J

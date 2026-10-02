@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D05 APOLLO CYBER FLIGHT DECK engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "exercise_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Isolated replay configuration.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Synthetic-only flag and fixture hash required."
+    },
+    "report_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unique information record.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Append-only; edits create revisions."
+    },
+    "confidence": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Declared provenance confidence.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Unknown explicit; never inferred from urgency."
+    },
+    "audience_policy": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Permitted synthetic sharing roles.",
+      "x-unit": "1",
+      "x-source-type": "set<role>",
+      "x-quality-rule": "Empty or missing blocks onward sharing."
+    },
+    "owner_role": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Responsible triage/escalation role.",
+      "x-unit": "1",
+      "x-source-type": "nullable<string>",
+      "x-quality-rule": "Unassigned remains null and flagged."
+    },
+    "stage_timestamps": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Exercise intake/decision/recovery times.",
+      "x-unit": "s",
+      "x-source-type": "record",
+      "x-quality-rule": "Clock/version and censoring required."
+    },
+    "ground_truth_labels": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Fixture routing/safety labels.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Locked before exercise; scorer separated."
+    }
+  },
+  "required": [
+    "exercise_id",
+    "report_id",
+    "confidence",
+    "audience_policy",
+    "owner_role",
+    "stage_timestamps",
+    "ground_truth_labels"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "D05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

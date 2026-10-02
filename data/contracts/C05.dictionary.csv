@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+planet_id,string,1,Canonical planet and host identifier.,Aliases resolved; host grouping immutable within split.
+mass,measurement<float64>|null,Earth mass,True-mass posterior summary.,Exclude minimum mass unless typed separately.
+radius,measurement<float64>|null,Earth radius,Observed or inferred radius.,Asymmetric errors and reference retained.
+mass_radius_cov,"float64[2,2]|null",declared physical^2,Joint covariance when supplied.,"Unknown covariance is explicitly unknown, not assumed measured zero."
+period,measurement<float64>,day,Orbital period.,Positive with provenance.
+feature_state,enum[],1,"Measured, inferred, censored or missing by field.",No numeric placeholder for missingness.
+class_probability,float64[c],1,Calibrated empirical probabilities.,"Nonnegative, sum one; class-definition version recorded."
+abstention,"struct<bool,reason>",1,Insufficient certainty or unsupported feature domain.,Reason survives catalog export.

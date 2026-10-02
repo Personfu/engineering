@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C21 PARKER MAGNETIC TRAIL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "epoch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "Integral or real numeric source encoding accepted; exact time unit, epoch and precision must be declared. Large integer timestamps must retain lossless integer/string transport in the ingestion ICD.",
+      "description": "Sample time with leap/time metadata.",
+      "x-unit": "CDF-declared time",
+      "x-source-type": "int64/float64",
+      "x-quality-rule": "Monotonic; adapter performs documented conversion."
+    },
+    "magnetic_rtn": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "x-dimension": "n",
+      "description": "Field in radial-tangential-normal coordinates.",
+      "x-unit": "nT",
+      "x-source-type": "float64[n,3]",
+      "x-quality-rule": "Coordinate definition and quality flags required."
+    },
+    "plasma_velocity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "x-dimension": "m",
+      "description": "Compatible plasma moments.",
+      "x-unit": "km s^-1",
+      "x-source-type": "float64[m,3]|null",
+      "x-quality-rule": "Missing cadence remains separate; no forward-fill across gaps."
+    },
+    "mass_density": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Density for Alfvén-speed calculation.",
+      "x-unit": "kg m^-3",
+      "x-source-type": "measurement<float64>|null",
+      "x-quality-rule": "Composition approximation and positive support."
+    },
+    "reference_field": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "x-dimension": "n",
+      "description": "Robust local background.",
+      "x-unit": "nT",
+      "x-source-type": "float64[n,3]",
+      "x-quality-rule": "Window/configuration and excluded events recorded."
+    },
+    "event_interval": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Start/end of detected interval.",
+      "x-unit": "s",
+      "x-source-type": "struct<time,time>",
+      "x-quality-rule": "Gap boundaries split events."
+    },
+    "alfvenicity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Declared velocity/field relation metric.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64>|null",
+      "x-quality-rule": "Null for inadequate plasma overlap."
+    },
+    "exposure_mask": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "boolean"
+      },
+      "x-dimension": "n",
+      "description": "Usable time for each classification.",
+      "x-unit": "1",
+      "x-source-type": "bool[n]",
+      "x-quality-rule": "Cadence-weighted interval duration; gaps excluded."
+    }
+  },
+  "required": [
+    "epoch",
+    "magnetic_rtn",
+    "plasma_velocity",
+    "mass_density",
+    "reference_field",
+    "event_interval",
+    "alfvenicity",
+    "exposure_mask"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C21",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

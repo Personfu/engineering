@@ -1,0 +1,11 @@
+flowchart TB
+A["Searched-star denominator"] --> B["Stellar/metallicity posterior"]
+C["DR25 candidates and reliability"] --> D["Candidate mixture likelihood"]
+E["Transit/window/detection/vetting products"] --> F["Target selection operator"]
+B --> F
+F --> G["Expected-count integration"]
+D --> H["Occurrence intensity hierarchy"]
+G --> H
+B --> H
+I["Forward survey and multiplicity injections"] --> J["Slope coverage and holdouts"]
+H --> J

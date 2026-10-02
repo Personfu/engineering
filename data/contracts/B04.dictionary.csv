@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+platform,enum,none,"ground, spacecraft or unresolved.",No spacecraft claim from title.
+power_raw,nullable float,W or relative,Measured receiver power.,Positive; retain saturation/RFI flags.
+frequency,float,Hz,Verified receiver channel.,Positive; bandwidth recorded.
+sidereal_phase,float,rad,Site-relative cosmic-noise phase.,Derived from site and UTC convention.
+quiet_power,float,same as power,Estimated undisturbed baseline.,Covariance and excluded days retained.
+path_geometry,structured record,m rad,Antenna/ray weighting definition.,Null blocks link inference.
+absorption,nullable float,dB,Power-ratio absorption estimate.,Carry baseline covariance and quality mask.

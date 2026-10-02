@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+optical_prescription,struct,"m, radian","Aperture, propagation planes and OPD.",Versioned geometry and wavelength grid.
+command,float64[m],actuator-specific,Real modal/actuator coefficients.,Bounds and calibration units required.
+probe_images,"float64[n,h,w]",electron,Plus/minus probe measurements.,"Background, exposure and saturation flags retained."
+field_estimate,complex128[nroi],normalized field,Estimated focal-plane field.,Covariance on both quadratures required.
+jacobian,"complex128[nroi,m]",field per command,Local command response.,Calibration state and validity range attached.
+camera_cov,covariance,electron^2,Read/photon/background covariance.,"Missing pixels masked, never assigned zero field."
+contrast_throughput,measurement<float64[2]>,1,Joint contrast and desired-source throughput.,Reference/ROI/source offset and noise floor attached.

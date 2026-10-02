@@ -1,0 +1,11 @@
+flowchart TB
+A["CAD/load-path revision"] --> B["Linked mesh and mass model"]
+C["Supplied inert loads and constraints"] --> D["Static/modal/stability solvers"]
+B --> D
+E["Material/joint/imperfection ensemble"] --> D
+D --> F["Mass/compliance uncertainty trade"]
+F --> G["Subscale similitude ledger"]
+H["Verified fixture and load metrology"] --> I["Inert structural test adapter"]
+G --> I
+I --> J["Withheld model/test comparison"]
+D --> J

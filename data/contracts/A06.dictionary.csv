@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+source_record,string,1,Article/table/figure provenance.,Stable URL plus figure region required.
+sequence_accession,string,1,Versioned public sequence identifier.,Residue numbering and sequence hash stored.
+preparation_context,record,1,Published specimen and analytical context.,Unknown entries null; no inferred procedure.
+peak_fraction,nullable<vector<float64>>,1,Normalized analytical signal mixture.,Sum check; response basis declared.
+conductance_summary,nullable<record>,S,Reported state-specific conductance evidence.,Native units and published uncertainty retained.
+topology_candidate,record,1,Predicted or observed structural annotation.,Evidence class and confidence distinguished.
+evidence_covariance,nullable<matrix<float64>>,mixed,Joint error for compatible measurements.,Unknown dependence flagged; null not zero.

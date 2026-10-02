@@ -1,0 +1,12 @@
+flowchart TB
+ R[Approved DUT fixture limits] --> S[Local harness state machine]
+ I[Independent interlock status] --> S
+ S --> U[Surrogate stimulus and load]
+ U --> W[Wiring resistance model]
+ U --> M[Source and terminal meters]
+ W --> M
+ C[Clock gain offset calibration] --> M
+ M --> E[Power storage loss ledger]
+ E --> D[Competing fault hypotheses]
+ F[Fixture self check reference] --> D
+ D --> O[Repeatable verification evidence]

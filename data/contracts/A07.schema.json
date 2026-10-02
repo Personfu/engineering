@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A07 ORION CHROMATIN ATLAS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "line_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Authenticated line identity/context.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Status and provenance required."
+    },
+    "replicate_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Independent biological/analytical replicate.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Replicate type explicit; technical repeats not independent."
+    },
+    "fraction_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Operational fraction label.",
+      "x-unit": "1",
+      "x-source-type": "enum",
+      "x-quality-rule": "Definition version fixed; no procedure inferred."
+    },
+    "mass_input_recovered": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Input and fraction material masses.",
+      "x-unit": "ng",
+      "x-source-type": "record",
+      "x-quality-rule": "Assay basis and uncertainty required."
+    },
+    "detection_limit": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Platform lower quantification bound.",
+      "x-unit": "ng",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Null means unknown; zero policy mandatory."
+    },
+    "gene_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Fraction-associated genomic count.",
+      "x-unit": "count",
+      "x-source-type": "nullable<uint64>",
+      "x-quality-rule": "Genome build/library ID retained."
+    },
+    "copy_number": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Compatible locus-level adjustment.",
+      "x-unit": "copies",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Unknown not assigned diploid automatically."
+    }
+  },
+  "required": [
+    "line_id",
+    "replicate_id",
+    "fraction_id",
+    "mass_input_recovered",
+    "detection_limit",
+    "gene_count",
+    "copy_number"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,11 @@
+flowchart TB
+A["Shape/density/spin manifest"] --> B["Rotating-frame gravity dynamics"]
+C["Terrain normals and contact prior"] --> D["Takeoff/landing event solver"]
+E["Separate foot/wheel actuation limits"] --> D
+B --> D
+D --> F["Translation/attitude trace"]
+G["Wheel momentum accounting"] --> F
+F --> H["Landing and science validity"]
+H --> I["Conditional useful-hop utility"]
+J["Held-out terrain/contact families"] --> K["Risk/domain validation"]
+I --> K

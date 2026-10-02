@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H07 KEPLER CO ECHO engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "alma_product": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Project/cube/measurement-set identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Selection and calibration versions retained."
+    },
+    "intensity_cube": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "number",
+          "string",
+          "boolean"
+        ],
+        "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Continuum-subtracted channel image.",
+      "x-unit": "Jy/beam",
+      "x-source-type": "nullable array",
+      "x-quality-rule": "Beam/primary-beam flags required."
+    },
+    "velocity_axis": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Declared spectral frame/convention.",
+      "x-unit": "km/s",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Rest frequency and channel width saved."
+    },
+    "beam_solid_angle": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Synthesized Gaussian support.",
+      "x-unit": "sr",
+      "x-source-type": "float",
+      "x-quality-rule": "Major/minor axes and position angle retained."
+    },
+    "disk_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Stellar/disk alignment parameters.",
+      "x-unit": "kg m rad km/s",
+      "x-source-type": "record",
+      "x-quality-rule": "Independent source and covariance required."
+    },
+    "noise_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Spatial/spectral noise model.",
+      "x-unit": "(Jy/beam)²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Line-free selection and PSD check saved."
+    },
+    "search_trial": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Radius/geometry/velocity/isotopologue attempt.",
+      "x-unit": "none",
+      "x-source-type": "record",
+      "x-quality-rule": "All attempts enter global null."
+    },
+    "line_flux": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Aperture integrated flux/limit.",
+      "x-unit": "Jy km/s",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Distinct from normalized stack and gas mass."
+    }
+  },
+  "required": [
+    "alma_product",
+    "intensity_cube",
+    "velocity_axis",
+    "beam_solid_angle",
+    "disk_geometry",
+    "noise_covariance",
+    "search_trial",
+    "line_flux"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "H07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

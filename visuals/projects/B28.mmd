@@ -1,0 +1,13 @@
+flowchart TB
+ A[Published biomass solids records] --> B[Compatible treatment registry]
+ C[Replicate gas blank and composition] --> D[Gas condition normalization]
+ D --> E[Blank-corrected methane per kg VS]
+ B --> E
+ E --> F[Kinetic alternatives and profiles]
+ G[Cooling latent heat COP] --> H[Pretreatment energy ledger]
+ I[Heating recovery auxiliaries] --> H
+ F --> J[Usable methane energy]
+ H --> K[Net-energy and break-even comparison]
+ J --> K
+ B --> L[Combined-evidence scenario gate]
+ L --> K

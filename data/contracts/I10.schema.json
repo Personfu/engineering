@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I10 GEMINI POINTLOCK engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "source_time": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Synchronized sensor/control/power time.",
+      "x-unit": "s",
+      "x-source-type": "float64",
+      "x-quality-rule": "Clock/reset generation and gaps retained."
+    },
+    "reference_angle": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Commanded one-axis orientation.",
+      "x-unit": "radian",
+      "x-source-type": "float64",
+      "x-quality-rule": "Wrap/trajectory policy version."
+    },
+    "angle_rate": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Calibrated body angle and rate.",
+      "x-unit": "radian, radian s^-1",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Bias covariance and missing-sensor state."
+    },
+    "plant_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Inertia, friction and lag.",
+      "x-unit": "kg m^2, N m s rad^-1, s",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "Identification conditions and near-zero-rate discrepancy."
+    },
+    "wheel_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Wheel momentum/speed and limits.",
+      "x-unit": "N m s, radian s^-1",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Sign/inertia convention and saturation flag."
+    },
+    "torque_command": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Requested/applied wheel torque.",
+      "x-unit": "N m",
+      "x-source-type": "float64",
+      "x-quality-rule": "Both values retained when saturated."
+    },
+    "electrical_ledger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Input draw, cumulative consumed/returned energy.",
+      "x-unit": "W, J",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Current sign and power calibration; no mechanical-energy substitution."
+    },
+    "mechanical_energy": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Wheel kinetic energy from state.",
+      "x-unit": "J",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Separate field/inertia covariance."
+    }
+  },
+  "required": [
+    "source_time",
+    "reference_angle",
+    "angle_rate",
+    "plant_parameters",
+    "wheel_state",
+    "torque_command",
+    "electrical_ledger",
+    "mechanical_energy"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I10",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

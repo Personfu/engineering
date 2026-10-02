@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "F02 DISCOVERY QUILL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "claim_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Versioned factual/uncertainty proposition.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Primary source and exact evidence location required."
+    },
+    "article_variant": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Format, topic and claim mapping.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Matched factual set and revisions retained."
+    },
+    "expert_accuracy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Blind factual/uncertainty ratings.",
+      "x-unit": "rubric",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Reviewer agreement and corrections recorded."
+    },
+    "reader_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Pseudonymous participant key.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Consented access only; identity separate."
+    },
+    "assessment_score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Pre/immediate/delayed comprehension.",
+      "x-unit": "rubric",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Timepoint/rubric version and missing reason."
+    },
+    "item_confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Probability of correctness for exact item.",
+      "x-unit": "1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Range zero to one; missing not 0.5."
+    },
+    "reading_context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Time, accessibility and exposure conditions.",
+      "x-unit": "s,1",
+      "x-source-type": "record",
+      "x-quality-rule": "Burden/visual complexity/attrition metadata."
+    }
+  },
+  "required": [
+    "claim_id",
+    "article_variant",
+    "expert_accuracy",
+    "reader_id",
+    "assessment_score",
+    "item_confidence",
+    "reading_context"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "F02",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

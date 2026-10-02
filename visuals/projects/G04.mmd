@@ -1,7 +1,12 @@
-flowchart LR
-  T["Region-specific cartilage response targets"] --> M["Poro-viscoelastic material / contact model"]
-  C["Geometry / cure / filler uncertainty"] --> M
-  M --> R["Relaxation / permeability / stress predictions"]
-  R --> V["Held-out nonclinical mechanical evidence"]
-  V --> P["Mechanical trade space"]
-  P --> G["Wear / interface / biological evidence gaps"]
+flowchart TB
+ T[Region and rate target envelope] --> V[Response comparison]
+ M[Solid modulus and intrinsic permeability] --> B[Biphasic displacement pressure solver]
+ G[Geometry loading and drainage] --> B
+ C[Proposed cure heterogeneity field] --> B
+ B --> F[Fluid solid conservation ledger]
+ B --> R[Relaxation observable adapter]
+ B --> I[Contact interface stresses]
+ F --> V
+ R --> V
+ I --> V
+ V --> O[Nonclinical trade and evidence gaps]

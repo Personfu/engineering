@@ -1,8 +1,12 @@
-flowchart LR
-  A["Drive frequency + magnetic field"] --> C["Compliant cilium / fluid interaction"]
-  F["Velocity + viscosity + temperature"] --> C
-  C --> S["Strain readout + cross-sensitivity"]
-  S --> I["Uncertainty-aware inverse model"]
-  I --> P["Velocity / viscosity estimate"]
-  R["Independent flow reference"] --> V["Held-out active vs passive comparison"]
-  P --> V
+flowchart TB
+ G[Cilium and channel geometry] --> B[Beam mechanics]
+ U[Velocity and viscosity] --> H[Wall aware drag]
+ H --> B
+ M[Magnetic drive force] --> B
+ B --> E[Strain to voltage readout]
+ T[Temperature nuisance] --> E
+ E --> F[Amplitude and phase library]
+ C[Joint channel covariance] --> I[U and viscosity inverse]
+ F --> I
+ I --> V[Rank and validity gate]
+ V --> O[Estimate and covariance]

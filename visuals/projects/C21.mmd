@@ -1,0 +1,11 @@
+flowchart TB
+A["FIELDS vectors and quality"] --> B["Coordinate/time adapter"]
+C["SWEAP moments and quality"] --> D["Cadence overlap and density model"]
+B --> E["Robust local B0"]
+E --> F["Deflection/hysteresis detector"]
+D --> G["Alfvenic velocity-field diagnostic"]
+B --> G
+F --> H["Gap-aware event catalog"]
+G --> H
+I["Separate magnetic/plasma exposure masks"] --> J["Encounter-block rate inference"]
+H --> J

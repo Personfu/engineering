@@ -1,7 +1,13 @@
-flowchart LR
-  I["Measured input spectrum + phase"] --> P["Nonlinear propagation per pass"]
-  D["Medium / mirror dispersion"] --> P
-  P --> C["Compressor phase compensation"]
-  C --> O["Temporal + spatial output quality"]
-  O --> V["Phase-sensitive metrology comparison"]
-  V --> T["Main-pulse energy / throughput / robustness trade"]
+flowchart TB
+ A[Retrieved input field sqrt W] --> L[Linear spectral propagator]
+ D[Dispersion and mirror phase] --> L
+ L --> K[Kerr time phase step]
+ G[Pass geometry and n2] --> K
+ K --> P[Per pass loss and loop]
+ P --> L
+ P --> C[Compressor spectral phase]
+ C --> E[Fixed main window energy]
+ C --> R[Phase sensitive retrieval comparison]
+ E --> O[Robust multiobjective trade]
+ R --> O
+ F[Supplied optic constraints] --> O

@@ -1,0 +1,11 @@
+flowchart TB
+A["Released strain and quality masks"] --> B["PSD and time-frequency whitening"]
+C["Trial sky/polarization response"] --> D["Coherent/null projection"]
+B --> D
+D --> E["Frozen baseline or ML ranker"]
+F["Independent background shifts"] --> G["FAR threshold calibration"]
+E --> G
+H["Unseen CCSN network injections"] --> I["Efficiency at frozen FAR"]
+G --> I
+J["Independent trigger window"] --> K["FAP and latency report"]
+I --> K

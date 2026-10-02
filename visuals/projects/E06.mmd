@@ -1,0 +1,13 @@
+flowchart TB
+ P[Measured subsystem power] --> N[Component thermal nodes]
+ G[Reciprocal conductance edges] --> N
+ S[Solar and orientation] --> R[Projected absorption radiation]
+ A[Air pressure temperature] --> C[Atmospheric convection]
+ R --> N
+ C --> N
+ N --> E[Storage boundary energy ledger]
+ N --> H[Sensor mapping and hotspots]
+ B[Bi and gradient gate] --> N
+ T[Temperature observations] --> V[Transient holdout calibration]
+ H --> V
+ E --> V

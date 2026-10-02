@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G04 ARTEMIS CARTILAGE MATRIX engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "target_region": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Anatomical region and published response context.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Population/test mode required; no universal target."
+    },
+    "geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Construct/test domain dimensions.",
+      "x-unit": "m",
+      "x-source-type": "record",
+      "x-quality-rule": "Tolerance and boundary conditions retained."
+    },
+    "solid_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Moduli and Poisson response.",
+      "x-unit": "Pa,1",
+      "x-source-type": "record",
+      "x-quality-rule": "Physical range/source and covariance required."
+    },
+    "intrinsic_permeability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Darcy material permeability.",
+      "x-unit": "m^2",
+      "x-source-type": "float64",
+      "x-quality-rule": "Positive; never mislabeled conductivity."
+    },
+    "fluid_viscosity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Fluid dynamic viscosity.",
+      "x-unit": "Pa s",
+      "x-source-type": "float64",
+      "x-quality-rule": "Temperature/context recorded."
+    },
+    "relaxation_curve": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-fields": "time,stress"
+      },
+      "description": "Published/model relaxation observation.",
+      "x-unit": "s,Pa",
+      "x-source-type": "nullable<array<time,stress>>",
+      "x-quality-rule": "Load history and digitization error retained."
+    },
+    "cure_field": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Hypothesized material-state heterogeneity.",
+      "x-unit": "1",
+      "x-source-type": "nullable<array<float64>>",
+      "x-quality-rule": "Uncalibrated fields labeled proposed; null allowed."
+    }
+  },
+  "required": [
+    "target_region",
+    "geometry",
+    "solid_parameters",
+    "intrinsic_permeability",
+    "fluid_viscosity",
+    "relaxation_curve",
+    "cure_field"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G04",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

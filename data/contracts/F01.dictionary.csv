@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+team_id,string,1,Pseudonymous clustered team key.,Identity mapping outside analysis; consent status required.
+task_id,string,1,Versioned analog task/rubric.,Difficulty and crossover order retained.
+protocol_assignment,enum,1,Communication structure condition.,Randomization/carryover record required.
+message_times,record,s,Create/deliver/acknowledge simulator times.,Clock and imposed-delay separation.
+context_metadata,nullable<record>,1,Consented language/experience context.,Minimum necessary; no deterministic cultural labeling.
+repair_outcome,record,"bool,s",Rubric success and resolution/censoring.,Coder IDs and evidence links retained.
+code_agreement,record,1,Independent labels/agreement summary.,Disagreement and undefined metrics retained.

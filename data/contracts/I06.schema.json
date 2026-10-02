@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I06 SATURN LOADPATH engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "cad_mesh_revision": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Linked geometry/mesh/solver identity.",
+      "x-unit": "1",
+      "x-source-type": "struct<string>",
+      "x-quality-rule": "Checksums and units mandatory."
+    },
+    "material_properties": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "E, density, strength/constitutive pedigree.",
+      "x-unit": "Pa, kg m^-3",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Assumed versus certified; temperature domain."
+    },
+    "joint_model": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Connection stiffness and slip model.",
+      "x-unit": "N m^-1, N m rad^-1",
+      "x-source-type": "distribution<struct>",
+      "x-quality-rule": "Perfect connection only as explicit comparator."
+    },
+    "load_constraint": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Supplied force/moment and fixture boundary.",
+      "x-unit": "N, N m, m",
+      "x-source-type": "struct",
+      "x-quality-rule": "Coordinate/sign and source documented."
+    },
+    "imperfection_field": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "number",
+                "string",
+                "boolean"
+              ],
+              "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD."
+            },
+            "x-dimension": "ordering/shape frozen in ICD"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Geometric deviations by mode/location.",
+      "x-unit": "m",
+      "x-source-type": "distribution<array>",
+      "x-quality-rule": "Amplitude prior and metrology evidence."
+    },
+    "response": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Static and modal model/test quantities.",
+      "x-unit": "m, strain, Hz",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Sensor/fixture covariance and missing channels."
+    },
+    "similarity_ledger": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Matched/unmatched dimensionless groups.",
+      "x-unit": "1",
+      "x-source-type": "table",
+      "x-quality-rule": "No full-scale conclusion from unmatched groups."
+    },
+    "pareto_design": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Mass/compliance/uncertainty candidates.",
+      "x-unit": "kg, m N^-1, 1",
+      "x-source-type": "table",
+      "x-quality-rule": "Screening buckling status and manufacturability."
+    }
+  },
+  "required": [
+    "cad_mesh_revision",
+    "material_properties",
+    "joint_model",
+    "load_constraint",
+    "imperfection_field",
+    "response",
+    "similarity_ledger",
+    "pareto_design"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

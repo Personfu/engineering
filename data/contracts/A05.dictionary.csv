@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+cilium_geometry,record,m,"Length, section and channel spacing.",Positive dimensions; manufacturing uncertainty retained.
+bending_stiffness,float64,N m^2,Independently calibrated EI.,Covariance with geometry recorded.
+drive_frequency,float64,rad s^-1,Angular actuation frequency.,Hz conversion explicit; zero permitted.
+readout,vector<float64>,V,Synchronized array signals.,Missing channels null with mask.
+temperature_change,nullable<float64>,K,Readout reference temperature difference.,Reference and sensor error required.
+response_covariance,matrix<float64>,V^2,Joint channel/noise covariance.,Positive semidefinite; cross-cilia terms retained.
+fluid_estimate,record,"m/s,Pa s","Velocity, viscosity and joint uncertainty.",Unidentifiable parameter null plus flag.

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G07 HUBBLE SPECTRAL ANCHOR engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "interface_revision": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Instrument drawing/datums version.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Required before final CAD dimensions."
+    },
+    "optical_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "d, order and grating/slit angles.",
+      "x-unit": "m,rad",
+      "x-source-type": "record",
+      "x-quality-rule": "Sign/frame convention and units required."
+    },
+    "mount_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Dimensions, mass and elastic properties.",
+      "x-unit": "m,kg,Pa",
+      "x-source-type": "record",
+      "x-quality-rule": "Material source and tolerance covariance."
+    },
+    "thermal_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Temperature increment/gradient.",
+      "x-unit": "K",
+      "x-source-type": "record",
+      "x-quality-rule": "Reference temperature and field uncertainty."
+    },
+    "boundary_stiffness": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Attachment compliance.",
+      "x-unit": "N/m,N m/rad",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Unknown never replaced ideal fixed without flag."
+    },
+    "line_centroid": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Calibrated spectral wavelength.",
+      "x-unit": "m",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Line source/resolution and fit error retained."
+    },
+    "verification_link": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Requirement-to-analysis/inspection/test evidence.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Pending evidence explicitly TBD."
+    }
+  },
+  "required": [
+    "interface_revision",
+    "optical_geometry",
+    "mount_parameters",
+    "thermal_state",
+    "boundary_stiffness",
+    "line_centroid",
+    "verification_link"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

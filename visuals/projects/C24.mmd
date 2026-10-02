@@ -1,0 +1,11 @@
+flowchart TB
+A["Velocity epochs and line definitions"] --> B["Orbit plus line-jitter likelihood"]
+C["Kepler solver: anomaly and separation"] --> B
+C --> D["Finite dust activation and lag"]
+D --> E["Cooling/opacity emission model"]
+F["IR passbands and stellar continuum"] --> G["Filter-integrated dust flux"]
+E --> G
+G --> H["Joint orbital/dust posterior"]
+B --> H
+I["Published-data provenance gate"] --> H
+H --> J["Independent-era and future forecast"]

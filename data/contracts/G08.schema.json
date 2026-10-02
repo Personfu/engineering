@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G08 ORION HEPATIC RECOVERY engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "study_subject": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "De-identified subject/species context.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Group and source provenance required."
+    },
+    "observation_time": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Time from documented reference event.",
+      "x-unit": "day",
+      "x-source-type": "vector<float64>",
+      "x-quality-rule": "No inferred clinical procedure details."
+    },
+    "volume_observed": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Imaging volume estimate.",
+      "x-unit": "m^3",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Segmentation covariance and reference required."
+    },
+    "cell_states": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Q, P and R model populations.",
+      "x-unit": "cell",
+      "x-source-type": "vector<float64>[3]",
+      "x-quality-rule": "Nonnegative; modeled versus measured labeled."
+    },
+    "mediator_signals": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "C/GF normalized or native signals.",
+      "x-unit": "declared",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Measured/latent status and unit mapping mandatory."
+    },
+    "cell_volume": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Mean size contribution.",
+      "x-unit": "m^3/cell",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Unknown not fixed silently."
+    },
+    "subject_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Repeated observation/parameter uncertainty.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix<float64>",
+      "x-quality-rule": "Positive semidefinite with ordered units."
+    }
+  },
+  "required": [
+    "study_subject",
+    "observation_time",
+    "volume_observed",
+    "cell_states",
+    "mediator_signals",
+    "cell_volume",
+    "subject_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G08",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

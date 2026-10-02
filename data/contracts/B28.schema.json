@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B28 ASTRA BIOCYCLE — Microalgal Methane and Net Energy engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "study_treatment": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Biomass/source/treatment evidence identity.",
+      "x-unit": "none",
+      "x-source-type": "record",
+      "x-quality-rule": "Separate versus combined provenance required."
+    },
+    "volatile_solids_added": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Yield normalization denominator.",
+      "x-unit": "kg VS",
+      "x-source-type": "float",
+      "x-quality-rule": "Method and dry/volatile fraction uncertainty saved."
+    },
+    "cumulative_gas": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Measured replicate/blank volumes.",
+      "x-unit": "L",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Time correlation and conditions retained."
+    },
+    "methane_fraction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Measured composition on stated basis.",
+      "x-unit": "0–1",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Wet/dry convention explicit."
+    },
+    "gas_conditions": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Measured and normalization state.",
+      "x-unit": "K Pa",
+      "x-source-type": "record",
+      "x-quality-rule": "Water-vapor correction metadata required."
+    },
+    "kinetic_parameters": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "M_inf, R_max and lag ensemble.",
+      "x-unit": "L L/day day",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Covariance/plateau support retained."
+    },
+    "pretreatment_energy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Cooling/heating/auxiliary inventory.",
+      "x-unit": "kWh",
+      "x-source-type": "record",
+      "x-quality-rule": "COP/recovery/boundary source required."
+    },
+    "net_energy": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Usable-energy scenario distribution.",
+      "x-unit": "kWh/kg VS",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Include negative outcomes and synergy uncertainty."
+    }
+  },
+  "required": [
+    "study_treatment",
+    "volatile_solids_added",
+    "cumulative_gas",
+    "methane_fraction",
+    "gas_conditions",
+    "kinetic_parameters",
+    "pretreatment_energy",
+    "net_energy"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B28",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

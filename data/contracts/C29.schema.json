@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C29 ACE WIND SHOCK LEDGER engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "event_epoch": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Shock candidate and window boundaries.",
+      "x-unit": "CDF-declared time",
+      "x-source-type": "float64",
+      "x-quality-rule": "Time conversions and masks recorded."
+    },
+    "plasma_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Density/velocity/thermal pressure.",
+      "x-unit": "kg m^-3, m s^-1, Pa",
+      "x-source-type": "measurement<struct>",
+      "x-quality-rule": "Composition/temperature convention and covariance."
+    },
+    "magnetic_vector": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Field in common coordinates.",
+      "x-unit": "T",
+      "x-source-type": "measurement<float64[3]>",
+      "x-quality-rule": "Coordinate transform and instrument offsets retained."
+    },
+    "proton_intensity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "nangle"
+      },
+      "x-dimension": "ne",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Response-corrected differential flux.",
+      "x-unit": "m^-2 s^-1 sr^-1 J^-1",
+      "x-source-type": "measurement<float64[nE,nangle]>",
+      "x-quality-rule": "Energy/pitch-angle bounds; invalid channels absent."
+    },
+    "shock_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Unit normal and shock speed.",
+      "x-unit": "1, m s^-1",
+      "x-source-type": "posterior<struct>",
+      "x-quality-rule": "Normal orientation and method identities."
+    },
+    "particle_budget": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Finite-band pressure and energy density.",
+      "x-unit": "Pa, J m^-3",
+      "x-source-type": "posterior<float64[2]>",
+      "x-quality-rule": "Isotropy assumption and integration bounds attached."
+    },
+    "energy_flux": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "x-dimension": "terms"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "MHD and particle components.",
+      "x-unit": "W m^-2",
+      "x-source-type": "posterior<float64[terms]>",
+      "x-quality-rule": "Shared frame/covariance and unknown Q state."
+    },
+    "band_fraction": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Conditional Delta particle/upstream flux.",
+      "x-unit": "1",
+      "x-source-type": "posterior<float64>|null",
+      "x-quality-rule": "Never labeled full efficiency without closure evidence."
+    }
+  },
+  "required": [
+    "event_epoch",
+    "plasma_state",
+    "magnetic_vector",
+    "proton_intensity",
+    "shock_geometry",
+    "particle_budget",
+    "energy_flux",
+    "band_fraction"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C29",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

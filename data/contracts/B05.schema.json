@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B05 KEPLER BLOOMCLOCK — Restoration Timing Observatory engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "phenophase_status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "present, absent or unknown.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "Unknown never treated as absence."
+    },
+    "onset_bounds": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "format": "date"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Observed timing interval.",
+      "x-unit": "calendar day",
+      "x-source-type": "nullable date[2]",
+      "x-quality-rule": "Store one-sided censoring."
+    },
+    "daily_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Local mean temperature.",
+      "x-unit": "°C",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Coverage and timezone required."
+    },
+    "base_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Species thermal threshold.",
+      "x-unit": "°C",
+      "x-source-type": "float",
+      "x-quality-rule": "Provenance or scenario tag required."
+    },
+    "bloom_probability": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Weekly flowering ensemble.",
+      "x-unit": "none",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Bounds 0–1; joint covariance saved."
+    },
+    "establishment_fraction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Scenario survival to resource provision.",
+      "x-unit": "none",
+      "x-source-type": "float[]",
+      "x-quality-rule": "No default perfect survival."
+    },
+    "resource_shortfall": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Demand minus realized floral proxy.",
+      "x-unit": "resources/week",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Demand assumptions linked."
+    }
+  },
+  "required": [
+    "phenophase_status",
+    "onset_bounds",
+    "daily_temperature",
+    "base_temperature",
+    "bloom_probability",
+    "establishment_fraction",
+    "resource_shortfall"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

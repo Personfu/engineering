@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C17 GEMINI DISK SENTINEL engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "cube": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "x-dimension": "w"
+        },
+        "x-dimension": "h"
+      },
+      "x-dimension": "nlambda",
+      "description": "Pre-subtraction science data.",
+      "x-unit": "declared flux",
+      "x-source-type": "float64[nlambda,h,w]",
+      "x-quality-rule": "Keep spectral/spatial masks; missing pixels are not zero background."
+    },
+    "parallactic_angle": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "nexp",
+      "description": "Sky rotation for each exposure.",
+      "x-unit": "degree",
+      "x-source-type": "float64[nexp]",
+      "x-quality-rule": "Time and angle convention attached."
+    },
+    "stellar_flux": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "nlambda",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Flux/contrast normalization.",
+      "x-unit": "Jy",
+      "x-source-type": "measurement<float64[nlambda]>",
+      "x-quality-rule": "Shared covariance across wavelengths retained."
+    },
+    "injection_truth": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Companion position, spectrum and flux.",
+      "x-unit": "arcsec, degree, Jy",
+      "x-source-type": "table",
+      "x-quality-rule": "Record stage, seed and sparse-batch identity."
+    },
+    "detection_statistic": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Frozen search score at candidate position.",
+      "x-unit": "declared normalized",
+      "x-source-type": "float64",
+      "x-quality-rule": "Threshold version and searched trials attached."
+    },
+    "completeness": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Recovery map by scenario.",
+      "x-unit": "1",
+      "x-source-type": "struct<float64,interval>",
+      "x-quality-rule": "Report n/k; empty cells remain missing."
+    },
+    "throughput": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Recovered/injected flux ratio.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Calibration and recovery covariance propagated."
+    },
+    "mass_orbit_constraint": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Conditional translation of completeness.",
+      "x-unit": "Jupiter mass, au",
+      "x-source-type": "distribution|null",
+      "x-quality-rule": "Age/evolution/orbit versions mandatory."
+    }
+  },
+  "required": [
+    "cube",
+    "parallactic_angle",
+    "stellar_flux",
+    "injection_truth",
+    "detection_statistic",
+    "completeness",
+    "throughput",
+    "mass_orbit_constraint"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C17",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

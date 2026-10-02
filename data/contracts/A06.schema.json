@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "A06 APOLLO PORIN INSIGHT engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "source_record": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Article/table/figure provenance.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Stable URL plus figure region required."
+    },
+    "sequence_accession": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Versioned public sequence identifier.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Residue numbering and sequence hash stored."
+    },
+    "preparation_context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Published specimen and analytical context.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Unknown entries null; no inferred procedure."
+    },
+    "peak_fraction": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "description": "Normalized analytical signal mixture.",
+      "x-unit": "1",
+      "x-source-type": "nullable<vector<float64>>",
+      "x-quality-rule": "Sum check; response basis declared."
+    },
+    "conductance_summary": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Reported state-specific conductance evidence.",
+      "x-unit": "S",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Native units and published uncertainty retained."
+    },
+    "topology_candidate": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Predicted or observed structural annotation.",
+      "x-unit": "1",
+      "x-source-type": "record",
+      "x-quality-rule": "Evidence class and confidence distinguished."
+    },
+    "evidence_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "description": "Joint error for compatible measurements.",
+      "x-unit": "mixed",
+      "x-source-type": "nullable<matrix<float64>>",
+      "x-quality-rule": "Unknown dependence flagged; null not zero."
+    }
+  },
+  "required": [
+    "source_record",
+    "sequence_accession",
+    "preparation_context",
+    "peak_fraction",
+    "conductance_summary",
+    "topology_candidate",
+    "evidence_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "A06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

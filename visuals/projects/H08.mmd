@@ -1,6 +1,11 @@
-flowchart LR
- A[CM samples and alteration evidence] --> B[Blinded rim and fabric mapping]
- B --> C[Sectioning and measurement model]
- C --> D[Accretion versus parent-body histories]
- D --> E[Meteorite holdout prediction]
- E --> F[Rim origin evidence matrix]
+flowchart TB
+ A[Curated CM sections and Appendix S3] --> B[Specimen alteration registry]
+ C[BSE and elemental maps] --> D[Dual boundary annotations]
+ D --> E[Resolution censor and registration model]
+ E --> F[Sectioning simulation or supported 3D]
+ G[Dust velocity sticking scenarios] --> H[Accretion shell-mass model]
+ I[Porosity compaction alteration] --> H
+ F --> J[Nested size-thickness comparator]
+ H --> J
+ B --> J
+ J --> K[Reserved-specimen mechanism predictions]

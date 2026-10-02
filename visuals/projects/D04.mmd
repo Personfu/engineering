@@ -1,7 +1,11 @@
-flowchart LR
-  A["Stated equations + discretization"] --> V["Analytic / manufactured verification"]
-  V --> G["Mesh / time / domain convergence"]
-  G --> S["Sphere force + wake predictions"]
-  E["Independent measurements / valid correlations"] --> C["Validation with uncertainty"]
-  S --> C
-  C --> D["Declared domain of solver credibility"]
+flowchart TB
+ C[Sphere regime and boundary cases] --> M[Systematic mesh sequence]
+ M --> S[New CFD solver adapter]
+ S --> T[Pressure and shear integration]
+ S --> F[Mass and momentum ledgers]
+ T --> R[Grid time domain analysis]
+ F --> R
+ E[Matched experiments and uncertainty] --> V[Physical discrepancy comparison]
+ R --> V
+ A[Stokes and manufactured fixtures] --> R
+ V --> O[Drag wake validation record]

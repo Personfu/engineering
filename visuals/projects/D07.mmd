@@ -1,8 +1,12 @@
 flowchart TB
-  S["Scientific sensing objectives"] --> E["Earth architecture + operating constraints"]
-  S --> M["Mars architecture + atmospheric constraints"]
-  E --> D["Delivery / deployment / aerial sensing phases"]
-  M --> D
-  D --> B["Mass / energy / communication / data budgets"]
-  B --> R["Monte Carlo usable science return"]
-  R --> V["Staged verification and common interfaces"]
+ S[Science observables and resolution] --> P[Sensor footprint and blur]
+ E[Earth environment adapter] --> T[Concept trajectory envelope]
+ M[Mars environment adapter] --> T
+ A[Supported aero regimes] --> T
+ T --> P
+ T --> L[Subsystem energy ledger]
+ D[Deployment event boundary] --> R[Dependent data return tree]
+ P --> R
+ C[Communication availability] --> R
+ R --> V[Usable science outcomes]
+ L --> V

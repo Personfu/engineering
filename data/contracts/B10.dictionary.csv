@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+scene_id,string,none,Exact harmonized reflectance product.,Version/checksum and masks required.
+canopy_fraction,nullable float,0–1,Validated tree-cover estimate.,Class calibration and covariance retained.
+surface_temperature,nullable float,K,Satellite skin-temperature retrieval.,Acquisition time/quality required.
+air_temperature,nullable float,°C,Independent in situ measurement.,Never substituted from thermal pixels.
+population_weight,float[],persons,Contemporaneous cell population.,Boundary year and uncertainty saved.
+green_access_distance,nullable float,m,Network distance to usable green space.,Access restrictions and routes documented.
+exposure_covariance,matrix,K²,Joint neighborhood exposure uncertainty.,Include spatial and demographic terms.

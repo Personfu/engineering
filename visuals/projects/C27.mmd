@@ -1,0 +1,11 @@
+flowchart TB
+A["QR images, masks and correction state"] --> B["Pixel wavelength/PSF adapter"]
+C["Source position priors and neighbors"] --> D["Joint forced-photometry solve"]
+B --> D
+E["Calibration/background covariance"] --> D
+D --> F["Coverage-masked spectrum covariance"]
+G["SED/extinction/redshift templates"] --> H["Response-integrated redshift likelihood"]
+F --> H
+I["Official-tool comparator"] --> J["Extraction and spectroscopy holdouts"]
+H --> J
+K["Coverage/confusion injections"] --> J

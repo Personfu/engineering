@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E05 ORION TRUSS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "icd_revision": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Controlling deployer interface document.",
+      "x-unit": "1",
+      "x-source-type": "nullable<string>",
+      "x-quality-rule": "Missing blocks final dimension acceptance."
+    },
+    "load_case": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Mission/provider load vector and frame.",
+      "x-unit": "N,N m",
+      "x-source-type": "record",
+      "x-quality-rule": "Source, environment and factor provenance."
+    },
+    "material_allowable": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Temperature-specific failure allowable.",
+      "x-unit": "Pa",
+      "x-source-type": "record",
+      "x-quality-rule": "Reduction/FOS history required."
+    },
+    "joint_stiffness": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Fastener/contact compliance.",
+      "x-unit": "N/m,N m/rad",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Distribution/covariance and source retained."
+    },
+    "component_mass_map": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion."
+      },
+      "description": "Mass/inertia positions.",
+      "x-unit": "kg,m",
+      "x-source-type": "array<record>",
+      "x-quality-rule": "Harness/support allowances explicit."
+    },
+    "cad_clearances": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Rail and access margins.",
+      "x-unit": "m",
+      "x-source-type": "record",
+      "x-quality-rule": "Tolerance covariance and protected regions."
+    },
+    "analysis_margin": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Mode/stress/interface margins.",
+      "x-unit": "1",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Pending inputs yield null, not zero pass."
+    }
+  },
+  "required": [
+    "icd_revision",
+    "load_case",
+    "material_allowable",
+    "joint_stiffness",
+    "component_mass_map",
+    "cad_clearances",
+    "analysis_margin"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E05",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

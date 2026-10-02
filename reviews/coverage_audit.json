@@ -1,6 +1,6 @@
 {
+  "revision": 2,
   "date": "2026-10-02",
-  "status": "proposal portfolio, not experimental validation",
   "listed_entries": 117,
   "sessions": {
     "A": 12,
@@ -14,12 +14,20 @@
     "I": 13
   },
   "original_titles_exact": true,
+  "original_order_exact": true,
   "unique_names": true,
-  "sources": 240,
-  "citation_instances": 279,
-  "model_fields_present": true,
-  "conceptual_svg_count": 117,
-  "combined_entry": "D03 keeps autorotation and laminar separation bubbles as separate work packages",
-  "content_sha256": "a39f405be75fc83da1ad767d3206734a9b7836fb9899ed59f2b6cbced5d8d8f9",
-  "content_hash_basis": "UTF-8 catalog/projects.json bytes stored in Git, with canonical LF line endings."
+  "engineering_records": 117,
+  "session_handbooks": 9,
+  "requirements": 527,
+  "specified_verification_cases": 434,
+  "record_schema_count": 117,
+  "empty_csv_templates": 117,
+  "dictionary_csv_count": 117,
+  "unique_source_urls": 250,
+  "engineering_record_words": 248018,
+  "content_sha256": "543e2a2b8954f6010aeb833967db3f00687f96ad9755b2ac295e9c75a297434d",
+  "annex_sha256": "228e4b03df2a004dad7573b1d0e283ee6e30d574c13a44a03d65fd74abd90baf",
+  "content_hash_basis": "UTF-8 canonical LF repository bytes",
+  "evidence_state": "Engineering design documentation; specified tests are not completed empirical tests.",
+  "website_removed": true
 }

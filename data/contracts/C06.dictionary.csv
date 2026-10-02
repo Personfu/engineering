@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+arrival_epoch,float64[],TDB seconds or MJD,Barycentric event times.,Original clock and correction files required.
+orbital_phase,posterior<float64>,cycle,Phase from a versioned ephemeris.,Wrap consistently; preserve phase covariance.
+spin_period,measurement<float64>,s,Observed/corrected period with detection context.,Nondetection has no artificial zero period.
+period_derivative,measurement<float64>|null,s s^-1,Derivative with explicit intrinsic/observed type.,Do not assign intrinsic type without torque/acceleration treatment.
+count_spectrum,"struct<count,response>",count,Energy-resolved source/background counts.,Poisson likelihood; response and exposure mandatory.
+burst_localization,distribution<sky>,degree ICRS,Spatial source likelihood.,Normalize and include instrumental systematic uncertainty.
+radius_ordering,posterior<enum>,1,State probability from lc/co/m radii.,Report multimodal state probabilities.

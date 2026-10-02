@@ -1,0 +1,12 @@
+flowchart TB
+ S[Primary source claim registry] --> G[Matched article claim graph]
+ G --> A[Format variants and uncertainty]
+ A --> E[Blind expert accuracy review]
+ A --> B[Accessibility reading burden]
+ E --> R[Consented randomized exposures]
+ B --> R
+ R --> T[Pre immediate delayed assessments]
+ T --> C[Item correctness confidence scoring]
+ C --> M[Reader topic adjusted model]
+ M --> H[Held out topic attrition sensitivity]
+ H --> O[Retention accuracy calibration trade]

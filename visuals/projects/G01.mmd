@@ -1,8 +1,12 @@
-flowchart LR
-  L["Mechanical load + specimen geometry"] --> B["Bone / device strain transfer"]
-  T["Temperature + attachment state"] --> B
-  B --> S["Proposed strain / temperature / context sensors"]
-  S --> F["Fusion with calibrated cross-sensitivity"]
-  F --> E["Estimated strain + uncertainty"]
-  R["Independent strain reference"] --> V["Held-out specimen verification"]
-  E --> V
+flowchart TB
+ G[Specimen geometry and axes] --> O[Sensor orientation projection]
+ A[Attachment transfer calibration] --> H[Forward transfer matrix]
+ O --> H
+ S[Native sensor streams] --> Y[Clock and unit alignment]
+ T[Temperature observation] --> Y
+ H --> I[Rank aware strain inverse]
+ Y --> I
+ C[Joint sensor covariance] --> I
+ I --> P[Identifiable strain and resolution]
+ R[Independent strain reference] --> V[Specimen holdout scoring]
+ P --> V

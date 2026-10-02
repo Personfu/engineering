@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+exhibit_item,string,none,Staff-reviewed physical image/panel key.,Photo/crop geometry match required.
+mission_product,nullable record,none,Verified image ID and processing provenance.,Null blocks confirmed caption.
+claim_source,edge record,none,Atomic scientific claim and supporting span.,Reviewer/version required.
+caption_layers,text record,words,Observation/explanation/exploration text.,Scale and processing labels retained.
+assignment_group,anonymous string,none,Companion/session randomization unit.,No identifiable visitor tracking.
+comprehension_score,nullable bool,none,Declared rubric outcome.,Nonresponse stays null.
+effect_covariance,matrix,probability²,Joint learning-effect uncertainty.,Group/day dependence included.

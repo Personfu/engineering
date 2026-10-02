@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B14 PHOENIX INFILTRATION — Postfire Soil Recovery Observatory engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "plot_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Repeated measurement plot identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Burn/terrain provenance required."
+    },
+    "elapsed_time": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Time since infiltration start.",
+      "x-unit": "hour",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Monotone; transient window recorded."
+    },
+    "cumulative_depth": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Volume/contact-area conversion.",
+      "x-unit": "mm",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Monotone within error; area uncertainty saved."
+    },
+    "imposed_tension": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Device pressure-head condition.",
+      "x-unit": "mm head",
+      "x-source-type": "float",
+      "x-quality-rule": "Sign convention and geometry required."
+    },
+    "sorptivity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Fitted early-time uptake coefficient.",
+      "x-unit": "mm/hour^0.5",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Covariance with late-time coefficient retained."
+    },
+    "antecedent_moisture": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Initial volumetric soil water.",
+      "x-unit": "m³/m³",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Bounds and measurement method required."
+    },
+    "soil_carbon": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Linked carbon assay.",
+      "x-unit": "mass fraction",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Date/method covariance saved."
+    },
+    "hydraulic_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint fitted hydraulic uncertainty.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Separate device, plot and scale terms."
+    }
+  },
+  "required": [
+    "plot_key",
+    "elapsed_time",
+    "cumulative_depth",
+    "imposed_tension",
+    "sorptivity",
+    "antecedent_moisture",
+    "soil_carbon",
+    "hydraulic_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B14",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

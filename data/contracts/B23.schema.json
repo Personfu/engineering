@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B23 HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "gauge_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Station and rating-version identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Station changes and qualifiers retained."
+    },
+    "discharge": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Observed reference flow.",
+      "x-unit": "m³/s",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Rating/measurement uncertainty saved."
+    },
+    "catchment_area": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Depth-volume conversion support.",
+      "x-unit": "m²",
+      "x-source-type": "float",
+      "x-quality-rule": "Boundary version and positivity checked."
+    },
+    "forcing_vector": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Precipitation/ET/deep-loss terms.",
+      "x-unit": "mm/day",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Coverage and covariance retained."
+    },
+    "issued_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Forecast creation/availability time.",
+      "x-unit": "UTC",
+      "x-source-type": "datetime",
+      "x-quality-rule": "No future observations in replay."
+    },
+    "forecast_ensemble": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "variable length; ICD-defined"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Dated horizon-member states.",
+      "x-unit": "m³/s or mm",
+      "x-source-type": "float[][]",
+      "x-quality-rule": "Member dependence and model key recorded."
+    },
+    "loss_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Stakeholder action consequences.",
+      "x-unit": "declared currency/service units",
+      "x-source-type": "record",
+      "x-quality-rule": "Approval/version and uncertainty explicit."
+    },
+    "decision_regret": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Held-out policy performance.",
+      "x-unit": "same as loss",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Oracle comparator limited to scoring."
+    }
+  },
+  "required": [
+    "gauge_key",
+    "discharge",
+    "catchment_area",
+    "forcing_vector",
+    "issued_at",
+    "forecast_ensemble",
+    "loss_parameters",
+    "decision_regret"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B23",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

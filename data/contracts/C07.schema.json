@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C07 ARTEMIS MEMORY BRIDGE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "n",
+      "description": "Simulation times relative to a declared origin.",
+      "x-unit": "s",
+      "x-source-type": "float64[n]",
+      "x-quality-rule": "Strictly increasing; gaps are not interpolated silently."
+    },
+    "polarization": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "x-dimension": "n",
+      "description": "h_plus and h_cross at reference distance.",
+      "x-unit": "strain",
+      "x-source-type": "float64[n,2]",
+      "x-quality-rule": "Offset convention and modeled memory terms required."
+    },
+    "endpoint_slope": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Tail initial strain rate.",
+      "x-unit": "s^-1",
+      "x-source-type": "measurement<float64[2]>",
+      "x-quality-rule": "Derivative method and covariance recorded."
+    },
+    "tail_timescale": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Continuation timescale.",
+      "x-unit": "s",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Positive; physically unsupported ranges flagged."
+    },
+    "memory_offset": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Asymptotic minus initial strain.",
+      "x-unit": "strain",
+      "x-source-type": "posterior<float64[2]>",
+      "x-quality-rule": "Physical offset retained independently of FFT window."
+    },
+    "transfer_function": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "real": {
+            "type": "number"
+          },
+          "imag": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "real",
+          "imag"
+        ],
+        "additionalProperties": false,
+        "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+      },
+      "x-dimension": "nf",
+      "description": "Selected detector response/filter.",
+      "x-unit": "1",
+      "x-source-type": "complex128[nf]",
+      "x-quality-rule": "Frequency range and phase convention required."
+    },
+    "spectral_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "real": {
+              "type": "number"
+            },
+            "imag": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "real",
+            "imag"
+          ],
+          "additionalProperties": false,
+          "x-encoding": "real and imag share the declared physical unit; covariance ordering and any complex pseudo-covariance are recorded in the sidecar."
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Continuation spectral uncertainty.",
+      "x-unit": "strain^2 s^2",
+      "x-source-type": "complex covariance",
+      "x-quality-rule": "Keep cross-frequency correlation from shared tail parameters."
+    }
+  },
+  "required": [
+    "time",
+    "polarization",
+    "endpoint_slope",
+    "tail_timescale",
+    "memory_offset",
+    "transfer_function",
+    "spectral_cov"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

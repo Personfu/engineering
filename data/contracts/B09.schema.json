@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B09 EUROPA CHEMGRID — Yellowstone Geochemical Atlas engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "feature_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Persistent thermal-feature identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Reviewed alias/coordinate lineage."
+    },
+    "sample_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date",
+      "description": "Collection date and precision.",
+      "x-unit": "calendar day",
+      "x-source-type": "nullable date",
+      "x-quality-rule": "No invented timestamp."
+    },
+    "analyte_value": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Original measured concentration.",
+      "x-unit": "mg/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Qualifier/limit retained."
+    },
+    "charge": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Ionic valence for balance.",
+      "x-unit": "elementary charges",
+      "x-source-type": "integer",
+      "x-quality-rule": "Neutral species excluded."
+    },
+    "equivalent_value": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Converted major-ion concentration.",
+      "x-unit": "meq/L",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Molar mass/valence version required."
+    },
+    "basin_support": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Permitted interpolation domain.",
+      "x-unit": "none",
+      "x-source-type": "polygon key",
+      "x-quality-rule": "Unmapped boundaries marked uncertain."
+    },
+    "prediction_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint map uncertainty.",
+      "x-unit": "log-concentration²",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Include method and temporal covariance."
+    }
+  },
+  "required": [
+    "feature_key",
+    "sample_date",
+    "analyte_value",
+    "charge",
+    "equivalent_value",
+    "basin_support",
+    "prediction_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B09",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

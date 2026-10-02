@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C28 LOWELL LUNAR LANTERN engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "equipment_id": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Verified telescope/camera/filter configuration.",
+      "x-unit": "m^2, detector units",
+      "x-source-type": "struct",
+      "x-quality-rule": "Unknown geometry/curve remains TBD."
+    },
+    "standard_spectrum": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Traceable flux versus wavelength.",
+      "x-unit": "W m^-2 m^-1",
+      "x-source-type": "array+reference",
+      "x-quality-rule": "Exact source file/version and uncertainty retained."
+    },
+    "system_throughput": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "nlambda",
+      "description": "Optics/filter/QE excluding atmosphere.",
+      "x-unit": "1",
+      "x-source-type": "float64[nlambda]",
+      "x-quality-rule": "Component ledger checks no atmospheric factor."
+    },
+    "airmass_atmosphere": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "X and extinction/optical-depth model.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Time/weather state and applicability recorded."
+    },
+    "net_electrons": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Bias/dark/sky/flat-corrected aperture counts.",
+      "x-unit": "electron",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Saturated/nonlinear states masked; negative noise retained."
+    },
+    "calibration_coefficients": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "x-dimension": "variable length; ICD-defined"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Nightly ZP/extinction/color terms.",
+      "x-unit": "mag, mag airmass^-1",
+      "x-source-type": "posterior<float64[]>",
+      "x-quality-rule": "Full covariance and color convention."
+    },
+    "aperture_response": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Seeing/position-dependent encircled-energy correction.",
+      "x-unit": "1",
+      "x-source-type": "measurement<float64>",
+      "x-quality-rule": "Standard/science applicability checked."
+    },
+    "line_flux": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Response-corrected integrated emission line.",
+      "x-unit": "erg s^-1 cm^-2",
+      "x-source-type": "measurement<float64>|null",
+      "x-quality-rule": "Null if continuum or passband correction unavailable."
+    }
+  },
+  "required": [
+    "equipment_id",
+    "standard_spectrum",
+    "system_throughput",
+    "airmass_atmosphere",
+    "net_electrons",
+    "calibration_coefficients",
+    "aperture_response",
+    "line_flux"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C28",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+scene_seed,uint64,1,Random stream seed and generator version.,Unique scenario ID; preserve independent noise substreams.
+sky_rate,"float64[h,w]",electron s^-1 pixel^-1,Object-free inserted sky.,Nonnegative; reference coordinate recorded.
+source_catalog,table,mixed declared,"Flux, morphology and positions.",Flux convention and truncated wings documented.
+detector_frame,"float64[h,w]",electron,Noisy exposure before resampling.,"Missing pixels use mask, never sky-valued fill."
+resample_operator,sparse<float64>,1,Mapping from detector to analysis pixels.,Row normalization checked for uniform sky.
+sky_estimate,"struct<float64,cov>",electron s^-1 pixel^-1,Estimator output with estimand label.,Covariance must include resampling dependence.
+usable_fraction,float64,1,Area surviving all masks.,Bounded from zero to one; zero area invalidates estimate.

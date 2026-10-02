@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+resource_batch,string,1,Produced/imported resource identity.,Provenance and state required.
+production_rate,nullable<float64>,kg/s,Measured/scenario gross output.,Demonstration versus scale-up labeled.
+quality_record,record,native concentration,"Contaminants, methods and limits.",Censoring and standard revision retained.
+qualified_fraction,nullable<float64>,1,Accepted output fraction.,Unknown remains null; not automatically one.
+inventory,record,kg,Qualified storage and independent reserve.,Batch ledger and leakage terms required.
+demand_schedule,"array<time,rate>","s,kg/s",Mission-specific resource demand.,Crew count/context and uncertainty recorded.
+esm_factors,nullable<record>,kg/native,Mission equivalence coefficients.,Unknown factors prohibit complete scalar ESM.

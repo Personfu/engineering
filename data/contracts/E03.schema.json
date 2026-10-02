@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E03 ARTEMIS STRATODOSE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "detector_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Instrument/response configuration.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Geometry, species sensitivity and version required."
+    },
+    "count_interval": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Raw count and elapsed/live acquisition time.",
+      "x-unit": "count,s",
+      "x-source-type": "record",
+      "x-quality-rule": "Time basis explicit; zero count is valid."
+    },
+    "altitude_pressure": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Flight environmental bin.",
+      "x-unit": "m,Pa",
+      "x-source-type": "record",
+      "x-quality-rule": "Time/geolocation covariance retained."
+    },
+    "dead_time": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Calibrated detector tau.",
+      "x-unit": "s",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Model type/domain required; unknown null."
+    },
+    "response_function": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Detector energy/angular response.",
+      "x-unit": "effective area",
+      "x-source-type": "nullable<table>",
+      "x-quality-rule": "Missing energy domain flagged, not extrapolated."
+    },
+    "shield_geometry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Material placement and configuration.",
+      "x-unit": "m,kg",
+      "x-source-type": "record",
+      "x-quality-rule": "Matched reference geometry required."
+    },
+    "dose_rate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Qualified absorbed-dose prediction.",
+      "x-unit": "Gy/s",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Only populated with validated S_D and material basis."
+    }
+  },
+  "required": [
+    "detector_id",
+    "count_interval",
+    "altitude_pressure",
+    "dead_time",
+    "response_function",
+    "shield_geometry",
+    "dose_rate"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "E03",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

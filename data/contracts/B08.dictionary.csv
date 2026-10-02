@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+structure_id,string,none,Dated conservation intervention.,Condition and maintenance history required.
+install_bounds,date[2],calendar day,Installation interval.,Uncertain dates propagate to event bins.
+cover_vector,float[3],percent,"Herb, shrub and bare fraction.",Sum and classification covariance checked.
+channel_distance,float,m,Signed distance from structure.,Positive downstream; CRS recorded.
+reach_area,float,m²,Water-ledger support area.,Positive and fixed per comparison.
+rainfall,nullable float,mm/day,Reach forcing.,Coverage and gauge uncertainty retained.
+effect_covariance,matrix,percentage-point²,Treatment-effect uncertainty.,Spatial and temporal covariance included.

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I07 GATEWAY CATSAT CONSOLE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Unique synthetic event identity.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "Duplicate IDs must have identical payload or conflict state."
+    },
+    "source_receive_time": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Valid measurement and reception times.",
+      "x-unit": "s declared scale",
+      "x-source-type": "float64[2]",
+      "x-quality-rule": "Clock uncertainty and restart generation attached."
+    },
+    "engineering_value": {
+      "type": [
+        "number",
+        "string",
+        "boolean",
+        "null"
+      ],
+      "x-encoding": "Exact scalar interpretation and unit must be frozen in the ICD.",
+      "description": "Synthetic subsystem observation.",
+      "x-unit": "dictionary-declared",
+      "x-source-type": "typed scalar|null",
+      "x-quality-rule": "Null/invalid/stale separate; no last-value freshness assumption."
+    },
+    "quality_age": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Validity/freshness evidence.",
+      "x-unit": "1, s",
+      "x-source-type": "struct",
+      "x-quality-rule": "Per-field rule and uncertainty interval."
+    },
+    "image_manifest": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Expected inert image and integrity identifiers.",
+      "x-unit": "byte, chunk count",
+      "x-source-type": "struct",
+      "x-quality-rule": "Trusted scenario version; never inferred from socket closure."
+    },
+    "chunk_record": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Received image segment.",
+      "x-unit": "byte",
+      "x-source-type": "bytes+ID+checksum",
+      "x-quality-rule": "Unique valid chunks only; conflicts flagged."
+    },
+    "simulator_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Abstract local operation state.",
+      "x-unit": "1",
+      "x-source-type": "enum+ledger",
+      "x-quality-rule": "No real command or radio fields."
+    },
+    "scenario_trace": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Loss/delay/reset seed and expected outcomes.",
+      "x-unit": "s, 1",
+      "x-source-type": "table",
+      "x-quality-rule": "Replay deterministic and independently scored."
+    }
+  },
+  "required": [
+    "event_id",
+    "source_receive_time",
+    "engineering_value",
+    "quality_age",
+    "image_manifest",
+    "chunk_record",
+    "simulator_state",
+    "scenario_trace"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I07",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+module_id,enum,1,One of three independent record sources.,Hardware/firmware/calibration version required.
+native_observation,record,native,Raw sensor values and response status.,No conversion discards original units.
+common_timestamp,nullable<float64>,s,Aligned time coordinate.,Offset/skew covariance retained.
+placement_response,record,"m,s",Sensor position and lag correction.,Comparable-field domain required.
+bias_covariance,matrix<float64>,native^2,Cross-module calibration uncertainty.,Common reference terms included.
+acceptable_record,bool/unknown,1,Science-gate event over interval.,Unknown distinct from failure/pass.
+fault_dependency,record,1,Shared/conditional event structure.,Probability provenance or TBD status.

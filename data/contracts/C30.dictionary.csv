@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+seed_scenario,enum/version,1,"Light, cluster or heavy initial model.",Distribution and host-occupation assumptions recorded.
+birth_mass_time,distribution<float64[2]>,"solar mass, yr",Seed initial conditions.,Cosmology/time origin and support required.
+growth_history,"float64[n,fields]","yr, 1, solar mass",Accretion/duty/efficiency and mass evolution.,Efficiency bounds and on/off convention explicit.
+merger_ledger,table|null,"solar mass, yr","Added mass, delay and loss assumptions.",Absent module does not imply measured zero mergers.
+intrinsic_luminosity,distribution<float64>,erg s^-1,Active SED/bolometric model.,Bolometric correction and lambda convention.
+lensing_host_cov,covariance,mixed declared,Magnification/host/BH observation dependence.,Shared lensing errors retained.
+selection_probability,float64,1,Survey inclusion after obscuration/flux/cadence.,Nonnegative; unsupported domains flagged.
+seed_evidence,struct,1,Conditional model score and predictive checks.,Separate measured constraints from forecasts and reused model products.

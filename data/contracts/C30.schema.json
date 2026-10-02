@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C30 ARTEMIS FIRST HORIZONS engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "seed_scenario": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Light, cluster or heavy initial model.",
+      "x-unit": "1",
+      "x-source-type": "enum/version",
+      "x-quality-rule": "Distribution and host-occupation assumptions recorded."
+    },
+    "birth_mass_time": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Seed initial conditions.",
+      "x-unit": "solar mass, yr",
+      "x-source-type": "distribution<float64[2]>",
+      "x-quality-rule": "Cosmology/time origin and support required."
+    },
+    "growth_history": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "fields"
+      },
+      "x-dimension": "n",
+      "description": "Accretion/duty/efficiency and mass evolution.",
+      "x-unit": "yr, 1, solar mass",
+      "x-source-type": "float64[n,fields]",
+      "x-quality-rule": "Efficiency bounds and on/off convention explicit."
+    },
+    "merger_ledger": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "description": "Added mass, delay and loss assumptions.",
+      "x-unit": "solar mass, yr",
+      "x-source-type": "table|null",
+      "x-quality-rule": "Absent module does not imply measured zero mergers."
+    },
+    "intrinsic_luminosity": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "distribution record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Active SED/bolometric model.",
+      "x-unit": "erg s^-1",
+      "x-source-type": "distribution<float64>",
+      "x-quality-rule": "Bolometric correction and lambda convention."
+    },
+    "lensing_host_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Magnification/host/BH observation dependence.",
+      "x-unit": "mixed declared",
+      "x-source-type": "covariance",
+      "x-quality-rule": "Shared lensing errors retained."
+    },
+    "selection_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Survey inclusion after obscuration/flux/cadence.",
+      "x-unit": "1",
+      "x-source-type": "float64",
+      "x-quality-rule": "Nonnegative; unsupported domains flagged."
+    },
+    "seed_evidence": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Conditional model score and predictive checks.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Separate measured constraints from forecasts and reused model products."
+    }
+  },
+  "required": [
+    "seed_scenario",
+    "birth_mass_time",
+    "growth_history",
+    "merger_ledger",
+    "intrinsic_luminosity",
+    "lensing_host_cov",
+    "selection_probability",
+    "seed_evidence"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C30",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

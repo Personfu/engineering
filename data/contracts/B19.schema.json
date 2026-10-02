@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B19 PARKER PLASMA WHISPER — Electron Structure Observatory engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "product_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Exact QTN level/version/interval.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Checksums and archive flags retained."
+    },
+    "frequency": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Spectral bin coordinates.",
+      "x-unit": "Hz",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Monotone with receiver response key."
+    },
+    "voltage_psd": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Calibrated spectrum when available.",
+      "x-unit": "V²/Hz",
+      "x-source-type": "nullable float[]",
+      "x-quality-rule": "Noise/antenna metadata required."
+    },
+    "electron_density": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Released or fitted electron density.",
+      "x-unit": "m^-3",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Method and units explicit."
+    },
+    "electron_temperature": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Declared core/effective temperature.",
+      "x-unit": "K or eV",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Distribution definition and conversion saved."
+    },
+    "heliocentric_distance": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Encounter radial context.",
+      "x-unit": "AU",
+      "x-source-type": "float",
+      "x-quality-rule": "Ephemeris/time alignment recorded."
+    },
+    "structure_interval": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Independent boundary definition.",
+      "x-unit": "UTC",
+      "x-source-type": "datetime[2]",
+      "x-quality-rule": "Source/cadence uncertainty retained."
+    },
+    "parameter_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint fit/released-product uncertainty.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix",
+      "x-quality-rule": "PSD/support flags and correlations preserved."
+    }
+  },
+  "required": [
+    "product_key",
+    "frequency",
+    "voltage_psd",
+    "electron_density",
+    "electron_temperature",
+    "heliocentric_distance",
+    "structure_interval",
+    "parameter_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B19",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

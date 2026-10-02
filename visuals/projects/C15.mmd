@@ -1,0 +1,10 @@
+flowchart TB
+A["Source SED: flux per area/wavelength"] --> B["Area/exposure photon generator"]
+C["Throughput and pupil/OPD"] --> D["Optical pixel-event assignment"]
+B --> D
+D --> E["Detector accumulation and ramps"]
+E --> F["Pinned calibration/resampling"]
+G["Matched MAST ramps and metadata"] --> F
+F --> H["Stage metric/covariance comparison"]
+I["Independent PSF engine"] --> H
+H --> J["Module discrepancy and holdouts"]

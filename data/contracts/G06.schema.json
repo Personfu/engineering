@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G06 TERRA HUMIDITY HARVEST engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "sorbent_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Composition/structure and source version.",
+      "x-unit": "1",
+      "x-source-type": "string",
+      "x-quality-rule": "No cross-material parameter borrowing without flag."
+    },
+    "climate_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "T, water activity and CO2 partial pressure.",
+      "x-unit": "K,1,Pa",
+      "x-source-type": "record",
+      "x-quality-rule": "Time zone/step and uncertainty required."
+    },
+    "loading_data": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "CO2 equilibrium/dynamic loading.",
+      "x-unit": "mol/kg",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Water state, detection and covariance retained."
+    },
+    "kinetic_rate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Effective LDF coefficient.",
+      "x-unit": "s^-1",
+      "x-source-type": "nullable<float64>",
+      "x-quality-rule": "Positive; domain and uncertainty required."
+    },
+    "airflow_pressure": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Contactor flow and pressure drop.",
+      "x-unit": "m^3/s,Pa",
+      "x-source-type": "record",
+      "x-quality-rule": "Scale geometry and fan efficiency explicit."
+    },
+    "water_ledger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Intake, retained, recovered and lost water.",
+      "x-unit": "kg",
+      "x-source-type": "record",
+      "x-quality-rule": "Cycle-state reference and closure check."
+    },
+    "carbon_fate": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Storage, leakage and permanence evidence.",
+      "x-unit": "kg CO2",
+      "x-source-type": "nullable<record>",
+      "x-quality-rule": "Unknown prohibits durable-removal label."
+    }
+  },
+  "required": [
+    "sorbent_id",
+    "climate_state",
+    "loading_data",
+    "kinetic_rate",
+    "airflow_pressure",
+    "water_ledger",
+    "carbon_fate"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "G06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

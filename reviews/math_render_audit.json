@@ -1,4 +1,7 @@
 {
-  "latex_equations": 167,
+  "renderer": "KaTeX 0.19.0",
+  "scope": "All display-LaTeX governing and derivation equations in 117 source records; parseability only, not scientific correctness.",
+  "equations": 467,
+  "passed": 467,
   "errors": []
 }

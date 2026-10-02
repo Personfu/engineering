@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B06 SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "ozone_ppb": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Qualified surface concentration.",
+      "x-unit": "ppb",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Duration, method and flags retained."
+    },
+    "timestamp_pair": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Measurement and local-day conventions.",
+      "x-unit": "UTC local",
+      "x-source-type": "datetime[2]",
+      "x-quality-rule": "DST/site timezone explicit."
+    },
+    "mixing_height": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Box-model dilution depth.",
+      "x-unit": "m",
+      "x-source-type": "nullable float",
+      "x-quality-rule": "Positive; source support flagged."
+    },
+    "bvoc_factor": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Species emission-factor scenarios.",
+      "x-unit": "mg/m² leaf/hour",
+      "x-source-type": "float[]",
+      "x-quality-rule": "No NDVI substitution; covariance retained."
+    },
+    "leaf_area_index": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Leaf-to-ground area ratio.",
+      "x-unit": "m²/m²",
+      "x-source-type": "float",
+      "x-quality-rule": "Sensor/date provenance required."
+    },
+    "background_ozone": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Boundary-air concentration scenarios.",
+      "x-unit": "mol/m³",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Distinct from local monitor truth."
+    },
+    "scenario_mda8": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Eight-hour daily metric ensemble.",
+      "x-unit": "ppb",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Report completeness and model discrepancy."
+    }
+  },
+  "required": [
+    "ozone_ppb",
+    "timestamp_pair",
+    "mixing_height",
+    "bvoc_factor",
+    "leaf_area_index",
+    "background_ozone",
+    "scenario_mda8"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B06",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

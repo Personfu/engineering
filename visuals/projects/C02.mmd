@@ -1,0 +1,11 @@
+flowchart TB
+A["Sky rate and gradient maps"] --> D["Detector electron sampler"]
+B["Galaxy profiles and faint counts"] --> C["PSF convolution and padding"]
+C --> D
+E["Dark, read noise, persistence"] --> D
+D --> F["Calibration and drizzle matrix"]
+F --> G["Common masks and sky estimators"]
+F --> H["Propagated pixel covariance"]
+G --> I["Bias surface by estimand"]
+H --> I
+J["Withheld morphology generator"] --> I

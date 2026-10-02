@@ -1,0 +1,11 @@
+flowchart TB
+ A[USGS versioned chemistry rows] --> B[Feature sample method registry]
+ B --> C[Valence and censor adapter]
+ C --> D[Charge balance meq/L]
+ C --> E[Composition and facies uncertainty]
+ F[Basin polygons and time windows] --> G[Supported spatial covariance]
+ C --> G
+ G --> H[Feature holdout predictions]
+ H --> I[Concentration and support atlas]
+ E --> I
+ G --> J[Access-constrained sampling priorities]

@@ -1,0 +1,10 @@
+flowchart TB
+ A[USGS sample rows] --> B[Site and method crosswalk]
+ B --> C[Ion QC and censoring mg/L]
+ C --> D[Mixing features plus covariance]
+ E[GNSS displacement mm] --> F[Reference and offset adapter]
+ G[Precipitation and discharge] --> H[Past-only annual summaries]
+ D --> I[Chronological state estimator]
+ F --> I
+ H --> I
+ I --> J[Held-out forecast and skill mm]

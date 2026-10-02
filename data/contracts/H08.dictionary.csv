@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+specimen_section,string,none,Nested meteorite/section identity.,Curator and preparation lineage required.
+alteration_indicator,nullable record,declared,Independent alteration/heating evidence.,Not inferred from target thickness.
+core_radius,float[],micrometre,Observed/3D core-size distribution.,Sectioning correction and uncertainty saved.
+rim_interval,nullable float[2],micrometre,Boundary-supported thickness range.,Below-resolution censor limit retained.
+porosity,nullable float[],0–1,Present or scenario rim void fraction.,Initial/current distinction explicit.
+dust_growth_inputs,record,kg/m³ m/s fraction,Accretion scenario parameters.,Source range and covariance required.
+annotation_covariance,matrix,micrometre²,Boundary and registration uncertainty.,Shared labeler/section effects included.
+mechanism_weight,float vector,0–1,Accretion/modification/mixed compatibility.,Model priors and specimen holdout saved.

@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C18 REIONIZATION OXYGEN BEACON engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "galaxy_id_redshift": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Source identifier and redshift posterior.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "UV contamination counterparts linked."
+    },
+    "line_fluxes": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Named oxygen/Balmer/weak-line integrals.",
+      "x-unit": "erg s^-1 cm^-2",
+      "x-source-type": "measurement<float64[]>",
+      "x-quality-rule": "Line conventions and censoring flags retained."
+    },
+    "line_cov": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "x-dimension": "n"
+      },
+      "x-dimension": "n",
+      "description": "Continuum/deblend/extinction covariance.",
+      "x-unit": "flux^2",
+      "x-source-type": "float64[n,n]",
+      "x-quality-rule": "Shared fit terms preserved."
+    },
+    "uv_counts": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Direct LyC source/background data.",
+      "x-unit": "count",
+      "x-source-type": "struct<uint[],background,response>",
+      "x-quality-rule": "Poisson count model with exposure and wavelength bounds."
+    },
+    "transmission": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "IGM and Milky Way factors.",
+      "x-unit": "1",
+      "x-source-type": "posterior<float64[2]>",
+      "x-quality-rule": "Between zero and one; very low values imply weak fraction constraints."
+    },
+    "intrinsic_lyc": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Stellar-model ionizing output.",
+      "x-unit": "same flux convention",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "SED model and binary/age assumptions recorded."
+    },
+    "escape_fraction": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "representation"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "empirical",
+            "parametric",
+            "summary",
+            "unidentified"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "weights": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "object"
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "x-encoding": "posterior record: representation is explicit; weights and sample dimensions require domain validation.",
+      "description": "Absolute fraction within stated sightline/model.",
+      "x-unit": "1",
+      "x-source-type": "posterior<float64>",
+      "x-quality-rule": "Physical support zero to one; inconsistent data/model flagged."
+    },
+    "selection_probability": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Chance of sample inclusion.",
+      "x-unit": "1",
+      "x-source-type": "float64|null",
+      "x-quality-rule": "Null prohibits representative population-rate claims."
+    }
+  },
+  "required": [
+    "galaxy_id_redshift",
+    "line_fluxes",
+    "line_cov",
+    "uv_counts",
+    "transmission",
+    "intrinsic_lyc",
+    "escape_fraction",
+    "selection_probability"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "C18",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

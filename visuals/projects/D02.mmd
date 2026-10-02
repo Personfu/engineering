@@ -1,7 +1,11 @@
-flowchart LR
-  A["Angle history / sweep rate"] --> M["Separation / transition memory"]
-  M --> F["Lift / drag / moment loops"]
-  M --> S["Bubble / wake / reattachment state"]
-  F --> D["Slow dwell vs finite-rate discrimination"]
-  S --> D
-  D --> V["Withheld rate / disturbance prediction"]
+flowchart TB
+ A[Measured angle history rad] --> R[Rate and dwell registry]
+ T[Tunnel and surface state] --> D[Flow state diagnostics]
+ F[Force pressure clocks] --> C[Synchronization and covariance]
+ C --> L[Lift traces]
+ R --> M[Equilibrium relaxation bistable branches]
+ D --> M
+ L --> I[Loop and angle metrics]
+ M --> H[Withheld rate predictions]
+ I --> V[Persistent versus dynamic loop assessment]
+ H --> V

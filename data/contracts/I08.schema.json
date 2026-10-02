@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "I08 VOYAGER FRAMEFORGE engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "state_vector": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "description": "Position and velocity relative to named center.",
+      "x-unit": "m, m s^-1",
+      "x-source-type": "float64[6]",
+      "x-quality-rule": "No implicit frame/time defaults."
+    },
+    "epoch_context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Time value, scale and conversion pedigree.",
+      "x-unit": "s or JD",
+      "x-source-type": "struct",
+      "x-quality-rule": "Leap/time kernels and source scale required."
+    },
+    "source_manifest": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Kernel hashes or complete query/output.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Validity intervals and retrieval date."
+    },
+    "frame_correction": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Reference frame and aberration mode.",
+      "x-unit": "1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Apparent and geometric states distinct."
+    },
+    "gravity_parameters": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "mu, radius and coefficient normalization.",
+      "x-unit": "m^3 s^-2, m, 1",
+      "x-source-type": "struct",
+      "x-quality-rule": "Mass/shape/spin provenance independent."
+    },
+    "mesh_density": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "measurement value encoded directly; qualifier, uncertainty, calibration and model version are in the provenance sidecar.",
+      "description": "Closed shape and physical density.",
+      "x-unit": "m, kg m^-3",
+      "x-source-type": "measurement<struct>|null",
+      "x-quality-rule": "Oriented closed topology and uncertainty."
+    },
+    "potential_acceleration": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Model output with sign convention.",
+      "x-unit": "m^2 s^-2, m s^-2",
+      "x-source-type": "float64[4]",
+      "x-quality-rule": "Singular/out-of-domain locations flagged."
+    },
+    "state_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 6,
+        "maxItems": 6
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "description": "Source-supported uncertainty only.",
+      "x-unit": "mixed state^2",
+      "x-source-type": "float64[6,6]|null",
+      "x-quality-rule": "Null if unavailable; synthetic ensembles labeled illustrative."
+    }
+  },
+  "required": [
+    "state_vector",
+    "epoch_context",
+    "source_manifest",
+    "frame_correction",
+    "gravity_parameters",
+    "mesh_density",
+    "potential_acceleration",
+    "state_covariance"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "I08",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

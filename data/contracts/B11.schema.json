@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B11 APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "site_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reviewed offsite identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Roster date/state/scope required."
+    },
+    "document_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Evidence-file integrity key.",
+      "x-unit": "SHA-256",
+      "x-source-type": "string",
+      "x-quality-rule": "Exact bytes and source URL retained."
+    },
+    "evidence_span": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Exact supporting location.",
+      "x-unit": "page/characters",
+      "x-source-type": "record",
+      "x-quality-rule": "OCR uncertainty and page numbering saved."
+    },
+    "authority": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Controlling instrument and clause.",
+      "x-unit": "none",
+      "x-source-type": "nullable string",
+      "x-quality-rule": "Reviewer confirmation mandatory."
+    },
+    "due_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date",
+      "description": "Reviewed deadline or recurrence.",
+      "x-unit": "ISO 8601",
+      "x-source-type": "nullable date",
+      "x-quality-rule": "Null remains unresolved."
+    },
+    "status_revision": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Owner/status/reviewer transition.",
+      "x-unit": "none",
+      "x-source-type": "record",
+      "x-quality-rule": "Append-only with supersedes link."
+    },
+    "monitoring_result": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Qualified environmental observation.",
+      "x-unit": "declared analyte unit",
+      "x-source-type": "nullable record",
+      "x-quality-rule": "Reporting limit and lab metadata retained."
+    },
+    "coverage_state": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true,
+      "x-encoding": "Structured JSON record; member names, frames and mandatory subfields must be frozen in the project ICD before ingestion.",
+      "description": "Corpus denominator and missing documents.",
+      "x-unit": "none",
+      "x-source-type": "record",
+      "x-quality-rule": "Never implies all obligations known."
+    }
+  },
+  "required": [
+    "site_key",
+    "document_hash",
+    "evidence_span",
+    "authority",
+    "due_date",
+    "status_revision",
+    "monitoring_result",
+    "coverage_state"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B11",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

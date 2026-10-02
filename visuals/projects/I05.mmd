@@ -1,0 +1,11 @@
+flowchart TB
+A["Wind-field and slip ensemble"] --> B["Geodetic trajectory propagation"]
+C["True atmosphere and illumination"] --> D["Sensor lag/thermal-bias operator"]
+B --> D
+E["Harvest and component loads"] --> F["Stored-energy and service ledger"]
+D --> G["Source-timed synthetic telemetry"]
+F --> G
+H["Loss/delay/restart replay"] --> I["Recovered sampling record"]
+G --> I
+J["Collocated IGRA profiles"] --> K["Atmospheric error/support report"]
+I --> K

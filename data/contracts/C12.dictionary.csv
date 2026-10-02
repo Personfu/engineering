@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+visit_filter,string[2],1,Exposure group and filter identity.,Versioned product IDs and sky history required.
+sky_rate,measurement<float64>,electron s^-1 pixel^-1,Measured object-free sky estimator.,Retain estimator quality and usable area.
+solid_angle,measurement<float64>,sr pixel^-1,Pixel area for intensity conversion.,Distortion-dependent area convention recorded.
+solar_geometry,struct<float64>,degree,Solar elongation and ecliptic coordinates.,Computed at exposure epoch.
+dust_proxy,measurement<float64>,map-documented,Galactic dust-column tracer.,Map version and beam recorded.
+calibration_cov,"float64[n,n]",mixed intensity^2,Visit/filter systematic covariance.,Positive semidefinite; shared modes retained.
+component_intensity,posterior<float64[components]>,MJy sr^-1,Foreground/instrument decomposition.,All terms share bandpass convention.
+diffuse_residual,posterior<float64>,MJy sr^-1,Conditional residual or bound.,May be negative under noise/model; no forced detection.

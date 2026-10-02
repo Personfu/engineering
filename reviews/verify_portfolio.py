@@ -36,8 +36,10 @@ class PortfolioChecks(unittest.TestCase):
                 self.assertTrue(svg.exists());self.assertIn('<desc',svg.read_text(encoding='utf-8'))
     def test_internal_markdown_links(self):
         failures=[]
-        for file in list((ROOT/'projects').rglob('*.md'))+[ROOT/'README.md',ROOT/'catalog/PROJECTS.md']:
-            for target in re.findall(r'\]\(([^)\s]+)\)',file.read_text(encoding='utf-8')):
+        for file in ROOT.rglob('*.md'):
+            content=file.read_text(encoding='utf-8')
+            content=re.sub(r'```.*?```|\$\$.*?\$\$', '', content, flags=re.S)
+            for target in re.findall(r'\]\(([^)\s]+)\)',content):
                 if '://' in target or target.startswith('#'):continue
                 target=target.split('#')[0]
                 if not (file.parent/target).exists():failures.append((str(file.relative_to(ROOT)),target))
@@ -47,13 +49,49 @@ class PortfolioChecks(unittest.TestCase):
         text=json.dumps(p).lower()
         self.assertIn('autorotat',text);self.assertIn('laminar',text)
         self.assertGreaterEqual(len(p.get('subprojects',[])),2)
-    def test_offline_explorer_catalog(self):
-        html=(ROOT/'web/atlas.html').read_text(encoding='utf-8')
-        raw=re.search(r'<script id="catalog" type="application/json">(.*?)</script>',html,re.S).group(1)
-        self.assertEqual(len(json.loads(raw)),117)
-        for src in re.findall(r'<script[^>]* src="([^"]+)"',html):
-            self.assertNotIn('://',src)
-            self.assertTrue((ROOT/'web'/src).exists())
-        self.assertTrue((ROOT/'web/vendor/katex/LICENSE').exists())
-        self.assertIn('aria-live="polite"',html)
+    def test_documentation_order_and_no_website(self):
+        self.assertFalse((ROOT/'web').exists())
+        wanted=[f'{s}{i+1:02}' for s,ts in self.original.items() for i in range(len(ts))]
+        self.assertEqual([p['id'] for p in self.projects],wanted)
+        register=(ROOT/'ENGINEERING_DOCUMENTATION.md').read_text(encoding='utf-8')
+        seen=re.findall(r'\]\(projects/[A-I]/([A-I]\d{2})\.md\)',register)
+        self.assertEqual(seen,wanted)
+        for session in self.original:
+            book=(ROOT/'documentation'/f'SESSION_{session}.md').read_text(encoding='utf-8')
+            self.assertEqual(re.findall(r'<a id="([a-i]\d{2})">',book),[x.lower() for x in wanted if x.startswith(session)])
+    def test_engineering_contract_and_traceability_coverage(self):
+        import csv
+        annexes=json.loads((ROOT/'catalog/engineering_annexes.json').read_text(encoding='utf-8'))
+        self.assertEqual([a['id'] for a in annexes],[p['id'] for p in self.projects])
+        with (ROOT/'catalog/requirements.csv').open(encoding='utf-8') as f:req=list(csv.DictReader(f))
+        with (ROOT/'catalog/verification_cases.csv').open(encoding='utf-8') as f:cases=list(csv.DictReader(f))
+        self.assertEqual({x['project_id'] for x in req},{p['id'] for p in self.projects})
+        self.assertEqual({x['project_id'] for x in cases},{p['id'] for p in self.projects})
+        self.assertEqual(len({x['id'] for x in req}),len(req))
+        self.assertEqual(len({x['id'] for x in cases}),len(cases))
+        for a in annexes:
+            with self.subTest(id=a['id']):
+                self.assertGreaterEqual(len(a['requirements']),4)
+                self.assertGreaterEqual(len(a['derivation']),3)
+                self.assertGreaterEqual(len(a['verification_cases']),3)
+                schema=json.loads((ROOT/'data/contracts'/(a['id']+'.schema.json')).read_text(encoding='utf-8'))
+                with (ROOT/'data/contracts'/(a['id']+'.csv')).open(encoding='utf-8') as f:records=list(csv.reader(f))
+                self.assertEqual(len(records),1,'Acquisition template must not invent data')
+                self.assertEqual(records[0],list(schema['properties']))
+                self.assertTrue((ROOT/'visuals/projects'/(a['id']+'.mmd')).exists())
+    def test_rendered_architecture_sources_and_accessibility(self):
+        import hashlib,xml.etree.ElementTree as ET
+        manifest=json.loads((ROOT/'visuals/engineering_figure_manifest.json').read_text(encoding='utf-8'))
+        self.assertEqual(manifest['count'],117)
+        self.assertEqual([x['project_id'] for x in manifest['figures']],[p['id'] for p in self.projects])
+        for row in manifest['figures']:
+            with self.subTest(id=row['project_id']):
+                for name in ['source','svg']:
+                    path=ROOT/'visuals'/row[name]
+                    self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),row[name+'_sha256'])
+                svg=ROOT/'visuals'/row['svg']
+                tree=ET.fromstring(svg.read_bytes())
+                self.assertEqual(tree.attrib.get('role'),'img')
+                self.assertTrue(tree.find('{http://www.w3.org/2000/svg}title').text)
+                self.assertTrue(tree.find('{http://www.w3.org/2000/svg}desc').text)
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+interface_revision,string,1,Instrument drawing/datums version.,Required before final CAD dimensions.
+optical_geometry,record,"m,rad","d, order and grating/slit angles.",Sign/frame convention and units required.
+mount_parameters,record,"m,kg,Pa","Dimensions, mass and elastic properties.",Material source and tolerance covariance.
+thermal_state,record,K,Temperature increment/gradient.,Reference temperature and field uncertainty.
+boundary_stiffness,nullable<record>,"N/m,N m/rad",Attachment compliance.,Unknown never replaced ideal fixed without flag.
+line_centroid,nullable<float64>,m,Calibrated spectral wavelength.,Line source/resolution and fit error retained.
+verification_link,record,1,Requirement-to-analysis/inspection/test evidence.,Pending evidence explicitly TBD.

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B15 TECTON ORION — Farallon Slab Reconstruction engineering data contract",
+  "description": "Proposed record contract. No data have been collected by this generator. Null is missing/unknown and must be qualified in the separate provenance record.",
+  "type": "object",
+  "properties": {
+    "scenario_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Boundary/rheology ensemble identity.",
+      "x-unit": "none",
+      "x-source-type": "string",
+      "x-quality-rule": "Hash complete configuration."
+    },
+    "convergence_velocity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "variable length; ICD-defined",
+      "description": "Prescribed plate history.",
+      "x-unit": "m/s",
+      "x-source-type": "float[]",
+      "x-quality-rule": "Ma-to-second conversion explicit."
+    },
+    "viscosity": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Temperature/pressure/strain dependent rheology.",
+      "x-unit": "Pa s",
+      "x-source-type": "float field",
+      "x-quality-rule": "Positive; cutoff provenance retained."
+    },
+    "temperature": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Thermal model state.",
+      "x-unit": "K",
+      "x-source-type": "float field",
+      "x-quality-rule": "Boundary and initial condition keys required."
+    },
+    "density_anomaly": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Buoyancy relative to reference.",
+      "x-unit": "kg/m³",
+      "x-source-type": "float field",
+      "x-quality-rule": "Reference density and composition law explicit."
+    },
+    "slab_metrics": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "number"
+      },
+      "x-dimension": "ordering/shape frozen in ICD",
+      "description": "Dip and flattening/arc descriptors.",
+      "x-unit": "degrees km",
+      "x-source-type": "float vector",
+      "x-quality-rule": "Extraction method/version retained."
+    },
+    "geology_covariance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "x-dimension": "row/column ordering and dimensions frozen in ICD",
+      "description": "Joint observation-group uncertainty.",
+      "x-unit": "mixed",
+      "x-source-type": "matrix",
+      "x-quality-rule": "Age/spatial correlations documented."
+    },
+    "run_status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "converged, failed or unsupported.",
+      "x-unit": "none",
+      "x-source-type": "enum",
+      "x-quality-rule": "Failed runs never silently discarded."
+    }
+  },
+  "required": [
+    "scenario_key",
+    "convergence_velocity",
+    "viscosity",
+    "temperature",
+    "density_anomaly",
+    "slab_metrics",
+    "geology_covariance",
+    "run_status"
+  ],
+  "additionalProperties": false,
+  "x-project-id": "B15",
+  "x-unit-policy": "Use documented units; do not replace missing values with zero. Reference frames, covariance basis, calibration version and quality qualifiers reside in the provenance sidecar.",
+  "x-domain-validation": "Physical range, covariance validity and declared quality rules require domain validation beyond JSON Schema."
+}

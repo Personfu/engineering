@@ -1,10 +1,11 @@
-flowchart LR
-  L["Published P66 evidence"] --> I["Sequence identity"]
-  L --> Q["Analytical composition / heterogeneity"]
-  L --> S["Structural / oligomeric hypotheses"]
-  L --> F["Reported channel-state behavior"]
-  I --> E["Claim-to-evidence matrix"]
-  Q --> E
-  S --> E
-  F --> E
-  E --> U["Unresolved claims / future characterization specification"]
+flowchart TB
+ P[Published P66 articles] --> R[Specimen provenance registry]
+ Q[Versioned public sequence] --> T[Residue topology mapping]
+ R --> D[Figure and table extractor]
+ D --> M[Signal mixture model]
+ D --> C[Conductance state summaries]
+ T --> S[Structural hypothesis ensemble]
+ M --> J[Dependent evidence likelihood]
+ C --> J
+ S --> J
+ J --> O[Separated claim matrix]

@@ -1,0 +1,11 @@
+flowchart TB
+ A[Authorized assay records mg/L mg/kg] --> B[Identity recovery censor QC]
+ C[Formula and molar mass dictionary] --> D[Molar element inventory]
+ B --> D
+ D --> E[Balanced reaction compartments]
+ F[Documented abiotic controls] --> E
+ G[Supported transport geometry] --> H[Optional transport operator]
+ H --> E
+ E --> I[Censored parameter estimator]
+ I --> J[Measured-pool closure]
+ I --> K[Benchmark and unresolved-hazard ledger]

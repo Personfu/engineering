@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+icd_revision,nullable<string>,1,Controlling deployer interface document.,Missing blocks final dimension acceptance.
+load_case,record,"N,N m",Mission/provider load vector and frame.,"Source, environment and factor provenance."
+material_allowable,record,Pa,Temperature-specific failure allowable.,Reduction/FOS history required.
+joint_stiffness,nullable<record>,"N/m,N m/rad",Fastener/contact compliance.,Distribution/covariance and source retained.
+component_mass_map,array<record>,"kg,m",Mass/inertia positions.,Harness/support allowances explicit.
+cad_clearances,record,m,Rail and access margins.,Tolerance covariance and protected regions.
+analysis_margin,nullable<record>,1,Mode/stress/interface margins.,"Pending inputs yield null, not zero pass."

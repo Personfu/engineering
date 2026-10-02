@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+gauge_key,string,none,Station and rating-version identity.,Station changes and qualifiers retained.
+discharge,nullable float,m³/s,Observed reference flow.,Rating/measurement uncertainty saved.
+catchment_area,float,m²,Depth-volume conversion support.,Boundary version and positivity checked.
+forcing_vector,nullable record,mm/day,Precipitation/ET/deep-loss terms.,Coverage and covariance retained.
+issued_at,datetime,UTC,Forecast creation/availability time.,No future observations in replay.
+forecast_ensemble,float[][],m³/s or mm,Dated horizon-member states.,Member dependence and model key recorded.
+loss_parameters,record,declared currency/service units,Stakeholder action consequences.,Approval/version and uncertainty explicit.
+decision_regret,float[],same as loss,Held-out policy performance.,Oracle comparator limited to scoring.

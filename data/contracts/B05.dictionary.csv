@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+phenophase_status,enum,none,"present, absent or unknown.",Unknown never treated as absence.
+onset_bounds,nullable date[2],calendar day,Observed timing interval.,Store one-sided censoring.
+daily_temperature,nullable float,°C,Local mean temperature.,Coverage and timezone required.
+base_temperature,float,°C,Species thermal threshold.,Provenance or scenario tag required.
+bloom_probability,float[],none,Weekly flowering ensemble.,Bounds 0–1; joint covariance saved.
+establishment_fraction,float[],none,Scenario survival to resource provision.,No default perfect survival.
+resource_shortfall,float[],resources/week,Demand minus realized floral proxy.,Demand assumptions linked.

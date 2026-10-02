@@ -1,0 +1,11 @@
+flowchart TB
+A["Kernel hashes/Horizons query manifest"] --> B["Typed state retrieval/cache"]
+C["Time/frame/aberration metadata"] --> B
+B --> D["Matched state transformation"]
+E["Independent mu/harmonic coefficients"] --> F["Point-mass/harmonic evaluator"]
+G["Closed shape plus density"] --> H["Gated shape-gravity evaluator"]
+D --> F
+D --> H
+F --> I["Potential-gradient/domain checks"]
+H --> I
+I --> J["Reference residual and runtime report"]

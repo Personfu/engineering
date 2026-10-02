@@ -1,0 +1,8 @@
+field,type,unit,meaning,quality_rule
+test_block,string,1,Randomized run block and condition.,Baseline repeats and sequence retained.
+freestream_state,record,"kg/m^3,m/s,Pa s","Density, speed and viscosity.",Calibration covariance and timestamps required.
+force_vector,vector<float64>,N,Tared wind-axis loads.,Axis convention and reference area required.
+jet_histories,"array<time,flow,speed>","s,kg/s,m/s",Pulse-resolved momentum inputs.,Synchronized; missing pulse sample flagged.
+actuation_power,nullable<float64>,W,Electrical/pneumatic equivalent input.,Boundary and conversion efficiency declared.
+separation_length,nullable<float64>,m,Diagnostic bubble/separation extent.,Observable definition and error required.
+coefficient_covariance,matrix<float64>,1,Joint lift/drag uncertainty.,Shared tare/inflow terms retained.

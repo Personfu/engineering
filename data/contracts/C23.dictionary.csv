@@ -1,0 +1,9 @@
+field,type,unit,meaning,quality_rule
+target_id,int64,Kepler identifier,Every qualifying searched star.,Denominator inclusion/exclusion reason mandatory.
+stellar_posterior,distribution<struct>,"solar mass, solar radius, K",Host properties affecting geometry/detection.,Joint covariance and source version.
+metallicity,measurement<float64>|null,dex [Fe/H],Host abundance and method.,Missing state and method-offset group retained.
+candidate_posterior,distribution<float64[2]>|null,"Earth radius, day",R/P measurements for candidates.,No-candidate target is separate from missing measurement.
+selection_components,float64[],1,"p_tr, window, detection and vetting.","Each in [0,1]; no duplicated window factor."
+reliability,measurement<float64>,1,Candidate true-planet probability/context.,False-positive model version required.
+occurrence_intensity,posterior<float64>,planet star^-1 per logR/logP,Latent rate in supported domain.,Log base and bin/support boundaries explicit.
+expected_count,float64,count,Integrated selected intensity.,Quadrature convergence and target count recorded.

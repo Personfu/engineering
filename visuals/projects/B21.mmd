@@ -1,0 +1,11 @@
+flowchart TB
+ A[Versioned coding sequences and proteomes] --> B[Translation taxon QC]
+ B --> C[Published CAIS correction]
+ D[Domain alignments and boundaries] --> E[Homologous-domain registry]
+ B --> E
+ E --> F[Disorder predictor ensemble]
+ F --> G[Valid residue counts and fractions]
+ H[Phylogeny branch covariance] --> I[Matched-domain comparative model]
+ C --> I
+ G --> I
+ I --> J[Clade holdout and composition controls]
