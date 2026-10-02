@@ -18,11 +18,12 @@ Start with the [ordered engineering document register](ENGINEERING_DOCUMENTATION
 
 ## Engineering artifacts
 
-- [117 individually addressable project records](ENGINEERING_DOCUMENTATION.md), totaling approximately 247,000 words.
+- [117 individually addressable project records](ENGINEERING_DOCUMENTATION.md), totaling approximately 248,000 words.
 - [527 requirements](catalog/requirements.csv) and [434 specified verification cases](catalog/verification_cases.csv), with persistent IDs and evidence fields.
 - [117 JSON record schemas, field dictionaries and empty acquisition CSVs](data/contracts/README.md), covering 877 defined data fields.
 - 117 editable engineering architecture diagrams and their rendered SVGs, linked from the relevant records.
 - [Eight executable reduced-model demonstrations](models/README.md), nine numerical figures, tabular outputs and a separately acquired 200-row NASA Exoplanet Archive snapshot with query and retrieval provenance.
+- [20 supplementary educational reference kernels](reference_library/README.md), with the concurrent engineering contribution preserved separately and in Git history.
 - [250 distinct cited resources](catalog/source_index.csv), with project-to-source mappings.
 
 ## Design and evidence controls

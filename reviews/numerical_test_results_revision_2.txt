@@ -1,0 +1,27 @@
+test_pd_dissipates_mechanical_energy (test_models.AttitudeTests.test_pd_dissipates_mechanical_energy) ... ok
+test_torque_free_rotation (test_models.AttitudeTests.test_torque_free_rotation) ... ok
+test_undamped_spring_analytical_oscillation (test_models.AttitudeTests.test_undamped_spring_analytical_oscillation) ... ok
+test_creeping_flow_force_matches_stokes (test_models.DragTests.test_creeping_flow_force_matches_stokes) ... ok
+test_extrapolation_rejected (test_models.DragTests.test_extrapolation_rejected) ... ok
+test_julia_unit_circle_limit (test_models.FractalTests.test_julia_unit_circle_limit) ... ok
+test_known_mandelbrot_orbits (test_models.FractalTests.test_known_mandelbrot_orbits) ... ok
+test_no_recharge_matches_analytical_recession (test_models.HydrologyTests.test_no_recharge_matches_analytical_recession) ... ok
+test_steady_recharge_storage_and_outflow (test_models.HydrologyTests.test_steady_recharge_storage_and_outflow) ... ok
+test_variable_recharge_mass_balance (test_models.HydrologyTests.test_variable_recharge_mass_balance) ... ok
+test_exact_mixture_recovers_fraction (test_models.InverseTests.test_exact_mixture_recovers_fraction) ... ok
+test_identical_endmembers_cannot_be_inverted (test_models.InverseTests.test_identical_endmembers_cannot_be_inverted) ... ok
+test_sampling_uncertainty_matches_analytic_information (test_models.InverseTests.test_sampling_uncertainty_matches_analytic_information) ... ok
+test_central_force_preserves_angular_momentum (test_models.OrbitTests.test_central_force_preserves_angular_momentum) ... ok
+test_energy_error_bounded_and_refines (test_models.OrbitTests.test_energy_error_bounded_and_refines) ... ok
+test_second_order_convergence_to_exact_circular_orbit (test_models.OrbitTests.test_second_order_convergence_to_exact_circular_orbit) ... ok
+test_invalid_composition_rejected (test_models.PhaseTests.test_invalid_composition_rejected) ... ok
+test_pure_component_and_temperature_depression (test_models.PhaseTests.test_pure_component_and_temperature_depression) ... ok
+test_symmetric_eutectic_analytical_limit (test_models.PhaseTests.test_symmetric_eutectic_analytical_limit) ... ok
+test_fourth_order_against_exact_isolated_solution (test_models.ThermalTests.test_fourth_order_against_exact_isolated_solution) ... ok
+test_isolated_network_energy_and_equilibrium (test_models.ThermalTests.test_isolated_network_energy_and_equilibrium) ... ok
+test_radiative_and_convective_equilibrium (test_models.ThermalTests.test_radiative_and_convective_equilibrium) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.811s
+
+OK

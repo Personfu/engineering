@@ -1,0 +1,276 @@
+[
+  {
+    "id": "phase",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/phase.json",
+    "sha256": "619cb5383bfa2e3f0657a11ed891614114f10eb5246a7603b531e06c2c5ba198",
+    "rows": 99,
+    "columns": [
+      "fraction_B",
+      "liquidus_A_K",
+      "liquidus_B_K"
+    ],
+    "limitations": "Illustrative ideal binary phase curves; parameters are invented, not Pluto materials."
+  },
+  {
+    "id": "orbit",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/orbit.json",
+    "sha256": "22a664d7643ada3449e943d062bd0d75d8b3a14c62d07bf40a3aaba8ebc7a897",
+    "rows": 1201,
+    "columns": [
+      "time_dimensionless",
+      "x_a",
+      "y_a",
+      "energy_GM_over_a",
+      "angular_dimensionless"
+    ],
+    "limitations": "Nondimensional two-body velocity Verlet; no ephemeris, encounters, CR3BP, DRO or Apophis risk."
+  },
+  {
+    "id": "thermal",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/thermal.json",
+    "sha256": "8dd92c4d45c0033c72413a4d405fd523e0895dfa540d48f21acfc0ce9e9dd868",
+    "rows": 121,
+    "columns": [
+      "time_s",
+      "temperature_K"
+    ],
+    "limitations": "Exact lumped thermal reference; constant boundary, illustrative parameters; not a balloon or engine solver."
+  },
+  {
+    "id": "drag",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/drag.json",
+    "sha256": "40b27a29682851538819dc6066bd21495e5d50035e6d22184aa2aecdeb0b5193",
+    "rows": 101,
+    "columns": [
+      "Re",
+      "Cd"
+    ],
+    "limitations": "Schiller-Naumann reference correlation, not a CFD algorithm; excludes drag crisis."
+  },
+  {
+    "id": "spectrum",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/spectrum.json",
+    "sha256": "e1fe2f1c7128717305a6c70719bf46585139496a803a478c7ec24749dffe3502",
+    "rows": 161,
+    "columns": [
+      "wavelength_nm",
+      "truth_relative_flux",
+      "synthetic_relative_flux"
+    ],
+    "limitations": "Synthetic Gaussian line near H-beta; not an Eta Carinae observation or fitted radial velocity."
+  },
+  {
+    "id": "mixture",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/mixture.json",
+    "sha256": "7df552628b9d51232c8732e70b2e6ca7b043d83196ea3d73ff987a8ff1154d42",
+    "rows": 121,
+    "columns": [
+      "wavelength_um",
+      "synthetic_endmember_A",
+      "synthetic_endmember_B",
+      "areal_mix"
+    ],
+    "limitations": "Invented endmember spectra, linear areal mixing only; no real mineral, isotope or chemical identification."
+  },
+  {
+    "id": "radiation",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/radiation.json",
+    "sha256": "c05adab49fb694a1376ee34bfe4bb6f4817a1f3da2295e97f3c95ebf12f7aae5",
+    "rows": 62,
+    "columns": [
+      "altitude_m",
+      "live_time_s",
+      "synthetic_counts",
+      "count_rate_per_s",
+      "approx_sigma_per_s"
+    ],
+    "limitations": "Invented altitude/count profile; Gaussian count uncertainty invalid at low counts; not measured radiation or dose."
+  },
+  {
+    "id": "calibration",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/calibration.json",
+    "sha256": "e74068ee66c56c4827790cbd755ea1a087d0d04a98d9ccd4334f95e44d9140a9",
+    "rows": 101,
+    "columns": [
+      "raw_ADU",
+      "bias_dark_flat_corrected_ADU_per_s"
+    ],
+    "limitations": "Synthetic scalar detector correction; not OCAMS, NIRCam or absolute flux calibration."
+  },
+  {
+    "id": "hydrology",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/hydrology.json",
+    "sha256": "2d48e3b55daac336360a63fea2fa25d152aaccedeb807e245529541ead8b0982",
+    "rows": 121,
+    "columns": [
+      "suction_cm",
+      "volumetric_water_fraction",
+      "effective_saturation"
+    ],
+    "limitations": "Illustrative van Genuchten retention; no Frye Fire measurements and no Richards PDE solution."
+  },
+  {
+    "id": "adsorption",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/adsorption.json",
+    "sha256": "8eb29141a3339049c088f5dd3a0bab2a8d85e2cc578731842362e1e9f361b4a5",
+    "rows": 101,
+    "columns": [
+      "concentration_arbitrary",
+      "uptake_arbitrary"
+    ],
+    "limitations": "Single-solute Langmuir illustration; no selectivity, recovery, algae experiment or moisture-swing cycle."
+  },
+  {
+    "id": "kinetics",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/kinetics.json",
+    "sha256": "f0584b646b68bd472a125646d201c3d19039d9e120c7c2dc815db1b139f84366",
+    "rows": 121,
+    "columns": [
+      "time_arbitrary",
+      "fraction_remaining"
+    ],
+    "limitations": "Synthetic first-order reference decay; not a biological treatment or detoxification model."
+  },
+  {
+    "id": "antenna",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/antenna.json",
+    "sha256": "657c31f2e965ba488c744921359a5241881684e9329dfec76246ec420862ecbb",
+    "rows": 181,
+    "columns": [
+      "theta_degree",
+      "normalized_ideal_dipole_power"
+    ],
+    "limitations": "Ideal lossless thin half-wave dipole elevation pattern; not measured ground-station gain."
+  },
+  {
+    "id": "mechanics",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/mechanics.json",
+    "sha256": "582b4c701d640569cd35e9bfc26bb8a40af6251dd58d1b39b88964fd390a192a",
+    "rows": 101,
+    "columns": [
+      "position_m",
+      "deflection_m"
+    ],
+    "limitations": "Small-deflection homogeneous cantilever reference; not calibrated cilia, bone or launch-vehicle FEA."
+  },
+  {
+    "id": "suspension",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/suspension.json",
+    "sha256": "5094b8203a86879776ad9598c3739243ae96715197b3c138ddef24028d56a2c7",
+    "rows": 121,
+    "columns": [
+      "frequency_over_resonance",
+      "base_motion_transmissibility"
+    ],
+    "limitations": "Linear single-stage base excitation; excludes LIGO multistage suspension and thermal noise."
+  },
+  {
+    "id": "swarm",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/swarm.json",
+    "sha256": "d99a965b010b83586e20c198b13cab68dc35c836479855f77d66e07f606d75a2",
+    "rows": 101,
+    "columns": [
+      "iteration",
+      "node_0",
+      "node_1",
+      "node_2",
+      "node_3",
+      "node_4",
+      "node_5",
+      "node_6",
+      "node_7",
+      "node_8",
+      "node_9",
+      "node_10",
+      "node_11"
+    ],
+    "limitations": "Synthetic connected-ring consensus; no moving algorithmic matter or general target detector."
+  },
+  {
+    "id": "power",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/power.json",
+    "sha256": "de04de3f97d9d0b961d03e7863a0eaac4188c46391981628cfceed9cf9b4e38b",
+    "rows": 145,
+    "columns": [
+      "hour",
+      "synthetic_PV_W",
+      "load_W",
+      "storage_Wh"
+    ],
+    "limitations": "Synthetic solar profile and clipped ideal storage; not dispatch optimization, measured weather, EPS qualification or electrolysis."
+  },
+  {
+    "id": "adaptive",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/adaptive.json",
+    "sha256": "e2e7a89f42da29940afc148d1baa1376ff9a410254c48eb041c975a9f49e161a",
+    "rows": 1000,
+    "columns": [
+      "sample",
+      "desired_synthetic",
+      "measured_synthetic",
+      "filtered_synthetic"
+    ],
+    "limitations": "Synthetic NLMS with ideal independent noise reference; desired-signal leakage can invalidate cancellation."
+  },
+  {
+    "id": "fractal",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/fractal.json",
+    "sha256": "0463435ffcb647b60e7a6627fa7523f926108f0df60e146a87e7b1579af57fa0",
+    "rows": 3072,
+    "columns": [
+      "real",
+      "imaginary",
+      "escape_iteration_zero_unresolved"
+    ],
+    "limitations": "Finite-resolution escape-time Mandelbrot; unresolved iterates do not prove membership."
+  },
+  {
+    "id": "image",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/image.json",
+    "sha256": "7b783d2fa9c21c480cc503ff20aa6584f264af4b5203ba330bb1da3a526dae93",
+    "rows": 1024,
+    "columns": [
+      "pixel_x",
+      "pixel_y",
+      "truth_background_count",
+      "truth_total_count",
+      "synthetic_count"
+    ],
+    "limitations": "Synthetic Gaussian source with Gaussian approximation to Poisson/read noise; no instrument-calibrated image."
+  },
+  {
+    "id": "attitude",
+    "evidence_class": "SYNTHETIC EDUCATIONAL REFERENCE",
+    "path": "data/synthetic/attitude.json",
+    "sha256": "632df4390b727590336fed74511493c4e48d3ead954aeae0a5d22733d27dc4d5",
+    "rows": 2001,
+    "columns": [
+      "time_s",
+      "quaternion_w",
+      "quaternion_x",
+      "angle_rad",
+      "rate_rad_per_s",
+      "torque_Nm"
+    ],
+    "limitations": "Single-axis spherical-inertia quaternion PD example; excludes full coupled 3-axis dynamics and flight sensors."
+  }
+]

@@ -1,0 +1,13 @@
+test_all_contracts_are_valid_and_unknowns_are_explicit (__main__.DataContracts.test_all_contracts_are_valid_and_unknowns_are_explicit) ... ok
+test_coefficient_row_column_contract (__main__.DataContracts.test_coefficient_row_column_contract) ... ok
+test_complex_tensor_preserves_numeric_components (__main__.DataContracts.test_complex_tensor_preserves_numeric_components) ... ok
+test_distribution_records_preserve_representation (__main__.DataContracts.test_distribution_records_preserve_representation) ... ok
+test_exact_two_by_two_covariance_shape (__main__.DataContracts.test_exact_two_by_two_covariance_shape) ... ok
+test_record_array_container_is_not_scalar (__main__.DataContracts.test_record_array_container_is_not_scalar) ... ok
+test_scenario_raster_rank (__main__.DataContracts.test_scenario_raster_rank) ... ok
+test_sparse_operator_representation (__main__.DataContracts.test_sparse_operator_representation) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.819s
+
+OK

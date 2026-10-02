@@ -51,6 +51,7 @@ class PortfolioChecks(unittest.TestCase):
         self.assertGreaterEqual(len(p.get('subprojects',[])),2)
     def test_documentation_order_and_no_website(self):
         self.assertFalse((ROOT/'web').exists())
+        self.assertFalse((ROOT/'atlas').exists())
         wanted=[f'{s}{i+1:02}' for s,ts in self.original.items() for i in range(len(ts))]
         self.assertEqual([p['id'] for p in self.projects],wanted)
         register=(ROOT/'ENGINEERING_DOCUMENTATION.md').read_text(encoding='utf-8')

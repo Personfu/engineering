@@ -3,28 +3,13 @@ test_documentation_order_and_no_website (__main__.PortfolioChecks.test_documenta
 test_each_dossier_has_a_conceptual_figure (__main__.PortfolioChecks.test_each_dossier_has_a_conceptual_figure) ... ok
 test_engineering_contract_and_traceability_coverage (__main__.PortfolioChecks.test_engineering_contract_and_traceability_coverage) ... ok
 test_exact_original_coverage (__main__.PortfolioChecks.test_exact_original_coverage) ... ok
-test_internal_markdown_links (__main__.PortfolioChecks.test_internal_markdown_links) ... FAIL
+test_internal_markdown_links (__main__.PortfolioChecks.test_internal_markdown_links) ... ok
 test_models_and_data_contracts (__main__.PortfolioChecks.test_models_and_data_contracts) ... ok
 test_rendered_architecture_sources_and_accessibility (__main__.PortfolioChecks.test_rendered_architecture_sources_and_accessibility) ... ok
 test_source_links_are_https (__main__.PortfolioChecks.test_source_links_are_https) ... ok
 test_unique_ids_and_mission_names (__main__.PortfolioChecks.test_unique_ids_and_mission_names) ... ok
 
-======================================================================
-FAIL: test_internal_markdown_links (__main__.PortfolioChecks.test_internal_markdown_links)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "C:\Users\pfuru\Documents\Codex\2026-10-02\github-in-the-engineering-repository-please-2\work\engineering\reviews\verify_portfolio.py", line 46, in test_internal_markdown_links
-    self.assertEqual(failures,[])
-AssertionError: Lists differ: [('reviews\\RELEASE_VERIFICATION.md', 'data_contract_test_results.txt')] != []
+Ran 10 tests in 1.739s
 
-First list contains 1 additional elements.
-First extra element 0:
-('reviews\\RELEASE_VERIFICATION.md', 'data_contract_test_results.txt')
-
-- [('reviews\\RELEASE_VERIFICATION.md', 'data_contract_test_results.txt')]
-+ []
-
-----------------------------------------------------------------------
-Ran 10 tests in 0.603s
-
-FAILED (failures=1)
+OK

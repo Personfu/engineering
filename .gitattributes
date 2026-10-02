@@ -2,6 +2,7 @@
 
 # Preserve the exact bytes covered by the scientific data/figure manifests.
 models/data/** -text
+reference_library/astra_forge/data/synthetic/** -text
 models/figures/** -text
 # Matplotlib writes insignificant spaces in SVG path geometry.
 models/figures/*.svg whitespace=-trailing-space

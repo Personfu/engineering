@@ -1,4 +1,6 @@
-# Independent scientific and editorial review
+# Independent scientific and editorial review · Historical revision 1
+
+This earlier review is retained for mathematical correction history. The [closed revision-2 engineering review](INDEPENDENT_ENGINEERING_REVIEW.md) and [current release verification](RELEASE_VERIFICATION.md) describe the expanded documentation.
 
 Reviewed on 2026-10-02. This is a proposal-quality review, not comprehensive expert peer review, experimental validation, flight qualification, clinical approval, or NASA certification.
 
