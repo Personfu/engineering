@@ -20,5 +20,6 @@
   "model_fields_present": true,
   "conceptual_svg_count": 117,
   "combined_entry": "D03 keeps autorotation and laminar separation bubbles as separate work packages",
-  "content_sha256": "b8c27ca78ce48b2859a95a0d1d94b662010096c68f0c82466d294b68d1b69125"
+  "content_sha256": "a39f405be75fc83da1ad767d3206734a9b7836fb9899ed59f2b6cbced5d8d8f9",
+  "content_hash_basis": "UTF-8 catalog/projects.json bytes stored in Git, with canonical LF line endings."
 }
