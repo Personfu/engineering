@@ -1,0 +1,64 @@
+{
+  "id": "17_fractal_resolution_and_escape",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/17_fractal_resolution_and_escape.svg",
+  "png": "data/figures/17_fractal_resolution_and_escape.png",
+  "provenance": "data/figures/17_fractal_resolution_and_escape.provenance.json",
+  "caption": "Finite-grid escape iteration maps from immutable Mandelbrot and Julia outputs. Logarithmic color records the first iteration whose modulus exceeds two. Navy regions identify points that did not escape within 160 iterations; these points are unresolved by this computation and are not certified members. The Julia parameter is c = −0.75 + 0.11i.",
+  "linked_projects": [
+    "A01"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/mandelbrot.csv",
+      "sha256": "7555e947d17fe0bc3da2a376aae385e2ebcc8f2f5c2e1590e57c12185cbede4e",
+      "bytes": 2432621
+    },
+    {
+      "path": "models/data/mandelbrot.json",
+      "sha256": "77f7c9ad3260fa3f3b126a0e6cdd9d9ece35afb19de4c1ec0a7841ec4aefd302",
+      "bytes": 587
+    },
+    {
+      "path": "models/data/julia.csv",
+      "sha256": "5250e2479adade7c9fea89fb10f4ae9e2d31d7ff17a4c07b1a7b802eea5f62eb",
+      "bytes": 2520905
+    },
+    {
+      "path": "models/data/julia.json",
+      "sha256": "189c70ca7c5c60dd9a0de886dd2ed278c056426fa1811ac85b22284cb8470141",
+      "bytes": 617
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/17_fractal_resolution_and_escape.svg",
+      "sha256": "add4b211ffe2bfa2098f340ab75d8314ed23aee0d0520a46a87261addcc820c5",
+      "bytes": 117604
+    },
+    {
+      "path": "data/figures/17_fractal_resolution_and_escape.png",
+      "sha256": "580beb0f7b03c4da2c6a276f87ba4820877a3c4db279f553f145879b79d76565",
+      "bytes": 246740
+    }
+  ],
+  "assumptions_and_limits": [
+    "Finite precision, a finite spatial grid and finite iteration cannot prove membership.",
+    "Different sampled domains; unresolved fractions describe only these specific grids.",
+    "Maps use escape counts, not distance-estimator missingness. Julia's sampled critical point z0=0 escapes at iteration 29 but has an undefined derivative-based distance estimate."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "mandelbrot": {
+      "points": 43621,
+      "unresolved_points": 9873,
+      "unresolved_fraction": 0.22633593911189565
+    },
+    "julia": {
+      "points": 43621,
+      "unresolved_points": 808,
+      "unresolved_fraction": 0.018523188372572844
+    }
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

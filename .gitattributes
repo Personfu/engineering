@@ -2,9 +2,12 @@
 
 # Preserve the exact bytes covered by the scientific data/figure manifests.
 models/data/** -text
-reference_library/astra_forge/data/synthetic/** -text
+archive/astra_forge/data/synthetic/** -text
 models/figures/** -text
 # Matplotlib writes insignificant spaces in SVG path geometry.
 models/figures/*.svg whitespace=-trailing-space
 # Windows-generated data records preserve CRLF as part of their saved hashes.
 models/data/** whitespace=cr-at-eol
+# Preserve independently hashed presentation figures and their Matplotlib path whitespace.
+data/figures/*.svg -text whitespace=-trailing-space
+data/figures/*.png -text

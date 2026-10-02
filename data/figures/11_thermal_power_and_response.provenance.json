@@ -1,0 +1,52 @@
+{
+  "id": "11_thermal_power_and_response",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/11_thermal_power_and_response.svg",
+  "png": "data/figures/11_thermal_power_and_response.png",
+  "provenance": "data/figures/11_thermal_power_and_response.provenance.json",
+  "caption": "Synthetic two-node balloon thermal model. Signed component powers sum to net wall power, with wall-to-payload conduction reversed for the wall balance. The payload has a prescribed 3 W internal source. Temperatures show the model response to imposed boundary histories; they are not balloon-flight measurements or qualification limits.",
+  "linked_projects": [
+    "E06"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/balloon_thermal.csv",
+      "sha256": "e590de3982977a790b462b0c574f7981ffeb0874699a937d1e1fa1ceb218e74a",
+      "bytes": 215252
+    },
+    {
+      "path": "models/data/balloon_thermal.json",
+      "sha256": "c2f7f70862427683622fbe535512c1f1ebac3857705884618cf45363be550ceb",
+      "bytes": 859
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/11_thermal_power_and_response.svg",
+      "sha256": "bdb25813a194b3f5f0f248eadebba005e639daf10eea4cc02362936e14399b97",
+      "bytes": 41003
+    },
+    {
+      "path": "data/figures/11_thermal_power_and_response.png",
+      "sha256": "78312cdda7086f4a5bdf9d17d11898d91c8a782f8bfa8d57394393c41f936aaf",
+      "bytes": 243945
+    }
+  ],
+  "assumptions_and_limits": [
+    "Uniform temperatures per node; view factor folded into radiating area.",
+    "No atmosphere calibration, rarefied-flow correction, measured ascent profile or uncertainty ensemble."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "payload_source_W": 3.0,
+    "wall_net_power_range_W": [
+      -23.821970551756316,
+      -0.23437579846490708
+    ],
+    "payload_net_power_range_W": [
+      -4.081532878784038,
+      3.0
+    ]
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

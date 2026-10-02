@@ -1,17 +1,45 @@
 # Engineering documentation build
 
-The controlled sources are [projects.json](../catalog/projects.json) (original titles, order, names, governing models and resources) and [engineering_annexes.json](../catalog/engineering_annexes.json) (requirements, detailed derivations, interfaces, data fields, uncertainty, trades, specified cases, implementation and architecture). Preserve stable project IDs and exact original-title strings.
+The controlled sources are [projects.json](../registry/projects.json) (original titles, order, names, governing models and resources) and [engineering_annexes.json](../registry/engineering_annexes.json) (requirements, detailed derivations, interfaces, data fields, uncertainty, trades, specified cases, implementation and architecture). Preserve stable project IDs and exact original-title strings.
 
 Run from the repository root:
 
 ```sh
 python tools/build_engineering_documentation.py
-python reviews/verify_portfolio.py
+python evidence/verify_portfolio.py
 python -m pip install -r tools/requirements-dev.txt
-python reviews/verify_data_contracts.py
+python evidence/verify_data_contracts.py
 ```
 
-The builder asserts all 117 original titles and their exact A–I order before generating project Markdown, nine combined session handbooks, indices, requirement/case registers, editable diagram sources and empty data contracts. CSV templates contain only headers; the builder never acquires or invents project measurements. Review changes to scientific source records before accepting regenerated documentation.
+The builder asserts all 117 original titles and their exact A–I order before generating named mission folders, project/data/figure READMEs, nine continuous handbooks, session galleries, registers, diagram sources and empty data contracts. It also regenerates the original hero, session cards and complete field maps using the Python standard library. CSV templates contain only headers; the builder never acquires or invents project measurements. Review changes to scientific source records before accepting regenerated documentation.
+
+## Visual design and data diagnostics
+
+The visual design generator reads the controlled registry and produces 127 accessible SVGs with exact metadata and field definitions. Its manifest records inputs, outputs, palette and evidence labels:
+
+```sh
+python tools/build_visual_design.py --repo . --out assets --co-locate
+```
+
+The richer profile generator adds 117 source-bound mission profiles and the portfolio mission-control dashboard. It wraps the full scientific question, hypothesis, model framing and traceability content without inventing measurements or readiness scores:
+
+```sh
+python tools/build_mission_profiles.py --repo .
+python tools/build_data_inventory.py
+```
+
+The table inventory reads all 12 original CSVs and their recorded provenance. It exposes headers, units and their sources, missing/non-finite values, finite ranges, full-precision raw preview rows, parameters and linked plots in JSON and a readable notebook. Unknown units remain explicit. Both generators use the Python standard library and are called by the documentation builder. Profile generation runs after final register generation so its input hashes cover the exact source revision.
+
+The builder also writes the mission-control portal and a transparent resource-connection register. Rankings use actual shared citations, supplied sessions and shared included illustrations. Reading connections are separate from physical dependencies or validation.
+
+The [data diagnostic gallery](../data/figures/README.md) adds nine scientific figure pairs from the existing, immutable model CSVs. Regeneration requires the model plotting dependencies:
+
+```sh
+python -m pip install -r models/requirements.txt
+python tools/render_data_figures.py
+```
+
+The renderer records source hashes, captions, assumptions and derived summaries. Inspect changed plots and provenance before committing regenerated outputs. Plot appearance can vary with plotting-library versions; the checked-in files and hashes identify the reviewed revision.
 
 ## Editable technical diagrams
 

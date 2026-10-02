@@ -1,0 +1,17 @@
+{
+  "review_date": "2026-10-02",
+  "external_primary_links_checked": 8,
+  "source_checks": [
+    {"url":"https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/","status":"loaded","support":"Spacecraft energy-flow balance, thermal capacitance, radiation, conductance and environmental design context. Cited as context rather than support for invented balloon parameters."},
+    {"url":"https://www.nasa.gov/smallsat-institute/sst-soa/guidance-navigation-and-control/","status":"loaded","support":"Attitude sensors, actuators, reaction-wheel torque/momentum limits and saturation. Cited as subsystem context, not qualification of the one-axis gains."},
+    {"url":"https://www.hec.usace.army.mil/confluence/hmsdocs/hmstrm/baseflow/linear-reservoir-model","status":"loaded","support":"Linear-reservoir baseflow, infiltrated water as inflow, mass conservation and time constants. Gallery states its demonstration is simpler than HEC-HMS."},
+    {"url":"https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html","status":"loaded","support":"Archive ADQL SELECT/FROM/WHERE queries, synchronous TAP endpoint, CSV output and pscomppars table querying."},
+    {"url":"https://exoplanetarchive.ipac.caltech.edu/docs/API_TD_columns.html","status":"loaded","support":"Planet radius in Earth radii, orbital period in days and the archive's error/reference columns. Gallery explicitly notes those error/reference fields were omitted from the saved extract."},
+    {"url":"https://doi.org/10.26133/NEA13","status":"resolved_HTTP_200_with_Windows_curl","official_metadata":"https://www.ipac.caltech.edu/doi/10.26133/NEA13","support":"Official IPAC record identifies Planetary Systems Composite Table and its use of multiple references to fill parameter gaps. DOI web-scraper parsing failed, but the DOI redirect and destination returned HTTP 200 without bypassing TLS verification."},
+    {"url":"https://cpp.openfoam.org/v12/SchillerNaumann_8C_source.html","status":"loaded","support":"Primary source implementation documents the 24*(1+0.15*Re^0.687) low-Re Cd*Re branch and a separate high-Re branch. Gallery refers to the reference formula; the included educational model does not implement the high-Re branch."},
+    {"url":"https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-equation/","status":"loaded","support":"Drag coefficient, density, speed-squared and reference-area dimensional relation. Cited as drag-equation context rather than a measured sphere validation dataset."}
+  ],
+  "current_repository_pngs_inspected": 9,
+  "visual_findings": "All nine current PNGs are readable at full spread size. Titles, axis labels, units, legends, colorbars, evidence labels and key annotations remain visible; no clipping blockers found. Fraction-distribution scales differ explicitly; navy fractal missing classifications differ from escaped-point colors.",
+  "repository_edits_required": false
+}

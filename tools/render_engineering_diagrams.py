@@ -6,17 +6,20 @@ import html
 import json
 import re
 import subprocess
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'tools'))
+from layout import project_directory
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def render(project, annex, cli, config):
     pid = project['id']
-    source = ROOT/'visuals/projects'/f'{pid}.mmd'
+    source = project_directory(project)/'figures/architecture.mmd'
     output = source.with_suffix('.svg')
     result = subprocess.run(['node', str(cli), '-i', str(source), '-o', str(output),
                              '-c', str(config), '-b', 'white'],
@@ -34,8 +37,8 @@ def render(project, annex, cli, config):
     svg = svg[:start]+tag+'><title id="atlas-title">'+title+'</title><desc id="atlas-description">'+description+'</desc>'+svg[end+1:]
     ET.fromstring(svg)
     output.write_bytes((svg.rstrip()+'\n').encode('utf-8'))
-    return {'project_id':pid,'source':str(source.relative_to(ROOT/'visuals')).replace('\\','/'),
-            'svg':str(output.relative_to(ROOT/'visuals')).replace('\\','/'),
+    return {'project_id':pid,'source':str(source.relative_to(ROOT)).replace('\\','/'),
+            'svg':str(output.relative_to(ROOT)).replace('\\','/'),
             'source_sha256':digest(source),'svg_sha256':digest(output),'svg_bytes':output.stat().st_size}
 
 def main():
@@ -48,8 +51,8 @@ def main():
     if not 1 <= args.workers <= 8:
         parser.error('--workers must be between 1 and 8.')
     config = ROOT/'tools/mermaid-config.json'
-    projects = json.loads((ROOT/'catalog/projects.json').read_text(encoding='utf-8'))
-    annexes = {a['id']:a for a in json.loads((ROOT/'catalog/engineering_annexes.json').read_text(encoding='utf-8'))}
+    projects = json.loads((ROOT/'registry/projects.json').read_text(encoding='utf-8'))
+    annexes = {a['id']:a for a in json.loads((ROOT/'registry/engineering_annexes.json').read_text(encoding='utf-8'))}
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
         pending = [executor.submit(render,p,annexes[p['id']],args.cli.resolve(),config) for p in projects]
@@ -61,6 +64,6 @@ def main():
     manifest = {'purpose':'Engineering model/interface architecture; not empirical result figures.',
                 'renderer':'Mermaid CLI 12.0.0','config_sha256':digest(config),
                 'figures':results,'count':len(results)}
-    (ROOT/'visuals/engineering_figure_manifest.json').write_bytes((json.dumps(manifest,indent=2)+'\n').encode('utf-8'))
+    (ROOT/'evidence/architecture_manifest.json').write_bytes((json.dumps(manifest,indent=2)+'\n').encode('utf-8'))
 
 if __name__=='__main__':main()

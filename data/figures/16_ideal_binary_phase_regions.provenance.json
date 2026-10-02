@@ -1,0 +1,45 @@
+{
+  "id": "16_ideal_binary_phase_regions",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/16_ideal_binary_phase_regions.svg",
+  "png": "data/figures/16_ideal_binary_phase_regions.png",
+  "provenance": "data/figures/16_ideal_binary_phase_regions.provenance.json",
+  "caption": "Equilibrium phase regions inferred from the existing ideal-binary liquidus model with invented melting temperatures and fusion enthalpies. Above the liquidus the material is liquid; between the liquidus and eutectic temperature it is liquid plus the indicated pure solid; below the eutectic it is A and B solids. The region labels follow the model assumptions and are not predictions for Pluto's real volatile mixtures.",
+  "linked_projects": [
+    "A02"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/ideal_binary_liquidus.csv",
+      "sha256": "43d76659b57496967f931a3389bf397d08f4dc0a1bf36ec2a30cddd4b4756689",
+      "bytes": 45049
+    },
+    {
+      "path": "models/data/ideal_binary_liquidus.json",
+      "sha256": "a51990bc2444224d69bc624c61fbf4103e0b62a89f9eaacf8e07f97c1c72bfdb",
+      "bytes": 726
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/16_ideal_binary_phase_regions.svg",
+      "sha256": "9c54afe39eae084422d0b90a47343bbc541624c72b0db37ceea00cb1ea9470bb",
+      "bytes": 108065
+    },
+    {
+      "path": "data/figures/16_ideal_binary_phase_regions.png",
+      "sha256": "534520db03782926b957b7ebf3d0ad1256b3abe4a9c171685496609b85b59cfe",
+      "bytes": 180274
+    }
+  ],
+  "assumptions_and_limits": [
+    "Invented values: Tm,A 63 K; Tm,B 60 K; ΔHfus,A 900 J/mol; ΔHfus,B 700 J/mol.",
+    "No real N₂/CO/CH₄ measurements, solid solutions, calibrated pressure, nonideality or kinetics."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "toy_eutectic_x_B": 0.5622777770899248,
+    "toy_eutectic_temperature_K": 42.54337489282418
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

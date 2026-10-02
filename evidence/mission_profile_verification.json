@@ -1,0 +1,602 @@
+{
+  "revision": 4,
+  "review_date": "2026-10-02",
+  "scope": "Independent mission profile, actual-data inventory, transparent connection, provenance and preservation checks; no project empirical validation.",
+  "baseline_commit": "71c6503f0377fda8ed3ea572047a9c78b28300b3",
+  "preservation": {
+    "original_title_id_name_session_order_exact": true,
+    "original_entries": 117,
+    "both_D03_work_packages": true,
+    "controlled_sources": [
+      {
+        "baseline_path": "catalog/projects.json",
+        "current_path": "registry/projects.json",
+        "baseline_sha256": "543e2a2b8954f6010aeb833967db3f00687f96ad9755b2ac295e9c75a297434d",
+        "current_sha256": "543e2a2b8954f6010aeb833967db3f00687f96ad9755b2ac295e9c75a297434d",
+        "byte_equal": true,
+        "semantic_equal": true
+      },
+      {
+        "baseline_path": "catalog/engineering_annexes.json",
+        "current_path": "registry/engineering_annexes.json",
+        "baseline_sha256": "228e4b03df2a004dad7573b1d0e283ee6e30d574c13a44a03d65fd74abd90baf",
+        "current_sha256": "228e4b03df2a004dad7573b1d0e283ee6e30d574c13a44a03d65fd74abd90baf",
+        "byte_equal": true,
+        "semantic_equal": true
+      },
+      {
+        "baseline_path": "catalog/original_titles.json",
+        "current_path": "registry/original_titles.json",
+        "baseline_sha256": "087da0e42466c85aab06685be9a4cafe19a7a282f79ea76790eade4547eb9467",
+        "current_sha256": "087da0e42466c85aab06685be9a4cafe19a7a282f79ea76790eade4547eb9467",
+        "byte_equal": true,
+        "semantic_equal": true
+      },
+      {
+        "baseline_path": "catalog/sessions.json",
+        "current_path": "registry/sessions.json",
+        "baseline_sha256": "9ad1b3829bba768423f4662424357923212bb76e0549a40d72ca9ac9793b56c1",
+        "current_sha256": "9ad1b3829bba768423f4662424357923212bb76e0549a40d72ca9ac9793b56c1",
+        "byte_equal": true,
+        "semantic_equal": true
+      },
+      {
+        "baseline_path": "catalog/sources.json",
+        "current_path": "registry/sources.json",
+        "baseline_sha256": "4d6efbac983462e3bd93da9c4b0d7331681987fe86182febea8328632ebc272f",
+        "current_sha256": "4d6efbac983462e3bd93da9c4b0d7331681987fe86182febea8328632ebc272f",
+        "byte_equal": true,
+        "semantic_equal": true
+      }
+    ],
+    "scientific_assets": [
+      {
+        "baseline_path": "models/data/balloon_thermal.csv",
+        "current_path": "models/data/balloon_thermal.csv",
+        "sha256": "e590de3982977a790b462b0c574f7981ffeb0874699a937d1e1fa1ceb218e74a",
+        "bytes": 215252,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/balloon_thermal.json",
+        "current_path": "models/data/balloon_thermal.json",
+        "sha256": "c2f7f70862427683622fbe535512c1f1ebac3857705884618cf45363be550ceb",
+        "bytes": 859,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/exoplanet_sample.csv",
+        "current_path": "models/data/exoplanet_sample.csv",
+        "sha256": "31d0b4ecc46e1fb7a57d41e4f35467adbfbd6d37137050b70ac6f39881f8e90e",
+        "bytes": 14272,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/exoplanet_sample.provenance.json",
+        "current_path": "models/data/exoplanet_sample.provenance.json",
+        "sha256": "e5c572bdd05f996af44d606af5a2e91cac1cabc02c01d35a9faf7f86a71d6fa3",
+        "bytes": 2170,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/hydrologic_reservoir.csv",
+        "current_path": "models/data/hydrologic_reservoir.csv",
+        "sha256": "54ee19e9ea1a31e587b4479d9ef0581e536fce6d5c0a3441600afae0895043a9",
+        "bytes": 26052,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/hydrologic_reservoir.json",
+        "current_path": "models/data/hydrologic_reservoir.json",
+        "sha256": "f816c09d8618628305c7706fefa622ee46b71feb33854f883b5b5a4062299efd",
+        "bytes": 761,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/ideal_binary_liquidus.csv",
+        "current_path": "models/data/ideal_binary_liquidus.csv",
+        "sha256": "43d76659b57496967f931a3389bf397d08f4dc0a1bf36ec2a30cddd4b4756689",
+        "bytes": 45049,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/ideal_binary_liquidus.json",
+        "current_path": "models/data/ideal_binary_liquidus.json",
+        "sha256": "a51990bc2444224d69bc624c61fbf4103e0b62a89f9eaacf8e07f97c1c72bfdb",
+        "bytes": 726,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/julia.csv",
+        "current_path": "models/data/julia.csv",
+        "sha256": "5250e2479adade7c9fea89fb10f4ae9e2d31d7ff17a4c07b1a7b802eea5f62eb",
+        "bytes": 2520905,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/julia.json",
+        "current_path": "models/data/julia.json",
+        "sha256": "189c70ca7c5c60dd9a0de886dd2ed278c056426fa1811ac85b22284cb8470141",
+        "bytes": 617,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/mandelbrot.csv",
+        "current_path": "models/data/mandelbrot.csv",
+        "sha256": "7555e947d17fe0bc3da2a376aae385e2ebcc8f2f5c2e1590e57c12185cbede4e",
+        "bytes": 2432621,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/mandelbrot.json",
+        "current_path": "models/data/mandelbrot.json",
+        "sha256": "77f7c9ad3260fa3f3b126a0e6cdd9d9ece35afb19de4c1ec0a7841ec4aefd302",
+        "bytes": 587,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/one_axis_attitude.csv",
+        "current_path": "models/data/one_axis_attitude.csv",
+        "sha256": "7f8c1498b3d766337c7ddf20e8d12860d99f1c33a3e5259096ec935713a93a0d",
+        "bytes": 190136,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/one_axis_attitude.json",
+        "current_path": "models/data/one_axis_attitude.json",
+        "sha256": "ec7993516b1d122c8b7eeb9bef1a9de8585cd751d7beed5e921c5f66225d1167",
+        "bytes": 739,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/spectral_mixture.csv",
+        "current_path": "models/data/spectral_mixture.csv",
+        "sha256": "af89ffdc0661479ca0f7dbf4561ef10abe46f5ffa06f3f2794f8093db37af5d7",
+        "bytes": 22291,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/spectral_mixture.json",
+        "current_path": "models/data/spectral_mixture.json",
+        "sha256": "8d6313caf756c59a21c76fb19a828acdc03b2a0754d4cb001cb3634ee54447dd",
+        "bytes": 1175,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/spectral_monte_carlo.csv",
+        "current_path": "models/data/spectral_monte_carlo.csv",
+        "sha256": "b8e4ed10b7fa6201e7081cd1557ea5cbb44b6f7109ca237de4c3452c215ba4f3",
+        "bytes": 86529,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/sphere_drag.csv",
+        "current_path": "models/data/sphere_drag.csv",
+        "sha256": "e8b262fd7d3b4c37cb39fd2cf67ec5231ed6ce7e8e0b49a1e306b35f3431de2d",
+        "bytes": 26087,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/sphere_drag.json",
+        "current_path": "models/data/sphere_drag.json",
+        "sha256": "adc28070268dabff5fd5a3051521bc12a323bc460398c28867802a597ef48f1c",
+        "bytes": 667,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/two_body_convergence.csv",
+        "current_path": "models/data/two_body_convergence.csv",
+        "sha256": "91b4d6524ce07e6590807af8f16b793347351240c7475793f630ade259294434",
+        "bytes": 129,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/two_body_orbit.csv",
+        "current_path": "models/data/two_body_orbit.csv",
+        "sha256": "26346ffc7b03f09342a18bb0cdc83d5e31ace0b18e364b79b912455a6712098f",
+        "bytes": 549951,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/data/two_body_orbit.json",
+        "current_path": "models/data/two_body_orbit.json",
+        "sha256": "d5c5abddf0a548196da2e150ed37b2f5a5582af51709474314372ef7252abf67",
+        "bytes": 960,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/01_fractal_escape_distance.png",
+        "current_path": "models/figures/01_fractal_escape_distance.png",
+        "sha256": "6594613b70c523cc954d282bfa81b95109a9e0f18299b21c2e4e370ed057099b",
+        "bytes": 798539,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/01_fractal_escape_distance.svg",
+        "current_path": "models/figures/01_fractal_escape_distance.svg",
+        "sha256": "dff51d1bfb54ecc6f5309660af01533619150da162db0fc8d1434c813545461e",
+        "bytes": 845468,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/02_ideal_binary_liquidus.png",
+        "current_path": "models/figures/02_ideal_binary_liquidus.png",
+        "sha256": "a455fe25af1983b361c8c2ad5fba9dcad69230b04badbaa6fd6bb032745095bc",
+        "bytes": 89229,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/02_ideal_binary_liquidus.svg",
+        "current_path": "models/figures/02_ideal_binary_liquidus.svg",
+        "sha256": "d7e4ebee544bd51bd04ca7bb53dfc008d8433adcd7c410be4b4c0041571660da",
+        "bytes": 16433,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/03_balloon_thermal.png",
+        "current_path": "models/figures/03_balloon_thermal.png",
+        "sha256": "946373c206ddf8f26ec267bdf94f12343f9245b13d6e9b42301778baee38cd3f",
+        "bytes": 143522,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/03_balloon_thermal.svg",
+        "current_path": "models/figures/03_balloon_thermal.svg",
+        "sha256": "996d0fe01f38563a613de6a49d6cc44f8772c24c24c0ab7b2630ad2244469125",
+        "bytes": 36569,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/04_sphere_drag.png",
+        "current_path": "models/figures/04_sphere_drag.png",
+        "sha256": "938496f6f9dc6db1d6b4d0db10ef3d7fd97a3662a8cf8590d851ce688822d544",
+        "bytes": 124514,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/04_sphere_drag.svg",
+        "current_path": "models/figures/04_sphere_drag.svg",
+        "sha256": "d7d27f9203f48cf840f72a41f92cbc7e3bb78f8acbc00422dd2451515c44859c",
+        "bytes": 69284,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/05_hydrologic_reservoir.png",
+        "current_path": "models/figures/05_hydrologic_reservoir.png",
+        "sha256": "9e6e809e0cafadcd9ef163e28cdfe33f9c96d17a9fb25623dddfc148ac3ec2b3",
+        "bytes": 119561,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/05_hydrologic_reservoir.svg",
+        "current_path": "models/figures/05_hydrologic_reservoir.svg",
+        "sha256": "b845ad9219d677730eff05b6d64147d0dace88ce17de4ec7d5c859c619fa6970",
+        "bytes": 31198,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/06_one_axis_attitude.png",
+        "current_path": "models/figures/06_one_axis_attitude.png",
+        "sha256": "27e922e473b22217732b0b356fb819039d27988709792324c62e70e97c33db8c",
+        "bytes": 92593,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/06_one_axis_attitude.svg",
+        "current_path": "models/figures/06_one_axis_attitude.svg",
+        "sha256": "f7ca03d41f923f48b645ec2e72ca2abb1b3db13ef37298a58ea340f668ffd22d",
+        "bytes": 27850,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/07_two_body_convergence.png",
+        "current_path": "models/figures/07_two_body_convergence.png",
+        "sha256": "00be74ede65097bb81b366533660e20de7b33bb8b24e561cbe5b02b7846811a9",
+        "bytes": 194558,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/07_two_body_convergence.svg",
+        "current_path": "models/figures/07_two_body_convergence.svg",
+        "sha256": "9c9e507c5880738b9a6da6bfa344586cdbba3afa6542a3b4d2619cfaea572945",
+        "bytes": 88749,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/08_spectral_identifiability.png",
+        "current_path": "models/figures/08_spectral_identifiability.png",
+        "sha256": "a3760e57dfcb3a67f3998d93da5de66f820a123e9ef57b9c3df107d0150546cf",
+        "bytes": 147833,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/08_spectral_identifiability.svg",
+        "current_path": "models/figures/08_spectral_identifiability.svg",
+        "sha256": "2c9d23fb93591129262d6c467560c4eb8047b8048a01b4d45439105476d691a1",
+        "bytes": 78575,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/09_real_exoplanet_sample.png",
+        "current_path": "models/figures/09_real_exoplanet_sample.png",
+        "sha256": "1f8572bd4c864d54f3d0223faf801aa95ab74e578f482de498e6b0f768591877",
+        "bytes": 103539,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "models/figures/09_real_exoplanet_sample.svg",
+        "current_path": "models/figures/09_real_exoplanet_sample.svg",
+        "sha256": "6622398cf3b2a8afbcc16d49f1d6cc5e2ad6648a843ccbf195a1c230d0206e5f",
+        "bytes": 54734,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/phase.json",
+        "current_path": "archive/astra_forge/data/synthetic/phase.json",
+        "sha256": "619cb5383bfa2e3f0657a11ed891614114f10eb5246a7603b531e06c2c5ba198",
+        "bytes": 4597,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/orbit.json",
+        "current_path": "archive/astra_forge/data/synthetic/orbit.json",
+        "sha256": "22a664d7643ada3449e943d062bd0d75d8b3a14c62d07bf40a3aaba8ebc7a897",
+        "bytes": 119341,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/thermal.json",
+        "current_path": "archive/astra_forge/data/synthetic/thermal.json",
+        "sha256": "8dd92c4d45c0033c72413a4d405fd523e0895dfa540d48f21acfc0ce9e9dd868",
+        "bytes": 3265,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/drag.json",
+        "current_path": "archive/astra_forge/data/synthetic/drag.json",
+        "sha256": "40b27a29682851538819dc6066bd21495e5d50035e6d22184aa2aecdeb0b5193",
+        "bytes": 4076,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/spectrum.json",
+        "current_path": "archive/astra_forge/data/synthetic/spectrum.json",
+        "sha256": "e1fe2f1c7128717305a6c70719bf46585139496a803a478c7ec24749dffe3502",
+        "bytes": 7589,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/mixture.json",
+        "current_path": "archive/astra_forge/data/synthetic/mixture.json",
+        "sha256": "7df552628b9d51232c8732e70b2e6ca7b043d83196ea3d73ff987a8ff1154d42",
+        "bytes": 7216,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/radiation.json",
+        "current_path": "archive/astra_forge/data/synthetic/radiation.json",
+        "sha256": "c05adab49fb694a1376ee34bfe4bb6f4817a1f3da2295e97f3c95ebf12f7aae5",
+        "bytes": 3157,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/calibration.json",
+        "current_path": "archive/astra_forge/data/synthetic/calibration.json",
+        "sha256": "e74068ee66c56c4827790cbd755ea1a087d0d04a98d9ccd4334f95e44d9140a9",
+        "bytes": 2633,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/hydrology.json",
+        "current_path": "archive/astra_forge/data/synthetic/hydrology.json",
+        "sha256": "2d48e3b55daac336360a63fea2fa25d152aaccedeb807e245529541ead8b0982",
+        "bytes": 7369,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/adsorption.json",
+        "current_path": "archive/astra_forge/data/synthetic/adsorption.json",
+        "sha256": "8eb29141a3339049c088f5dd3a0bab2a8d85e2cc578731842362e1e9f361b4a5",
+        "bytes": 2708,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/kinetics.json",
+        "current_path": "archive/astra_forge/data/synthetic/kinetics.json",
+        "sha256": "f0584b646b68bd472a125646d201c3d19039d9e120c7c2dc815db1b139f84366",
+        "bytes": 3318,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/antenna.json",
+        "current_path": "archive/astra_forge/data/synthetic/antenna.json",
+        "sha256": "657c31f2e965ba488c744921359a5241881684e9329dfec76246ec420862ecbb",
+        "bytes": 4672,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/mechanics.json",
+        "current_path": "archive/astra_forge/data/synthetic/mechanics.json",
+        "sha256": "582b4c701d640569cd35e9bfc26bb8a40af6251dd58d1b39b88964fd390a192a",
+        "bytes": 3879,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/suspension.json",
+        "current_path": "archive/astra_forge/data/synthetic/suspension.json",
+        "sha256": "5094b8203a86879776ad9598c3739243ae96715197b3c138ddef24028d56a2c7",
+        "bytes": 5046,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/swarm.json",
+        "current_path": "archive/astra_forge/data/synthetic/swarm.json",
+        "sha256": "d99a965b010b83586e20c198b13cab68dc35c836479855f77d66e07f606d75a2",
+        "bytes": 23707,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/power.json",
+        "current_path": "archive/astra_forge/data/synthetic/power.json",
+        "sha256": "de04de3f97d9d0b961d03e7863a0eaac4188c46391981628cfceed9cf9b4e38b",
+        "bytes": 6132,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/adaptive.json",
+        "current_path": "archive/astra_forge/data/synthetic/adaptive.json",
+        "sha256": "e2e7a89f42da29940afc148d1baa1376ff9a410254c48eb041c975a9f49e161a",
+        "bytes": 64954,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/fractal.json",
+        "current_path": "archive/astra_forge/data/synthetic/fractal.json",
+        "sha256": "0463435ffcb647b60e7a6627fa7523f926108f0df60e146a87e7b1579af57fa0",
+        "bytes": 129317,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/image.json",
+        "current_path": "archive/astra_forge/data/synthetic/image.json",
+        "sha256": "7b783d2fa9c21c480cc503ff20aa6584f264af4b5203ba330bb1da3a526dae93",
+        "bytes": 50200,
+        "original_bytes_preserved": true
+      },
+      {
+        "baseline_path": "reference_library/astra_forge/data/synthetic/attitude.json",
+        "current_path": "archive/astra_forge/data/synthetic/attitude.json",
+        "sha256": "632df4390b727590336fed74511493c4e48d3ead954aeae0a5d22733d27dc4d5",
+        "bytes": 227840,
+        "original_bytes_preserved": true
+      }
+    ],
+    "scientific_asset_count": 60,
+    "unchanged_schema_records": 117,
+    "documentation_counts": {
+      "requirements": 527,
+      "specified_cases": 434,
+      "fields": 877
+    },
+    "unchanged_display_latex_blocks_per_document_collection": {
+      "records": 467,
+      "handbooks": 467
+    }
+  },
+  "executed_suites": [
+    {
+      "name": "portfolio, profiles and data inventory",
+      "command": "python evidence/verify_portfolio.py",
+      "working_directory": ".",
+      "tests": 18,
+      "passed": true,
+      "elapsed_seconds": 11.582
+    },
+    {
+      "name": "contracts",
+      "command": "python evidence/verify_data_contracts.py",
+      "working_directory": ".",
+      "tests": 8,
+      "passed": true,
+      "elapsed_seconds": 1.848
+    },
+    {
+      "name": "ATLAS numerical",
+      "command": "python -m unittest -v test_models.py",
+      "working_directory": "models",
+      "tests": 22,
+      "passed": true,
+      "elapsed_seconds": 0.754
+    },
+    {
+      "name": "archive numerical",
+      "command": "python -m unittest discover -s tests -v",
+      "working_directory": "archive/astra_forge",
+      "tests": 14,
+      "passed": true,
+      "elapsed_seconds": 0.276
+    }
+  ],
+  "total_passing_tests": 62,
+  "presentation_checks": {
+    "mission_profiles": 117,
+    "unique_source_bound_profile_images": 117,
+    "all_full_profile_question_hypothesis_summary_title_assumption_limit_and_reference_facts_visible": true,
+    "all_profile_metadata_counts_match_controlled_sources": true,
+    "profile_and_dashboard_hashes_verified": true,
+    "field_maps": 117,
+    "all_field_type_unit_meaning_values_visible": true,
+    "document_artwork_assets": 127,
+    "new_scientific_figure_pairs": 9,
+    "source_and_output_hashes_verified": true,
+    "markdown_html_and_fragment_links_resolve": true,
+    "svg_accessibility_metadata": true,
+    "svg_static_preview_review": {
+      "profile_samples": [
+        "A07",
+        "D03"
+      ],
+      "mission_control_dashboard": true,
+      "clipped_or_overlapping_text_observed": false,
+      "current_catalog_png": "data/figures/10_catalog_values_and_coverage.png",
+      "catalog_scope_qualifier_visible": true
+    }
+  },
+  "profile_manifest_sha256": "83c2d5cefd75fd78a15b113f0f90813b667c05e099f3f504f7ef7cd7a17f7a13",
+  "data_inventory_sha256": "20d63bbb4d9508f0558b3b072eda5c20cf74a19420379146019e62afda579365",
+  "connection_register_sha256": "1ba93b6fdc7bb49f25ce5d2f7c19838ce695032475976c1fad727988e5fc8804",
+  "data_inventory_checks": {
+    "summary": {
+      "dataset_count": 12,
+      "evidence_counts": {
+        "real_public_catalog_snapshot": 1,
+        "synthetic_illustrative": 11
+      },
+      "total_csv_rows": 98759,
+      "total_columns": 61,
+      "blank_cells": 9,
+      "nan_cells": 10683,
+      "other_nonfinite_cells": 0,
+      "unit_status_counts": {
+        "documented_sidecar": 48,
+        "verified_model_definition": 13
+      }
+    },
+    "exact_source_columns_and_csv_text_previews": true,
+    "numeric_ranges_and_missingness_recomputed": true,
+    "unit_status_counts": {
+      "documented_sidecar": 48,
+      "verified_model_definition": 13
+    },
+    "observational_snapshot_rows": 200,
+    "missing_metallicity_rows": 9
+  },
+  "mission_connection_checks": {
+    "project_records": 117,
+    "directed_browsing_links": 692,
+    "no_self_or_uncontrolled_links": true,
+    "every_link_basis_and_top_six_ranking_recomputed": true,
+    "interpretation": "Reading/resource connections; not physical dependencies, collaborations or validated relationships."
+  },
+  "record_word_count": 347612,
+  "limits": [
+    "Structural schema checks do not validate member-level ICDs, physical units, covariance PSD, calibration or measurements.",
+    "Observational snapshot is a saved 200-row query-ordered and row-limited, discovery-selected extract; global selection rank was not independently verified. Synthetic visualizations remain illustrative.",
+    "62 software/documentation tests are distinct from 434 specified future project verification cases.",
+    "Storage row counts and numeric extrema describe saved files; they are not independent observations, confidence intervals or physical acceptance limits."
+  ],
+  "data_gallery_manifest_sha256": "ab0c5d5034f3ea3c3280ade37a44e1908cf7f3971065cf9dde907f61fc254d6e",
+  "catalog_selection_precision": {
+    "current_caption_has_saved_query_ordered_scope": true,
+    "recorded_query_retained_byte_exact": true,
+    "global_first_200_rank_independently_verified": false,
+    "original_sidecar_is_historical_record_not_selection_proof": true
+  },
+  "data_gallery_independent_report": {
+    "path": "evidence/mission_data_gallery_verification.json",
+    "sha256": "676c584ace5f693dfd5d4cfa22f3ae973ec99749803699287edbd883f713473b",
+    "passing_checks": 1142,
+    "interpretation": "Assertions on numerical presentation and provenance, separate from the 62 software test cases."
+  },
+  "historical_revision_3_proof_preserved_sha256": "ec35fad1d55b7450897a168213d1c212822ddac4a55ba11ddb3d9c5e16108ad2"
+}

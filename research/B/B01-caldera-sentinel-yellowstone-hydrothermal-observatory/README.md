@@ -1,0 +1,320 @@
+# B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory
+
+**Original project:** Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera?
+
+**Session B:** Earth & Environmental Engineering
+
+**Document class:** engineering research design and analysis record · **Revision:** 4 · **Date:** 2026-10-02
+
+**Evidence state:** design basis, mathematical formulation and verification plan documented. Project-specific empirical results remain to be acquired; executable shared model demonstrations have their own recorded checks.
+
+[Session B](../README.md) · [All projects](../../../ENGINEERING_DOCUMENTATION.md) · [Session handbook](../../../handbooks/SESSION_B.md) · [← A12](../../A/A12-stardust-isotope-foundry/README.md) · [B02 →](../B02-artemis-life-rafts-urban-pollinator-constellation/README.md)
+
+| Proposed requirements | Specified verification cases | Defined data fields | Cited resources |
+| ---: | ---: | ---: | ---: |
+| 4 | 4 | 7 | 2 |
+
+[Explore the data blueprint](data/README.md) · [Open the figure gallery](figures/README.md) · [Download acquisition template](data/acquisition.csv) · [Browse the data atlas](../../../data/README.md)
+
+---
+
+## Mission profile
+
+![B01 engineering mission profile: scientific question, hypothesis, model scope and evidence status](figures/mission-profile.svg)
+
+| Profile panel | Engineering signal | Open the evidence |
+| --- | --- | --- |
+| Mission identity | Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera? | [Scientific objective](#purpose-and-scientific-objective) |
+| Model cockpit | 3 governing expressions; 4 derivation steps; declared assumptions and validity envelope | [Mathematical formulation](#4-mathematical-model-and-derivation) |
+| Data blueprint | 7 proposed fields with types, units and quality rules | [Field map & downloads](data/README.md) |
+| Verification queue | 4 proposed requirements; 4 specified cases; project execution evidence pending | [Case definitions](#8-verification-and-validation-cases) |
+| Figure wall | Architecture, field map, planned result description | [Open full gallery](figures/README.md) |
+| Resource library | 2 cited primary resources with support statements | [Cited resources](#12-cited-technical-and-scientific-resources) |
+
+### Model cockpit
+
+**Analysis method:** Use charge-balance and replicate checks before forming chloride-normalized contrasts or isotope mixing estimates. Fit a hierarchical state-space model with feature-specific sensitivities and common deformation state. Limit lag complexity using nested training windows, propagate analytical uncertainty by Monte Carlo, and compare with a hydrology-only model. Treat spring drying, relocation and detection limits as explicit missing-data processes. Freeze the evaluation protocol before accessing the final temporal block.
+
+**Operating envelope:** Geodetic and hydrothermal footprints differ; chemistry changes can arise from boiling, precipitation, recharge or sampling. Even useful prediction cannot uniquely identify magma motion.
+
+**Variables and conventions**
+
+- C: dissolved concentration, mg/L; f: thermal mixing fraction, dimensionless.
+- u: geodetic displacement, mm; z: standardized chemistry contrast.
+- l: predeclared annual lags; w: precipitation, discharge and season covariates.
+- ε: analytical and sampling error; η: unexplained displacement.
+
+### Artifact wall
+
+![B01 proposed analysis architecture](figures/architecture.svg)
+
+The diagram identifies separate chemical, geodetic and hydrologic interfaces and the chronological inference boundary. It establishes forecast provenance, while leaving deformation mechanism and volcanic interpretation unresolved.
+
+**Scientific result to produce:** Linked spring map, chemistry and displacement histories with the held-out period shaded; overlay forecast intervals and hydrology-only residuals.
+
+### Investigation feed · planned work
+
+The feed records proposed work packages. A row becomes executed evidence only with versioned inputs, outputs and a reviewed result.
+
+| Sequence | Evidence state | Engineering work package |
+| --- | --- | --- |
+| 01 | Planned | Publish site/sample/analyte schemas and a feature-identity crosswalk with unresolved cases. |
+| 02 | Planned | Create checksum manifests for exact chemistry tables and separately retrieved geodetic products. |
+| 03 | Planned | Implement equivalent-unit conversion, charge balance and covariance-aware mixing notebooks. |
+| 04 | Planned | Build chronological folds and hydrology-only forecast artifacts before fitting chemistry terms. |
+| 05 | Planned | Save parameter profiles, held-out predictions and year-block score intervals. |
+| 06 | Planned | Release a deformation-comparison report with excluded records and mechanistic alternatives. |
+
+### Mission connections
+
+Connections are reading routes based on actual shared resources, supplied sessions or included illustrations. They do not establish physical dependencies, team collaborations or validated results.
+
+| Connected mission | Original investigation | Recorded connection basis |
+| --- | --- | --- |
+| [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](../B09-europa-chemgrid-yellowstone-geochemical-atlas/README.md) | Mapping Hot Spring Geochemistry in Yellowstone | Session B; [USGS Yellowstone water chemistry and isotope data, version 2.0](https://www.usgs.gov/data/water-chemistry-and-isotope-data-selected-springs-geysers-streams-and-rivers-yellowstone) |
+| [B02 · ARTEMIS LIFE RAFTS — Urban Pollinator Constellation](../B02-artemis-life-rafts-urban-pollinator-constellation/README.md) | Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators | Session B |
+| [B03 · ORION CROSSINGS — Gila Monster Road Ecology](../B03-orion-crossings-gila-monster-road-ecology/README.md) | Potential Road Impacts on Gila Monsters in an Urbanizing Environment | Session B |
+| [B04 · AURORA VEIL — Ionospheric Absorption Atlas](../B04-aurora-veil-ionospheric-absorption-atlas/README.md) | Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere | Session B |
+| [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](../B05-kepler-bloomclock-restoration-timing-observatory/README.md) | Phenology Data to Aid Pollinator Restoration | Session B |
+| [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](../B06-solstice-chemistry-tucson-ozone-digital-observatory/README.md) | The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem | Session B |
+
+[Machine-readable connection register and ranking rule](../../../registry/mission_connections.json)
+
+### Reading playlist
+
+| Route | Start here | Continue to |
+| --- | --- | --- |
+| Understand the idea | [Scientific objective](#purpose-and-scientific-objective) | [Design boundary](#1-design-basis-and-analysis-boundary) → [Mathematics](#4-mathematical-model-and-derivation) |
+| Inspect the data | [Visual blueprint](data/README.md) | [Provenance](#5-data-specifications-and-provenance) → [Uncertainty](#6-uncertainty-sensitivity-and-identifiability) |
+| Make a design decision | [Trade study](#7-engineering-trade-study) | [Failure modes](#10-failure-modes-and-interpretation-controls) → [Required outputs](#11-required-engineering-outputs) |
+| Prepare execution | [Requirements](#2-requirements-and-verification-traceability) | [Verification](#8-verification-and-validation-cases) → [Implementation](#9-implementation-and-reproducible-work-packages) |
+
+## Complete engineering dossier
+
+The profile above is a browsing layer. The full design basis, equations, derivations, data contract, uncertainty, trades and controlled case definitions follow.
+
+## Purpose and scientific objective
+
+Build a coupled hydrothermal and geodetic inference system that tests whether spring chemistry contains information about deformation beyond seasonality, recharge and sampling artifacts. The proposed contribution is an honest forecast comparison with calibrated uncertainty, plus a physical explanation of mixing; correlated records alone will not establish a volcanic precursor.
+
+**Question:** Do changes in conservative-solute ratios improve prediction of independently measured caldera deformation on annual to decadal timescales?
+
+**Testable hypothesis:** After hydrologic adjustment, a subset of stable thermal features may show reproducible lagged chemistry–deformation associations; a null incremental forecast skill is an equally valuable result.
+
+## 1. Design basis and analysis boundary
+
+The analysis boundary is a historical spring-sample archive joined to independently obtained geodetic displacement, precipitation, discharge and sampling metadata. It does not include a new sensor installation or a volcanic alert service. The engineering output is a reproducible estimate of whether chemistry changes improve a decadal deformation forecast after hydrologic explanations are accounted for. Site identities must survive renamed features, coordinate changes and altered collection methods.
+
+Begin with conservative two-endmember mixing and an annual hydrology-only forecast; promote to a hierarchical state-space model only if temporal overlap and analytical precision support additional states. Published USGS chemistry establishes possible inputs, while endmember histories, lag choices and acceptance thresholds below are proposed analysis decisions. The data manifest must disclose missing geodetic series rather than imply that an annual report supplies numerical station observations.
+
+## 2. Requirements and verification traceability
+
+These are project design requirements or proposed analysis gates. A numerical target is not a NASA requirement unless its controlling source is explicitly identified. “TBD” identifies evidence required before a decision; it is not permission to assume a value. Verification evidence listed here is planned, unless a linked result explicitly records execution.
+
+| ID | Requirement / gate | Engineering rationale | Verification method | Basis / required evidence |
+| --- | --- | --- | --- | --- |
+| B01-R1 | Every modeled chemistry value shall retain sample identifier, collection date, method, qualifier and source-table row; proposed completeness target is 100%. | Renamed springs otherwise create artificial trends. | Validate foreign keys and audit a stratified sample. | Archive metadata; proposed contract. |
+| B01-R2 | Use only predictors available before each held-out annual deformation target; reserve a complete final temporal block. | Prevents lag selection and smoothing from borrowing future information. | Inspect chronological dependency graph. | Proposed forecast protocol. |
+| B01-R3 | Report hydrology-only and chemistry-augmented RMSE in mm with paired year-block intervals. | Added chemistry must show incremental skill. | Recompute scores from saved predictions. | Existing governing comparison. |
+| B01-R4 | Flag failed charge balance using a predeclared method-specific tolerance, TBD from assay guidance, rather than deleting silently. | Assay bias can resemble mixing. | Review ion-equivalent calculations and exclusions. | USGS methods; tolerance TBD. |
+
+## 3. Architecture and controlled interfaces
+
+A relational sampler stores sites, water samples and analyte measurements separately. An adapter converts ion concentrations from mg/L to molar or equivalent units while preserving original values. A geodetic adapter supplies north/east/up displacement in mm in a named reference frame, with station offsets and covariance. UTC collection dates become fractional calendar years only through a recorded convention.
+
+The feature engine produces chloride-normalized contrasts and mixing estimates with covariance. A hydrologic forcing module constructs annual summaries over the same availability windows. The estimator links spring-specific responses to deformation without equating the spring footprint to a GNSS station footprint. Baseline failure, endmember drift and station discontinuities propagate to prediction flags, so an uncertain chemical feature cannot become a precise displacement forecast.
+
+![B01 engineering architecture](figures/architecture.svg)
+
+The diagram identifies separate chemical, geodetic and hydrologic interfaces and the chronological inference boundary. It establishes forecast provenance, while leaving deformation mechanism and volcanic interpretation unresolved.
+
+[Editable engineering diagram source](figures/architecture.mmd)
+
+## 4. Mathematical model and derivation
+
+### Governing equations
+
+```text
+C_i(t)=f_i(t) C_thermal,i+[1−f_i(t)] C_meteoric,i+ε_i(t).
+```
+
+```text
+u(t)=a+Σ_l β_l z(t−l)+γᵀ w(t)+η(t), with temporally correlated η.
+```
+
+```text
+Δskill=RMSE_hydrology−RMSE_hydrology+chemistry, evaluated only on held-out years.
+```
+
+### Variables, units and conventions
+
+- C: dissolved concentration, mg/L; f: thermal mixing fraction, dimensionless.
+- u: geodetic displacement, mm; z: standardized chemistry contrast.
+- l: predeclared annual lags; w: precipitation, discharge and season covariates.
+- ε: analytical and sampling error; η: unexplained displacement.
+
+### Assumptions and boundary conditions
+
+- Endmember chemistry may drift and must be estimated rather than fixed across decades.
+- Different spring names and coordinates require a documented identity crosswalk.
+- Sparse annual water sampling cannot resolve fast events or prove causality.
+
+### Derivation step 1
+
+```text
+C=f C_T+(1-f)C_M; f=(C-C_M)/(C_T-C_M).
+```
+
+All concentrations share mg/L; f is dimensionless. If the endmember contrast approaches zero, the inversion is ill-conditioned and the sample cannot identify mixing.
+
+### Derivation step 2
+
+```text
+sigma_f^2 approximately J_f Sigma_C J_f^T.
+```
+
+The Jacobian includes observed concentration and both endmembers; shared laboratory bias creates covariance rather than three independent errors.
+
+### Derivation step 3
+
+```text
+u_t=a+sum_l beta_l z_(t-l)+gamma^T w_t+eta_t.
+```
+
+Standardized chemical contrast z is dimensionless, so beta has mm units. Hydrologic predictors retain stated scaling; residual temporal correlation is fitted within training windows.
+
+### Derivation step 4
+
+```text
+Delta_skill=RMSE_base-RMSE_aug; RMSE=sqrt(mean((u-u_hat)^2)).
+```
+
+A positive difference favors chemistry for the declared forecast horizon. Paired temporal blocks, rather than individual samples, define uncertainty in this comparison.
+
+### Inference or simulation procedure
+
+Use charge-balance and replicate checks before forming chloride-normalized contrasts or isotope mixing estimates. Fit a hierarchical state-space model with feature-specific sensitivities and common deformation state. Limit lag complexity using nested training windows, propagate analytical uncertainty by Monte Carlo, and compare with a hydrology-only model. Treat spring drying, relocation and detection limits as explicit missing-data processes. Freeze the evaluation protocol before accessing the final temporal block.
+
+### Validity domain and fidelity limits
+
+Geodetic and hydrothermal footprints differ; chemistry changes can arise from boiling, precipitation, recharge or sampling. Even useful prediction cannot uniquely identify magma motion.
+
+## 5. Data specifications and provenance
+
+![B01 proposed data contract: field names, types, units and meanings](figures/data-map.svg)
+
+**Proposed data contract · observations pending.** This visual inventory shows the record fields to acquire or derive. It contains no project measurements. [Open the data blueprint and downloads](data/README.md).
+
+| Field | Type | Unit | Physical / statistical meaning | Quality and missing-data rule |
+| --- | --- | --- | --- | --- |
+| sample_id | string | none | Persistent water-sample key. | Unique; unresolved aliases quarantine joins. |
+| collected_at | datetime | UTC | Actual collection timestamp or documented date precision. | Missing time never fabricated. |
+| chloride | nullable float | mg/L | Conservative tracer candidate. | Retain censoring limit and method. |
+| endmember_pair | float[2] | mg/L | Thermal and meteoric scenario values. | Store full 2x2 covariance and provenance. |
+| displacement_up | nullable float | mm | Referenced vertical station displacement. | Offsets and reference epoch required. |
+| hydrology | nullable vector | declared | Precipitation and discharge summaries. | Store coverage fraction and missingness. |
+| forecast_covariance | matrix | mm² | Joint annual prediction covariance. | Symmetric positive semidefinite; include shared bias. |
+
+[Machine-readable record schema](data/schema.json) · [Empty acquisition CSV](data/acquisition.csv) · [Field dictionary CSV](data/dictionary.csv)
+
+The CSV above contains column headers only. Its schema defines future records and does not establish that original-team data or a particular archive product have been acquired. Frame, timing, calibration, covariance, selection and provenance details must accompany populated records.
+
+### USGS Yellowstone water chemistry and isotope data, version 2.0
+
+[Product, archive or reference](https://www.usgs.gov/data/water-chemistry-and-isotope-data-selected-springs-geysers-streams-and-rivers-yellowstone)
+
+**Fields:** Dates, location, temperature, pH, major ions, stable isotopes, method qualifiers.
+
+**Access:** Public release; download the versioned tables and associated metadata.
+
+**Role:** Observed chemical response and analytical uncertainty.
+
+### Yellowstone Volcano Observatory 2024 annual report
+
+[Product, archive or reference](https://pubs.usgs.gov/publication/cir1566/full)
+
+**Fields:** GNSS/InSAR monitoring context, deformation episodes, river discharge and monitoring changes.
+
+**Access:** Public annual report; retrieve underlying geodetic series separately where linked.
+
+**Role:** Independent deformation chronology and confounder audit.
+
+## 6. Uncertainty, sensitivity and identifiability
+
+Boiling, mineral precipitation and changing recharge can violate conservative mixing. Endmember concentration uncertainty is correlated across samples from the same analytical campaign, while spring drying makes missingness potentially informative. Compare stable-endmember, drifting-endmember and excluded-boiling scenarios; do not collapse their disagreement into measurement precision.
+
+Chemistry lags, hydrology and a latent deformation state can be mutually confounded. Examine singular values of the sensitivity matrix, profile lag coefficients and report combinations that remain unconstrained. Use nested year-block selection and leave-one-spring-out checks to assess transfer. A successful forecast remains an association and cannot uniquely identify magma transport.
+
+## 7. Engineering trade study
+
+| Alternative | Benefit | Cost / limitation | Decision rule |
+| --- | --- | --- | --- |
+| Annual paired regression | Transparent incremental-skill baseline. | Cannot represent irregular sampling well. | Default when only annual overlap exists. |
+| Hierarchical state-space mixing | Separates assay and temporal process variation. | More states may be unidentifiable. | Adopt only with sufficient dated replicates. |
+| Direct interpolation of chemistry | Simple descriptive chronology. | Smooths across gaps and leaks future data. | Use for display only, outside forecast scoring. |
+
+## 8. Verification and validation cases
+
+| Case ID | Stimulus / condition | Expected result / criterion | Method | Evidence artifact |
+| --- | --- | --- | --- | --- |
+| B01-V1 | Identical endmembers | Algebraic singularity is flagged; no finite mixing estimate. | Condition/fixture: Inversion reports nonidentifiable f when C_T=C_M. Verification procedure: Synthetic equal-endmember input.. | Synthetic equal-endmember input. |
+| B01-V2 | Conservative midpoint | Recover 0.5 within floating-point tolerance. | Condition/fixture: With C_T=100 and C_M=20 mg/L, C=60 gives f=0.5. Verification procedure: Unit-tested synthetic mixture.. | Unit-tested synthetic mixture. |
+| B01-V3 | No incremental signal | Augmented skill should not be presented as validated without held-out improvement. | Condition/fixture: Chemistry randomized within training-compatible blocks. Verification procedure: Negative-control forecast comparison.. | Negative-control forecast comparison. |
+| B01-V4 | Station offset | Offset metadata recovers the original trend; omission changes residual flags. | Condition/fixture: Inject a known 10 mm discontinuity into a synthetic series. Verification procedure: Adapter integration test.. | Adapter integration test. |
+
+**Execution status:** these cases are specified, not claimed as executed. Close a case only with the versioned inputs, output, uncertainty, reviewer and pass/fail rationale.
+
+### Additional scientific validation gates
+
+- Use rolling-origin evaluation and hold whole spring groups out; random timestamp splits would leak temporal information.
+- Compare against persistence and hydrology-only forecasts; report interval coverage and block-bootstrap uncertainty.
+- Check whether inferred associations survive excluding disturbed springs and changing reasonable lag windows.
+
+## 9. Implementation and reproducible work packages
+
+1. Publish site/sample/analyte schemas and a feature-identity crosswalk with unresolved cases.
+2. Create checksum manifests for exact chemistry tables and separately retrieved geodetic products.
+3. Implement equivalent-unit conversion, charge balance and covariance-aware mixing notebooks.
+4. Build chronological folds and hydrology-only forecast artifacts before fitting chemistry terms.
+5. Save parameter profiles, held-out predictions and year-block score intervals.
+6. Release a deformation-comparison report with excluded records and mechanistic alternatives.
+
+### Investigation sequence
+
+1. Stage 1: establish overlapping time coverage, spring identity and assay comparability; publish a coverage matrix before selecting features.
+2. Stage 2: compare mixing and statistical models; quantify parameter identifiability and the detectable effect under the actual sampling cadence.
+3. Stage 3: test a withheld multiyear interval and deliver a reproducible hindcast with confidence intervals and clearly stated null findings.
+
+### Resources and interfaces to expertise
+
+- Hydrogeochemist and geodesist; Python/R time-series tools; PHREEQC for optional speciation checks.
+- Versioned data manifest, unit dictionary and immutable training/test boundaries.
+
+## 10. Failure modes and interpretation controls
+
+| Failure mode | Effect on result | Detection / evidence | Design response |
+| --- | --- | --- | --- |
+| Feature alias collision | Different springs merged into one trend. | Duplicate coordinates/names and abrupt chemistry jumps. | Maintain reviewed alias lineage. |
+| Seasonal leakage | Inflated deformation forecast skill. | Audit predictor dates against target cutoff. | Freeze causal feature windows. |
+| Concentration censoring | Biased ratios and tiny uncertainty. | Inspect reporting-limit distributions. | Use censored likelihood and covariance. |
+
+- Small effective sample size after autocorrelation.
+- Changing laboratory methods and hydrothermal plumbing.
+- Overinterpreting forecast associations as eruption warnings.
+
+## 11. Required engineering outputs
+
+- Joint chemistry/deformation archive and quality report.
+- Model notebook, reproducible hindcast and uncertainty budget.
+- Feature-selection map with interpretability and monitoring recommendations.
+
+### Scientific result figures to produce during execution
+
+Linked spring map, chemistry and displacement histories with the held-out period shaded; overlay forecast intervals and hydrology-only residuals.
+
+## 12. Cited technical and scientific resources
+
+- [USGS Yellowstone water chemistry and isotope data, version 2.0](https://www.usgs.gov/data/water-chemistry-and-isotope-data-selected-springs-geysers-streams-and-rivers-yellowstone) — Observed chemistry, isotope measurements, sampling dates and analytical provenance; supports dataset selection rather than a deformation prediction.
+- [Yellowstone Volcano Observatory 2024 annual report](https://pubs.usgs.gov/publication/cir1566/full) — Independent deformation and monitoring context; chemistry and heat output require interpretation alongside hydrologic and instrumental changes.
+
+Framework and evidence rules: [engineering documentation standard](../../../engineering/ENGINEERING_STANDARD.md), [model assurance](../../../engineering/MODEL_ASSURANCE.md), [uncertainty procedure](../../../engineering/UNCERTAINTY_AND_DECISION_RULES.md), [data management](../../../engineering/DATA_MANAGEMENT.md). NASA-inspired names are creative identifiers; requirements and results are not NASA certification.

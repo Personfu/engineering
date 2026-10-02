@@ -1,0 +1,47 @@
+{
+  "id": "13_attitude_phase_and_authority",
+  "evidence_kind": "synthetic_illustrative",
+  "svg": "data/figures/13_attitude_phase_and_authority.svg",
+  "png": "data/figures/13_attitude_phase_and_authority.png",
+  "provenance": "data/figures/13_attitude_phase_and_authority.provenance.json",
+  "caption": "Synthetic one-axis PD attitude response and actuator authority. The phase portrait is colored by elapsed model time. Requested torque is reconstructed from the recorded states and sidecar gains; the applied torque is clipped to ±8 mN·m. The right panel focuses on the first 40 seconds, while the phase portrait uses the full 120-second record.",
+  "linked_projects": [
+    "I10"
+  ],
+  "source_assets": [
+    {
+      "path": "models/data/one_axis_attitude.csv",
+      "sha256": "7f8c1498b3d766337c7ddf20e8d12860d99f1c33a3e5259096ec935713a93a0d",
+      "bytes": 190136
+    },
+    {
+      "path": "models/data/one_axis_attitude.json",
+      "sha256": "ec7993516b1d122c8b7eeb9bef1a9de8585cd751d7beed5e921c5f66225d1167",
+      "bytes": 739
+    }
+  ],
+  "output_assets": [
+    {
+      "path": "data/figures/13_attitude_phase_and_authority.svg",
+      "sha256": "1344fb1f95d20247eb9a4868775caea18ed6d5ee94fea137dc590c975eb142d1",
+      "bytes": 398949
+    },
+    {
+      "path": "data/figures/13_attitude_phase_and_authority.png",
+      "sha256": "2c0b6f79948ee75fbb8051a3a7f0b5ad4d79c799e66d755056d3d47336a47b9a",
+      "bytes": 210232
+    }
+  ],
+  "assumptions_and_limits": [
+    "Exact states, fixed reference and one rigid axis; no estimator, delay or wheel momentum management.",
+    "No three-axis simulation, flight software validation or spacecraft qualification."
+  ],
+  "derivation": "Plot transformations and descriptive statistics only; no new model runs or fitted physical claims.",
+  "derived_summaries": {
+    "initial_angle_deg": 35.0,
+    "final_angle_deg": -0.02421748907075588,
+    "final_angular_rate_deg_s": -0.011945534659738544,
+    "record_duration_s": 120.0
+  },
+  "uncertainty_note": "No physical uncertainty bands are implied unless a panel explicitly identifies the synthetic noise experiment."
+}

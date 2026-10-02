@@ -1,0 +1,2492 @@
+{
+  "schema_version": 1,
+  "generated_by": {
+    "path": "tools/build_data_inventory.py",
+    "bytes": 25256,
+    "sha256": "bc3219147f2647fd166a6a7836460f55cb8d86f72c3882bf9f8fc15227f90e3f"
+  },
+  "source_policy": "Read-only actual CSVs and sidecars. Counts/ranges are descriptive storage diagnostics; no manufactured observations or inferred physical uncertainties.",
+  "preview_policy": "First two CSV data rows; original text retained in JSON, human previews rounded to four significant digits.",
+  "unit_policy": "Recorded sidecar or explicitly verified model definition; unknown fields state unit not recorded / TBD.",
+  "summary": {
+    "dataset_count": 12,
+    "evidence_counts": {
+      "real_public_catalog_snapshot": 1,
+      "synthetic_illustrative": 11
+    },
+    "total_csv_rows": 98759,
+    "total_columns": 61,
+    "blank_cells": 9,
+    "nan_cells": 10683,
+    "other_nonfinite_cells": 0,
+    "unit_status_counts": {
+      "documented_sidecar": 48,
+      "verified_model_definition": 13
+    }
+  },
+  "source_assets": [
+    {
+      "path": "models/README.md",
+      "bytes": 13550,
+      "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+    },
+    {
+      "path": "models/data/balloon_thermal.csv",
+      "bytes": 215252,
+      "sha256": "e590de3982977a790b462b0c574f7981ffeb0874699a937d1e1fa1ceb218e74a"
+    },
+    {
+      "path": "models/data/balloon_thermal.json",
+      "bytes": 859,
+      "sha256": "c2f7f70862427683622fbe535512c1f1ebac3857705884618cf45363be550ceb"
+    },
+    {
+      "path": "models/data/exoplanet_sample.csv",
+      "bytes": 14272,
+      "sha256": "31d0b4ecc46e1fb7a57d41e4f35467adbfbd6d37137050b70ac6f39881f8e90e"
+    },
+    {
+      "path": "models/data/exoplanet_sample.provenance.json",
+      "bytes": 2170,
+      "sha256": "e5c572bdd05f996af44d606af5a2e91cac1cabc02c01d35a9faf7f86a71d6fa3"
+    },
+    {
+      "path": "models/data/hydrologic_reservoir.csv",
+      "bytes": 26052,
+      "sha256": "54ee19e9ea1a31e587b4479d9ef0581e536fce6d5c0a3441600afae0895043a9"
+    },
+    {
+      "path": "models/data/hydrologic_reservoir.json",
+      "bytes": 761,
+      "sha256": "f816c09d8618628305c7706fefa622ee46b71feb33854f883b5b5a4062299efd"
+    },
+    {
+      "path": "models/data/ideal_binary_liquidus.csv",
+      "bytes": 45049,
+      "sha256": "43d76659b57496967f931a3389bf397d08f4dc0a1bf36ec2a30cddd4b4756689"
+    },
+    {
+      "path": "models/data/ideal_binary_liquidus.json",
+      "bytes": 726,
+      "sha256": "a51990bc2444224d69bc624c61fbf4103e0b62a89f9eaacf8e07f97c1c72bfdb"
+    },
+    {
+      "path": "models/data/julia.csv",
+      "bytes": 2520905,
+      "sha256": "5250e2479adade7c9fea89fb10f4ae9e2d31d7ff17a4c07b1a7b802eea5f62eb"
+    },
+    {
+      "path": "models/data/julia.json",
+      "bytes": 617,
+      "sha256": "189c70ca7c5c60dd9a0de886dd2ed278c056426fa1811ac85b22284cb8470141"
+    },
+    {
+      "path": "models/data/mandelbrot.csv",
+      "bytes": 2432621,
+      "sha256": "7555e947d17fe0bc3da2a376aae385e2ebcc8f2f5c2e1590e57c12185cbede4e"
+    },
+    {
+      "path": "models/data/mandelbrot.json",
+      "bytes": 587,
+      "sha256": "77f7c9ad3260fa3f3b126a0e6cdd9d9ece35afb19de4c1ec0a7841ec4aefd302"
+    },
+    {
+      "path": "models/data/one_axis_attitude.csv",
+      "bytes": 190136,
+      "sha256": "7f8c1498b3d766337c7ddf20e8d12860d99f1c33a3e5259096ec935713a93a0d"
+    },
+    {
+      "path": "models/data/one_axis_attitude.json",
+      "bytes": 739,
+      "sha256": "ec7993516b1d122c8b7eeb9bef1a9de8585cd751d7beed5e921c5f66225d1167"
+    },
+    {
+      "path": "models/data/spectral_mixture.csv",
+      "bytes": 22291,
+      "sha256": "af89ffdc0661479ca0f7dbf4561ef10abe46f5ffa06f3f2794f8093db37af5d7"
+    },
+    {
+      "path": "models/data/spectral_mixture.json",
+      "bytes": 1175,
+      "sha256": "8d6313caf756c59a21c76fb19a828acdc03b2a0754d4cb001cb3634ee54447dd"
+    },
+    {
+      "path": "models/data/spectral_monte_carlo.csv",
+      "bytes": 86529,
+      "sha256": "b8e4ed10b7fa6201e7081cd1557ea5cbb44b6f7109ca237de4c3452c215ba4f3"
+    },
+    {
+      "path": "models/data/sphere_drag.csv",
+      "bytes": 26087,
+      "sha256": "e8b262fd7d3b4c37cb39fd2cf67ec5231ed6ce7e8e0b49a1e306b35f3431de2d"
+    },
+    {
+      "path": "models/data/sphere_drag.json",
+      "bytes": 667,
+      "sha256": "adc28070268dabff5fd5a3051521bc12a323bc460398c28867802a597ef48f1c"
+    },
+    {
+      "path": "models/data/two_body_convergence.csv",
+      "bytes": 129,
+      "sha256": "91b4d6524ce07e6590807af8f16b793347351240c7475793f630ade259294434"
+    },
+    {
+      "path": "models/data/two_body_orbit.csv",
+      "bytes": 549951,
+      "sha256": "26346ffc7b03f09342a18bb0cdc83d5e31ace0b18e364b79b912455a6712098f"
+    },
+    {
+      "path": "models/data/two_body_orbit.json",
+      "bytes": 960,
+      "sha256": "d5c5abddf0a548196da2e150ed37b2f5a5582af51709474314372ef7252abf67"
+    },
+    {
+      "path": "models/manifest.json",
+      "bytes": 6639,
+      "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+    },
+    {
+      "path": "models/models.py",
+      "bytes": 31546,
+      "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "exoplanet_sample",
+      "title": "Exoplanet catalog snapshot",
+      "csv_path": "models/data/exoplanet_sample.csv",
+      "provenance_path": "models/data/exoplanet_sample.provenance.json",
+      "evidence_kind": "real_public_catalog_snapshot",
+      "row_count": 200,
+      "column_count": 6,
+      "column_names": [
+        "pl_name",
+        "hostname",
+        "pl_orbper",
+        "pl_rade",
+        "st_met",
+        "discoverymethod"
+      ],
+      "columns": [
+        {
+          "name": "pl_name",
+          "unit": "not applicable (identifier/category)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/exoplanet_sample.provenance.json",
+            "detail": "planet name string"
+          },
+          "raw_schema_entry": "planet name string",
+          "description": "Published planet name.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": null,
+          "finite_max": null,
+          "observed_encoding": "text",
+          "distinct_text_values": 200
+        },
+        {
+          "name": "hostname",
+          "unit": "not applicable (identifier/category)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/exoplanet_sample.provenance.json",
+            "detail": "host name string"
+          },
+          "raw_schema_entry": "host name string",
+          "description": "Published host name.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": null,
+          "finite_max": null,
+          "observed_encoding": "text",
+          "distinct_text_values": 193
+        },
+        {
+          "name": "pl_orbper",
+          "unit": "days",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/exoplanet_sample.provenance.json",
+            "detail": "days"
+          },
+          "raw_schema_entry": "days",
+          "description": "Composite-table orbital-period value.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.5734745,
+          "finite_max": 20608.14049,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "pl_rade",
+          "unit": "Earth radii",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/exoplanet_sample.provenance.json",
+            "detail": "Earth radii"
+          },
+          "raw_schema_entry": "Earth radii",
+          "description": "Composite-table planet-radius value.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.338,
+          "finite_max": 23.9872187,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "st_met",
+          "unit": "dex relative to solar",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/exoplanet_sample.provenance.json",
+            "detail": "dex relative to solar; nullable; abundance basis requires archive metadata"
+          },
+          "raw_schema_entry": "dex relative to solar; nullable; abundance basis requires archive metadata",
+          "description": "Published host metallicity; abundance basis and per-value references are absent from this extract.",
+          "blank_count": 9,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.65,
+          "finite_max": 0.545,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "discoverymethod",
+          "unit": "not applicable (identifier/category)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/exoplanet_sample.provenance.json",
+            "detail": "categorical archive discovery method"
+          },
+          "raw_schema_entry": "categorical archive discovery method",
+          "description": "Archive discovery-method category.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": null,
+          "finite_max": null,
+          "observed_encoding": "text",
+          "distinct_text_values": 5
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "pl_name": "24 Sex b",
+            "hostname": "24 Sex",
+            "pl_orbper": "452.80000000000",
+            "pl_rade": "13.40000000",
+            "st_met": "-0.0300",
+            "discoverymethod": "Radial Velocity"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "pl_name": "CD-35 2722 B b",
+            "hostname": "CD-35 2722 B",
+            "pl_orbper": "171.11000000000",
+            "pl_rade": "13.90000000",
+            "st_met": "0.2700",
+            "discoverymethod": "Radial Velocity"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 9,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 9
+      },
+      "source_assets": [
+        {
+          "path": "models/data/exoplanet_sample.csv",
+          "bytes": 14272,
+          "sha256": "31d0b4ecc46e1fb7a57d41e4f35467adbfbd6d37137050b70ac6f39881f8e90e"
+        },
+        {
+          "path": "models/data/exoplanet_sample.provenance.json",
+          "bytes": 2170,
+          "sha256": "e5c572bdd05f996af44d606af5a2e91cac1cabc02c01d35a9faf7f86a71d6fa3"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "C05",
+        "C23"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "C05",
+          "path": "research/C/C05-kepler-worldforge/README.md"
+        },
+        {
+          "id": "C23",
+          "path": "research/C/C23-kepler-metal-worlds/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/09_real_exoplanet_sample.svg",
+      "diagnostic_figure_path": "data/figures/10_catalog_values_and_coverage.svg",
+      "diagnostic_provenance_path": "data/figures/10_catalog_values_and_coverage.provenance.json",
+      "model_function": "fetch_exoplanets",
+      "parameters": {
+        "provider": "NASA Exoplanet Archive",
+        "retrieved_utc": "2026-10-02T09:01:19.367519+00:00",
+        "table": "pscomppars",
+        "query_adql": "SELECT TOP 200 pl_name,hostname,pl_orbper,pl_rade,st_met,discoverymethod FROM pscomppars WHERE pl_orbper IS NOT NULL AND pl_rade IS NOT NULL ORDER BY pl_name"
+      },
+      "domain_limits": [
+        "Saved 200-row query-ordered extract; the source sidecar records an intended TOP 200 ORDER BY pl_name request. Global first-200 ranking was not independently verified.",
+        "Discovery method, completeness, missing-radius selection, request truncation and follow-up biases apply; not random or representative.",
+        "Composite parameter rows may combine values from different publications; not necessarily self-consistent.",
+        "No uncertainties, detection-efficiency correction, metallicity basis or per-parameter references in this small educational extract.",
+        "No occurrence rates, physical class labels, mass-radius claims or causal metallicity inference from this plot."
+      ],
+      "bytes": 14272,
+      "sha256": "31d0b4ecc46e1fb7a57d41e4f35467adbfbd6d37137050b70ac6f39881f8e90e"
+    },
+    {
+      "id": "balloon_thermal",
+      "title": "Balloon thermal network",
+      "csv_path": "models/data/balloon_thermal.csv",
+      "provenance_path": "models/data/balloon_thermal.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 1441,
+      "column_count": 10,
+      "column_names": [
+        "time_s",
+        "wall_K",
+        "payload_K",
+        "air_K",
+        "radiative_sink_K",
+        "h_W_m2_K",
+        "absorbed_W",
+        "convection_W",
+        "radiation_W",
+        "wall_to_payload_W"
+      ],
+      "columns": [
+        {
+          "name": "time_s",
+          "unit": "s",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "s"
+          },
+          "raw_schema_entry": "s",
+          "description": "Elapsed model time.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 14400.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "wall_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "Uniform wall-node temperature.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 240.18257901985453,
+          "finite_max": 285.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "payload_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "Uniform payload-node temperature.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 244.28388720428146,
+          "finite_max": 285.33402489790336,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "air_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "Prescribed air temperature.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 220.0,
+          "finite_max": 270.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "radiative_sink_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "Prescribed radiative-sink temperature.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 208.0,
+          "finite_max": 258.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "h_W_m2_K",
+          "unit": "W m^-2 K^-1",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "W m^-2 K^-1"
+          },
+          "raw_schema_entry": "W m^-2 K^-1",
+          "description": "Prescribed convective heat-transfer coefficient.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.7355357277766329,
+          "finite_max": 8.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "absorbed_W",
+          "unit": "W",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "W"
+          },
+          "raw_schema_entry": "W",
+          "description": "Prescribed absorbed power entering the wall.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 8.0,
+          "finite_max": 8.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "convection_W",
+          "unit": "W",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "W"
+          },
+          "raw_schema_entry": "W",
+          "description": "Convective power; positive enters the wall.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -18.0,
+          "finite_max": -2.2267511921667156,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "radiation_W",
+          "unit": "W",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "W"
+          },
+          "raw_schema_entry": "W",
+          "description": "Radiative power; positive enters the wall.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -13.821970551756316,
+          "finite_max": -9.288671153839733,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "wall_to_payload_W",
+          "unit": "W",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/balloon_thermal.json",
+            "detail": "W"
+          },
+          "raw_schema_entry": "W",
+          "description": "Conductive power from wall to payload; negative means the direction reverses.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -7.081532878784038,
+          "finite_max": 0.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "time_s": "0.0",
+            "wall_K": "285.0",
+            "payload_K": "285.0",
+            "air_K": "270.0",
+            "radiative_sink_K": "258.0",
+            "h_W_m2_K": "8.0",
+            "absorbed_W": "8.0",
+            "convection_W": "-18.0",
+            "radiation_W": "-13.821970551756316",
+            "wall_to_payload_W": "0.0"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "time_s": "10.0",
+            "wall_K": "284.8034446628053",
+            "payload_K": "285.0342034282964",
+            "air_K": "269.93055555555554",
+            "radiative_sink_K": "257.93055555555554",
+            "h_W_m2_K": "7.979472967410894",
+            "absorbed_W": "8.0",
+            "convection_W": "-17.80167248678991",
+            "radiation_W": "-13.736406585578132",
+            "wall_to_payload_W": "-0.1846070123928712"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/balloon_thermal.csv",
+          "bytes": 215252,
+          "sha256": "e590de3982977a790b462b0c574f7981ffeb0874699a937d1e1fa1ceb218e74a"
+        },
+        {
+          "path": "models/data/balloon_thermal.json",
+          "bytes": 859,
+          "sha256": "c2f7f70862427683622fbe535512c1f1ebac3857705884618cf45363be550ceb"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "E06"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "E06",
+          "path": "research/E/E06-apollo-thermalis/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/03_balloon_thermal.svg",
+      "diagnostic_figure_path": "data/figures/11_thermal_power_and_response.svg",
+      "diagnostic_provenance_path": "data/figures/11_thermal_power_and_response.provenance.json",
+      "model_function": "demo_thermal",
+      "parameters": {
+        "C_wall_J_K": 1200.0,
+        "C_payload_J_K": 850.0,
+        "area_m2": 0.15,
+        "emissivity": 0.75,
+        "conductance_W_K": 0.8,
+        "payload_power_W": 3.0
+      },
+      "domain_limits": [
+        "Uniform temperature per node; radiation area includes assumed view factor.",
+        "Air, radiative sink, convection and solar forcing are prescribed synthetic histories.",
+        "No ascent trajectory, atmosphere calibration, rarefied-flow correction or qualification claim."
+      ],
+      "bytes": 215252,
+      "sha256": "e590de3982977a790b462b0c574f7981ffeb0874699a937d1e1fa1ceb218e74a"
+    },
+    {
+      "id": "hydrologic_reservoir",
+      "title": "Hydrologic reservoir ledger",
+      "csv_path": "models/data/hydrologic_reservoir.csv",
+      "provenance_path": "models/data/hydrologic_reservoir.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 241,
+      "column_count": 7,
+      "column_names": [
+        "time_day",
+        "storage_mm",
+        "outflow_mm_day",
+        "cumulative_outflow_mm",
+        "cumulative_recharge_mm",
+        "mass_balance_residual_mm",
+        "next_bin_recharge_mm_day"
+      ],
+      "columns": [
+        {
+          "name": "time_day",
+          "unit": "day",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "day"
+          },
+          "raw_schema_entry": "day",
+          "description": "Elapsed reservoir model time at bin boundaries.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 60.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "storage_mm",
+          "unit": "mm",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "mm"
+          },
+          "raw_schema_entry": "mm",
+          "description": "Remaining water depth in the conceptual storage reservoir.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 2.7187691368745157,
+          "finite_max": 20.143089522046793,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "outflow_mm_day",
+          "unit": "mm/day",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "mm/day"
+          },
+          "raw_schema_entry": "mm/day",
+          "description": "Instantaneous outflow k times storage.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.32625229642494186,
+          "finite_max": 2.4171707426456153,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "cumulative_outflow_mm",
+          "unit": "mm",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "mm"
+          },
+          "raw_schema_entry": "mm",
+          "description": "Accumulated released water depth.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 53.722780945936925,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "cumulative_recharge_mm",
+          "unit": "mm",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "mm"
+          },
+          "raw_schema_entry": "mm",
+          "description": "Accumulated effective input water depth.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 38.59275614549023,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "mass_balance_residual_mm",
+          "unit": "mm",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "mm"
+          },
+          "raw_schema_entry": "mm",
+          "description": "Storage + cumulative outflow − initial storage − cumulative recharge.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -4.263256414560601e-14,
+          "finite_max": 8.881784197001252e-16,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "next_bin_recharge_mm_day",
+          "unit": "mm/day",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/hydrologic_reservoir.json",
+            "detail": "mm/day; final NaN"
+          },
+          "raw_schema_entry": "mm/day; final NaN",
+          "description": "Effective recharge assigned to the next forcing bin; final boundary has no next bin.",
+          "blank_count": 0,
+          "nan_count": 1,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 11.892334439613457,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "time_day": "0.0",
+            "storage_mm": "20.0",
+            "outflow_mm_day": "2.4",
+            "cumulative_outflow_mm": "0.0",
+            "cumulative_recharge_mm": "0.0",
+            "mass_balance_residual_mm": "0.0",
+            "next_bin_recharge_mm_day": "0.0"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "time_day": "0.25",
+            "storage_mm": "19.40891067097016",
+            "outflow_mm_day": "2.3290692805164195",
+            "cumulative_outflow_mm": "0.5910893290298382",
+            "cumulative_recharge_mm": "0.0",
+            "mass_balance_residual_mm": "0.0",
+            "next_bin_recharge_mm_day": "0.0"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 1,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 1
+      },
+      "source_assets": [
+        {
+          "path": "models/data/hydrologic_reservoir.csv",
+          "bytes": 26052,
+          "sha256": "54ee19e9ea1a31e587b4479d9ef0581e536fce6d5c0a3441600afae0895043a9"
+        },
+        {
+          "path": "models/data/hydrologic_reservoir.json",
+          "bytes": 761,
+          "sha256": "f816c09d8618628305c7706fefa622ee46b71feb33854f883b5b5a4062299efd"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "B23"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "B23",
+          "path": "research/B/B23-hydra-mission-control-watershed-decisions-under-uncertainty/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/05_hydrologic_reservoir.svg",
+      "diagnostic_figure_path": "data/figures/12_hydrologic_water_ledger.svg",
+      "diagnostic_provenance_path": "data/figures/12_hydrologic_water_ledger.provenance.json",
+      "model_function": "demo_hydrology",
+      "parameters": {
+        "k_day_inverse": 0.12,
+        "dt_day": 0.25,
+        "initial_storage_mm": 20.0
+      },
+      "domain_limits": [
+        "Recharge is effective water entering storage, not rainfall; ET and interception are omitted.",
+        "One linear reservoir is a pedagogical baseline, not calibrated flood decision support."
+      ],
+      "bytes": 26052,
+      "sha256": "54ee19e9ea1a31e587b4479d9ef0581e536fce6d5c0a3441600afae0895043a9"
+    },
+    {
+      "id": "one_axis_attitude",
+      "title": "One-axis attitude response",
+      "csv_path": "models/data/one_axis_attitude.csv",
+      "provenance_path": "models/data/one_axis_attitude.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 2401,
+      "column_count": 4,
+      "column_names": [
+        "time_s",
+        "theta_rad",
+        "omega_rad_s",
+        "control_torque_Nm"
+      ],
+      "columns": [
+        {
+          "name": "time_s",
+          "unit": "s",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/one_axis_attitude.json",
+            "detail": "s"
+          },
+          "raw_schema_entry": "s",
+          "description": "Elapsed model time.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 120.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "theta_rad",
+          "unit": "rad",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/one_axis_attitude.json",
+            "detail": "rad"
+          },
+          "raw_schema_entry": "rad",
+          "description": "One-axis angle error relative to the fixed zero-angle target.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.03473065329252781,
+          "finite_max": 0.6108652381980153,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "omega_rad_s",
+          "unit": "rad/s",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/one_axis_attitude.json",
+            "detail": "rad/s"
+          },
+          "raw_schema_entry": "rad/s",
+          "description": "One-axis angular rate.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.13879054457199497,
+          "finite_max": 0.008179863533195147,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "control_torque_Nm",
+          "unit": "N m",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/one_axis_attitude.json",
+            "detail": "N m"
+          },
+          "raw_schema_entry": "N m",
+          "description": "Applied, clipped PD control torque; excludes the separate disturbance torque.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.008,
+          "finite_max": 0.003901443064820428,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "time_s": "0.0",
+            "theta_rad": "0.6108652381980153",
+            "omega_rad_s": "0.0",
+            "control_torque_Nm": "-0.008"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "time_s": "0.05",
+            "theta_rad": "0.6107819061667531",
+            "omega_rad_s": "-0.003333255209798165",
+            "control_torque_Nm": "-0.008"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/one_axis_attitude.csv",
+          "bytes": 190136,
+          "sha256": "7f8c1498b3d766337c7ddf20e8d12860d99f1c33a3e5259096ec935713a93a0d"
+        },
+        {
+          "path": "models/data/one_axis_attitude.json",
+          "bytes": 739,
+          "sha256": "ec7993516b1d122c8b7eeb9bef1a9de8585cd751d7beed5e921c5f66225d1167"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "I10"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "I10",
+          "path": "research/I/I10-gemini-pointlock/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/06_one_axis_attitude.svg",
+      "diagnostic_figure_path": "data/figures/13_attitude_phase_and_authority.svg",
+      "diagnostic_provenance_path": "data/figures/13_attitude_phase_and_authority.provenance.json",
+      "model_function": "demo_attitude",
+      "parameters": {
+        "inertia_kg_m2": 0.12,
+        "kp_Nm_rad": 0.03,
+        "kd_Nm_s_rad": 0.08,
+        "torque_limit_Nm": 0.008,
+        "initial_angle_deg": 35.0,
+        "disturbance_amplitude_Nm": 2.5e-05
+      },
+      "domain_limits": [
+        "Single rigid rotational degree of freedom, exact states and a fixed zero-angle reference.",
+        "No wheel momentum management, three-axis quaternion dynamics, estimator or sensor delay.",
+        "Illustrates control tradeoffs; no spacecraft implementation or qualification."
+      ],
+      "bytes": 190136,
+      "sha256": "7f8c1498b3d766337c7ddf20e8d12860d99f1c33a3e5259096ec935713a93a0d"
+    },
+    {
+      "id": "two_body_orbit",
+      "title": "Two-body orbit states",
+      "csv_path": "models/data/two_body_orbit.csv",
+      "provenance_path": "models/data/two_body_orbit.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 4001,
+      "column_count": 7,
+      "column_names": [
+        "time_normalized",
+        "x",
+        "y",
+        "vx",
+        "vy",
+        "specific_energy",
+        "specific_angular_momentum"
+      ],
+      "columns": [
+        {
+          "name": "time_normalized",
+          "unit": "sqrt(a_ref^3 / mu_ref)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "sqrt(a_ref^3 / mu_ref)"
+          },
+          "raw_schema_entry": "sqrt(a_ref^3 / mu_ref)",
+          "description": "Elapsed time divided by the reference gravitational time scale.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 62.83185307179587,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "x",
+          "unit": "a_ref",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "a_ref"
+          },
+          "raw_schema_entry": "a_ref",
+          "description": "Normalized Cartesian x-coordinate.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -1.3003776352833414,
+          "finite_max": 0.7,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "y",
+          "unit": "a_ref",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "a_ref"
+          },
+          "raw_schema_entry": "a_ref",
+          "description": "Normalized Cartesian y-coordinate.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.9539538726541046,
+          "finite_max": 0.9555371713256628,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "vx",
+          "unit": "sqrt(mu_ref/a_ref)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "sqrt(mu_ref/a_ref)"
+          },
+          "raw_schema_entry": "sqrt(mu_ref/a_ref)",
+          "description": "Normalized Cartesian x-velocity.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -1.0481216032467835,
+          "finite_max": 1.0497834654826255,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "vy",
+          "unit": "sqrt(mu_ref/a_ref)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "sqrt(mu_ref/a_ref)"
+          },
+          "raw_schema_entry": "sqrt(mu_ref/a_ref)",
+          "description": "Normalized Cartesian y-velocity.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.7335885513357229,
+          "finite_max": 1.362770287738494,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "specific_energy",
+          "unit": "mu_ref/a_ref",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "mu_ref/a_ref"
+          },
+          "raw_schema_entry": "mu_ref/a_ref",
+          "description": "Specific orbital energy, normalized by its reference scale.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -0.4999999999999998,
+          "finite_max": -0.4999329126448096,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "specific_angular_momentum",
+          "unit": "sqrt(mu_ref*a_ref)",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/two_body_orbit.json",
+            "detail": "sqrt(mu_ref*a_ref)"
+          },
+          "raw_schema_entry": "sqrt(mu_ref*a_ref)",
+          "description": "Planar specific angular momentum, normalized by its reference scale.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.9539392014169418,
+          "finite_max": 0.9539392014169483,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "time_normalized": "0.0",
+            "x": "0.7",
+            "y": "0.0",
+            "vx": "0.0",
+            "vy": "1.362770287738494",
+            "specific_energy": "-0.4999999999999998",
+            "specific_angular_momentum": "0.9539392014169457"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "time_normalized": "0.015707963267948967",
+            "x": "0.6997482243775232",
+            "y": "0.021406345622448506",
+            "vx": "-0.03204611429578745",
+            "vy": "1.3622802859792342",
+            "specific_energy": "-0.4999999472951465",
+            "specific_angular_momentum": "0.9539392014169458"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/two_body_orbit.csv",
+          "bytes": 549951,
+          "sha256": "26346ffc7b03f09342a18bb0cdc83d5e31ace0b18e364b79b912455a6712098f"
+        },
+        {
+          "path": "models/data/two_body_orbit.json",
+          "bytes": 960,
+          "sha256": "d5c5abddf0a548196da2e150ed37b2f5a5582af51709474314372ef7252abf67"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "I08",
+        "I12",
+        "I13"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "I08",
+          "path": "research/I/I08-voyager-frameforge/README.md"
+        },
+        {
+          "id": "I12",
+          "path": "research/I/I12-pioneer-phobos-pathfinder/README.md"
+        },
+        {
+          "id": "I13",
+          "path": "research/I/I13-osiris-apophis-horizon/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/07_two_body_convergence.svg",
+      "diagnostic_figure_path": "data/figures/14_orbit_conservation_and_refinement.svg",
+      "diagnostic_provenance_path": "data/figures/14_orbit_conservation_and_refinement.provenance.json",
+      "model_function": "demo_orbit",
+      "parameters": {
+        "normalized_mu": 1,
+        "normalized_semimajor_axis": 1,
+        "eccentricity": 0.3,
+        "period_normalized_time": 6.283185307179586,
+        "duration_periods": 10
+      },
+      "domain_limits": [
+        "Point-mass two-body gravity in normalized units; no maneuvers, atmospheric drag or third bodies.",
+        "Demonstrates numerical conservation, not an operational trajectory or planetary-defense solution."
+      ],
+      "bytes": 549951,
+      "sha256": "26346ffc7b03f09342a18bb0cdc83d5e31ace0b18e364b79b912455a6712098f"
+    },
+    {
+      "id": "two_body_convergence",
+      "title": "Orbital timestep refinement",
+      "csv_path": "models/data/two_body_convergence.csv",
+      "provenance_path": "models/data/two_body_orbit.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 3,
+      "column_count": 2,
+      "column_names": [
+        "steps_per_period",
+        "maximum_relative_energy_error"
+      ],
+      "columns": [
+        {
+          "name": "steps_per_period",
+          "unit": "count per orbital period (dimensionless)",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_orbit writes its explicit steps_per_orbit counts."
+          },
+          "raw_schema_entry": null,
+          "description": "Number of numerical integrator steps per normalized orbital period.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 100.0,
+          "finite_max": 400.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "maximum_relative_energy_error",
+          "unit": "dimensionless",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_orbit defines rel=(energy-energy[0])/abs(energy[0]) and stores max(abs(rel))."
+          },
+          "raw_schema_entry": null,
+          "description": "Maximum absolute relative specific-energy error across the ten-period integration.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0001341747103803526,
+          "finite_max": 0.0021548804974276256,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "steps_per_period": "100",
+            "maximum_relative_energy_error": "0.0021548804974276256"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "steps_per_period": "200",
+            "maximum_relative_energy_error": "0.0005371027460293611"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/two_body_convergence.csv",
+          "bytes": 129,
+          "sha256": "91b4d6524ce07e6590807af8f16b793347351240c7475793f630ade259294434"
+        },
+        {
+          "path": "models/data/two_body_orbit.json",
+          "bytes": 960,
+          "sha256": "d5c5abddf0a548196da2e150ed37b2f5a5582af51709474314372ef7252abf67"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "I08",
+        "I12",
+        "I13"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "I08",
+          "path": "research/I/I08-voyager-frameforge/README.md"
+        },
+        {
+          "id": "I12",
+          "path": "research/I/I12-pioneer-phobos-pathfinder/README.md"
+        },
+        {
+          "id": "I13",
+          "path": "research/I/I13-osiris-apophis-horizon/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/07_two_body_convergence.svg",
+      "diagnostic_figure_path": "data/figures/14_orbit_conservation_and_refinement.svg",
+      "diagnostic_provenance_path": "data/figures/14_orbit_conservation_and_refinement.provenance.json",
+      "model_function": "demo_orbit",
+      "parameters": {
+        "normalized_mu": 1,
+        "normalized_semimajor_axis": 1,
+        "eccentricity": 0.3,
+        "period_normalized_time": 6.283185307179586,
+        "duration_periods": 10
+      },
+      "domain_limits": [
+        "Point-mass two-body gravity in normalized units; no maneuvers, atmospheric drag or third bodies.",
+        "Demonstrates numerical conservation, not an operational trajectory or planetary-defense solution."
+      ],
+      "bytes": 129,
+      "sha256": "91b4d6524ce07e6590807af8f16b793347351240c7475793f630ade259294434"
+    },
+    {
+      "id": "spectral_mixture",
+      "title": "Synthetic spectral mixture",
+      "csv_path": "models/data/spectral_mixture.csv",
+      "provenance_path": "models/data/spectral_mixture.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 180,
+      "column_count": 7,
+      "column_names": [
+        "wavelength_um",
+        "endmember_A",
+        "endmember_B",
+        "weak_B",
+        "observed",
+        "weak_observed",
+        "fit"
+      ],
+      "columns": [
+        {
+          "name": "wavelength_um",
+          "unit": "µm",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/spectral_mixture.json",
+            "detail": "µm"
+          },
+          "raw_schema_entry": "µm",
+          "description": "Synthetic spectral band coordinate.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 1.0,
+          "finite_max": 2.5,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "endmember_A",
+          "unit": "dimensionless reflectance",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra explicitly labels synthetic reflectance as dimensionless; raw sidecar says reflectance."
+          },
+          "raw_schema_entry": "reflectance",
+          "description": "Invented endmember-A reflectance.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.3704054289309185,
+          "finite_max": 0.5499999999987671,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "endmember_B",
+          "unit": "dimensionless reflectance",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra explicitly labels synthetic reflectance as dimensionless; raw sidecar says reflectance."
+          },
+          "raw_schema_entry": "reflectance",
+          "description": "Invented separated endmember-B reflectance.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.330104771692609,
+          "finite_max": 0.5,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "weak_B",
+          "unit": "dimensionless reflectance",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra explicitly labels synthetic reflectance as dimensionless; raw sidecar says reflectance."
+          },
+          "raw_schema_entry": "reflectance",
+          "description": "Invented endmember close to A, used to expose weak identifiability.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.3705350235019876,
+          "finite_max": 0.5499499999987684,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "observed",
+          "unit": "dimensionless reflectance",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra explicitly labels synthetic reflectance as dimensionless; raw sidecar says reflectance."
+          },
+          "raw_schema_entry": "reflectance",
+          "description": "Synthetic noisy linear mixture of the separated pair; not a measured spectrum.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.3969851165826175,
+          "finite_max": 0.5506167354441793,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "weak_observed",
+          "unit": "dimensionless reflectance",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra explicitly labels synthetic reflectance as dimensionless; raw sidecar says reflectance."
+          },
+          "raw_schema_entry": "reflectance",
+          "description": "Synthetic noisy mixture of the nearly identical pair.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.3670452857579826,
+          "finite_max": 0.5691625133602499,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "fit",
+          "unit": "dimensionless reflectance",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra explicitly labels synthetic reflectance as dimensionless; raw sidecar says reflectance."
+          },
+          "raw_schema_entry": "reflectance",
+          "description": "Unconstrained least-squares linear mixture fitted to the separated-pair noisy spectrum.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.4144255885035507,
+          "finite_max": 0.5330162022947409,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "wavelength_um": "1.0",
+            "endmember_A": "0.48378170058914055",
+            "endmember_B": "0.5",
+            "weak_B": "0.4837979188885514",
+            "observed": "0.48770518984956013",
+            "weak_observed": "0.47833816639645743",
+            "fit": "0.4892906669152237"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "wavelength_um": "1.0083798882681565",
+            "endmember_A": "0.4692400004647497",
+            "endmember_B": "0.5",
+            "weak_B": "0.4692707604642849",
+            "observed": "0.4874388569564684",
+            "weak_observed": "0.46561137040979633",
+            "fit": "0.47968843265466"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/spectral_mixture.csv",
+          "bytes": 22291,
+          "sha256": "af89ffdc0661479ca0f7dbf4561ef10abe46f5ffa06f3f2794f8093db37af5d7"
+        },
+        {
+          "path": "models/data/spectral_mixture.json",
+          "bytes": 1175,
+          "sha256": "8d6313caf756c59a21c76fb19a828acdc03b2a0754d4cb001cb3634ee54447dd"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "C08",
+        "H09"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "C08",
+          "path": "research/C/C08-mars-nili-spectral-vault/README.md"
+        },
+        {
+          "id": "H09",
+          "path": "research/H/H09-perseverance-lake-archive/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/08_spectral_identifiability.svg",
+      "diagnostic_figure_path": "data/figures/15_spectral_information_and_noise.svg",
+      "diagnostic_provenance_path": "data/figures/15_spectral_information_and_noise.provenance.json",
+      "model_function": "demo_spectra",
+      "parameters": {
+        "true_A_fraction": 0.65,
+        "noise_sigma": 0.008,
+        "monte_carlo_runs": 2000
+      },
+      "domain_limits": [
+        "Invented Gaussian absorption bands; no measured mineral library or Mars observations.",
+        "Linear areal mixture, independent known-variance Gaussian errors, exactly known endmembers.",
+        "Near-collinear endmembers produce unphysical unconstrained weights; adding priors does not add new information.",
+        "Real intimate mixtures, scattering, grain size and correlated calibration need a richer model."
+      ],
+      "bytes": 22291,
+      "sha256": "af89ffdc0661479ca0f7dbf4561ef10abe46f5ffa06f3f2794f8093db37af5d7"
+    },
+    {
+      "id": "spectral_monte_carlo",
+      "title": "Spectral noise-realization estimates",
+      "csv_path": "models/data/spectral_monte_carlo.csv",
+      "provenance_path": "models/data/spectral_mixture.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 2000,
+      "column_count": 3,
+      "column_names": [
+        "realization",
+        "f_separated",
+        "f_nearly_identical"
+      ],
+      "columns": [
+        {
+          "name": "realization",
+          "unit": "index (dimensionless)",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra writes np.arange(len(mc_strong))."
+          },
+          "raw_schema_entry": null,
+          "description": "Zero-based synthetic noise-realization index; not a physical observable.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 1999.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "f_separated",
+          "unit": "dimensionless fraction",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra generates fractions; mixture_fraction defines a dimensionless linear mixture weight."
+          },
+          "raw_schema_entry": null,
+          "description": "Unconstrained estimated A fraction from separated endmembers.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.6082799306765989,
+          "finite_max": 0.6761118007066524,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "f_nearly_identical",
+          "unit": "dimensionless fraction",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "demo_spectra uses the same unconstrained mixture-weight definition for the near-identical pair."
+          },
+          "raw_schema_entry": null,
+          "description": "Unconstrained estimated A fraction from near-identical endmembers; values outside [0,1] are retained.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -41.0700693233987,
+          "finite_max": 26.761800706648383,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "realization": "0",
+            "f_separated": "0.6520513650967406",
+            "f_nearly_identical": "2.7013650967500147"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "realization": "1",
+            "f_separated": "0.6585353613915194",
+            "f_nearly_identical": "9.185361391518834"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/spectral_monte_carlo.csv",
+          "bytes": 86529,
+          "sha256": "b8e4ed10b7fa6201e7081cd1557ea5cbb44b6f7109ca237de4c3452c215ba4f3"
+        },
+        {
+          "path": "models/data/spectral_mixture.json",
+          "bytes": 1175,
+          "sha256": "8d6313caf756c59a21c76fb19a828acdc03b2a0754d4cb001cb3634ee54447dd"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "C08",
+        "H09"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "C08",
+          "path": "research/C/C08-mars-nili-spectral-vault/README.md"
+        },
+        {
+          "id": "H09",
+          "path": "research/H/H09-perseverance-lake-archive/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/08_spectral_identifiability.svg",
+      "diagnostic_figure_path": "data/figures/15_spectral_information_and_noise.svg",
+      "diagnostic_provenance_path": "data/figures/15_spectral_information_and_noise.provenance.json",
+      "model_function": "demo_spectra",
+      "parameters": {
+        "true_A_fraction": 0.65,
+        "noise_sigma": 0.008,
+        "monte_carlo_runs": 2000
+      },
+      "domain_limits": [
+        "Invented Gaussian absorption bands; no measured mineral library or Mars observations.",
+        "Linear areal mixture, independent known-variance Gaussian errors, exactly known endmembers.",
+        "Near-collinear endmembers produce unphysical unconstrained weights; adding priors does not add new information.",
+        "Real intimate mixtures, scattering, grain size and correlated calibration need a richer model."
+      ],
+      "bytes": 86529,
+      "sha256": "b8e4ed10b7fa6201e7081cd1557ea5cbb44b6f7109ca237de4c3452c215ba4f3"
+    },
+    {
+      "id": "ideal_binary_liquidus",
+      "title": "Hypothetical binary liquidus",
+      "csv_path": "models/data/ideal_binary_liquidus.csv",
+      "provenance_path": "models/data/ideal_binary_liquidus.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 600,
+      "column_count": 4,
+      "column_names": [
+        "x_B",
+        "T_A_K",
+        "T_B_K",
+        "liquidus_K"
+      ],
+      "columns": [
+        {
+          "name": "x_B",
+          "unit": "mole fraction",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/ideal_binary_liquidus.json",
+            "detail": "mole fraction"
+          },
+          "raw_schema_entry": "mole fraction",
+          "description": "B mole fraction at the plotted liquidus boundary of a hypothetical A–B binary.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0001,
+          "finite_max": 0.9999,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "T_A_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/ideal_binary_liquidus.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "A-component saturation branch under ideal-liquid/pure-solid assumptions.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 9.904831625412768,
+          "finite_max": 62.996333352053405,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "T_B_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/ideal_binary_liquidus.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "B-component saturation branch under ideal-liquid/pure-solid assumptions.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 7.932398073833767,
+          "finite_max": 59.99572408158516,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "liquidus_K",
+          "unit": "K",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/ideal_binary_liquidus.json",
+            "detail": "K"
+          },
+          "raw_schema_entry": "K",
+          "description": "Maximum of the two saturation branches: stable liquidus envelope.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 42.55538201647441,
+          "finite_max": 62.996333352053405,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "x_B": "0.0001",
+            "T_A_K": "62.996333352053405",
+            "T_B_K": "7.932398073833767",
+            "liquidus_K": "62.996333352053405"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "x_B": "0.0017691151919866444",
+            "T_A_K": "62.935141635529575",
+            "T_B_K": "10.876707873429234",
+            "liquidus_K": "62.935141635529575"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/ideal_binary_liquidus.csv",
+          "bytes": 45049,
+          "sha256": "43d76659b57496967f931a3389bf397d08f4dc0a1bf36ec2a30cddd4b4756689"
+        },
+        {
+          "path": "models/data/ideal_binary_liquidus.json",
+          "bytes": 726,
+          "sha256": "a51990bc2444224d69bc624c61fbf4103e0b62a89f9eaacf8e07f97c1c72bfdb"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "A02"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "A02",
+          "path": "research/A/A02-new-horizons-cryophase/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/02_ideal_binary_liquidus.svg",
+      "diagnostic_figure_path": "data/figures/16_ideal_binary_phase_regions.svg",
+      "diagnostic_provenance_path": "data/figures/16_ideal_binary_phase_regions.provenance.json",
+      "model_function": "demo_liquidus",
+      "parameters": {
+        "Tm_A_K": 63,
+        "Tm_B_K": 60,
+        "fusion_A_J_mol": 900,
+        "fusion_B_J_mol": 700,
+        "parameter_origin": "Invented teaching values, not N2/CO/CH4 measurements"
+      },
+      "domain_limits": [
+        "Ideal liquid; immiscible pure solids; constant fusion enthalpy; fixed unspecified pressure.",
+        "No calibrated prediction of actual Pluto volatile chemistry, pressure, solid solutions or kinetics."
+      ],
+      "bytes": 45049,
+      "sha256": "43d76659b57496967f931a3389bf397d08f4dc0a1bf36ec2a30cddd4b4756689"
+    },
+    {
+      "id": "mandelbrot",
+      "title": "Mandelbrot finite-grid field",
+      "csv_path": "models/data/mandelbrot.csv",
+      "provenance_path": "models/data/mandelbrot.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 43621,
+      "column_count": 4,
+      "column_names": [
+        "real",
+        "imaginary",
+        "escape_iteration_0_unresolved",
+        "distance_estimator"
+      ],
+      "columns": [
+        {
+          "name": "real",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/mandelbrot.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Real coordinate of parameter c.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -2.1,
+          "finite_max": 0.7,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "imaginary",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/mandelbrot.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Imaginary coordinate of parameter c.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -1.2,
+          "finite_max": 1.2,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "escape_iteration_0_unresolved",
+          "unit": "iteration count (dimensionless)",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "fractal_escape records an integer iteration count; its coordinates and map are dimensionless. Sidecar 'integer' states a representation rather than a physical unit."
+          },
+          "raw_schema_entry": "integer",
+          "description": "First escape iteration; zero means unresolved at the finite iteration budget.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 160.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "distance_estimator",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/mandelbrot.json",
+            "detail": "dimensionless; NaN unresolved"
+          },
+          "raw_schema_entry": "dimensionless; NaN unresolved",
+          "description": "Derivative-based asymptotic exterior estimate; undefined values cannot determine escape status by themselves.",
+          "blank_count": 0,
+          "nan_count": 9873,
+          "other_nonfinite_count": 0,
+          "finite_min": 3.81317383065296e-16,
+          "finite_max": 2.136226195541986,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "real": "-2.1",
+            "imaginary": "-1.2",
+            "escape_iteration_0_unresolved": "1",
+            "distance_estimator": "2.136226195541986"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "real": "-2.0883333333333334",
+            "imaginary": "-1.2",
+            "escape_iteration_0_unresolved": "1",
+            "distance_estimator": "2.1171844140422666"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 9873,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 9873
+      },
+      "source_assets": [
+        {
+          "path": "models/data/mandelbrot.csv",
+          "bytes": 2432621,
+          "sha256": "7555e947d17fe0bc3da2a376aae385e2ebcc8f2f5c2e1590e57c12185cbede4e"
+        },
+        {
+          "path": "models/data/mandelbrot.json",
+          "bytes": 587,
+          "sha256": "77f7c9ad3260fa3f3b126a0e6cdd9d9ece35afb19de4c1ec0a7841ec4aefd302"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "A01"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "A01",
+          "path": "research/A/A01-artemis-fractal-navigator/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/01_fractal_escape_distance.svg",
+      "diagnostic_figure_path": "data/figures/17_fractal_resolution_and_escape.svg",
+      "diagnostic_provenance_path": "data/figures/17_fractal_resolution_and_escape.provenance.json",
+      "model_function": "demo_fractals",
+      "parameters": {
+        "grid": [
+          241,
+          181
+        ],
+        "max_iter": 160,
+        "julia_c": null,
+        "escape_radius": 2
+      },
+      "domain_limits": [
+        "Finite iteration cannot certify set membership.",
+        "Distance is an asymptotic exterior estimator, not exact distance."
+      ],
+      "bytes": 2432621,
+      "sha256": "7555e947d17fe0bc3da2a376aae385e2ebcc8f2f5c2e1590e57c12185cbede4e"
+    },
+    {
+      "id": "julia",
+      "title": "Julia finite-grid field",
+      "csv_path": "models/data/julia.csv",
+      "provenance_path": "models/data/julia.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 43621,
+      "column_count": 4,
+      "column_names": [
+        "real",
+        "imaginary",
+        "escape_iteration_0_unresolved",
+        "distance_estimator"
+      ],
+      "columns": [
+        {
+          "name": "real",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/julia.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Real coordinate of starting value z₀.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -1.7,
+          "finite_max": 1.7,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "imaginary",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/julia.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Imaginary coordinate of starting value z₀.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": -1.2,
+          "finite_max": 1.2,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "escape_iteration_0_unresolved",
+          "unit": "iteration count (dimensionless)",
+          "unit_status": "verified_model_definition",
+          "unit_basis": {
+            "path": "models/models.py",
+            "detail": "fractal_escape records an integer iteration count; its coordinates and map are dimensionless. Sidecar 'integer' states a representation rather than a physical unit."
+          },
+          "raw_schema_entry": "integer",
+          "description": "First escape iteration; zero means unresolved at the finite iteration budget.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0,
+          "finite_max": 160.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "distance_estimator",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/julia.json",
+            "detail": "dimensionless; NaN unresolved"
+          },
+          "raw_schema_entry": "dimensionless; NaN unresolved",
+          "description": "Derivative-based asymptotic exterior estimate; undefined values cannot determine escape status by themselves.",
+          "blank_count": 0,
+          "nan_count": 809,
+          "other_nonfinite_count": 0,
+          "finite_min": 1.8481812198386057e-10,
+          "finite_max": 1.4764733235751286,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "real": "-1.7",
+            "imaginary": "-1.2",
+            "escape_iteration_0_unresolved": "1",
+            "distance_estimator": "1.4764733235751286"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "real": "-1.6858333333333333",
+            "imaginary": "-1.2",
+            "escape_iteration_0_unresolved": "1",
+            "distance_estimator": "1.460394568478971"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 809,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 809
+      },
+      "source_assets": [
+        {
+          "path": "models/data/julia.csv",
+          "bytes": 2520905,
+          "sha256": "5250e2479adade7c9fea89fb10f4ae9e2d31d7ff17a4c07b1a7b802eea5f62eb"
+        },
+        {
+          "path": "models/data/julia.json",
+          "bytes": 617,
+          "sha256": "189c70ca7c5c60dd9a0de886dd2ed278c056426fa1811ac85b22284cb8470141"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "A01"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "A01",
+          "path": "research/A/A01-artemis-fractal-navigator/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/01_fractal_escape_distance.svg",
+      "diagnostic_figure_path": "data/figures/17_fractal_resolution_and_escape.svg",
+      "diagnostic_provenance_path": "data/figures/17_fractal_resolution_and_escape.provenance.json",
+      "model_function": "demo_fractals",
+      "parameters": {
+        "grid": [
+          241,
+          181
+        ],
+        "max_iter": 160,
+        "julia_c": [
+          -0.75,
+          0.11
+        ],
+        "escape_radius": 2
+      },
+      "domain_limits": [
+        "Finite iteration cannot certify set membership.",
+        "Distance is an asymptotic exterior estimator, not exact distance."
+      ],
+      "bytes": 2520905,
+      "sha256": "5250e2479adade7c9fea89fb10f4ae9e2d31d7ff17a4c07b1a7b802eea5f62eb"
+    },
+    {
+      "id": "sphere_drag",
+      "title": "Sphere drag reference values",
+      "csv_path": "models/data/sphere_drag.csv",
+      "provenance_path": "models/data/sphere_drag.json",
+      "evidence_kind": "synthetic_illustrative",
+      "row_count": 450,
+      "column_count": 3,
+      "column_names": [
+        "Re",
+        "Cd_Schiller_Naumann",
+        "Cd_Stokes_asymptote"
+      ],
+      "columns": [
+        {
+          "name": "Re",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/sphere_drag.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Reynolds number used to evaluate the reference formula.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.0001,
+          "finite_max": 1000.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "Cd_Schiller_Naumann",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/sphere_drag.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Formula-based Schiller–Naumann drag coefficient, not a CFD result.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.438288140019997,
+          "finite_max": 240064.3135526947,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        },
+        {
+          "name": "Cd_Stokes_asymptote",
+          "unit": "dimensionless",
+          "unit_status": "documented_sidecar",
+          "unit_basis": {
+            "path": "models/data/sphere_drag.json",
+            "detail": "dimensionless"
+          },
+          "raw_schema_entry": "dimensionless",
+          "description": "Creeping-flow asymptotic drag coefficient; inappropriate as a general finite-Re model.",
+          "blank_count": 0,
+          "nan_count": 0,
+          "other_nonfinite_count": 0,
+          "finite_min": 0.024,
+          "finite_max": 240000.0,
+          "observed_encoding": "numeric tokens",
+          "distinct_text_values": null
+        }
+      ],
+      "representative_rows": [
+        {
+          "row_index_0_based": 0,
+          "values": {
+            "Re": "0.0001",
+            "Cd_Schiller_Naumann": "240064.3135526947",
+            "Cd_Stokes_asymptote": "240000.0"
+          }
+        },
+        {
+          "row_index_0_based": 1,
+          "values": {
+            "Re": "0.00010365498674723874",
+            "Cd_Schiller_Naumann": "231600.93584625245",
+            "Cd_Stokes_asymptote": "231537.34087607064"
+          }
+        }
+      ],
+      "missingness": {
+        "blank_cells": 0,
+        "nan_cells": 0,
+        "other_nonfinite_cells": 0,
+        "rows_with_blank_or_undefined": 0
+      },
+      "source_assets": [
+        {
+          "path": "models/data/sphere_drag.csv",
+          "bytes": 26087,
+          "sha256": "e8b262fd7d3b4c37cb39fd2cf67ec5231ed6ce7e8e0b49a1e306b35f3431de2d"
+        },
+        {
+          "path": "models/data/sphere_drag.json",
+          "bytes": 667,
+          "sha256": "adc28070268dabff5fd5a3051521bc12a323bc460398c28867802a597ef48f1c"
+        },
+        {
+          "path": "models/models.py",
+          "bytes": 31546,
+          "sha256": "e1f0b1bca0af8dedc9f9911c9e5ed1572d448c25172d38fa697b5bf874a46b17"
+        },
+        {
+          "path": "models/README.md",
+          "bytes": 13550,
+          "sha256": "794920204a287595ef70d964b54de8803f5c2ffae555aac32e6e5b1701faaad9"
+        },
+        {
+          "path": "models/manifest.json",
+          "bytes": 6639,
+          "sha256": "6c4a6960527216bdd74c459168a49c9f72c4acedc70a2713c756cced7b468f7b"
+        }
+      ],
+      "linked_projects": [
+        "D04"
+      ],
+      "linked_project_documents": [
+        {
+          "id": "D04",
+          "path": "research/D/D04-glenn-sphere-standard/README.md"
+        }
+      ],
+      "original_figure_path": "models/figures/04_sphere_drag.svg",
+      "diagnostic_figure_path": "data/figures/18_sphere_drag_reference_departure.svg",
+      "diagnostic_provenance_path": "data/figures/18_sphere_drag_reference_departure.provenance.json",
+      "model_function": "demo_drag",
+      "parameters": {
+        "Re_range": [
+          0.0001,
+          1000
+        ],
+        "formula": "Cd=(24/Re)(1+0.15 Re^0.687)"
+      },
+      "domain_limits": [
+        "Continuum incompressible flow around a smooth isolated sphere; no walls or particle interactions.",
+        "Educational correlation reference; not a CFD validation dataset or high-Mach model.",
+        "Stokes values are asymptotic comparisons and invalid at moderate/high Re."
+      ],
+      "bytes": 26087,
+      "sha256": "e8b262fd7d3b4c37cb39fd2cf67ec5231ed6ce7e8e0b49a1e306b35f3431de2d"
+    }
+  ]
+}
