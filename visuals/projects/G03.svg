@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 590" role="img" aria-labelledby="title desc">
+<title id="title">G03 conceptual research model</title>
+<desc id="desc">DEEP SPACE BEAM CARTOGRAPHER: question, observables, model and validation. Proposed design; no measured results.</desc>
+<rect width="920" height="590" fill="#f7f9fc"/>
+<style>text{font-family:Arial,sans-serif;fill:#142338}.tag{fill:#225fc5;font-size:13px;font-weight:700}.body{font-size:17px}.foot{font-size:13px;fill:#526379}</style>
+<text x="32" y="32" class="tag">G03 / DEEP SPACE BEAM CARTOGRAPHER</text>
+<rect x="30" y="52" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="75" class="tag">QUESTION</text>
+<text x="50" y="100" class="body">How accurately can the installed antenna&#x27;s gain, polarization, sidelobes, and boresight be</text>
+<text x="50" y="121" class="body">measured across its operating band?</text>
+<path d="M460 159 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="177" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="200" class="tag">OBSERVABLES</text>
+<text x="50" y="225" class="body">Available range approaches, frequency coverage, near-field scan geometry, and coverage</text>
+<text x="50" y="246" class="body">relationships.</text>
+<path d="M460 284 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="302" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="325" class="tag">MODEL</text>
+<text x="50" y="350" class="body">R_ff approximately 2D^2/lambda is a conventional Fraunhofer-distance criterion; verify its</text>
+<text x="50" y="371" class="body">adequacy for required pattern accuracy.</text>
+<path d="M460 409 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="427" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="450" class="tag">VALIDATION</text>
+<text x="50" y="475" class="body">Repeat boresight and reference-antenna checks before/after scans; test cable-motion and thermal</text>
+<text x="50" y="496" class="body">sensitivity.</text>
+<text x="32" y="570" class="foot">Conceptual design • proposed research • full equations, data access and uncertainty in the dossier</text></svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 590" role="img" aria-labelledby="title desc">
+<title id="title">I04 conceptual research model</title>
+<desc id="desc">ORION SENTINEL CORE: question, observables, model and validation. Proposed design; no measured results.</desc>
+<rect width="920" height="590" fill="#f7f9fc"/>
+<style>text{font-family:Arial,sans-serif;fill:#142338}.tag{fill:#225fc5;font-size:13px;font-weight:700}.body{font-size:17px}.foot{font-size:13px;fill:#526379}</style>
+<text x="32" y="32" class="tag">I04 / ORION SENTINEL CORE</text>
+<rect x="30" y="52" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="75" class="tag">QUESTION</text>
+<text x="50" y="100" class="body">Does an FPGA-assisted redundant architecture recover from isolated faults without missing</text>
+<text x="50" y="121" class="body">critical deadlines or corrupting the authoritative scientific record?</text>
+<path d="M460 159 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="177" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="200" class="tag">OBSERVABLES</text>
+<text x="50" y="225" class="body">Architecture trade considerations, processors, fault-management context</text>
+<path d="M460 284 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="302" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="325" class="tag">MODEL</text>
+<text x="50" y="350" class="body">R_i=C_i+B_i+\sum_{j\in hp(i)}\lceil R_i/T_j\rceil C_j;\quad R_i\le D_i</text>
+<path d="M460 409 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="427" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="450" class="tag">VALIDATION</text>
+<text x="50" y="475" class="body">Require zero missed critical deadlines within the declared tested workload envelope; report</text>
+<text x="50" y="496" class="body">that envelope and observed sample count.</text>
+<text x="32" y="570" class="foot">Conceptual design • proposed research • full equations, data access and uncertainty in the dossier</text></svg>

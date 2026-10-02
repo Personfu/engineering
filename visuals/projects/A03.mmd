@@ -1,0 +1,8 @@
+flowchart LR
+  N["Pairing gap + equation of state"] --> C["Cooling transport model"]
+  N --> R["Superfluid reservoir / vortex coupling"]
+  C --> T["Thermal observations"]
+  R --> G["Glitch timing observations"]
+  T --> I["Joint inference + systematic errors"]
+  G --> I
+  I --> P["Allowed pairing / entrainment regions"]

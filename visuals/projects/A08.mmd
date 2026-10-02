@@ -1,0 +1,7 @@
+flowchart LR
+  I["Measured input spectrum + phase"] --> P["Nonlinear propagation per pass"]
+  D["Medium / mirror dispersion"] --> P
+  P --> C["Compressor phase compensation"]
+  C --> O["Temporal + spatial output quality"]
+  O --> V["Phase-sensitive metrology comparison"]
+  V --> T["Main-pulse energy / throughput / robustness trade"]

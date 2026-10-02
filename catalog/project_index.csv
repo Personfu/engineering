@@ -1,0 +1,118 @@
+﻿id,session,original_title,mission_name,dossier,source_count,status
+A01,A,New Methods for the Iteration and Visualization of Mandelbrot and Julia Sets,ARTEMIS FRACTAL NAVIGATOR,projects/A/A01.md,2,proposed
+A02,A,Theory and simulation investigation of eutectic phase behavior on Pluto,NEW HORIZONS CRYOPHASE,projects/A/A02.md,2,proposed
+A03,A,Superfluidity of Neutron Star Matter,CHANDRA VORTEX CORE,projects/A/A03.md,3,proposed
+A04,A,Target Detection Using Algorithmic Matter,APOLLO SWARM SENTINEL,projects/A/A04.md,3,proposed
+A05,A,Artificial Cilia Creation for Advanced Sensor Devices,VOYAGER CILIA ARRAY,projects/A/A05.md,2,proposed
+A06,A,Purification of the P66 Outer Membrane Protein of the Bacterium Borrelia burgdorferi,APOLLO PORIN INSIGHT,projects/A/A06.md,3,proposed
+A07,A,Properties of Chromatin Extracted by Salt Fractionation from a Cancerous and Non-cancerous Esophageal Cell Line,ORION CHROMATIN ATLAS,projects/A/A07.md,2,proposed
+A08,A,Nonlinear Laser Pulse Compression with a Multipass Cell,HELIOS PULSE FORGE,projects/A/A08.md,2,proposed
+A09,A,"Majority of the Faint (μJy) Radio Source Population Appears Powered by Star Formation, not AGN",SPITZER RADIO ORIGINS,projects/A/A09.md,2,proposed
+A10,A,H-beta Analysis of eta Carinae Radial Velocity during Recent Periastron Passages,HUBBLE CARINA CLOCK,projects/A/A10.md,2,proposed
+A11,A,Identification of Thiol Function Groups in GRA 95229 and Murchison,OSIRIS SULFUR ARCHIVE,projects/A/A11.md,3,proposed
+A12,A,Heterogeneous Supernova Production of Ti and Cr Isotopes,STARDUST ISOTOPE FOUNDRY,projects/A/A12.md,2,proposed
+B01,B,Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera?,CALDERA SENTINEL — Yellowstone Hydrothermal Observatory,projects/B/B01.md,2,proposed
+B02,B,Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators,ARTEMIS LIFE RAFTS — Urban Pollinator Constellation,projects/B/B02.md,2,proposed
+B03,B,Potential Road Impacts on Gila Monsters in an Urbanizing Environment,ORION CROSSINGS — Gila Monster Road Ecology,projects/B/B03.md,2,proposed
+B04,B,Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere,AURORA VEIL — Ionospheric Absorption Atlas,projects/B/B04.md,3,proposed
+B05,B,Phenology Data to Aid Pollinator Restoration,KEPLER BLOOMCLOCK — Restoration Timing Observatory,projects/B/B05.md,2,proposed
+B06,B,The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem,SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory,projects/B/B06.md,2,proposed
+B07,B,Bioremediation of Insensitive Munitions Compounds,REGENESIS CLEANFLOW — Environmental Fate and Remediation Model,projects/B/B07.md,2,proposed
+B08,B,The Influence of Conservation Structures on Rangeland Vegetation Patterns,TERRAFORM TERRACES — Dryland Conservation Observatory,projects/B/B08.md,3,proposed
+B09,B,Mapping Hot Spring Geochemistry in Yellowstone,EUROPA CHEMGRID — Yellowstone Geochemical Atlas,projects/B/B09.md,2,proposed
+B10,B,Using Remote Sensing to Determine Vegetation Change and Impacts to Communities,LANDSAT EQUITY — Community Canopy Mission,projects/B/B10.md,2,proposed
+B11,B,Nevada Offsite Management,APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System,projects/B/B11.md,2,proposed
+B12,B,Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field,VULCAN DOMESCAN — O’Leary Emplacement Reconstruction,projects/B/B12.md,2,proposed
+B13,B,Instance Segmentation for Biogeography,GAIA PIXELSCOUT — Ecological Instance Mapping,projects/B/B13.md,2,proposed
+B14,B,"Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona",PHOENIX INFILTRATION — Postfire Soil Recovery Observatory,projects/B/B14.md,2,proposed
+B15,B,Numerical simulation of Laramide flat-slab subduction,TECTON ORION — Farallon Slab Reconstruction,projects/B/B15.md,2,proposed
+B16,B,Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions,ISS BIOGUARD — Retrospective Microgravity Health Evidence,projects/B/B16.md,2,proposed
+B17,B,Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change,AQUARIUS LIFELINE — Inland Fisheries Resilience,projects/B/B17.md,2,proposed
+B18,B,Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean,POSEIDON WINDCARBON — Southern Ocean Carbon Mission,projects/B/B18.md,3,proposed
+B19,B,Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN),PARKER PLASMA WHISPER — Electron Structure Observatory,projects/B/B19.md,2,proposed
+B20,B,Rare Earth Metal Recovery from Waste Stream Using Algae,LUNAR RECLAIMER — Algal Rare-Earth Recovery,projects/B/B20.md,2,proposed
+B21,B,More Effectively Selective Species Have Greater Protein Structural Disorder,PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder,projects/B/B21.md,2,proposed
+B22,B,Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation,NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution,projects/B/B22.md,2,proposed
+B23,B,Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support,HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty,projects/B/B23.md,2,proposed
+B24,B,Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment,VIPER VOYAGER — Urban Movement and Habitat Connectivity,projects/B/B24.md,3,proposed
+B25,B,Can We Predict Germination Success in Seed Pellets Using Seed Traits?,SEEDSTAR GENESIS — Dryland Establishment Forecasting,projects/B/B25.md,2,proposed
+B26,B,Electrolytic Application of Load-Managing Photovoltaic System,HELIOS POWERLOOP — Solar Electrolysis Dispatch,projects/B/B26.md,2,proposed
+B27,B,"Aquatic Data Analysis from Deployable, Autonomous Boat",TRITON WATERWATCH — Autonomous Aquatic Observatory,projects/B/B27.md,3,proposed
+B28,B,Biogas Production from Microalgae following Freeze-Heat Pretreatment,ASTRA BIOCYCLE — Microalgal Methane and Net Energy,projects/B/B28.md,2,proposed
+C01,C,The Characterization of EZ CMa,APOLLO WINDWATCH,projects/C/C01.md,2,proposed
+C02,C,Image Simulations for Testing the Fidelity of SKYSURF Background Measurement Algorithms,HUBBLE NIGHTFALL LAB,projects/C/C02.md,3,proposed
+C03,C,HCN Mapping of the Taurus Molecular Cloud,TAURUS MOLECULE TRAIL,projects/C/C03.md,3,proposed
+C04,C,A Deep Look at the Nature of Black Holes: Using Tidal Disruption Events to See the Unseeable,HORIZON TIDAL ECHO,projects/C/C04.md,3,proposed
+C05,C,Exoplanet Classification using Data Mining,KEPLER WORLDFORGE,projects/C/C05.md,2,proposed
+C06,C,The First Magnetar in a Binary System?,PULSAR GEMINI WATCH,projects/C/C06.md,2,proposed
+C07,C,Taperings and Analytic Continuations of Supernova Gravitational Waves with Memory,ARTEMIS MEMORY BRIDGE,projects/C/C07.md,2,proposed
+C08,C,Laboratory Analysis of olivine-carbonate mixtures as observed on Mars,MARS NILI SPECTRAL VAULT,projects/C/C08.md,3,proposed
+C09,C,EagleSat Team: Determining Particle Energy Using CMOS Sensors,EAGLESAT COSMIC PIXEL,projects/C/C09.md,2,proposed
+C10,C,MW-Andromeda Dark Matter Halo Velocity Dispersion Profiles,VOYAGER LOCAL GROUP HALOS,projects/C/C10.md,4,proposed
+C11,C,Evaluation of Supernovae Astrophysical Parameters by Using Machine Learning on Laser Interferometric Data,ORION CORE INFERENCE,projects/C/C11.md,3,proposed
+C12,C,SKYSURF: Measuring the Brightness of the Sky,HUBBLE COSMIC GLOW,projects/C/C12.md,3,proposed
+C13,C,Characterizing the Images of Black Hole Shadows,HORIZON RING ATLAS,projects/C/C13.md,2,proposed
+C14,C,Controlling the Unseen: GIG Undergraduate Optical Research,ROMAN DARKHOLE ACADEMY,projects/C/C14.md,2,proposed
+C15,C,Assessing the Performance of the JWST/NIRCam Image Simulator PhoSim-NIRCam,WEBB PHOTON TRUTH,projects/C/C15.md,3,proposed
+C16,C,Gravitational Wave Calibration Error for Supernovae Core Collapse,ORION STRAIN METROLOGY,projects/C/C16.md,2,proposed
+C17,C,Investigating the Planet Detection Limit in Debris Disk Images from the Gemini Planet Imager,GEMINI DISK SENTINEL,projects/C/C17.md,3,proposed
+C18,C,Characterizing High [OIII]/[OII] and High [OIII] Galaxies to Further LyC Study,REIONIZATION OXYGEN BEACON,projects/C/C18.md,3,proposed
+C19,C,Characterizing the Atmospheres of Low Surface Gravity M-dwarfs,WEBB YOUNG STAR ATMOSPHERES,projects/C/C19.md,3,proposed
+C20,C,Predictions for the Observable Autocorrelations of Accreting Black Holes from the Trinity Theoretical Model,TRINITY ACCRETION ECHO,projects/C/C20.md,3,proposed
+C21,C,Identification of Switchback Intervals in Parker Space Probe Data,PARKER MAGNETIC TRAIL,projects/C/C21.md,3,proposed
+C22,C,Measuring Galactic Wind Frequency and Strength as a Function of Environment,HUBBLE GALACTIC EXHALE,projects/C/C22.md,3,proposed
+C23,C,Investigating the Relationship Between Exoplanet Occurrence & Host Star Metallicity,KEPLER METAL WORLDS,projects/C/C23.md,3,proposed
+C24,C,The long-period orbit of the dust-producing Wolf-Rayet binary WR 125,APOLLO DUST CLOCK,projects/C/C24.md,2,proposed
+C25,C,Improving the Detection of Core-Collapse Supernova Through Experimentation,ORION BURST SENTINEL,projects/C/C25.md,3,proposed
+C26,C,Low Frequency Prototype of Laser Interferometer Suspensions for Gravitational Wave Detection,LISA PENDULUM PATHFINDER,projects/C/C26.md,2,proposed
+C27,C,SPHEREx: The Future of Satellite Astronomy,SPHEREX COSMIC PRISM,projects/C/C27.md,3,proposed
+C28,C,Narrow-band Filter Photometry Calibration for the Lowell 20'',LOWELL LUNAR LANTERN,projects/C/C28.md,2,proposed
+C29,C,Energy Balance at Interplanetary Shocks: In-situ Measurement of the Fraction in Energetic Protons with ACE and Wind,ACE WIND SHOCK LEDGER,projects/C/C29.md,3,proposed
+C30,C,The Origins of Supermassive Black Holes,ARTEMIS FIRST HORIZONS,projects/C/C30.md,3,proposed
+D01,D,Experimental Investigation of Active Vortex Generators,X-59 VORTEX COMMAND,projects/D/D01.md,2,proposed
+D02,D,Stall Hysteresis: Why the reattachment angle is less than the separation stall angle,LANGLEY STALL MEMORY,projects/D/D02.md,2,proposed
+D03,D,Optimizing Autorotating Sensor Probe Design for Space Exploration- Low Frequency Unsteadiness in Laminar Separation Bubbles,INGENUITY DESCENT & BUBBLE LAB,projects/D/D03.md,3,proposed
+D04,D,Validating a New CFD Algorithm by Finding the Drag Coefficient of a Sphere,GLENN SPHERE STANDARD,projects/D/D04.md,3,proposed
+D05,D,CIS Aviation-ISAC,APOLLO CYBER FLIGHT DECK,projects/D/D05.md,2,proposed
+D06,D,Characterization of a Hypersonic Wind Tunnel Nozzle,LANGLEY MACH ATLAS,projects/D/D06.md,2,proposed
+D07,D,Suborbital Uncrewed Aerial Vehicles for Earth Surveillance and Mars Exploration,ARES DUAL-WORLD SCOUT,projects/D/D07.md,2,proposed
+E01,E,Phoenix College: Video Streaming and DNA Studies,APOLLO HELIOSCOPE,projects/E/E01.md,3,proposed
+E02,E,Project Helix,GEMINI HELIX,projects/E/E02.md,3,proposed
+E03,E,UArizona ASCEND: Profiling High-Altitude Radiation with a General Data Logger,ARTEMIS STRATODOSE,projects/E/E03.md,2,proposed
+E04,E,A Measurement of the Concentration of Greenhouse Gases as Altitude Increases,AURA VERTICAL,projects/E/E04.md,2,proposed
+E05,E,EagleSat Team: Design and Refinement of 3U CubeSat Structure,ORION TRUSS,projects/E/E05.md,2,proposed
+E06,E,Study of Thermal Heat Transfer Within a High-Altitude Balloon Payload,APOLLO THERMALIS,projects/E/E06.md,2,proposed
+E07,E,Glendale Community College (GCC) ASCEND Team,DISCOVERY TRIDENT,projects/E/E07.md,2,proposed
+E08,E,"EagleSat Team: Development and Implementation of a Self-Contained Harness for In-House Integration, Verification, and Testing of CubeSat Electric Power Systems",GATEWAY POWERBENCH,projects/E/E08.md,3,proposed
+F01,F,Communication and Exploration,APOLLO VOICELINK,projects/F/F01.md,2,proposed
+F02,F,The Impact and Importance of Science Writing,DISCOVERY QUILL,projects/F/F02.md,2,proposed
+G01,G,Ex Vivo Analysis of Multi-Sensory Device for Bone Strain Monitoring,ARTEMIS BONE WATCH,projects/G/G01.md,2,proposed
+G02,G,Minimizing Local Electromagnetic Interference Using Adaptive Filters,DEEP SPACE QUIETLINE,projects/G/G02.md,2,proposed
+G03,G,Measuring Antenna Patterns for Ground Station,DEEP SPACE BEAM CARTOGRAPHER,projects/G/G03.md,2,proposed
+G04,G,Photocurable nanocomposites for customizable cartilage replacements,ARTEMIS CARTILAGE MATRIX,projects/G/G04.md,2,proposed
+G05,G,Mars In-Situ Resource Utilization for Health Applications,ARES CREW RESOURCE VAULT,projects/G/G05.md,3,proposed
+G06,G,Direct Air Capture Using Moisture Swing Chemistry,TERRA HUMIDITY HARVEST,projects/G/G06.md,2,proposed
+G07,G,An Introduction to Systems Engineering: Building a Monochromator Mount,HUBBLE SPECTRAL ANCHOR,projects/G/G07.md,2,proposed
+G08,G,Mediated Liver Regeneration,ORION HEPATIC RECOVERY,projects/G/G08.md,2,proposed
+H01,H,USGS Science Center: Solar System Exhibit Captions,VOYAGER STORYWALK,projects/H/H01.md,3,proposed
+H02,H,Calibration of Images from the OSIRIS-REx Camera Suite,OSIRIS PHOTONFORGE,projects/H/H02.md,2,proposed
+H03,H,Magnetic Anomalies in the South Polar Region of the Moon,ARTEMIS POLAR COMPASS,projects/H/H03.md,3,proposed
+H04,H,Exploring Carbon-bearing Matter in an Antarctic Micrometeorite,STARDUST CARBON ATLAS,projects/H/H04.md,2,proposed
+H05,H,Supporting the Climate Change Department,TERRA SEVEN GENERATIONS,projects/H/H05.md,3,proposed
+H06,H,Variability of Martian Wrinkle Ridges,MARS ODYSSEY RIDGEWORK,projects/H/H06.md,4,proposed
+H07,H,Increasing CO Gas Detections in Protoplanetary Disks,KEPLER CO ECHO,projects/H/H07.md,3,proposed
+H08,H,Investigating the Origin of Fine-Grained Rims in Mighei-like Carbonaceous Chondrites,GENESIS RIM CHRONICLE,projects/H/H08.md,2,proposed
+H09,H,Trends in Mineralogy and Grain Size Distribution Across Paleolake Basins on Mars,PERSEVERANCE LAKE ARCHIVE,projects/H/H09.md,4,proposed
+I01,I,Rocket Development Lab Team: The Effects of Equivalence Ratio during shutdown of a rocket engine on hardware longevity,SATURN TRANSIENT SHIELD,projects/I/I01.md,2,proposed
+I02,I,Rocket Development Lab Team: Thermal Management Analysis of Water-Cooled Rocket Engine,APOLLO AQUATHERM,projects/I/I02.md,2,proposed
+I03,I,Rocket Development Lab Team: Cooling Channel Geometry Analysis for a Regeneratively Cooled Rocket Engine,SATURN CHANNEL ATLAS,projects/I/I03.md,2,proposed
+I04,I,EagleSat Team: On-board Computer Subsystem,ORION SENTINEL CORE,projects/I/I04.md,2,proposed
+I05,I,Pico Balloon Platform for Atmospheric Exploration,PIONEER AERODRIFT,projects/I/I05.md,2,proposed
+I06,I,Designing and Exploring the Structure of Launch Vehicles to Create Optimal Theoretical and Small-Scale Experimental Models,SATURN LOADPATH,projects/I/I06.md,2,proposed
+I07,I,CatSat Groundstation Command and Control,GATEWAY CATSAT CONSOLE,projects/I/I07.md,2,proposed
+I08,I,Julia 1.2 Ephemeris and Gravitational Modeling Development,VOYAGER FRAMEFORGE,projects/I/I08.md,2,proposed
+I09,I,Simulation and Evaluation of a Mechanical Hopping Mechanism for Robotic Small Body Surface Exploration,OSIRIS REGOLITH LEAPER,projects/I/I09.md,3,proposed
+I10,I,Spacecraft Attitude Control Implementation and Development,GEMINI POINTLOCK,projects/I/I10.md,2,proposed
+I11,I,Measurements of the Sky,HUBBLE SKYVAULT,projects/I/I11.md,2,proposed
+I12,I,Heuristic Optimization Applied to Orbital Transfers Between Low-Planetary Orbits and Distant Retrograde Orbits,PIONEER PHOBOS PATHFINDER,projects/I/I12.md,3,proposed
+I13,I,A Study of the Deflection of 99942 Apophis from Earth,OSIRIS APOPHIS HORIZON,projects/I/I13.md,2,proposed

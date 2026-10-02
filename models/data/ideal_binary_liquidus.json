@@ -1,0 +1,25 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "Tm_A_K": 63,
+    "Tm_B_K": 60,
+    "fusion_A_J_mol": 900,
+    "fusion_B_J_mol": 700,
+    "parameter_origin": "Invented teaching values, not N2/CO/CH4 measurements"
+  },
+  "schema": {
+    "x_B": "mole fraction",
+    "T_A_K": "K",
+    "T_B_K": "K",
+    "liquidus_K": "K"
+  },
+  "assumptions_and_limits": [
+    "Ideal liquid; immiscible pure solids; constant fusion enthalpy; fixed unspecified pressure.",
+    "No calibrated prediction of actual Pluto volatile chemistry, pressure, solid solutions or kinetics."
+  ],
+  "metrics": {
+    "eutectic_x_B": 0.5622777770899248,
+    "eutectic_T_K": 42.54337489282418
+  }
+}

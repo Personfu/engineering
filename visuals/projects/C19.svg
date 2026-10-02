@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 590" role="img" aria-labelledby="title desc">
+<title id="title">C19 conceptual research model</title>
+<desc id="desc">WEBB YOUNG STAR ATMOSPHERES: question, observables, model and validation. Proposed design; no measured results.</desc>
+<rect width="920" height="590" fill="#f7f9fc"/>
+<style>text{font-family:Arial,sans-serif;fill:#142338}.tag{fill:#225fc5;font-size:13px;font-weight:700}.body{font-size:17px}.foot{font-size:13px;fill:#526379}</style>
+<text x="32" y="32" class="tag">C19 / WEBB YOUNG STAR ATMOSPHERES</text>
+<rect x="30" y="52" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="75" class="tag">QUESTION</text>
+<text x="50" y="100" class="body">Which spectral features provide transferable gravity information once temperature, metallicity,</text>
+<text x="50" y="121" class="body">dust/cloud opacity, veiling, and unresolved companions are allowed to vary?</text>
+<path d="M460 159 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="177" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="200" class="tag">OBSERVABLES</text>
+<text x="50" y="225" class="body">Spectra, spectral type, observing metadata, quality, original references</text>
+<path d="M460 284 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="302" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="325" class="tag">MODEL</text>
+<text x="50" y="350" class="body">F_{\lambda,obs}=(R_*/D)^2 F_{\lambda,atm}(T_{\rm</text>
+<text x="50" y="371" class="body">eff},g,Z,\mathrm{clouds})10^{-0.4A_\lambda}+F_{\lambda,veil}</text>
+<path d="M460 409 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="427" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="450" class="tag">VALIDATION</text>
+<text x="50" y="475" class="body">Leave one association or cluster out of training to test age-domain transfer.</text>
+<text x="32" y="570" class="foot">Conceptual design • proposed research • full equations, data access and uncertainty in the dossier</text></svg>

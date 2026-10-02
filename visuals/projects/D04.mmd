@@ -1,0 +1,7 @@
+flowchart LR
+  A["Stated equations + discretization"] --> V["Analytic / manufactured verification"]
+  V --> G["Mesh / time / domain convergence"]
+  G --> S["Sphere force + wake predictions"]
+  E["Independent measurements / valid correlations"] --> C["Validation with uncertainty"]
+  S --> C
+  C --> D["Declared domain of solver credibility"]

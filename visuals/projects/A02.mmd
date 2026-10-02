@@ -1,0 +1,7 @@
+flowchart LR
+  P["Temperature, pressure, composition"] --> G["Constrained Gibbs minimization"]
+  G --> A["Solid / vapor phase assemblage"]
+  A --> S["Synthetic spectra + grain-size uncertainty"]
+  D["New Horizons LEISA products"] --> C["Observed vs predicted compatibility"]
+  S --> C
+  C --> M["Measurements that discriminate phase models"]

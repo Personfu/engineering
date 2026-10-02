@@ -1,0 +1,7 @@
+flowchart LR
+  H["Humidity / temperature / ambient CO2"] --> S["Sorbent equilibrium + coupled kinetics"]
+  S --> C["Capture / release / drying cycle"]
+  C --> B["Carbon + water + energy budgets"]
+  F["Downstream carbon fate / emissions"] --> N["Durable net removal"]
+  B --> N
+  N --> O["Climate-aware scheduling / scale-up limits"]

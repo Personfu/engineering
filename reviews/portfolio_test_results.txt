@@ -1,0 +1,13 @@
+test_combined_aeronautics_concepts_retained (__main__.PortfolioChecks.test_combined_aeronautics_concepts_retained) ... ok
+test_each_dossier_has_a_conceptual_figure (__main__.PortfolioChecks.test_each_dossier_has_a_conceptual_figure) ... ok
+test_exact_original_coverage (__main__.PortfolioChecks.test_exact_original_coverage) ... ok
+test_internal_markdown_links (__main__.PortfolioChecks.test_internal_markdown_links) ... ok
+test_models_and_data_contracts (__main__.PortfolioChecks.test_models_and_data_contracts) ... ok
+test_offline_explorer_catalog (__main__.PortfolioChecks.test_offline_explorer_catalog) ... ok
+test_source_links_are_https (__main__.PortfolioChecks.test_source_links_are_https) ... ok
+test_unique_ids_and_mission_names (__main__.PortfolioChecks.test_unique_ids_and_mission_names) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.397s
+
+OK

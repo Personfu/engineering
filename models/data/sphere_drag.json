@@ -1,0 +1,22 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "Re_range": [
+      0.0001,
+      1000
+    ],
+    "formula": "Cd=(24/Re)(1+0.15 Re^0.687)"
+  },
+  "schema": {
+    "Re": "dimensionless",
+    "Cd_Schiller_Naumann": "dimensionless",
+    "Cd_Stokes_asymptote": "dimensionless"
+  },
+  "assumptions_and_limits": [
+    "Continuum incompressible flow around a smooth isolated sphere; no walls or particle interactions.",
+    "Educational correlation reference; not a CFD validation dataset or high-Mach model.",
+    "Stokes values are asymptotic comparisons and invalid at moderate/high Re."
+  ],
+  "metrics": {}
+}

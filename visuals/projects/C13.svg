@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 590" role="img" aria-labelledby="title desc">
+<title id="title">C13 conceptual research model</title>
+<desc id="desc">HORIZON RING ATLAS: question, observables, model and validation. Proposed design; no measured results.</desc>
+<rect width="920" height="590" fill="#f7f9fc"/>
+<style>text{font-family:Arial,sans-serif;fill:#142338}.tag{fill:#225fc5;font-size:13px;font-weight:700}.body{font-size:17px}.foot{font-size:13px;fill:#526379}</style>
+<text x="32" y="32" class="tag">C13 / HORIZON RING ATLAS</text>
+<rect x="30" y="52" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="75" class="tag">QUESTION</text>
+<text x="50" y="100" class="body">Which ring diameter, width, asymmetry, and central-depression measures remain stable across</text>
+<text x="50" y="121" class="body">imaging methods, calibration choices, and sparse baseline coverage?</text>
+<path d="M460 159 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="177" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="200" class="tag">OBSERVABLES</text>
+<text x="50" y="225" class="body">Calibrated visibilities, closure quantities, imaging products and provenance</text>
+<path d="M460 284 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="302" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="325" class="tag">MODEL</text>
+<text x="50" y="350" class="body">V(u,v)=\iint I(\alpha,\beta)e^{-2\pi i(u\alpha+v\beta)}\,d\alpha\,d\beta</text>
+<path d="M460 409 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="427" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="450" class="tag">VALIDATION</text>
+<text x="50" y="475" class="body">Hold out scans and baseline subsets and compare predicted complex data or closure quantities.</text>
+<text x="32" y="570" class="foot">Conceptual design • proposed research • full equations, data access and uncertainty in the dossier</text></svg>

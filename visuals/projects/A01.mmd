@@ -1,0 +1,7 @@
+flowchart LR
+  C["Complex coordinates / pixel footprint"] --> R["Reference orbit + adaptive precision"]
+  R --> T["Escape / interior tests"]
+  T --> E["Certified, escaped, or unresolved"]
+  E --> V["Linked Mandelbrot / Julia views"]
+  E --> B["Independent high-precision benchmark"]
+  B --> R

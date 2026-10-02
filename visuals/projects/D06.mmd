@@ -1,0 +1,7 @@
+flowchart LR
+  R["Reservoir conditions + nozzle configuration"] --> D["Designed calibration matrix"]
+  D --> P["Pitot / temperature / spatial measurements"]
+  P --> G["Shock-aware gas-property inference"]
+  G --> S["Response surface + uncertainty"]
+  S --> V["Random held-out calibration points"]
+  V --> C["Qualified uniform-core envelope"]

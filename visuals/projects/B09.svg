@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 590" role="img" aria-labelledby="title desc">
+<title id="title">B09 conceptual research model</title>
+<desc id="desc">EUROPA CHEMGRID — Yellowstone Geochemical Atlas: question, observables, model and validation. Proposed design; no measured results.</desc>
+<rect width="920" height="590" fill="#f7f9fc"/>
+<style>text{font-family:Arial,sans-serif;fill:#142338}.tag{fill:#225fc5;font-size:13px;font-weight:700}.body{font-size:17px}.foot{font-size:13px;fill:#526379}</style>
+<text x="32" y="32" class="tag">B09 / EUROPA CHEMGRID — Yellowstone Geochemical Atlas</text>
+<rect x="30" y="52" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="75" class="tag">QUESTION</text>
+<text x="50" y="100" class="body">Can chemical facies and unsampled-feature uncertainty be mapped without smoothing across</text>
+<text x="50" y="121" class="body">disconnected hydrothermal plumbing?</text>
+<path d="M460 159 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="177" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="200" class="tag">OBSERVABLES</text>
+<text x="50" y="225" class="body">Coordinates, dates, ions, isotope ratios and qualifiers.</text>
+<path d="M460 284 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="302" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="325" class="tag">MODEL</text>
+<text x="50" y="350" class="body">Charge_balance_error=100(Σcations−Σanions)/(Σcations+Σanions), using meq/L.</text>
+<path d="M460 409 v13 m-5 -5 l5 5 l5 -5" fill="none" stroke="#225fc5" stroke-width="2"/>
+<rect x="30" y="427" width="860" height="105" rx="8" fill="white" stroke="#d6dee8"/>
+<text x="50" y="450" class="tag">VALIDATION</text>
+<text x="50" y="475" class="body">Hold out whole thermal areas; report log-concentration error and interval coverage.</text>
+<text x="32" y="570" class="foot">Conceptual design • proposed research • full equations, data access and uncertainty in the dossier</text></svg>

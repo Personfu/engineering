@@ -1,0 +1,7 @@
+flowchart LR
+  S["Time-stamped H-beta spectra"] --> V["Bisectors / profiles / zero points"]
+  O["Keplerian orbital motion"] --> W["Wind formation-delay kernel"]
+  W --> P["Predicted emission-line velocity"]
+  V --> C["Cycle-held-out comparison"]
+  P --> C
+  C --> E["Orbital constraints + wind-systematic limits"]

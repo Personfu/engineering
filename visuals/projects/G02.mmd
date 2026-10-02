@@ -1,0 +1,7 @@
+flowchart LR
+  D["Science channel + interference"] --> F["Adaptive cancellation"]
+  R["Reference coherence / leakage check"] --> F
+  F --> C["Corrected stream + raw-data retention"]
+  C --> V["Science amplitude / phase / event fidelity"]
+  V --> Q["Accept, freeze, or bypass"]
+  E["Physical emissions / front-end saturation"] --> M["Separate EMC assessment"]

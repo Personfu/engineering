@@ -1,0 +1,8 @@
+flowchart LR
+  L["Mechanical load + specimen geometry"] --> B["Bone / device strain transfer"]
+  T["Temperature + attachment state"] --> B
+  B --> S["Proposed strain / temperature / context sensors"]
+  S --> F["Fusion with calibrated cross-sensitivity"]
+  F --> E["Estimated strain + uncertainty"]
+  R["Independent strain reference"] --> V["Held-out specimen verification"]
+  E --> V

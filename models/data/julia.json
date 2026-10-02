@@ -1,0 +1,27 @@
+{
+  "kind": "synthetic_illustrative",
+  "random_seed": 20261002,
+  "parameters": {
+    "grid": [
+      241,
+      181
+    ],
+    "max_iter": 160,
+    "julia_c": [
+      -0.75,
+      0.11
+    ],
+    "escape_radius": 2
+  },
+  "schema": {
+    "real": "dimensionless",
+    "imaginary": "dimensionless",
+    "escape_iteration_0_unresolved": "integer",
+    "distance_estimator": "dimensionless; NaN unresolved"
+  },
+  "assumptions_and_limits": [
+    "Finite iteration cannot certify set membership.",
+    "Distance is an asymptotic exterior estimator, not exact distance."
+  ],
+  "metrics": {}
+}

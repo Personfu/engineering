@@ -1,0 +1,11 @@
+flowchart TB
+  subgraph Probe["D03a: Autorotating sensor probe"]
+    A["Atmosphere + mass + deployed rotor"] --> B["Coupled vertical force / rotor torque"]
+    B --> C["Descent / rotation stability"]
+  end
+  subgraph Bubble["D03b: Laminar separation-bubble dynamics"]
+    D["Pressure / velocity / bubble-length time series"] --> E["Spectral / phase / modal analysis"]
+    E --> F["Validated unsteady-force statistics"]
+  end
+  F -. "Transferability requires separate evidence" .-> B
+  C --> G["Independent prototype / simulation checks"]

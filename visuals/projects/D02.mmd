@@ -1,0 +1,7 @@
+flowchart LR
+  A["Angle history / sweep rate"] --> M["Separation / transition memory"]
+  M --> F["Lift / drag / moment loops"]
+  M --> S["Bubble / wake / reattachment state"]
+  F --> D["Slow dwell vs finite-rate discrimination"]
+  S --> D
+  D --> V["Withheld rate / disturbance prediction"]

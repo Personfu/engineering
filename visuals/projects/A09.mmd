@@ -1,0 +1,7 @@
+flowchart LR
+  R["Radio flux + survey selection"] --> C["Completeness / flux-scatter model"]
+  M["IR / X-ray / optical evidence"] --> P["Probabilistic radio-power labels"]
+  C --> F["Weighted SF-powered fractions"]
+  P --> F
+  F --> V["Flux / redshift / field sensitivity"]
+  V --> E["Observed majority claim with uncertainty"]

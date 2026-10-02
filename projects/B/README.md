@@ -1,0 +1,30 @@
+# Session B · Earth & Environmental Engineering
+
+- [B01 · CALDERA SENTINEL — Yellowstone Hydrothermal Observatory](B01.md) — Can Changes in Hot Spring Composition Reflect Decadal-Scale Deformation of the Yellowstone Caldera?
+- [B02 · ARTEMIS LIFE RAFTS — Urban Pollinator Constellation](B02.md) — Urban Biodiversity Life Rafts: A Way to Conserve our Pollinators
+- [B03 · ORION CROSSINGS — Gila Monster Road Ecology](B03.md) — Potential Road Impacts on Gila Monsters in an Urbanizing Environment
+- [B04 · AURORA VEIL — Ionospheric Absorption Atlas](B04.md) — Analysis of Space-based Riometer Measurement Data for Characterization of Radio Propagation Disturbance in the Ionosphere
+- [B05 · KEPLER BLOOMCLOCK — Restoration Timing Observatory](B05.md) — Phenology Data to Aid Pollinator Restoration
+- [B06 · SOLSTICE CHEMISTRY — Tucson Ozone Digital Observatory](B06.md) — The Contribution of Plants and Pollution to Tucson's Urban Ozone Problem
+- [B07 · REGENESIS CLEANFLOW — Environmental Fate and Remediation Model](B07.md) — Bioremediation of Insensitive Munitions Compounds
+- [B08 · TERRAFORM TERRACES — Dryland Conservation Observatory](B08.md) — The Influence of Conservation Structures on Rangeland Vegetation Patterns
+- [B09 · EUROPA CHEMGRID — Yellowstone Geochemical Atlas](B09.md) — Mapping Hot Spring Geochemistry in Yellowstone
+- [B10 · LANDSAT EQUITY — Community Canopy Mission](B10.md) — Using Remote Sensing to Determine Vegetation Change and Impacts to Communities
+- [B11 · APOLLO LEGACY LEDGER — Environmental Stewardship Knowledge System](B11.md) — Nevada Offsite Management
+- [B12 · VULCAN DOMESCAN — O’Leary Emplacement Reconstruction](B12.md) — Identifying unique emplacement characteristics of O'Leary Peak: a volcanic dome in the San Francisco Volcanic Field
+- [B13 · GAIA PIXELSCOUT — Ecological Instance Mapping](B13.md) — Instance Segmentation for Biogeography
+- [B14 · PHOENIX INFILTRATION — Postfire Soil Recovery Observatory](B14.md) — Soil hydraulic properties three years after the Frye Fire on Mount Graham, Arizona
+- [B15 · TECTON ORION — Farallon Slab Reconstruction](B15.md) — Numerical simulation of Laramide flat-slab subduction
+- [B16 · ISS BIOGUARD — Retrospective Microgravity Health Evidence](B16.md) — Multi-drug Resistance of Pseudomonas aeruginosa Under Microgravity Growth Conditions
+- [B17 · AQUARIUS LIFELINE — Inland Fisheries Resilience](B17.md) — Off the Hook: Assessing the Vulnerability of Inland Subsistence Fisheries to Climate Change
+- [B18 · POSEIDON WINDCARBON — Southern Ocean Carbon Mission](B18.md) — Assessing the Role of the Winds in the Biogeochemical Cycling and Carbon Budget of the Southern Ocean
+- [B19 · PARKER PLASMA WHISPER — Electron Structure Observatory](B19.md) — Investigation of Electron Parameters and Association with Structures using Quasi-thermal Noise Spectroscopy (QTN)
+- [B20 · LUNAR RECLAIMER — Algal Rare-Earth Recovery](B20.md) — Rare Earth Metal Recovery from Waste Stream Using Algae
+- [B21 · PROTEUS DRIFTSCAPE — Evolutionary Protein Disorder](B21.md) — More Effectively Selective Species Have Greater Protein Structural Disorder
+- [B22 · NIF ODYSSEY — Comparative Nitrogen-Fixation Evolution](B22.md) — Developing a model system using Azotobacter vinelandii to investigate the evolution of nitrogen fixation
+- [B23 · HYDRA MISSION CONTROL — Watershed Decisions Under Uncertainty](B23.md) — Modeling to Make a Difference: Hydrologic Analysis for Improved Decision Support
+- [B24 · VIPER VOYAGER — Urban Movement and Habitat Connectivity](B24.md) — Using GIS to Quantify Effects of Land Cover Change on Movement Patterns of Tiger Rattlesnakes in an Urbanizing Environment
+- [B25 · SEEDSTAR GENESIS — Dryland Establishment Forecasting](B25.md) — Can We Predict Germination Success in Seed Pellets Using Seed Traits?
+- [B26 · HELIOS POWERLOOP — Solar Electrolysis Dispatch](B26.md) — Electrolytic Application of Load-Managing Photovoltaic System
+- [B27 · TRITON WATERWATCH — Autonomous Aquatic Observatory](B27.md) — Aquatic Data Analysis from Deployable, Autonomous Boat
+- [B28 · ASTRA BIOCYCLE — Microalgal Methane and Net Energy](B28.md) — Biogas Production from Microalgae following Freeze-Heat Pretreatment

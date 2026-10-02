@@ -1,0 +1,8 @@
+flowchart LR
+  F["Flow regime + baseline separation"] --> A["Frequency / amplitude / duty-cycle actuation"]
+  A --> B["Boundary-layer response"]
+  B --> L["Forces + pressure + velocity fields"]
+  A --> P["Actuator / supply power"]
+  L --> N["Matched-condition net benefit"]
+  P --> N
+  N --> C["Held-out feedback-control evaluation"]
