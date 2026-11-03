@@ -69,7 +69,10 @@ Mermaid invocation. It verifies its receipt and executable SHA-256, then launche
 an empty browser and checks the actual version before opening any diagram.
 Puppeteer's sandbox remains enabled; unavailable or unsupported platforms stop.
 The compatible lock refresh also updates Puppeteer to25.16.0, DOMPurify to3.4.17,
-lodash-es to4.18.1 and Zod to4.6.7 without dependency overrides. The job audits all
+lodash-es to4.18.1 and Zod to4.6.7 without dependency overrides.
+Even Puppeteer25.16.0 defaults to Chrome156.0.8078.47, still below the fix, per its
+[immutable revision source](https://github.com/puppeteer/puppeteer/blob/puppeteer-v25.16.0/packages/puppeteer-core/src/revisions.ts).
+The explicit executable gate therefore remains necessary. The job audits all
 severities in the optional tools lock, including development dependencies.
 
 The installer downloads only the pinned official HTTPS archive, verifies its exact
