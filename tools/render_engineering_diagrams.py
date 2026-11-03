@@ -7,6 +7,7 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -17,12 +18,12 @@ from layout import project_directory
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
-def render(project, annex, cli, config):
+def render(project, annex, cli, config, browser_config):
     pid = project['id']
     source = project_directory(project)/'figures/architecture.mmd'
     output = source.with_suffix('.svg')
     result = subprocess.run(['node', str(cli), '-i', str(source), '-o', str(output),
-                             '-c', str(config), '-b', 'white'],
+                             '-c', str(config), '-p', str(browser_config), '-b', 'white'],
                             capture_output=True, text=True, encoding='utf-8', timeout=90)
     if result.returncode:
         raise RuntimeError(pid+': '+result.stdout+' '+result.stderr)
@@ -53,16 +54,26 @@ def main():
     config = ROOT/'tools/mermaid-config.json'
     projects = json.loads((ROOT/'registry/projects.json').read_text(encoding='utf-8'))
     annexes = {a['id']:a for a in json.loads((ROOT/'registry/engineering_annexes.json').read_text(encoding='utf-8'))}
+    # Validate the reviewed executable before any source diagram reaches a browser.
+    preflight = subprocess.run(['node', str(ROOT/'tools/secure-diagram-browser.cjs')],
+                               capture_output=True, text=True, encoding='utf-8', timeout=60)
+    if preflight.returncode:
+        raise RuntimeError('Browser security preflight failed: '+preflight.stderr)
+    browser_options = json.loads(preflight.stdout)
+    print(preflight.stderr.strip(), flush=True)
     results = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
-        pending = [executor.submit(render,p,annexes[p['id']],args.cli.resolve(),config) for p in projects]
-        for future in concurrent.futures.as_completed(pending):
-            results.append(future.result())
-            if len(results)%10 == 0 or len(results)==len(projects):
-                print(f'Rendered {len(results)}/{len(projects)} engineering diagrams.', flush=True)
+    with tempfile.TemporaryDirectory(prefix='atlas-diagram-browser-') as temporary:
+        browser_config = Path(temporary)/'puppeteer.json'
+        browser_config.write_text(json.dumps(browser_options), encoding='utf-8')
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
+            pending = [executor.submit(render,p,annexes[p['id']],args.cli.resolve(),config,browser_config) for p in projects]
+            for future in concurrent.futures.as_completed(pending):
+                results.append(future.result())
+                if len(results)%10 == 0 or len(results)==len(projects):
+                    print(f'Rendered {len(results)}/{len(projects)} engineering diagrams.', flush=True)
     results.sort(key=lambda r:r['project_id'])
     manifest = {'purpose':'Engineering model/interface architecture; not empirical result figures.',
-                'renderer':'Mermaid CLI 12.0.0','config_sha256':digest(config),
+                'renderer':'Mermaid CLI 12.2.0','config_sha256':digest(config),
                 'figures':results,'count':len(results)}
     (ROOT/'evidence/architecture_manifest.json').write_bytes((json.dumps(manifest,indent=2)+'\n').encode('utf-8'))
 

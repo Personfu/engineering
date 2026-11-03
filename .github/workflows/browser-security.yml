@@ -1,0 +1,32 @@
+name: Verify reviewed diagram browser
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  diagrams:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: 'true'
+      CHROME_DEVEL_SANDBOX: /usr/lib/fllc-ci/chrome-sandbox
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24.22.1
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - run: npm ci --prefix tools --ignore-scripts
+      - run: npm audit --prefix tools --audit-level=low
+      - run: node --test tests/security/browser-policy.test.mjs
+      - run: python tests/test_browser_installer.py
+      - run: python tests/install-secure-browser.py
+      - run: python tests/check-linux-sandbox.py
+      - run: sudo apt-get update
+      - name: Install shared libraries without downloading another browser
+        run: sudo apt-get install --no-install-recommends -y libnss3 libatk-bridge2.0-0t64 libxkbcommon0 libgbm1 libasound2t64 fonts-liberation
+      - name: Render all 117 controlled architecture diagrams
+        run: python tools/render_engineering_diagrams.py
+      - name: Verify regenerated SVG and data contracts
+        run: python evidence/verify_portfolio.py
