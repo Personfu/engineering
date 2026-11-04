@@ -11,7 +11,7 @@ python -m pip install -r tools/requirements-dev.txt
 python evidence/verify_data_contracts.py
 ```
 
-The builder asserts all 117 original titles and their exact Aâ€“I order before generating named mission folders, project/data/figure READMEs, nine continuous handbooks, session galleries, registers, diagram sources and empty data contracts. It also regenerates the original hero, session cards and complete field maps using the Python standard library. CSV templates contain only headers; the builder never acquires or invents project measurements. Review changes to scientific source records before accepting regenerated documentation.
+The builder asserts all 117 original titles and their exact A–I order before generating named mission folders, project/data/figure READMEs, nine continuous handbooks, session galleries, registers, diagram sources and empty data contracts. It also regenerates the original hero, session cards and complete field maps using the Python standard library. CSV templates contain only headers; the builder never acquires or invents project measurements. Review changes to scientific source records before accepting regenerated documentation.
 
 ## Visual design and data diagnostics
 
@@ -94,7 +94,6 @@ attestation of another workstation or deployment. Review the pin against the
 and the [locked Puppeteer revision source](https://github.com/puppeteer/puppeteer/blob/puppeteer-v25.12.0/packages/puppeteer-core/src/revisions.ts)
 when refreshing it. Scientific source records and checked-in figures remain
 unchanged by this security change.
-
 
 ## November 3 browser security release
 
